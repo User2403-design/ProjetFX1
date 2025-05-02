@@ -4,120 +4,50 @@ package com.mycompany.mavenproject1;
 /**
  * JavaFX App
  */
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import Modele.Machine;
-import Modele.Equipement;
-import Modele.Produit;
-import Modele.Evenement;
-import Modele.Gamme;
-import Modele.Operateur;
-import Modele.Operation;
-import Modele.Stockage;
-import Modele.Poste;
-
-import java.util.List;
+import javafx.stage.Stage;
 
 public class App extends Application {
 
-
     @Override
     public void start(Stage primaryStage) {
-        showLoginWindow(primaryStage);
-    }
-
-    private void showLoginWindow(Stage stage) {
+        // Création des labels et champs de texte
         Label userLabel = new Label("Nom de l'utilisateur :");
-        TextField userField = new TextField(); // créer une zone de texte ou l'utilisateur peut rentrer son nom
-
+        TextField userField = new TextField(); // Permet de creer une zonne de texte 
+        
         Label workshopLabel = new Label("Nom de l'Atelier :");
-        TextField workshopField = new TextField(); // crer une zone de texte pour rentrer le nom de l'atelier 
+        TextField workshopField = new TextField();
 
-        Button submitButton = new Button("Valider");
+        Button submitButton = new Button("Valider"); // permet de crer un bouton
 
-        VBox formBox = new VBox(10, userLabel, userField, workshopLabel, workshopField, submitButton);
-        formBox.setPadding(new Insets(20));
-        formBox.setAlignment(Pos.CENTER);
-
-        Scene scene = new Scene(formBox, 400, 300);
-        stage.setTitle("Saisie des informations");
-        stage.setScene(scene);
-        stage.show();
-
+        // Action du bouton
         submitButton.setOnAction(e -> {
-            String nomUtilisateur = userField.getText();
-            String nomAtelier = workshopField.getText();
-            showProductChoiceWindow(nomUtilisateur, nomAtelier);
-            stage.close();
-        });
-    }
-
-    private void showProductChoiceWindow(String nomUtilisateur, String nomAtelier) {
-        Stage stage = new Stage();
-
-        // Infos utilisateur en haut à droite
-        VBox topRightBox = new VBox(
-            new Label("Utilisateur : " + nomUtilisateur),
-            new Label("Atelier : " + nomAtelier)
-        );
-        topRightBox.setAlignment(Pos.TOP_RIGHT);
-        topRightBox.setPadding(new Insets(10));
-
-        // Question et liste des produits
-        Label questionLabel = new Label("Créer un produit déjà existant ?");
-        ListView<String> productListView = new ListView<>();
-        productListView.getItems().addAll(listeProduit);
-        productListView.setMaxHeight(120);
-
-        VBox centerBox = new VBox(15, questionLabel, productListView);
-        centerBox.setAlignment(Pos.CENTER);
-        centerBox.setPadding(new Insets(10));
-
-        // Bouton pour créer un nouveau produit
-        Button customProductButton = new Button("Non, créer mon propre produit");
-        customProductButton.setOnAction(e -> {
-            stage.close();
-            showMachineChoiceWindow(nomUtilisateur, nomAtelier);
+            String userName = userField.getText();
+            String workshopName = workshopField.getText();
+            System.out.println("Nom de l'utilisateur : " + userName);
+            System.out.println("Nom de l'Atelier : " + workshopName);
         });
 
-        VBox bottomBox = new VBox(customProductButton);
-        bottomBox.setAlignment(Pos.CENTER);
-        bottomBox.setPadding(new Insets(20));
+        // Encadrement blanc
+        VBox whiteBox = new VBox(10, userLabel, userField, workshopLabel, workshopField, submitButton);
+        whiteBox.setPadding(new Insets(20));
+        whiteBox.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), Insets.EMPTY)));
+        whiteBox.setStyle("-fx-alignment: center;");
 
-        // Organisation avec BorderPane
-        BorderPane root = new BorderPane();
-        root.setTop(topRightBox);
-        root.setCenter(centerBox);
-        root.setBottom(bottomBox);
+        // Fond rose pâle
+        StackPane root = new StackPane(whiteBox);
+        root.setBackground(new Background(new BackgroundFill(Color.PINK.brighter().brighter(), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Scene scene = new Scene(root, 600, 400);
-        stage.setTitle("Choix du produit");
-        stage.setScene(scene);
-        stage.show();
-    }
+        Scene scene = new Scene(root, 400, 300);
 
-    private void showMachineChoiceWindow(String nomUtilisateur, String nomAtelier) {
-        Stage stage = new Stage();
-
-        Label titleLabel = new Label("Choisissez une machine pour créer votre produit");
-        ListView<String> machineListView = new ListView<>();
-        machineListView.getItems().addAll(listeMachine);
-        machineListView.setMaxHeight(150);
-
-        VBox layout = new VBox(15, titleLabel, machineListView);
-        layout.setAlignment(Pos.CENTER);
-        layout.setPadding(new Insets(20));
-
-        Scene scene = new Scene(layout, 500, 300);
-        stage.setTitle("Choix de la machine");
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setTitle("Saisie des informations");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
