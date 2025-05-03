@@ -20,7 +20,7 @@ public abstract class Equipement {
         this.refEquipement = refEquipement;
         this.dEquipement = dEquipement;
     }
-    public abstract void afficherEquipement ();
+    public abstract String afficherEquipement ();
 
     public abstract float coutOperation(float dureeOperation);
 
