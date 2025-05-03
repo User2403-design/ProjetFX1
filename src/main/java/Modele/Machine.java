@@ -42,7 +42,7 @@ public class Machine extends Equipement {
     }  
     // pour gérer l'état des machines quand elles sont utilisés pour fabriquer un produit 
     
-    //inialisation de l'attribut heureFinOcupation en fonction de la durée d'utilisation (à calculer pour chaque machine suivant les ope de la gamme)
+    //inialisation de l'attribut heureFinOcupation en fonction de la durée d'utilisation (à calculer pour chaque machine suivant les operation de la gamme)
     //changement de l'état
     public void occuperMachine(float dureeMinutes) {
         this.heureFinOccupation = LocalDateTime.now().plusMinutes((long) dureeMinutes);
