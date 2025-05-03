@@ -321,6 +321,7 @@ public class Stockage {
         StringBuilder sb = new StringBuilder();
         for (Machine machine : listeMachines) {
         sb.append(machine.afficherEquipement());
+        sb.append("\n----------------------\n");//pour avoir un affichage propre
     }
     return sb.toString();
 }
