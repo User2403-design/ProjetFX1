@@ -8,7 +8,7 @@ package Modele;
  *
  * @author chloe
  */
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 
 public class Machine extends Equipement {
@@ -19,9 +19,9 @@ public class Machine extends Equipement {
     private float duree; // duree d'utilisation ?
     private String etat; // "operationnel", "en arrêt","libre", "occupé"
     private String type;
-    private LocalDateTime heureFinOccupation; 
+    private LocalTime heureFinOccupation; 
     
-    public Machine (String refmachine, String dmachine, float x, float y, float cout, String type, LocalDateTime heureFinOccupation){
+    public Machine (String refmachine, String dmachine, float x, float y, float cout, String type, LocalTime heureFinOccupation){
         super(refmachine,dmachine);
         this.x = x;
         this.y = y;
@@ -44,19 +44,19 @@ public class Machine extends Equipement {
     
     //verifie que la machine est libre 
     public boolean isLibre() {
-        return heureFinOccupation == null || LocalDateTime.now().isAfter(heureFinOccupation);
+        return heureFinOccupation == null || LocalTime.now().isAfter(heureFinOccupation);
     }
     
-    //inialisation de l'attribut heureFinOcupation en fonction de la durée d'utilisation (à calculer pour chaque machine suivant les operation de la gamme)
+    //inialisation de l'attribut heureFinOcupation en fonction de la durée d'utilisation (à calculer pour chaque machine suivant les operation de la gamme ou prendre durée de la gamme entière = plus simple)
     //changement de l'état
     public void occuperMachine(float dureeMinutes) {
-        this.heureFinOccupation = LocalDateTime.now().plusMinutes((long) dureeMinutes);
+        this.heureFinOccupation = LocalTime.now().plusMinutes((long) dureeMinutes);
         this.etat = "occupé";
     }
     
     //compare l'heure de fin d'ocupation à l'heure réelle pour déterminer si la machine est libre
     public void libererSiTermine() {
-        if (heureFinOccupation != null && LocalDateTime.now().isAfter(heureFinOccupation)) {
+        if (heureFinOccupation != null && LocalTime.now().isAfter(heureFinOccupation)) {
             this.heureFinOccupation = null;
             this.etat = "operationnel";
         }
