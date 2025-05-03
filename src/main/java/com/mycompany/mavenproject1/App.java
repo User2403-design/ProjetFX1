@@ -38,12 +38,7 @@ public class App extends Application {
         
         Label atelierLabel = new Label("Nom de l'Atelier :");
         TextField atelierField = new TextField();
-        
-        String utilisateur = utilisateurField.getText();
-        String atelier = atelierField.getText();
-        
-        
-
+       
         Button validerButton = new Button("Valider"); // permet de crer un bouton
 
         
@@ -66,7 +61,8 @@ public class App extends Application {
         
         // Action du bouton
         validerButton.setOnAction(e -> {
-            
+            String utilisateur = utilisateurField.getText();
+            String atelier = atelierField.getText();
             System.out.println("Nom de l'utilisateur : " + utilisateur);
             System.out.println("Nom de l'Atelier : " + atelier);
             
