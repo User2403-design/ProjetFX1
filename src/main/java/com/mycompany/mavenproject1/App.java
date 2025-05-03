@@ -81,14 +81,14 @@ public class App extends Application {
 
         VBox vbox = new VBox(20);
         Label bienvenue = new Label("Bienvenue " + utilisateur + " dans l'atelier " + atelier + " !");
-        Button boutonRetour = new Button("Déconnexion");
+        Button deconexion = new Button("Déconnexion");
 
-        vbox.getChildren().addAll(bienvenue, boutonRetour);
+        vbox.getChildren().addAll(bienvenue, deconexion);
 
         Scene scenePrincipale = new Scene(vbox, 400, 200);
         primaryStage.setScene(scenePrincipale);
 
-        boutonRetour.setOnAction(e -> {
+        deconexion.setOnAction(e -> {
             // Si tu veux revenir à la page de connexion
             afficherFenetreConnexion();
         });
