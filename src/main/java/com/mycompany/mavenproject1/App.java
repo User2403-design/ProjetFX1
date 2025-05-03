@@ -113,17 +113,17 @@ public class App extends Application {
             afficherFenetreConnexion();
         });
         
-        machine.setOnAction(e -> afficherBoutonsMachine());
-        poste.setOnAction(e -> afficherBoutonsPoste());
-        gamme.setOnAction(e -> afficherBoutonsGamme());
-        operation.setOnAction(e -> afficherBoutonsOperation());
-        operateur.setOnAction(e -> afficherBoutonsOperateur());
-        produit.setOnAction(e -> afficherBoutonsProduit());
-        fiabilite.setOnAction(e -> afficherBoutonsFiabilite());
+        machine.setOnAction(e -> afficherBoutonsMachine(utilisateur, atelier));
+        poste.setOnAction(e -> afficherBoutonsPoste(utilisateur, atelier));
+        gamme.setOnAction(e -> afficherBoutonsGamme(utilisateur, atelier));
+        operation.setOnAction(e -> afficherBoutonsOperation(utilisateur, atelier));
+        operateur.setOnAction(e -> afficherBoutonsOperateur(utilisateur, atelier));
+        produit.setOnAction(e -> afficherBoutonsProduit(utilisateur, atelier));
+        fiabilite.setOnAction(e -> afficherBoutonsFiabilite(utilisateur, atelier));
         
     }
     
-    private void afficherBoutonsMachine(){
+    private void afficherBoutonsMachine(String uti, String ate){
         Button afficher = new Button("afficher");
         Button ajouter = new Button("ajouter");
         Button modifier = new Button("modifier");
@@ -134,7 +134,8 @@ public class App extends Application {
         VBox vbox = new VBox(20);
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
-        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        //pour revenir en arrière
+        retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
         Scene sceneMachine = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneMachine);
@@ -142,7 +143,7 @@ public class App extends Application {
      
     }
     
-    private void afficherBoutonsPoste(){
+    private void afficherBoutonsPoste(String uti, String ate){
         Button afficher = new Button("afficher");
         Button ajouter = new Button("ajouter");
         Button modifier = new Button("modifier");
@@ -153,13 +154,13 @@ public class App extends Application {
         VBox vbox = new VBox(20);
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
-        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
         Scene scenePoste = new Scene(vbox, 600,300);
         primaryStage.setScene(scenePoste);
     }
     
-    private void afficherBoutonsGamme(){
+    private void afficherBoutonsGamme(String uti, String ate){
         Button afficher = new Button("afficher");
         Button ajouter = new Button("ajouter");
         Button modifier = new Button("modifier");
@@ -170,13 +171,13 @@ public class App extends Application {
         VBox vbox = new VBox(20);
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
-        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
         Scene sceneGamme = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneGamme);
     }
     
-    private void afficherBoutonsOperation(){
+    private void afficherBoutonsOperation(String uti, String ate){
         Button afficher = new Button("afficher");
         Button ajouter = new Button("ajouter");
         Button modifier = new Button("modifier");
@@ -187,13 +188,13 @@ public class App extends Application {
         VBox vbox = new VBox(20);
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
-        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
         Scene sceneOperation = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneOperation);
     }
     
-    private void afficherBoutonsOperateur(){
+    private void afficherBoutonsOperateur(String uti, String ate){
         Button afficher = new Button("afficher");
         Button ajouter = new Button("ajouter");
         Button modifier = new Button("modifier");
@@ -204,13 +205,13 @@ public class App extends Application {
         VBox vbox = new VBox(20);
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
-        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
         Scene sceneOperateur = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneOperateur);
     }
     
-    private void afficherBoutonsProduit(){
+    private void afficherBoutonsProduit(String uti, String ate){
         Button afficher = new Button("afficher");
         Button ajouter = new Button("ajouter");
         Button modifier = new Button("modifier");
@@ -221,13 +222,13 @@ public class App extends Application {
         VBox vbox = new VBox(20);
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
-        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
         Scene sceneProduit = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneProduit);
     }
     
-    private void afficherBoutonsFiabilite(){
+    private void afficherBoutonsFiabilite(String uti, String ate){
         Button afficher = new Button("afficher");
         Button ajouter = new Button("ajouter");
         Button modifier = new Button("modifier");
@@ -238,7 +239,7 @@ public class App extends Application {
         VBox vbox = new VBox(20);
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
-        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
         Scene sceneFiabilite = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneFiabilite);
