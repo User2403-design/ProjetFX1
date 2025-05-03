@@ -77,18 +77,21 @@ public class App extends Application {
         
 }
     private void afficherFenetrePrincipale(String utilisateur, String atelier) {
+        
         primaryStage.setTitle("Atelier : " + atelier);
 
         VBox vbox = new VBox(20);
         Label bienvenue = new Label("Bienvenue " + utilisateur + " dans l'atelier " + atelier + " !");
-        Button deconexion = new Button("Déconnexion");
+        
+        Button deconnexion = new Button("Déconnexion");
+        Button machine = new Button("Machine");
 
-        vbox.getChildren().addAll(bienvenue, deconexion);
+        vbox.getChildren().addAll(bienvenue, deconnexion, machine);
 
         Scene scenePrincipale = new Scene(vbox, 400, 200);
         primaryStage.setScene(scenePrincipale);
 
-        deconexion.setOnAction(e -> {
+        deconnexion.setOnAction(e -> {
             // Si tu veux revenir à la page de connexion
             afficherFenetreConnexion();
         });
