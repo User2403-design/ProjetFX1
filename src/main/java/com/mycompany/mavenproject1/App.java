@@ -81,12 +81,20 @@ public class App extends Application {
         primaryStage.setTitle("Atelier : " + atelier);
 
         VBox vbox = new VBox(20);
+        HBox hbox = new HBox(20);
         Label bienvenue = new Label("Bienvenue " + utilisateur + " dans l'atelier " + atelier + " !");
         
         Button deconnexion = new Button("Déconnexion");
         Button machine = new Button("Machine");
-
-        vbox.getChildren().addAll(bienvenue, deconnexion, machine);
+        Button poste = new Button("Poste");
+        Button gamme = new Button("Gamme");
+        Button operation = new Button("Operation");
+        Button operateur = new Button("Operateur");
+        Button produit = new Button("Produit");
+        Button fiabilite = new Button("Fiablité");
+        
+        vbox.getChildren().addAll(bienvenue, deconnexion);
+        hbox.getChildren().addAll(machine, poste, gamme, operation, operateur, produit, fiabilite);
 
         Scene scenePrincipale = new Scene(vbox, 400, 200);
         primaryStage.setScene(scenePrincipale);
