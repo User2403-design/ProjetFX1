@@ -43,7 +43,7 @@ public class Stockage {
 
         //ajout de la machine dans la liste des machines individuelle
         this.listeMachines.add(M1);
-        
+        this.listeMachines.add(M2);
         
 
         // Initialisation de la liste de machines
