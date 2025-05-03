@@ -8,34 +8,59 @@ package Modele;
  *
  * @author chloe
  */
+import java.time.LocalDateTime;
+
+
 public class Machine extends Equipement {
     
     private float x;
     private float y;
     private float coût;
-    private float duree; // pas besoin de durée si ????
+    private float duree; // duree d'utilisation ?
     private String etat; // "operationnel", "en arrêt","libre", "occupé"
     private String type;
-    //private 
+    private LocalDateTime heureFinOccupation; 
     
-    public Machine (String refmachine, String dmachine, float x, float y, float cout, String type){
+    public Machine (String refmachine, String dmachine, float x, float y, float cout, String type, LocalDateTime heureFinOccupation){
         super(refmachine,dmachine);
         this.x = x;
         this.y = y;
         this.coût = cout;//correspond au cout horaire
-        this.etat = "operationnel"; // on crée une machine donc elle forcément ope non? 
-        this.type = type;    
+        this.etat = "libre"; // comment savoir si ope ? 
+        this.type = type;
+        this.heureFinOccupation = null; //libre au début
     }  
    
     @Override
-public String toString() {
+    public String toString() {
     return refEquipement + " - " + dEquipement + " (" + type + ")";
-}
+    }
     // ajouter methode pour changer etat et temps avant libération
     
     public void ajouterMachine(){
         
-    }    
+    }  
+    // pour gérer l'état des machines quand elles sont utilisés pour fabriquer un produit 
+    
+    //inialisation de l'attribut heureFinOcupation en fonction de la durée d'utilisation (à calculer pour chaque machine suivant les ope de la gamme)
+    //changement de l'état
+    public void occuperMachine(float dureeMinutes) {
+        this.heureFinOccupation = LocalDateTime.now().plusMinutes((long) dureeMinutes);
+        this.etat = "occupé";
+    }
+    
+    //compare l'heure de fin d'ocupation à l'heure réelle pour déterminer si la machine est libre
+    public void libererSiTermine() {
+        if (heureFinOccupation != null && LocalDateTime.now().isAfter(heureFinOccupation)) {
+            this.heureFinOccupation = null;
+            this.etat = "operationnel";
+        }
+    }
+    
+    //informe que la machine est libre 
+    public boolean isLibre() {
+        return heureFinOccupation == null || LocalDateTime.now().isAfter(heureFinOccupation);
+    }
     
     public float duree (Produit p, String refmachine){
             //parcourir les operations dans la gamme liée au prduit et faire verif quand l'equipement utilisé à la mm ref que celui entrée en parametre, 
