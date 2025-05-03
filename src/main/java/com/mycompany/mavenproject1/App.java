@@ -38,6 +38,11 @@ public class App extends Application {
         
         Label atelierLabel = new Label("Nom de l'Atelier :");
         TextField atelierField = new TextField();
+        
+        String utilisateur = utilisateurField.getText();
+        String atelier = atelierField.getText();
+        
+        
 
         Button validerButton = new Button("Valider"); // permet de crer un bouton
 
@@ -61,8 +66,7 @@ public class App extends Application {
         
         // Action du bouton
         validerButton.setOnAction(e -> {
-            String utilisateur = utilisateurField.getText();
-            String atelier = atelierField.getText();
+            
             System.out.println("Nom de l'utilisateur : " + utilisateur);
             System.out.println("Nom de l'Atelier : " + atelier);
             
@@ -124,7 +128,22 @@ public class App extends Application {
     }
     
     private void afficherBoutonsMachine(){
+        Button afficher = new Button("afficher");
+        Button ajouter = new Button("ajouter");
+        Button modifier = new Button("modifier");
+        Button supprimer = new Button("supprimer");
         
+        Button retour = new Button("retour");
+        
+        VBox vbox = new VBox(20);
+        vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
+        
+        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        
+        Scene sceneMachine = new Scene(vbox, 600,300);
+        primaryStage.setScene(sceneMachine);
+        
+     
     }
     
     private void afficherBoutonsPoste(){
