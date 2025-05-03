@@ -143,27 +143,105 @@ public class App extends Application {
     }
     
     private void afficherBoutonsPoste(){
+        Button afficher = new Button("afficher");
+        Button ajouter = new Button("ajouter");
+        Button modifier = new Button("modifier");
+        Button supprimer = new Button("supprimer");
         
+        Button retour = new Button("retour");
+        
+        VBox vbox = new VBox(20);
+        vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
+        
+        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        
+        Scene scenePoste = new Scene(vbox, 600,300);
+        primaryStage.setScene(scenePoste);
     }
     
     private void afficherBoutonsGamme(){
+        Button afficher = new Button("afficher");
+        Button ajouter = new Button("ajouter");
+        Button modifier = new Button("modifier");
+        Button supprimer = new Button("supprimer");
         
+        Button retour = new Button("retour");
+        
+        VBox vbox = new VBox(20);
+        vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
+        
+        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        
+        Scene sceneGamme = new Scene(vbox, 600,300);
+        primaryStage.setScene(sceneGamme);
     }
     
     private void afficherBoutonsOperation(){
+        Button afficher = new Button("afficher");
+        Button ajouter = new Button("ajouter");
+        Button modifier = new Button("modifier");
+        Button supprimer = new Button("supprimer");
         
+        Button retour = new Button("retour");
+        
+        VBox vbox = new VBox(20);
+        vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
+        
+        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        
+        Scene sceneOperation = new Scene(vbox, 600,300);
+        primaryStage.setScene(sceneOperation);
     }
     
     private void afficherBoutonsOperateur(){
+        Button afficher = new Button("afficher");
+        Button ajouter = new Button("ajouter");
+        Button modifier = new Button("modifier");
+        Button supprimer = new Button("supprimer");
         
+        Button retour = new Button("retour");
+        
+        VBox vbox = new VBox(20);
+        vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
+        
+        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        
+        Scene sceneOperateur = new Scene(vbox, 600,300);
+        primaryStage.setScene(sceneOperateur);
     }
     
     private void afficherBoutonsProduit(){
+        Button afficher = new Button("afficher");
+        Button ajouter = new Button("ajouter");
+        Button modifier = new Button("modifier");
+        Button supprimer = new Button("supprimer");
         
+        Button retour = new Button("retour");
+        
+        VBox vbox = new VBox(20);
+        vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
+        
+        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        
+        Scene sceneProduit = new Scene(vbox, 600,300);
+        primaryStage.setScene(sceneProduit);
     }
     
     private void afficherBoutonsFiabilite(){
+        Button afficher = new Button("afficher");
+        Button ajouter = new Button("ajouter");
+        Button modifier = new Button("modifier");
+        Button supprimer = new Button("supprimer");
         
+        Button retour = new Button("retour");
+        
+        VBox vbox = new VBox(20);
+        vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
+        
+        //retour.setOnAction(e-> afficherFenetrePrincipale(utilisateur, atelier));
+        
+        Scene sceneFiabilite = new Scene(vbox, 600,300);
+        primaryStage.setScene(sceneFiabilite);
     }
 }
 
