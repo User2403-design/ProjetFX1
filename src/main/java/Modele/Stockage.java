@@ -311,7 +311,7 @@ public class Stockage {
          public void afficherToutesLesMachines() {
         System.out.println("Liste des machines disponibles :");
         for (Machine m : listeMachines) {
-            m.afficherEquipement(); // si tu as une méthode d’affichage dans Machine/Equipement
+            m.afficherEquipement(); 
     }
          }
          
