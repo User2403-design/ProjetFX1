@@ -37,10 +37,10 @@ public class Stockage {
         
         // Création des machines (équipements)
         //NORMAL SI ROUGE FAUT QUE JE RAJOUTE UN TRUC PAS D4INQUIETUDE
-        Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f, "Découpe", LocalTime.now());
-        Machine M2 = new Machine("M232", "Machine de montage", 4f, 34f, 345f, "Montage",LocalTime.now());
-        Machine M3 = new Machine("M460", "Machine d'assemblage", 23.0f, 202f, 202f, "Assemblage",LocalTime.now());
-        Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f, "Fraisage",LocalTime.now());
+        Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f, "Découpe");
+        Machine M2 = new Machine("M232", "Machine de montage", 4f, 34f, 345f, "Montage");
+        Machine M3 = new Machine("M460", "Machine d'assemblage", 23.0f, 202f, 202f, "Assemblage");
+        Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f, "Fraisage");
 
         //ajout de la machine dans la liste des machines individuelle
         this.listeMachines.add(M4);
@@ -308,12 +308,20 @@ public class Stockage {
         
      // afficher toutes les machines
      
-         public void afficherToutesLesMachines() {
+         /*public void afficherToutesLesMachines() {
         System.out.println("Liste des machines disponibles :");
         for (Machine m : listeMachines) {
             m.afficherEquipement(); 
     }
-         }
+         }*/
+         
+         public String afficherToutesLesMachines() {
+        StringBuilder sb = new StringBuilder();
+        for (Machine machine : listeMachines) {
+        sb.append(machine.afficherEquipement());
+    }
+    return sb.toString();
+}
          
      // afficher tous les produits 
          
