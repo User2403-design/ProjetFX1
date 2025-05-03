@@ -43,7 +43,9 @@ public class Stockage {
         Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f, "Fraisage");
 
         //ajout de la machine dans la liste des machines individuelle
-        this.listeMachines.add(M4);
+        this.listeMachines.add(M1);
+        this.listeMachines.add(M2);
+        
 
         // Initialisation de la liste de machines
         //ArrayList<Machine> machinesPoste1 = new ArrayList<>(Arrays.asList(M1,M2,M3));
@@ -315,7 +317,8 @@ public class Stockage {
     }
          }*/
          
-         public String afficherToutesLesMachines() {
+        public String afficherToutesLesMachines() {
+            
         StringBuilder sb = new StringBuilder();
         for (Machine machine : listeMachines) {
         sb.append(machine.afficherEquipement());
