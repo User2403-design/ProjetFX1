@@ -157,11 +157,15 @@ public class App extends Application {
     Label titre = new Label("Liste des Machines :");
 
     
-    Label label1 = new Label(stockage.afficherToutesLesMachines());
+    //Label label1 = new Label(stockage.afficherToutesLesMachines());
+    TextArea textArea = new TextArea();
+    textArea.setText(stockage.afficherToutesLesMachines());
+    textArea.setEditable(false);  // l'utilisateur ne pourra pas modifier
+    textArea.setWrapText(true);
 
     Button retourButton = new Button("Retour");
 
-    vbox.getChildren().addAll(titre, label1, retourButton);
+    vbox.getChildren().addAll(titre, textArea, retourButton);
 
     Scene sceneListeMachines = new Scene(vbox, 400, 400);
     primaryStage.setScene(sceneListeMachines);
