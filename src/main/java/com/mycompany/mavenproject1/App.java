@@ -4,6 +4,7 @@ package com.mycompany.mavenproject1;
 /**
  * JavaFX App
  */
+import Modele.Stockage;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -16,6 +17,8 @@ public class App extends Application {
     
     //référence pour changer de scène facilement
     private Stage primaryStage;
+    //afin de pouvoir acceder au methode et element de la classe Stockage dans toute la classe
+    private Stockage stockage = new Stockage();
     
     public static void main(String[] args) {
         launch(args);
@@ -137,10 +140,33 @@ public class App extends Application {
         //pour revenir en arrière
         retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
+        //ajouter.setOnAction(e -> ajouterM());
+    	afficher.setOnAction(e -> afficherM(uti, ate));
+    	//modifier.setOnAction(e -> modifierM());
+    	//supprimer.setOnAction(e -> supprimerM());
+        
         Scene sceneMachine = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneMachine);
+    }
+    
+    private void afficherM(String uti, String ate){
         
-     
+    VBox vbox = new VBox(10);
+    vbox.setPadding(new Insets(10));
+
+    Label titre = new Label("Liste des Machines :");
+
+    
+    Label label1 = new Label(stockage.afficherToutesLesMachines());
+
+    Button retourButton = new Button("Retour");
+
+    vbox.getChildren().addAll(titre, label1, retourButton);
+
+    Scene sceneListeMachines = new Scene(vbox, 400, 400);
+    primaryStage.setScene(sceneListeMachines);
+
+    retourButton.setOnAction(e -> afficherBoutonsMachine(uti, ate));
     }
     
     private void afficherBoutonsPoste(String uti, String ate){
@@ -155,6 +181,11 @@ public class App extends Application {
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
         retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
+        
+        /*ajouter.setOnAction(e -> ajouter());
+    	afficher.setOnAction(e -> afficher());
+    	modifier.setOnAction(e -> modifier());
+    	supprimer.setOnAction(e -> supprimer());*/
         
         Scene scenePoste = new Scene(vbox, 600,300);
         primaryStage.setScene(scenePoste);
@@ -173,6 +204,11 @@ public class App extends Application {
         
         retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
+        /*ajouter.setOnAction(e -> ajouter());
+    	afficher.setOnAction(e -> afficher());
+    	modifier.setOnAction(e -> modifier());
+    	supprimer.setOnAction(e -> supprimer());*/
+        
         Scene sceneGamme = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneGamme);
     }
@@ -189,6 +225,11 @@ public class App extends Application {
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
         retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
+        
+        /*ajouter.setOnAction(e -> ajouter());
+    	afficher.setOnAction(e -> afficher());
+    	modifier.setOnAction(e -> modifier());
+    	supprimer.setOnAction(e -> supprimer());*/
         
         Scene sceneOperation = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneOperation);
