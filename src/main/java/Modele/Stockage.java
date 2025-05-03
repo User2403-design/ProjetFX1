@@ -34,6 +34,7 @@ public class Stockage {
         this.listePostes= new ArrayList(); 
         
         // Création des machines (équipements)
+        //NORMAL SI ROUGE FAUT QUE JE RAJOUTE UN TRUC PAS D4INQUIETUDE
         Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f, "Découpe");
         Machine M2 = new Machine("M232", "Machine de montage", 4f, 34f, 345f, "Montage");
         Machine M3 = new Machine("M460", "Machine d'assemblage", 23.0f, 202f, 202f, "Assemblage");
