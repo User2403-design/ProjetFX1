@@ -48,9 +48,9 @@ public Poste(String refPoste, String dPoste, ArrayList<Machine> machines) {
         this.refEquipement = newRef;
     }
     
-    
-    /*@Override
-    public void afficherEquipement(){
+    //a remodifier pour l'interfaces 
+    @Override
+    public String afficherEquipement(){
         System.out.println("Reference Poste:"+refEquipement);
         System.out.println("Designation:"+dEquipement);
         System.out.println("--------");//pour la présentation
@@ -59,7 +59,8 @@ public Poste(String refPoste, String dPoste, ArrayList<Machine> machines) {
             m.afficherEquipement();
             System.out.println("--------");
         }
-    }*/
+        return("faut remodifer cette methode aussi");
+    }
     
    
      public String getRefposte() {
