@@ -13,28 +13,37 @@ import javafx.geometry.Insets;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    
+    //référence pour changer de scène facilement
+    private Stage primaryStage;
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
-    public void start(Stage primaryStage) {
-        // Création des labels et champs de texte
-        Label userLabel = new Label("Nom de l'utilisateur :");
-        TextField userField = new TextField(); // Permet de creer une zonne de texte 
+    public void start(Stage stage) {
+        this.primaryStage = stage;
         
-        Label workshopLabel = new Label("Nom de l'Atelier :");
-        TextField workshopField = new TextField();
+        //appel de la première scéne
+        afficherFenetreConnexion();
+    }
+    private void afficherFenetreConnexion(){
+        primaryStage.setTitle("Connexion");
+        
+        // Création des labels et champs de texte
+        Label utilisateurLabel = new Label("Nom de l'utilisateur :");
+        TextField utilisateurField = new TextField(); // Permet de creer une zonne de texte 
+        
+        Label atelierLabel = new Label("Nom de l'Atelier :");
+        TextField atelierField = new TextField();
 
-        Button submitButton = new Button("Valider"); // permet de crer un bouton
+        Button validerButton = new Button("Valider"); // permet de crer un bouton
 
-        // Action du bouton
-        submitButton.setOnAction(e -> {
-            String userName = userField.getText();
-            String workshopName = workshopField.getText();
-            System.out.println("Nom de l'utilisateur : " + userName);
-            System.out.println("Nom de l'Atelier : " + workshopName);
-        });
+        
 
         // Encadrement blanc
-        VBox whiteBox = new VBox(10, userLabel, userField, workshopLabel, workshopField, submitButton);
+        VBox whiteBox = new VBox(10, utilisateurLabel, utilisateurField, atelierLabel, atelierField, validerButton);
         whiteBox.setPadding(new Insets(20));
         whiteBox.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), Insets.EMPTY)));
         whiteBox.setStyle("-fx-alignment: center;");
@@ -48,9 +57,42 @@ public class App extends Application {
         primaryStage.setTitle("Saisie des informations");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
+        
+        // Action du bouton
+        validerButton.setOnAction(e -> {
+            String utilisateur = utilisateurField.getText();
+            String atelier = atelierField.getText();
+            System.out.println("Nom de l'utilisateur : " + utilisateur);
+            System.out.println("Nom de l'Atelier : " + atelier);
+            
+            if (!utilisateur.isEmpty() && !atelier.isEmpty()) {
+                // Ouvrir la nouvelle fenêtre
+                
+                afficherFenetrePrincipale(utilisateur, atelier);
 
-    public static void main(String[] args) {
-        launch(args);
+                //primaryStage.close(); // fermer la première fenêtre
+            }  
+    
+        });
+        
+}
+    private void afficherFenetrePrincipale(String utilisateur, String atelier) {
+        primaryStage.setTitle("Atelier : " + atelier);
+
+        VBox vbox = new VBox(20);
+        Label bienvenue = new Label("Bienvenue " + utilisateur + " dans l'atelier " + atelier + " !");
+        Button boutonRetour = new Button("Déconnexion");
+
+        vbox.getChildren().addAll(bienvenue, boutonRetour);
+
+        Scene scenePrincipale = new Scene(vbox, 400, 200);
+        primaryStage.setScene(scenePrincipale);
+
+        boutonRetour.setOnAction(e -> {
+            // Si tu veux revenir à la page de connexion
+            afficherFenetreConnexion();
+        });
     }
 }
+
+    
