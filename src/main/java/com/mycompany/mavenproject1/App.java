@@ -28,6 +28,7 @@ public class App extends Application {
         //appel de la première scéne
         afficherFenetreConnexion();
     }
+    
     private void afficherFenetreConnexion(){
         primaryStage.setTitle("Connexion");
         
@@ -66,8 +67,8 @@ public class App extends Application {
             System.out.println("Nom de l'Atelier : " + atelier);
             
             if (!utilisateur.isEmpty() && !atelier.isEmpty()) {
-                // Ouvrir la nouvelle fenêtre
                 
+                // Ouvrir la nouvelle fenêtre
                 afficherFenetrePrincipale(utilisateur, atelier);
 
                 //primaryStage.close(); // fermer la première fenêtre
@@ -82,9 +83,12 @@ public class App extends Application {
 
         VBox vbox = new VBox(20);
         HBox hbox = new HBox(20);
+        
         Label bienvenue = new Label("Bienvenue " + utilisateur + " dans l'atelier " + atelier + " !");
         
+        //création du bouton pour revenir en arrière
         Button deconnexion = new Button("Déconnexion");
+        //création des boutons pour intervenir sur les différents élements de l'atelier
         Button machine = new Button("Machine");
         Button poste = new Button("Poste");
         Button gamme = new Button("Gamme");
@@ -93,16 +97,58 @@ public class App extends Application {
         Button produit = new Button("Produit");
         Button fiabilite = new Button("Fiablité");
         
-        vbox.getChildren().addAll(bienvenue, deconnexion);
+        
         hbox.getChildren().addAll(machine, poste, gamme, operation, operateur, produit, fiabilite);
+        vbox.getChildren().addAll(bienvenue,hbox, deconnexion);
 
-        Scene scenePrincipale = new Scene(vbox, 400, 200);
+        //création de la scène contenant ce que souhaite afficher 
+        Scene scenePrincipale = new Scene(vbox, 600, 300);
+        
+        // changement de scène contenue dans la fenêtre
         primaryStage.setScene(scenePrincipale);
 
+        //définition des actions lors du cliquage sur l'un de ces boutons
         deconnexion.setOnAction(e -> {
             // Si tu veux revenir à la page de connexion
             afficherFenetreConnexion();
         });
+        
+        machine.setOnAction(e -> afficherBoutonsMachine());
+        poste.setOnAction(e -> afficherBoutonsPoste());
+        gamme.setOnAction(e -> afficherBoutonsGamme());
+        operation.setOnAction(e -> afficherBoutonsOperation());
+        operateur.setOnAction(e -> afficherBoutonsOperateur());
+        produit.setOnAction(e -> afficherBoutonsProduit());
+        fiabilite.setOnAction(e -> afficherBoutonsFiabilite());
+        
+    }
+    
+    private void afficherBoutonsMachine(){
+        
+    }
+    
+    private void afficherBoutonsPoste(){
+        
+    }
+    
+    private void afficherBoutonsGamme(){
+        
+    }
+    
+    private void afficherBoutonsOperation(){
+        
+    }
+    
+    private void afficherBoutonsOperateur(){
+        
+    }
+    
+    private void afficherBoutonsProduit(){
+        
+    }
+    
+    private void afficherBoutonsFiabilite(){
+        
     }
 }
 
