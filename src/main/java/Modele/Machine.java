@@ -21,7 +21,7 @@ public class Machine extends Equipement {
     private String type;
     private LocalTime heureFinOccupation; 
     
-    public Machine (String refmachine, String dmachine, float x, float y, float cout, String type, LocalTime heureFinOccupation){
+    public Machine (String refmachine, String dmachine, float x, float y, float cout, String type){
         super(refmachine,dmachine);
         this.x = x;
         this.y = y;
@@ -81,14 +81,17 @@ public class Machine extends Equipement {
     }
     
     @Override
-    public void afficherEquipement() { 
+    public String afficherEquipement(){
+        return("Reference Machine: " + refEquipement+"Designation: " + dEquipement+"Position: (" + x + ", " + y + ")"+"Cout horaire: " + coût+"Type: " + type+);
+    }
+    /*public void afficherEquipement() { 
         System.out.println("Reference Machine: " + refEquipement);
         System.out.println("Designation: " + dEquipement);
         System.out.println("Position: (" + x + ", " + y + ")");
         System.out.println("Cout horaire: " + coût);
         System.out.println("Type: " + type);
         System.out.println("Duree d'operation (produit specifique) : " + duree);// à changé 
-    }
+    }*/
     
    public String getRefmachine(){
         return refEquipement;
