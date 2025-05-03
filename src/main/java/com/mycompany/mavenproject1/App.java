@@ -152,12 +152,12 @@ public class App extends Application {
     private void afficherM(String uti, String ate){
         
     VBox vbox = new VBox(10);
-    vbox.setPadding(new Insets(10));
+    vbox.setPadding(new Insets(10));//pour éviter que le contenu soit collé au conteneur
 
     Label titre = new Label("Liste des Machines :");
 
     
-    //Label label1 = new Label(stockage.afficherToutesLesMachines());
+    //utilisation de TextArea pour un affichage propre
     TextArea textArea = new TextArea();
     textArea.setText(stockage.afficherToutesLesMachines());
     textArea.setEditable(false);  // l'utilisateur ne pourra pas modifier
