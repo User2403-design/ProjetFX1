@@ -42,6 +42,11 @@ public class Machine extends Equipement {
     }  
     // pour gérer l'état des machines quand elles sont utilisés pour fabriquer un produit 
     
+    //verifie que la machine est libre 
+    public boolean isLibre() {
+        return heureFinOccupation == null || LocalDateTime.now().isAfter(heureFinOccupation);
+    }
+    
     //inialisation de l'attribut heureFinOcupation en fonction de la durée d'utilisation (à calculer pour chaque machine suivant les operation de la gamme)
     //changement de l'état
     public void occuperMachine(float dureeMinutes) {
@@ -57,10 +62,6 @@ public class Machine extends Equipement {
         }
     }
     
-    //informe que la machine est libre 
-    public boolean isLibre() {
-        return heureFinOccupation == null || LocalDateTime.now().isAfter(heureFinOccupation);
-    }
     
     public float duree (Produit p, String refmachine){
             //parcourir les operations dans la gamme liée au prduit et faire verif quand l'equipement utilisé à la mm ref que celui entrée en parametre, 
