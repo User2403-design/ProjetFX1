@@ -26,6 +26,8 @@ public class VAccueil {
    private Stage primaryStage;
 
     private void afficherFenetreConnexion(){
+        
+    
         primaryStage.setTitle("Connexion");
         
         // Création des labels et champs de texte
