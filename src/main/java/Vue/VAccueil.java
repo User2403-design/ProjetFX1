@@ -27,6 +27,7 @@ public class VAccueil {
    private Scene scene;
    private TextField utilisateurField;
    private TextField atelierField;
+   private Button valider;
    
    public VAccueil() {
         afficherFenetreConnexion();
@@ -65,3 +66,22 @@ public class VAccueil {
         primaryStage.show();
         
 }
+    public Button getValiderButton(){
+        return valider;
+    }
+    
+public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public TextField getUtilisateurField() {
+        return utilisateurField;
+    }
+
+    public TextField getAtelierField() {
+        return atelierField;
+    }
