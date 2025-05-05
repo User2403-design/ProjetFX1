@@ -24,6 +24,13 @@ import javafx.stage.Stage;
 public class VAccueil {
     
    private Stage primaryStage;
+   private Scene scene;
+   private TextField utilisateurField;
+   private TextField atelierField;
+   
+   public VAccueil() {
+        afficherFenetreConnexion();
+    }
 
     private void afficherFenetreConnexion(){
         
@@ -56,4 +63,5 @@ public class VAccueil {
         primaryStage.setTitle("Saisie des informations");
         primaryStage.setScene(scene);
         primaryStage.show();
+        
 }
