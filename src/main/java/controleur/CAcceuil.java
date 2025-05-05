@@ -6,8 +6,8 @@ package controleur;
 
 /**
  *
- * @author Justin
+ * @author chloe
  */
-public class identification {
+public class CAcceuil {
     
 }
