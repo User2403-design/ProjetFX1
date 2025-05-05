@@ -10,4 +10,19 @@ package controleur;
  */
 public class CAcceuil {
     
+    validerButton.setOnAction(e -> {
+            String utilisateur = utilisateurField.getText();
+            String atelier = atelierField.getText();
+            System.out.println("Nom de l'utilisateur : " + utilisateur);
+            System.out.println("Nom de l'Atelier : " + atelier);
+            
+            if (!utilisateur.isEmpty() && !atelier.isEmpty()) {
+                
+                // Ouvrir la nouvelle fenêtre
+                afficherFenetrePrincipale(utilisateur, atelier);
+
+                //primaryStage.close(); // fermer la première fenêtre
+            }  
+    
+        });
 }
