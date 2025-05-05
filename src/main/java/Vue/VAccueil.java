@@ -59,7 +59,7 @@ public class VAccueil {
         StackPane root = new StackPane(whiteBox);
         root.setBackground(new Background(new BackgroundFill(Color.PINK.brighter().brighter(), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Scene scene = new Scene(root, 400, 300);
+        scene = new Scene(root, 400, 300);
 
         primaryStage.setTitle("Saisie des informations");
         primaryStage.setScene(scene);
