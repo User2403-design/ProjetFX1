@@ -27,7 +27,7 @@ public class VAccueil {
    private Scene scene;
    private TextField utilisateurField;
    private TextField atelierField;
-   private Button valider;
+   private Button validerButton;
    
    public VAccueil() {
         afficherFenetreConnexion();
@@ -40,12 +40,12 @@ public class VAccueil {
         
         // Création des labels et champs de texte
         Label utilisateurLabel = new Label("Nom de l'utilisateur :");
-        TextField utilisateurField = new TextField(); // Permet de creer une zonne de texte 
+        utilisateurField = new TextField(); // Permet de creer une zonne de texte 
         
         Label atelierLabel = new Label("Nom de l'Atelier :");
-        TextField atelierField = new TextField();
+        atelierField = new TextField();
        
-        Button validerButton = new Button("Valider"); // permet de crer un bouton
+        validerButton = new Button("Valider"); // permet de crer un bouton
 
         
 
@@ -67,7 +67,7 @@ public class VAccueil {
         
 }
     public Button getValiderButton(){
-        return valider;
+        return validerButton;
     }
     
 public Stage getPrimaryStage() {
