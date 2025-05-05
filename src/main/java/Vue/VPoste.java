@@ -8,6 +8,6 @@ package Vue;
  *
  * @author Justin
  */
-public class AjouterPoste {
+public class VPoste {
     
 }

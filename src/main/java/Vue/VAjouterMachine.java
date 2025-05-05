@@ -8,6 +8,6 @@ package Vue;
  *
  * @author Justin
  */
-public class SupprimerGamme {
+public class VAjouterMachine {
     
 }

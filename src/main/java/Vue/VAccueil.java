@@ -8,6 +8,6 @@ package Vue;
  *
  * @author Justin
  */
-public class ModifierGamme {
+public class VAccueil {
     
 }
