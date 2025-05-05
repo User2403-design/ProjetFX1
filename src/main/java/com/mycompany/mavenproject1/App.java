@@ -32,6 +32,7 @@ public class App extends Application {
         afficherFenetreConnexion();
     }
     
+    //mettre dans classe VueInitialisation
     private void afficherFenetreConnexion(){
         primaryStage.setTitle("Connexion");
         
@@ -62,7 +63,7 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         
-        // Action du bouton
+        // Action du bouton : classe ControleurInitialisation
         validerButton.setOnAction(e -> {
             String utilisateur = utilisateurField.getText();
             String atelier = atelierField.getText();
@@ -80,6 +81,7 @@ public class App extends Application {
         });
         
 }
+    //classe VueAccueil
     private void afficherFenetrePrincipale(String utilisateur, String atelier) {
         
         primaryStage.setTitle("Atelier : " + atelier);
@@ -110,6 +112,7 @@ public class App extends Application {
         // changement de scène contenue dans la fenêtre
         primaryStage.setScene(scenePrincipale);
 
+        //Classe ControleurAcceuil
         //définition des actions lors du cliquage sur l'un de ces boutons
         deconnexion.setOnAction(e -> {
             // Si tu veux revenir à la page de connexion
@@ -126,6 +129,7 @@ public class App extends Application {
         
     }
     
+    //Classe VueMachine
     private void afficherBoutonsMachine(String uti, String ate){
         Button afficher = new Button("afficher");
         Button ajouter = new Button("ajouter");
@@ -137,6 +141,7 @@ public class App extends Application {
         VBox vbox = new VBox(20);
         vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
         
+        // Classe ControleurMachine
         //pour revenir en arrière
         retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
@@ -171,6 +176,17 @@ public class App extends Application {
     primaryStage.setScene(sceneListeMachines);
 
     retourButton.setOnAction(e -> afficherBoutonsMachine(uti, ate));
+    }
+    
+    public void ajouterM(){
+        Label reference = new Label("Reference:");
+        TextField refField = new TextField();
+        
+        Label designation = new Label("Designation:");
+        TextField refdes = new TextField();
+        
+        Label posX = new Label("PosX");
+        TextField posXField = new TextField();
     }
     
     private void afficherBoutonsPoste(String uti, String ate){
