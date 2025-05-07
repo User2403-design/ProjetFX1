@@ -16,16 +16,19 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import controleur.CInitialisation;
 /**
  *
  * @author Justin
  */
 public class VInitialisation {
-    private Stage primaryStage;
+    
+   //private Stage primaryStage;
    private Scene scene;
    private TextField utilisateurField;
    private TextField atelierField;
    private Button validerButton;
+   private CInitialisation controleur;
    
    public VInitialisation() {
         afficherFenetreConnexion();
