@@ -12,26 +12,34 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
+import controleur.CInitialisation;
 
 public class App extends Application {
     
     //référence pour changer de scène facilement
-    private Stage primaryStage;
+    //private Stage primaryStage;
     //afin de pouvoir acceder au methode et element de la classe Stockage dans toute la classe
-    private Stockage stockage = new Stockage();
+    //private Stockage stockage = new Stockage();
+    
+        
+    
+    @Override
+    public void start(Stage primaryStage) {
+        
+        CInitialisation controleur = new CInitialisation(primaryStage);
+        controleur.afficherConnexion();
+        //this.primaryStage = stage;
+        
+        
+        //appel de la première scéne
+        //afficherFenetreConnexion();
+    }
     
     public static void main(String[] args) {
         launch(args);
     }
-
-    @Override
-    public void start(Stage stage) {
-        this.primaryStage = stage;
-        
-        //appel de la première scéne
-        afficherFenetreConnexion();
-    }
     
+    /*
     //mettre dans classe VueInitialisation
     private void afficherFenetreConnexion(){
         primaryStage.setTitle("Connexion");
@@ -202,10 +210,10 @@ public class App extends Application {
         
         retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
-        /*ajouter.setOnAction(e -> ajouter());
+        ajouter.setOnAction(e -> ajouter());
     	afficher.setOnAction(e -> afficher());
     	modifier.setOnAction(e -> modifier());
-    	supprimer.setOnAction(e -> supprimer());*/
+    	supprimer.setOnAction(e -> supprimer());
         
         Scene scenePoste = new Scene(vbox, 600,300);
         primaryStage.setScene(scenePoste);
@@ -224,10 +232,10 @@ public class App extends Application {
         
         retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
-        /*ajouter.setOnAction(e -> ajouter());
+        ajouter.setOnAction(e -> ajouter());
     	afficher.setOnAction(e -> afficher());
     	modifier.setOnAction(e -> modifier());
-    	supprimer.setOnAction(e -> supprimer());*/
+    	supprimer.setOnAction(e -> supprimer());
         
         Scene sceneGamme = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneGamme);
@@ -246,10 +254,10 @@ public class App extends Application {
         
         retour.setOnAction(e-> afficherFenetrePrincipale(uti, ate));
         
-        /*ajouter.setOnAction(e -> ajouter());
+        ajouter.setOnAction(e -> ajouter());
     	afficher.setOnAction(e -> afficher());
     	modifier.setOnAction(e -> modifier());
-    	supprimer.setOnAction(e -> supprimer());*/
+    	supprimer.setOnAction(e -> supprimer());
         
         Scene sceneOperation = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneOperation);
@@ -304,7 +312,7 @@ public class App extends Application {
         
         Scene sceneFiabilite = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneFiabilite);
-    }
+    }*/
 }
 
     
