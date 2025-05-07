@@ -15,10 +15,14 @@ public class CAcceuil {
     
     private Stage primaryStage;
     private VAccueil vueAccueil;
+    private String utilisateur;
+    private String atelier;
     private VInitialisation vueInit;
 
     public CAcceuil(Stage primaryStage, String utilisateur, String atelier) {
         this.primaryStage = primaryStage;
+        this.utilisateur = utilisateur;
+        this.atelier = atelier;
         this.vueAccueil = new VAccueil(utilisateur, atelier);
         lancerActions();
     }
@@ -33,8 +37,6 @@ public class CAcceuil {
         //récupère le bouton Machine de la classe VueAccueil à l'aide du get et définit l'action à réaliser quand on clique dessus 
         vueAccueil.getMachine().setOnAction(e -> {
             
-            String utilisateur = this.vueInit.getUtilisateurField().getText();
-            String atelier = this.vueInit.getAtelierField().getText();
             CAfficherMachine controleurMach = new CAfficherMachine(primaryStage, utilisateur, atelier);        
             controleurMach.afficherMachine();
         });
