@@ -15,6 +15,7 @@ public class CAfficherMachine {
     
     private Stage primaryStage;
     private VAfficherMachine vueMachine;
+    
 
     public CAfficherMachine(Stage primaryStage, String utilisateur, String atelier) {
         
