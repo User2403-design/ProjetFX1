@@ -21,15 +21,17 @@ public class CAcceuil {
         lancerActions();
     }
 
-    private void lancerActions() {
+    private void lancerActions() { //définit toutes les actions quand on clique sur un boutons
+        
         vueAccueil.getDeconnexion().setOnAction(e -> {
             CInitialisation controleurInit = new CInitialisation(primaryStage);
             controleurInit.afficherConnexion();
         });
 
-        /*vueAccueil.getMachine().setOnAction(e -> {
+        //récupère le bouton Machine de la classe VueAccueil à l'aide du get et définit l'action à réaliser quand on clique dessus 
+        vueAccueil.getMachine().setOnAction(e -> {
             afficherBoutonsMachine(utilisateur, atelier)
-        });*/
+        });
 
         vueAccueil.getPoste().setOnAction(e -> {
             System.out.println("Cliqué sur Poste !");
