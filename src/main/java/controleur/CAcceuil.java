@@ -4,6 +4,7 @@
  */
 package controleur;
 import Vue.VAccueil;
+import Vue.VInitialisation;
 import javafx.stage.Stage;
 
 /**
@@ -14,6 +15,7 @@ public class CAcceuil {
     
     private Stage primaryStage;
     private VAccueil vueAccueil;
+    private VInitialisation vueInit;
 
     public CAcceuil(Stage primaryStage, String utilisateur, String atelier) {
         this.primaryStage = primaryStage;
@@ -30,7 +32,11 @@ public class CAcceuil {
 
         //récupère le bouton Machine de la classe VueAccueil à l'aide du get et définit l'action à réaliser quand on clique dessus 
         vueAccueil.getMachine().setOnAction(e -> {
-            System.out.println("Cliqué sur Machine !"); //AfficherMachine(utilisateur, atelier)
+            
+            String utilisateur = this.vueInit.getUtilisateurField().getText();
+            String atelier = this.vueInit.getAtelierField().getText();
+            CAfficherMachine controleurMach = new CAfficherMachine(primaryStage, utilisateur, atelier);        
+            controleurMach.afficherMachine();
         });
 
         vueAccueil.getPoste().setOnAction(e -> {
