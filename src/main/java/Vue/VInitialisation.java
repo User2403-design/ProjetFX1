@@ -76,9 +76,9 @@ public class VInitialisation {
         return validerButton;
     }
     
-public Stage getPrimaryStage() {
+/*public Stage getPrimaryStage() {
         return primaryStage;
-    }
+    }*/
 
     public Scene getScene() {
         return scene;
