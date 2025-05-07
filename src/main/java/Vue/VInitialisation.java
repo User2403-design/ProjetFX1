@@ -30,11 +30,12 @@ public class VInitialisation {
    private Button validerButton;
    private CInitialisation controleur;
    
-   public VInitialisation() {
-        afficherFenetreConnexion();
+   public VInitialisation(CInitialisation controleur) { 
+        this.controleur = controleur;
+        construireVue();
     }
 
-    private void afficherFenetreConnexion(){
+    private void construireVue(){
         
     
         primaryStage.setTitle("Connexion");
