@@ -23,7 +23,7 @@ public class VInitialisation {
    private Button validerButton;
    private CInitialisation controleur; //référence vers le contrôleur pour appeler une méthode quand l'utilisateur clique.
    
-   public VInitialisation(CInitialisation controleur) { 
+   public VInitialisation(CInitialisation controleur) { //prend en paramêtre le controleur qui va controler la vue
         this.controleur = controleur;
         construireVue();
     }
