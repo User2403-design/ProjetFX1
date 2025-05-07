@@ -47,7 +47,7 @@ public class CAfficherMachine {
         });
     }
 
-    public void afficherMachine(utilisateur, atelier) {
+    public void afficherMachine() {
         primaryStage.setTitle("Section Machine");
         primaryStage.setScene(vueMachine.getScene());
         primaryStage.show();
