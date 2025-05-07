@@ -55,20 +55,13 @@ public class VInitialisation {
         grid.add(validerButton, 1, 2);
 
         scene = new Scene(grid, 400, 300);
-
-        //primaryStage.setTitle("Saisie des informations");
-        //primaryStage.setScene(scene);
-        //primaryStage.show();
-        
 }
     
     public Button getValiderButton(){
         return validerButton;
     }
     
-/*public Stage getPrimaryStage() {
-        return primaryStage;
-    }*/
+
 
     public Scene getScene() {
         return scene;
