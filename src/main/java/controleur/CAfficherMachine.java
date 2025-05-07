@@ -45,9 +45,9 @@ public class CAfficherMachine {
         vueMachine.getSupprimer().setOnAction(e -> {
             System.out.println("Cliqué sur Supprimer !");
         });
+    }
 
-
-    public void afficherMachine() {
+    public void afficherMachine(utilisateur, atelier) {
         primaryStage.setTitle("Section Machine");
         primaryStage.setScene(vueMachine.getScene());
         primaryStage.show();
