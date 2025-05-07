@@ -54,7 +54,9 @@ public class VInitialisation {
        
         validerButton = new Button("Valider"); // permet de crer un bouton
 
-        validerButton.setOnaction
+        validerButton.setOnAction(e -> {
+            this.controleur.ValiderButton();
+        });
 
         grid.add(utilisateurLabel, 0, 0);
         grid.add(utilisateurField, 1, 0);
