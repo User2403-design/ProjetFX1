@@ -16,7 +16,7 @@ import javafx.scene.layout.GridPane;
  */
 public class VInitialisation {
     
-   //private Stage primaryStage;
+   
    private Scene scene;
    private TextField utilisateurField;
    private TextField atelierField;
@@ -32,11 +32,9 @@ public class VInitialisation {
     private void construireVue(){
         
         GridPane grid = new GridPane();
-        grid.setVgap(10);
-        grid.setHgap(10);
+        grid.setVgap(50);
+        grid.setHgap(50);
     
-        //primaryStage.setTitle("Connexion");
-        
         // Création des labels et champs de texte
         Label utilisateurLabel = new Label("Nom de l'utilisateur :");
         utilisateurField = new TextField(); // Permet de creer une zonne de texte 
