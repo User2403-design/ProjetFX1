@@ -31,7 +31,7 @@ public class CInitialisation {
         controleurPrincipal.afficherPrincipale();
     }*/
     
-    public void ValiderButton() {
+    /*public void ValiderButton() {
         
             String utilisateur = this.vueInit.getUtilisateurField().getText();
             String atelier = this.vueInit.getAtelierField().getText();
@@ -42,7 +42,8 @@ public class CInitialisation {
                 
                 // Ouvrir la nouvelle fenêtre
                 //afficherFenetrePrincipale(utilisateur, atelier);
+                Vaccueil vueAccueil = new Vaccueil();
                 primaryStage.setScene(VAccueil.getScene());//faire le getScene dans Vaccueil
             }
-}       
+}*/       
 }
