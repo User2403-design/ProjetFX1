@@ -31,19 +31,19 @@ public class CAfficherMachine {
         });
 
         vueMachine.getAfficher().setOnAction(e -> {
-            
+            System.out.println("Cliqué sur Afficher !");
         });
 
         vueMachine.getModifier().setOnAction(e -> {
-            System.out.println("Cliqué sur Poste !");
+            System.out.println("Cliqué sur Modifier !");
         });
 
         vueMachine.getAjouter().setOnAction(e -> {
-            System.out.println("Cliqué sur Gamme !");
+            System.out.println("Cliqué sur Ajouter !");
         });
 
         vueMachine.getSupprimer().setOnAction(e -> {
-            System.out.println("Cliqué sur Operation !");
+            System.out.println("Cliqué sur Supprimer !");
         });
 
 
