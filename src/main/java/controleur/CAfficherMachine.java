@@ -19,7 +19,7 @@ public class CAfficherMachine {
     public CAfficherMachine(Stage primaryStage, String utilisateur, String atelier) {
         
         this.primaryStage = primaryStage;
-        this.vueMachine = new VAfficherMachine();
+        this.vueMachine = new VAfficherMachine(utilisateur, atelier);
         lancerActions(utilisateur, atelier);
     }
 
