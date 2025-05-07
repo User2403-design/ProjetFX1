@@ -25,7 +25,7 @@ public class VAfficherMachine {
         VBox vbox = new VBox(20);
         
         
-        public void VAfficherMachine(){
+        public void VAfficherMachine(String utilisateur, String atelier){
             this.afficher = new Button("afficher");
             this.ajouter = new Button("ajouter");
             this.modifier = new Button("modifier");
