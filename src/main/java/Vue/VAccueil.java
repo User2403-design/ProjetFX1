@@ -51,6 +51,50 @@ public class VAccueil {
     public Scene getScene() {
         return scene;
     }
+
+    public VBox getVbox() {
+        return vbox;
+    }
+
+    public HBox getHbox() {
+        return hbox;
+    }
+
+    public Label getBienvenue() {
+        return bienvenue;
+    }
+
+    public Button getDeconnexion() {
+        return deconnexion;
+    }
+
+    public Button getMachine() {
+        return machine;
+    }
+
+    public Button getPoste() {
+        return poste;
+    }
+
+    public Button getGamme() {
+        return gamme;
+    }
+
+    public Button getOperation() {
+        return operation;
+    }
+
+    public Button getOperateur() {
+        return operateur;
+    }
+
+    public Button getProduit() {
+        return produit;
+    }
+
+    public Button getFiabilite() {
+        return fiabilite;
+    }
     
     
 }
