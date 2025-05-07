@@ -36,12 +36,9 @@ public class CInitialisation {
             
             if (!utilisateur.isEmpty() && !atelier.isEmpty()) {
                 
-                // Ouvrir la nouvelle fenêtre
-                
+                // crée un controleur de type CAcceuil pour pouvoir appeler afficherAccueil et afficher la nouvelle fenètre 
                 CAcceuil controleurAccueil = new CAcceuil(primaryStage, utilisateur, atelier);
                 controleurAccueil.afficherAccueil();
-                //VAccueil vueAccueil = new VAccueil();
-                //primaryStage.setScene(vueAccueil.getScene());//faire le getScene dans Vaccueil
             }
 }       
 }
