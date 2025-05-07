@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
+import Vue.VAccueil;
+import javafx.stage.Stage;
 
 /**
  *
@@ -10,5 +12,54 @@ package controleur;
  */
 public class CAcceuil {
     
-    
+    private Stage primaryStage;
+    private VAccueil vueAccueil;
+
+    public CAcceuil(Stage primaryStage, String utilisateur, String atelier) {
+        this.primaryStage = primaryStage;
+        this.vueAccueil = new VAccueil(utilisateur, atelier);
+        lancerActions();
+    }
+
+    private void lancerActions() {
+        vueAccueil.getDeconnexion().setOnAction(e -> {
+            CInitialisation controleurInit = new CInitialisation(primaryStage);
+            controleurInit.afficherConnexion();
+        });
+
+        /*vueAccueil.getMachine().setOnAction(e -> {
+            afficherBoutonsMachine(utilisateur, atelier)
+        });*/
+
+        vueAccueil.getPoste().setOnAction(e -> {
+            System.out.println("Cliqué sur Poste !");
+        });
+
+        vueAccueil.getGamme().setOnAction(e -> {
+            System.out.println("Cliqué sur Gamme !");
+        });
+
+        vueAccueil.getOperation().setOnAction(e -> {
+            System.out.println("Cliqué sur Operation !");
+        });
+
+        vueAccueil.getOperateur().setOnAction(e -> {
+            System.out.println("Cliqué sur Operateur !");
+        });
+
+        vueAccueil.getProduit().setOnAction(e -> {
+            System.out.println("Cliqué sur Produit !");
+        });
+
+        vueAccueil.getFiabilite().setOnAction(e -> {
+            System.out.println("Cliqué sur Fiabilité !");
+        });
+    }
+
+    public void afficherAccueil() {
+        primaryStage.setTitle("Accueil de l'Atelier");
+        primaryStage.setScene(vueAccueil.getScene());
+        primaryStage.show();
+    }
+
 }
