@@ -17,7 +17,7 @@ import javafx.scene.layout.GridPane;
 public class VInitialisation {
     
    
-   private Scene scene;
+   private Scene scene; //scene que la vue va construire
    private TextField utilisateurField;
    private TextField atelierField;
    private Button validerButton;
