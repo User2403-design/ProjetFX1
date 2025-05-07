@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import controleur.CInitialisation;
+import javafx.scene.layout.GridPane;
 /**
  *
  * @author Justin
@@ -35,10 +36,14 @@ public class VInitialisation {
         construireVue();
     }
 
+   //on sépare du constructeur pour que ca soit plus clair
     private void construireVue(){
         
+        GridPane grid = new GridPane();
+        grid.setVgap(10);
+        grid.setHgap(10);
     
-        primaryStage.setTitle("Connexion");
+        //primaryStage.setTitle("Connexion");
         
         // Création des labels et champs de texte
         Label utilisateurLabel = new Label("Nom de l'utilisateur :");
@@ -49,25 +54,22 @@ public class VInitialisation {
        
         validerButton = new Button("Valider"); // permet de crer un bouton
 
-        
+        validerButton.setOnaction
 
-        // Encadrement blanc
-        VBox whiteBox = new VBox(10, utilisateurLabel, utilisateurField, atelierLabel, atelierField, validerButton);
-        whiteBox.setPadding(new Insets(20));
-        whiteBox.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), Insets.EMPTY)));
-        whiteBox.setStyle("-fx-alignment: center;");
+        grid.add(utilisateurLabel, 0, 0);
+        grid.add(utilisateurField, 1, 0);
+        grid.add(atelierLabel, 0, 1);
+        grid.add(atelierField, 1, 1);
+        grid.add(validerButton, 1, 2);
 
-        // Fond rose pâle
-        StackPane root = new StackPane(whiteBox);
-        root.setBackground(new Background(new BackgroundFill(Color.PINK.brighter().brighter(), CornerRadii.EMPTY, Insets.EMPTY)));
+        scene = new Scene(grid, 400, 300);
 
-        scene = new Scene(root, 400, 300);
-
-        primaryStage.setTitle("Saisie des informations");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        //primaryStage.setTitle("Saisie des informations");
+        //primaryStage.setScene(scene);
+        //primaryStage.show();
         
 }
+    
     public Button getValiderButton(){
         return validerButton;
     }
