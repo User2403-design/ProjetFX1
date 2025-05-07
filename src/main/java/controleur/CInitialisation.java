@@ -13,8 +13,8 @@ import javafx.stage.Stage;
  * @author Elève
  */
 public class CInitialisation {
-    private Stage primaryStage;
-    private VInitialisation vueInit;
+    private Stage primaryStage; //fenetre principale dont on va changer l'affichage 
+    private VInitialisation vueInit; //vue que le controleur gère
 
     public CInitialisation(Stage stage) {
         this.primaryStage = stage;
