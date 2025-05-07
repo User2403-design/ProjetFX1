@@ -21,7 +21,7 @@ public class VInitialisation {
    private TextField utilisateurField;
    private TextField atelierField;
    private Button validerButton;
-   private CInitialisation controleur;
+   private CInitialisation controleur; //référence vers le contrôleur pour appeler une méthode quand l'utilisateur clique.
    
    public VInitialisation(CInitialisation controleur) { 
         this.controleur = controleur;
