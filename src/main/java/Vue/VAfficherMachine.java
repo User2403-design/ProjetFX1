@@ -22,7 +22,7 @@ public class VAfficherMachine {
         
         Button retour;
         
-        VBox vbox = new VBox(20);
+        VBox vbox;
         
         
         public VAfficherMachine(String utilisateur, String atelier){
