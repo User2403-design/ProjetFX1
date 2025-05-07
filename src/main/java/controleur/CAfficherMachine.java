@@ -4,10 +4,52 @@
  */
 package controleur;
 
+import Vue.VAfficherMachine;
+import javafx.stage.Stage;
+
 /**
  *
  * @author chloe
  */
 public class CAfficherMachine {
     
+    private Stage primaryStage;
+    private VAfficherMachine vueMachine;
+
+    public CAfficherMachine(Stage primaryStage, String utilisateur, String atelier) {
+        
+        this.primaryStage = primaryStage;
+        this.vueMachine = new VAfficherMachine(utilisateur, atelier);
+        lancerActions(utilisateur, atelier);
+    }
+
+    private void lancerActions(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
+        
+        vueMachine.getRetour().setOnAction(e -> {
+            CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier);
+            controleurAcc.afficherAccueil();
+        });
+
+        vueMachine.getAfficher().setOnAction(e -> {
+            
+        });
+
+        vueMachine.getModifier().setOnAction(e -> {
+            System.out.println("Cliqué sur Poste !");
+        });
+
+        vueMachine.getAjouter().setOnAction(e -> {
+            System.out.println("Cliqué sur Gamme !");
+        });
+
+        vueMachine.getSupprimer().setOnAction(e -> {
+            System.out.println("Cliqué sur Operation !");
+        });
+
+
+    public void afficherMachine() {
+        primaryStage.setTitle("Section Machine");
+        primaryStage.setScene(vueMachine.getScene());
+        primaryStage.show();
+    }
 }
