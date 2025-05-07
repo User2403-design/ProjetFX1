@@ -38,4 +38,33 @@ public class VAfficherMachine {
             
             scene = new Scene(vbox, 600,300);
         }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public Button getAfficher() {
+        return afficher;
+    }
+
+    public Button getAjouter() {
+        return ajouter;
+    }
+
+    public Button getModifier() {
+        return modifier;
+    }
+
+    public Button getSupprimer() {
+        return supprimer;
+    }
+
+    public Button getRetour() {
+        return retour;
+    }
+
+    public VBox getVbox() {
+        return vbox;
+    }
+        
 }
