@@ -43,7 +43,7 @@ public class CInitialisation {
                 // Ouvrir la nouvelle fenêtre
                 //afficherFenetrePrincipale(utilisateur, atelier);
                 Vaccueil vueAccueil = new Vaccueil();
-                primaryStage.setScene(VAccueil.getScene());//faire le getScene dans Vaccueil
+                primaryStage.setScene(vueAccueil.getScene());//faire le getScene dans Vaccueil
             }
 }*/       
 }
