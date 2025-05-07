@@ -22,5 +22,11 @@ import javafx.stage.Stage;
  * @author Justin
  */
 public class VAccueil {
+    private Scene scene;
+
+    public Scene getScene() {
+        return scene;
+    }
+    
     
 }
