@@ -26,13 +26,8 @@ public class CInitialisation {
         primaryStage.setScene(vueInit.getScene());
         primaryStage.show();
     }
-
-    /*public void connexionReussie(String utilisateur, String atelier) {
-        ControleurPrincipal controleurPrincipal = new ControleurPrincipal(stage, utilisateur, atelier);
-        controleurPrincipal.afficherPrincipale();
-    }*/
     
-    /*public void ValiderButton() {
+    public void ValiderButton() {
         
             String utilisateur = this.vueInit.getUtilisateurField().getText();
             String atelier = this.vueInit.getAtelierField().getText();
@@ -42,9 +37,11 @@ public class CInitialisation {
             if (!utilisateur.isEmpty() && !atelier.isEmpty()) {
                 
                 // Ouvrir la nouvelle fenêtre
-                //afficherFenetrePrincipale(utilisateur, atelier);
-                Vaccueil vueAccueil = new Vaccueil();
-                primaryStage.setScene(vueAccueil.getScene());//faire le getScene dans Vaccueil
+                
+                CAcceuil controleurAccueil = new CAcceuil(primaryStage, utilisateur, atelier);
+                controleurAccueil.afficherAccueil();
+                //VAccueil vueAccueil = new VAccueil();
+                //primaryStage.setScene(vueAccueil.getScene());//faire le getScene dans Vaccueil
             }
-}*/       
+}       
 }
