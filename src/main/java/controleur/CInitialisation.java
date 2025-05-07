@@ -4,24 +4,45 @@
  */
 package controleur;
 
+import Vue.VInitialisation;
+import Vue.VAccueil;
+import javafx.stage.Stage;
+
 /**
  *
  * @author Elève
  */
 public class CInitialisation {
-    validerButton.setOnAction(e -> {
-            String utilisateur = utilisateurField.getText();
-            String atelier = atelierField.getText();
+    private Stage primaryStage;
+    private VInitialisation vueInit;
+
+    public CInitialisation(Stage stage) {
+        this.primaryStage = stage;
+        this.vueInit = new VInitialisation(this);
+    }
+
+    public void afficherConnexion() {
+        primaryStage.setScene(vueInit.getScene());
+        primaryStage.show();
+    }
+
+    /*public void connexionReussie(String utilisateur, String atelier) {
+        ControleurPrincipal controleurPrincipal = new ControleurPrincipal(stage, utilisateur, atelier);
+        controleurPrincipal.afficherPrincipale();
+    }*/
+    
+    public void ValiderButton() {
+        
+            String utilisateur = this.vueInit.getUtilisateurField().getText();
+            String atelier = this.vueInit.getAtelierField().getText();
             System.out.println("Nom de l'utilisateur : " + utilisateur);
             System.out.println("Nom de l'Atelier : " + atelier);
             
             if (!utilisateur.isEmpty() && !atelier.isEmpty()) {
                 
                 // Ouvrir la nouvelle fenêtre
-                afficherFenetrePrincipale(utilisateur, atelier);
-
-                //primaryStage.close(); // fermer la première fenêtre
-            }  
-    
-        });
+                //afficherFenetrePrincipale(utilisateur, atelier);
+                primaryStage.setScene(VAccueil.getScene());
+            }
+}       
 }
