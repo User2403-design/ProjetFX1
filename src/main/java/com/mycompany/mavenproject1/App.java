@@ -28,7 +28,6 @@ public class App extends Application {
         
         CInitialisation controleur = new CInitialisation(primaryStage);
         controleur.afficherConnexion();
-        primaryStage.setTitle("Connexion");
         //this.primaryStage = stage;
         
         
