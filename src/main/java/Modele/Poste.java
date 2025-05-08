@@ -49,7 +49,7 @@ public Poste(String refPoste, String dPoste, ArrayList<Machine> machines) {
     }
     
     //a remodifier pour l'interfaces 
-    @Override
+    /*@Override
     public String afficherEquipement(){
         System.out.println("Reference Poste:"+refEquipement);
         System.out.println("Designation:"+dEquipement);
@@ -59,9 +59,25 @@ public Poste(String refPoste, String dPoste, ArrayList<Machine> machines) {
             m.afficherEquipement();
             System.out.println("--------");
         }
-        return("faut remodifer cette methode aussi");
+        return("faut modifier cette methode");
+    }*/
+    
+    @Override
+    public String afficherEquipement() {
+    StringBuilder sb = new StringBuilder();
+    
+    sb.append("Reference Poste : ").append(refEquipement).append("\n");
+    sb.append("Designation : ").append(dEquipement).append("\n");
+    sb.append("--------\n");
+    
+    for (Machine m : machines) {
+        sb.append("Machine :\n");
+        sb.append(m.afficherEquipement()).append("\n");
+        sb.append("--------\n");
     }
     
+    return sb.toString();
+    }
    
      public String getRefposte() {
         return refEquipement;
