@@ -388,12 +388,15 @@ public class Stockage {
         }
     }
     //afficher tous les postes de travail
-    public void afficherTousLesPostesTravail() {
-        System.out.println("Postes de travail disponibles :");
-        for (Poste pt : listePostes) {
-            pt.afficherEquipement(); 
-        }
+    public String afficherTousLesPostes() {
+        StringBuilder sb = new StringBuilder();
+        for (Poste poste : listePostes) {
+        sb.append(poste.afficherEquipement());
+        sb.append("\n----------------------\n");//pour avoir un affichage propre
     }
+    return sb.toString();
+    }
+    
     // afficher tous les équipements 
     public void afficherTousLesEquipements() {
         System.out.println("Équipements disponibles :");
