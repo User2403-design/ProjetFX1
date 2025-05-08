@@ -36,7 +36,7 @@ public class CMachine {
 
         vueMachine.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher !");
-            //stockage.setListeMachines(FichierMachine.charger());
+            
             // Charger les machines depuis le fichier
             ArrayList<Machine> machinesChargees = FichierMachine.charger();
             // Ajouter ces machines à la liste existante dans stockage
