@@ -34,7 +34,9 @@ public class Stockage {
         this.listeGammes = new ArrayList<>();
         this.listeProduits = new ArrayList<>();
         this.listeMagDeBrut = new ArrayList<>();
-        this.listePostes= new ArrayList(); 
+        this.listePostes= new ArrayList();
+        
+        chargerDepuisFichierMachine(); // charge le fichier pour contenir la liste des machines bien mis à jour même entre plusieurs session
         
         // Création des machines (équipements)
         Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f,"libre", "Découpe");
@@ -342,7 +344,7 @@ public class Stockage {
     }
     
     //charge ce qu'il y a dans le fichier dans la liste pour que quand on affiche la liste on affiche bien ce que contient le fichier     
-    public void chargerDepuisFichier() {
+    public void chargerDepuisFichierMachine() {
         try (BufferedReader br = new BufferedReader(new FileReader("machines.txt"))) {
             String ligne;
             while ((ligne = br.readLine()) != null) {
