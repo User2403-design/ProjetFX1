@@ -63,7 +63,7 @@ public class CModifierMachine {
                     String type = vueModifier.getNouveauTypeField().getText();
 
                     // Créer la nouvelle machine modifiée
-                    Machine nouvelleMachine = new Machine(ref, description, x, y, cout, etat, type, LocalTime.now);
+                    Machine nouvelleMachine = new Machine(ref, description, x, y, cout, etat, type, LocalTime.now());
 
                     // Supprimer l'ancienne machine
                     stockage.supprimerMachine(ref); // Appel à la méthode pour supprimer la machine par référence
