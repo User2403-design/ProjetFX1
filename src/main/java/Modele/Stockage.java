@@ -56,9 +56,11 @@ public class Stockage {
     
         // Création des postes avec les machines affectées
         Poste Poste1 = new Poste("P001", "Poste de découpe", new ArrayList<>(Arrays.asList(M1,M2,M3)));
+        Poste Poste2 = new Poste("P002", "Poste de limage", new ArrayList<>(Arrays.asList(M2,M4)));
 
         //ajout du poste dans la liste des postes
         this.listePostes.add(Poste1);
+        this.listePostes.add(Poste2);
 
         //ajouter dans la liste equipement mais jsp comment le faire le plus optimisé 
 
