@@ -26,8 +26,8 @@ public class FichierMachine {
             e.printStackTrace();
         }
     }
-    
-    public void chargerDepuisFichierMachine(ArrayList<Machine> listeMachines) {
+    //methode pour remplir la liste qui contient les machines de l'atelier qu'on affiche par la suite
+    public static void charger(ArrayList<Machine> listeMachines) {
         
         try (BufferedReader br = new BufferedReader(new FileReader("machines.txt"))) {
             String ligne;
@@ -54,4 +54,18 @@ public class FichierMachine {
             e.printStackTrace();
         }
     }
+    
+    //sauvegarde ce qui est ajouter dans la liste/ce que contient la liste dans le fichier machine
+        private static void sauvegarder(ArrayList<Machine> listeMachines) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt"))) {
+            for (Machine machine : listeMachines) {
+                
+                writer.write(machine.getRefmachine() + ";" + machine.getDmachine() + ";" + machine.getX()+ ";" +machine.getY()+ ";" +machine.getCoût()+ ";" + machine.getDurée()+";" + machine.getEtat()+ ";" + machine.getType() + ";" +machine.getHeureFinOccupation());
+                writer.newLine(); //pour passer à la ligne aprés chaque machine 
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+        
 }
