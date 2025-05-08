@@ -7,6 +7,7 @@ import Vue.VMachine;
 import javafx.stage.Stage;
 import Modele.Stockage;
 import Modele.FichierMachine;
+import java.util.ArrayList;
 /**
  *
  * @author chloe
@@ -35,6 +36,11 @@ public class CMachine {
         vueMachine.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher !");
             //stockage.setListeMachines(FichierMachine.charger());
+            // Charger les machines depuis le fichier
+            ArrayList<Machine> machinesChargees = FichierMachine.charger();
+            // Ajouter ces machines à la liste existante dans stockage
+            stockage.getListeMachines().addAll(machinesChargees);
+            // Lancer le contrôleur pour afficher
             CAfficherMachine controleurAff = new CAfficherMachine(primaryStage, utilisateur, atelier, stockage );
             controleurAff.afficher();
         });
