@@ -52,6 +52,9 @@ public class CMachine {
 
         vueMachine.getAjouter().setOnAction(e -> {
             System.out.println("Cliqué sur Ajouter !");
+            
+            CAjouterMachine controleurAjout = new CAjouterMachine(primaryStage, utilisateur, atelier, stockage);
+            controleurAjout.afficher();
         });
 
         vueMachine.getSupprimer().setOnAction(e -> {
