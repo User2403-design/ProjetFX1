@@ -34,7 +34,7 @@ public class CAcceuil {
     private void lancerActions() { //définit toutes les actions quand on clique sur un boutons
         
         vueAccueil.getDeconnexion().setOnAction(e -> {
-            CInitialisation controleurInit = new CInitialisation(primaryStage);
+            CInitialisation controleurInit = new CInitialisation(primaryStage, stockage);
             controleurInit.afficherConnexion();
         });
 
