@@ -157,7 +157,7 @@ public class Stockage {
     // Ajouter une machine
     public void ajouterMachine(Machine machine) {
         this.listeMachines.add(machine);
-        sauvegarderMachines(); //sauvegarde dans le fichier machine l'ajout
+        FichierMachine.sauvegarder(listeMachines); //sauvegarde dans le fichier machine l'ajout
     }
 
     // Ajouter un poste de travail
@@ -288,7 +288,7 @@ public class Stockage {
         } else {
             System.out.println("Machine avec la référence " + refMachine + " non trouvée.");
         }
-        sauvegarderMachines(); //sauvegarde le changement dans le fichier machine
+        FichierMachine.sauvegarder(listeMachines); //sauvegarde le changement dans le fichier machine
     }
 
    
@@ -335,18 +335,7 @@ public class Stockage {
     }
     return sb.toString();
 }
-        //sauvegarde ce qui est ajouter dans la liste/ce que contient la liste dans le fichier machine
-        private void sauvegarderMachines() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt"))) {
-            for (Machine machine : listeMachines) {
-                
-                writer.write(machine.getRefmachine() + ";" + machine.getDmachine() + ";" + machine.getX()+ ";" +machine.getY()+ ";" +machine.getCoût()+ ";" + machine.getDurée()+";" + machine.getEtat()+ ";" + machine.getType() + ";" +machine.getHeureFinOccupation());
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+        
     
     //charge ce qu'il y a dans le fichier dans la liste pour que quand on affiche la liste on affiche bien ce que contient le fichier     
     
