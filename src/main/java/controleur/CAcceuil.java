@@ -37,8 +37,8 @@ public class CAcceuil {
         //récupère le bouton Machine de la classe VueAccueil à l'aide du get et définit l'action à réaliser quand on clique dessus 
         vueAccueil.getMachine().setOnAction(e -> {
             
-            CAfficherMachine controleurMach = new CAfficherMachine(primaryStage, utilisateur, atelier);        
-            controleurMach.afficherMachine();
+            CMachine controleurMach = new CMachine(primaryStage, utilisateur, atelier);        
+            controleurMach.afficherSectionMachine();
         });
 
         vueAccueil.getPoste().setOnAction(e -> {
