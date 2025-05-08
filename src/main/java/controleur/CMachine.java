@@ -34,7 +34,7 @@ public class CMachine {
 
         vueMachine.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher !");
-            stockage.setListeMachines(FichierMachine.charger());
+            //stockage.setListeMachines(FichierMachine.charger());
             CAfficherMachine controleurAff = new CAfficherMachine(primaryStage, utilisateur, atelier, stockage );
             controleurAff.afficher();
         });
