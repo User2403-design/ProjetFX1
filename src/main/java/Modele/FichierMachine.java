@@ -38,14 +38,14 @@ public class FichierMachine {
                 
                 if (parties.length >= 8) { // vérifie qu'on à bien 8 partie = 8 attributs
                     
-                String ref = parties[1];
-                String des = parties[2];
-                float x = Float.parseFloat(parties[3]); //pour convertir en float car c'est en String sinon
-                float y = Float.parseFloat(parties[4]);
-                float coutH = Float.parseFloat(parties[5]);
+                String ref = parties[0];
+                String des = parties[1];
+                float x = Float.parseFloat(parties[2]); //pour convertir en float car c'est en String sinon
+                float y = Float.parseFloat(parties[3]);
+                float coutH = Float.parseFloat(parties[4]);
                 //float duree = Float.parseFloat(parties[5]);
-                String etat = parties[6];
-                String type = parties[7];
+                String etat = parties[5];
+                String type = parties[6];
                 LocalTime heureFinOcc = LocalTime.parse(parties[8]);
                 
                 Machine m = new Machine(ref, des, x, y, coutH, etat, type, heureFinOcc); 
