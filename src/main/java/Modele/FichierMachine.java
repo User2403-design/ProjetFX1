@@ -63,7 +63,7 @@ public class FichierMachine {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt"))) {
             for (Machine machine : listeMachines) {
                 
-                writer.write(machine.getRefmachine() + ";" + machine.getDmachine() + ";" + machine.getX()+ ";" +machine.getY()+ ";" +machine.getCoût()+ ";" + machine.getDurée()+";" + machine.getEtat()+ ";" + machine.getType() + ";" +machine.getHeureFinOccupation());
+                writer.write(machine.getRefmachine() + ";" + machine.getDmachine() + ";" + machine.getX()+ ";" +machine.getY()+ ";" +machine.getCoût()+ ";" + machine.getDurée()+";" + machine.getEtat()+ ";" + machine.getType() + ";" +machine.getHeureFinOccupation().toString());
                 writer.newLine(); //pour passer à la ligne aprés chaque machine 
             }
         } catch (IOException e) {
