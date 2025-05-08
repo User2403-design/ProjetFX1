@@ -34,7 +34,7 @@ public class VAfficherMachine {
         //textArea.setText(stockage.afficherToutesLesMachines());
         vbox.getChildren().addAll(titre, textArea, retourButton);
 
-        Scene sceneListeMachines = new Scene(vbox, 400, 400);
+        sceneListeMachines = new Scene(vbox, 400, 400);
         //primaryStage.setScene(sceneListeMachines);
     }
 
