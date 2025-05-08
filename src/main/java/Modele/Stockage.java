@@ -36,7 +36,7 @@ public class Stockage {
         this.listeMagDeBrut = new ArrayList<>();
         this.listePostes= new ArrayList();
         
-        chargerDepuisFichierMachine(); // charge le fichier pour contenir la liste des machines bien mis à jour même entre plusieurs session
+        FichierMachine.charger(listeMachines); // charge le fichier pour contenir la liste des machines bien mis à jour même entre plusieurs session
         
         // Création des machines (équipements)
         Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f,"libre", "Découpe");
@@ -148,6 +148,9 @@ public class Stockage {
         return listeMagDeBrut;
     }
     
+    public void setListeMachines(ArrayList<Machine> listeMachines) {
+        this.listeMachines = listeMachines;
+    }
     
     // Méthodes pour ajouter des objets dans le stockage
 
@@ -182,6 +185,8 @@ public class Stockage {
     public void ajouterProduit(Produit produit) {
         this.listeProduits.add(produit); 
     }
+
+    
     
     //methodes pour supprimer
     
@@ -344,32 +349,7 @@ public class Stockage {
     }
     
     //charge ce qu'il y a dans le fichier dans la liste pour que quand on affiche la liste on affiche bien ce que contient le fichier     
-    public void chargerDepuisFichierMachine() {
-        try (BufferedReader br = new BufferedReader(new FileReader("machines.txt"))) {
-            String ligne;
-            while ((ligne = br.readLine()) != null) {
-                String[] parties = ligne.split(";"); // car on sépares les champs par ";"
-                
-                if (parties.length == 9) { // vérifie qu'on à bien 8 partie = 8 attributs
-                    
-                String ref = parties[0];
-                String des = parties[1];
-                float x = Float.parseFloat(parties[2]); //pour convertir en float car c'est en String sinon
-                float y = Float.parseFloat(parties[3]);
-                float coutH = Float.parseFloat(parties[4]);
-                //float duree = Float.parseFloat(parties[5]);
-                String etat = parties[5];
-                String type = parties[6];
-                LocalTime heureFinOcc = LocalTime.parse(parties[7]);
-                
-                    Machine m = new Machine(ref, des, x, y, coutH, etat,type); 
-                    listeMachines.add(m);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    
          
      // afficher tous les produits 
          
