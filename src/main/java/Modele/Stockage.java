@@ -281,6 +281,7 @@ public class Stockage {
         } else {
             System.out.println("Machine avec la référence " + refMachine + " non trouvée.");
         }
+        sauvegarderMachines(); //sauvegarde le changement dans le fichier machine
     }
 
    
