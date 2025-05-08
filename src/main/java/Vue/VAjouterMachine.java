@@ -21,6 +21,7 @@ public class VAjouterMachine {
     private TextField coutHField;
     private TextField etatField;
     private TextField typeField;
+    private TextField heureFinOccField;
     private Button ajouterButton;
     private Button retourButton;
    
@@ -38,13 +39,14 @@ public class VAjouterMachine {
         coutHField = new TextField();
         etatField = new TextField();
         typeField = new TextField();
+        heureFinOccField = new TextField();
         
         ajouterButton = new Button("Ajouter Machine");
         retourButton = new Button("Retour");
 
         layout.add(new Label("Référence :"), 0, 0);
         layout.add(refField, 1, 0);
-        layout.add(new Label("Description :"), 0, 1);
+        layout.add(new Label("Designation :"), 0, 1);
         layout.add(desField, 1, 1);
         layout.add(new Label("X :"), 0, 2);
         layout.add(xField, 1, 2);
@@ -56,6 +58,8 @@ public class VAjouterMachine {
         layout.add(etatField, 1, 5);
         layout.add(new Label("Type :"), 0, 6);
         layout.add(typeField, 1, 6);
+        layout.add(new Label("Heure de fin d'occupation :"), 0, 7);
+        layout.add(heureFinOccField, 1, 7);
 
         layout.add(ajouterButton, 0, 7);
         layout.add(retourButton, 1, 7);
