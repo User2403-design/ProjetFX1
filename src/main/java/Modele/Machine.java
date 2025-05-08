@@ -21,14 +21,14 @@ public class Machine extends Equipement {
     private String type;
     private LocalTime heureFinOccupation; 
     
-    public Machine (String refmachine, String dmachine, float x, float y, float cout, String etat, String type){
+    public Machine (String refmachine, String dmachine, float x, float y, float cout, String etat, String type, LocalTime heureFinOccupation){
         super(refmachine,dmachine);
         this.x = x;
         this.y = y;
         this.coût = cout;//correspond au cout horaire
         this.etat = etat; // on choisit
         this.type = type;
-        this.heureFinOccupation = null; //libre au début
+        this.heureFinOccupation = null; //logiquement c'est libre au début 
     }  
    
     @Override
