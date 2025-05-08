@@ -165,8 +165,10 @@ public class Stockage {
 
     // Ajouter une machine
     public void ajouterMachine(Machine machine) {
+        ArrayList <Machine> newMachine = new ArrayList<>(); //truc rajouter pr tester plus parametre dans sauvegarder
+        newMachine.add(machine); // 
         this.listeMachines.add(machine);
-        FichierMachine.sauvegarder(listeMachines); //sauvegarde dans le fichier machine l'ajout
+        FichierMachine.sauvegarder(newMachine); //sauvegarde dans le fichier machine l'ajout
     }
 
     // Ajouter un poste de travail
