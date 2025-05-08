@@ -123,6 +123,18 @@ public class Machine extends Equipement {
         return type;
     }
 
+    public float getDuree() {
+        return duree;
+    }
+
+    public String getEtat() {
+        return etat;
+    }
+
+    public LocalTime getHeureFinOccupation() {
+        return heureFinOccupation;
+    }
+
     public void setRefmachine(String refmachine) {
         this.refEquipement = refmachine;
     }
