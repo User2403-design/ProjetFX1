@@ -30,6 +30,7 @@ public class VAfficherMachine {
         vbox.setPadding(new Insets(10));//pour éviter que le contenu soit collé au conteneur
         textArea.setEditable(false);  // l'utilisateur ne pourra pas modifier
         textArea.setWrapText(true);
+        textArea.setText(machines);
         //textArea.setText(stockage.afficherToutesLesMachines());
         vbox.getChildren().addAll(titre, textArea, retourButton);
 
