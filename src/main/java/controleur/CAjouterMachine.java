@@ -8,6 +8,7 @@ import Modele.Stockage;
 import Modele.Machine;
 import Modele.FichierMachine;
 import Vue.VAjouterMachine;
+import java.time.LocalTime;
 /**
  *
  * @author chloe
@@ -40,8 +41,9 @@ public class CAjouterMachine {
                 float coutHoraire = Float.parseFloat(vueAjouter.getCoutHField().getText());
                 String etat = vueAjouter.getEtatField().getText();
                 String type = vueAjouter.getTypeField().getText();
+                LocalTime heureFinOcc = LocalTime.parse(vueAjouter.getHeureFinOccField().getText());
 
-                Machine nouvelleMachine = new Machine(ref, description, x, y, coutHoraire, etat, type);
+                Machine nouvelleMachine = new Machine(ref, description, x, y, coutHoraire, etat, type, heureFinOcc);
                 stockage.ajouterMachine(nouvelleMachine);
 
                 // Met à jour le fichier
