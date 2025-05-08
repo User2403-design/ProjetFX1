@@ -38,10 +38,11 @@ public class CMachine {
             System.out.println("Cliqué sur Afficher !");
             
             // Charger les machines depuis le fichier
-            ArrayList<Machine> machinesChargees = FichierMachine.charger();
+            //ArrayList<Machine> machinesChargees = FichierMachine.charger();
             // Ajouter ces machines à la liste existante dans stockage
-            stockage.getListeMachines().addAll(machinesChargees);
+            //stockage.getListeMachines().addAll(machinesChargees);
             // Lancer le contrôleur pour afficher
+            stockage.setListeMachines(FichierMachine.charger());
             CAfficherMachine controleurAff = new CAfficherMachine(primaryStage, utilisateur, atelier, stockage );
             controleurAff.afficher();
         });
