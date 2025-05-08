@@ -343,14 +343,21 @@ public class Stockage {
             String ligne;
             while ((ligne = br.readLine()) != null) {
                 String[] parties = ligne.split(";"); // car on sépares les champs par ";"
-                if (parties.length == 8) { // vérifie qu'on à bien 8 partie = 8 attributs
+                
+                if (parties.length == 9) { // vérifie qu'on à bien 8 partie = 8 attributs
                     
                 String ref = parties[0];
                 String des = parties[1];
-                String type = parties[2];
-                float x = parties[3];
-                    Machine m = new Machine(parties[0], parties[1], parties[2], parties[3], parties[4],parties[5],parties[6],parties[7]); 
-                    machines.add(m);
+                float x = Float.parseFloat(parties[2]); //pour convertir en float car c'est en String sinon
+                float y = Float.parseFloat(parties[3]);
+                float coutH = Float.parseFloat(parties[4]);
+                //float duree = Float.parseFloat(parties[5]);
+                String etat = parties[5];
+                String type = parties[6];
+                LocalTime heureFinOcc = LocalTime.parse(parties[7]);
+                
+                    Machine m = new Machine(ref, des, x, y, coutH, etat,type); 
+                    listeMachines.add(m);
                 }
             }
         } catch (IOException e) {
