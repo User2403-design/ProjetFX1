@@ -16,7 +16,7 @@ public class Machine extends Equipement {
     private float x;
     private float y;
     private float coût;
-    private float duree; // duree d'utilisation ?
+    private float duree; // duree d'utilisation ? suffit d'avoir heureFinOccupation dcp non ?
     private String etat; // "operationnel", "en arrêt","libre", "occupé"
     private String type;
     private LocalTime heureFinOccupation; 
