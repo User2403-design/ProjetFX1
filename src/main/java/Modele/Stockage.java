@@ -329,14 +329,33 @@ public class Stockage {
         private void sauvegarderMachines() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt"))) {
             for (Machine machine : listeMachines) {
-                // On sépare les attributs avec un ;
-                writer.write(machine.getRefmachine() + ";" + machine.getDmachine() + ";" + machine.getType() + ";" + machine.getX()+ ";" +machine.getY()+ ";" +machine.getCoût()+ ";" +machine.getDurée()+ ";" +machine.getEtat()+ ";" +machine.getHeureFinOccupation());
+                
+                writer.write(machine.getRefmachine() + ";" + machine.getDmachine() + ";" + machine.getX()+ ";" +machine.getY()+ ";" +machine.getCoût()+ ";" + machine.getDurée()+";" + machine.getEtat()+ ";" + machine.getType() + ";" +machine.getHeureFinOccupation());
                 writer.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+        
+    public void chargerDepuisFichier() {
+        try (BufferedReader br = new BufferedReader(new FileReader("machines.txt"))) {
+            String ligne;
+            while ((ligne = br.readLine()) != null) {
+                String[] parties = ligne.split(";"); // car on sépares les champs par ";"
+                if (parties.length == 8) { // vérifie qu'on à bien 8 partie = 8 attributs
+                    
+                String ref = parties[0];
+                String des = parties[1];
+                String type = parties[2];
+                float x = parties[3];
+                    Machine m = new Machine(parties[0], parties[1], parties[2], parties[3], parties[4],parties[5],parties[6],parties[7]); 
+                    machines.add(m);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }    
          
      // afficher tous les produits 
          
