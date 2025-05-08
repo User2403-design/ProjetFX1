@@ -6,6 +6,7 @@ package controleur;
 import Vue.VAccueil;
 import Vue.VInitialisation;
 import javafx.stage.Stage;
+import Modele.Stockage;
 
 /**
  *
@@ -18,13 +19,15 @@ public class CAcceuil {
     private String utilisateur;
     private String atelier;
     private VInitialisation vueInit;
+    private Stockage stockage; // nécessaire pour appeler le constructeur CMachine après
 
-    public CAcceuil(Stage primaryStage, String utilisateur, String atelier) {
+    public CAcceuil(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
         
         this.primaryStage = primaryStage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.vueAccueil = new VAccueil(utilisateur, atelier);
+        this.stockage = stockage;
         lancerActions();
     }
 
@@ -38,7 +41,7 @@ public class CAcceuil {
         //récupère le bouton Machine de la classe VueAccueil à l'aide du get et définit l'action à réaliser quand on clique dessus 
         vueAccueil.getMachine().setOnAction(e -> {
             
-            CMachine controleurMach = new CMachine(primaryStage, utilisateur, atelier);        
+            CMachine controleurMach = new CMachine(primaryStage, utilisateur, atelier, stockage);        
             controleurMach.afficherSectionMachine();
         });
 
