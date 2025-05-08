@@ -61,8 +61,8 @@ public class VAjouterMachine {
         layout.add(new Label("Heure de fin d'occupation :"), 0, 7);
         layout.add(heureFinOccField, 1, 7);
 
-        layout.add(ajouterButton, 0, 7);
-        layout.add(retourButton, 1, 7);
+        layout.add(ajouterButton, 0, 8);
+        layout.add(retourButton, 1, 8);
 
         sceneAjouterMachine = new Scene(layout, 400, 400);
     }
