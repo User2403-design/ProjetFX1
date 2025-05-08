@@ -47,6 +47,10 @@ public class CAcceuil {
 
         vueAccueil.getPoste().setOnAction(e -> {
             System.out.println("Cliqué sur Poste !");
+            
+            Cposte controleurMach = new Cposte(primaryStage, utilisateur, atelier, stockage);        
+            controleurMach.afficherSectionPoste();
+            
         });
 
         vueAccueil.getGamme().setOnAction(e -> {
