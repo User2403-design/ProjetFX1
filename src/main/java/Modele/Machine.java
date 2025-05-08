@@ -28,7 +28,7 @@ public class Machine extends Equipement {
         this.coût = cout;//correspond au cout horaire
         this.etat = etat; // on choisit
         this.type = type;
-        this.heureFinOccupation = null; //logiquement c'est libre au début 
+        this.heureFinOccupation = LocalTime.now(); //logiquement c'est libre au début 
     }  
    
     @Override
@@ -162,5 +162,6 @@ public class Machine extends Equipement {
     public void setType(String type) {
         this.type = type;
     }
+    
 }
    
