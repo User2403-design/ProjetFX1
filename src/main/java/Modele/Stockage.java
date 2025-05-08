@@ -36,7 +36,7 @@ public class Stockage {
         this.listeMagDeBrut = new ArrayList<>();
         this.listePostes= new ArrayList();
         
-        FichierMachine.charger(listeMachines); // charge le fichier pour contenir la liste des machines bien mis à jour même entre plusieurs session
+        chargerDepuisFichier(); // charge le fichier pour contenir la liste des machines bien mis à jour même entre plusieurs session
         
         // Création des machines (équipements)
         Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f,"libre", "Découpe");
