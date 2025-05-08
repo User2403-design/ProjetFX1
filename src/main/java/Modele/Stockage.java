@@ -11,6 +11,7 @@ package Modele;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.time.LocalTime;
+import java.io.*;
 
 public class Stockage {
     
@@ -325,6 +326,17 @@ public class Stockage {
     }
     return sb.toString();
 }
+        private void sauvegarderMachines() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt"))) {
+            for (Machine machine : listeMachines) {
+                // On sépare les attributs avec un ;
+                writer.write(machine.getRefmachine() + ";" + machine.getDmachine() + ";" + machine.getType() + ";" + machine.getX()+ ";" +machine.getY()+ ";" +machine.getCoût()+ ";" +machine.getDurée()+ ";" +machine.getEtat()+ ";" +machine.getHeureFinOccupation());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
          
      // afficher tous les produits 
          
