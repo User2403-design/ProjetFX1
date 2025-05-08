@@ -26,7 +26,8 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) { //appelle le controleur pour afficher la première vue
        
-        CInitialisation controleur = new CInitialisation(primaryStage);
+        Stockage stockage = new Stockage();
+        CInitialisation controleur = new CInitialisation(primaryStage, stockage);
         controleur.afficherConnexion();
         //this.primaryStage = stage;
         
