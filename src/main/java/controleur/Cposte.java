@@ -41,14 +41,8 @@ public class Cposte {
 
         vuePoste.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher !");
-            
-            // Charger les machines depuis le fichier
-            //ArrayList<Machine> machinesChargees = FichierMachine.charger();
-            // Ajouter ces machines à la liste existante dans stockage
-            //stockage.getListeMachines().addAll(machinesChargees);             // a faire dans le cas ou on pré enregistre des machines mais fait une boucle qui donne des doublons donc on utilise pas et on pré enregistre pas de machine
-            
-            stockage.setListeMachines(FichierMachine.charger()); //récupère les machines stocker dans le fichier, les met dans la liste qui va ensuite être afficher 
-            CAfficherMachine controleurAff = new CAfficherMachine(primaryStage, utilisateur, atelier, stockage );
+           
+            CAfficherPoste controleurAff = new CAfficherPoste(primaryStage, utilisateur, atelier, stockage );
             controleurAff.afficher();
         });
 
