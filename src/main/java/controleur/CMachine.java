@@ -59,6 +59,8 @@ public class CMachine {
 
         vueMachine.getSupprimer().setOnAction(e -> {
             System.out.println("Cliqué sur Supprimer !");
+            CSupprimerMachine controleurSup = new CSupprimerMachine(primaryStage, utilisateur, atelier, stockage);
+            controleurSup.afficher();
         });
     }
 
