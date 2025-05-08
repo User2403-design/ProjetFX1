@@ -283,7 +283,7 @@ public class Stockage {
    }
 
     
-    public void supprimerMachine(String refMachine) {
+    public boolean supprimerMachine(String refMachine) {
         Machine aSupprimer = null;
         for (Machine m : listeMachines) {
             if (m.getRefmachine().equals(refMachine)) {
@@ -293,11 +293,14 @@ public class Stockage {
         }
         if (aSupprimer != null) {
             listeMachines.remove(aSupprimer);
+            FichierMachine.sauvegarder(listeMachines); //sauvegarde le changement dans le fichier machine
             System.out.println("Machine supprimée avec succès.");
+            return true; // pour permettre au controleur de savoir si la suppression à été reussi ou non
         } else {
             System.out.println("Machine avec la référence " + refMachine + " non trouvée.");
+            return false;
         }
-        FichierMachine.sauvegarder(listeMachines); //sauvegarde le changement dans le fichier machine
+        
     }
 
    
