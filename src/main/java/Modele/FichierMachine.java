@@ -46,7 +46,7 @@ public class FichierMachine {
                 //float duree = Float.parseFloat(parties[5]);
                 String etat = parties[5];
                 String type = parties[6];
-                LocalTime heureFinOcc = LocalTime.parse(parties[8]);
+                LocalTime heureFinOcc = LocalTime.parse(parties[8]); // en 7 ca ne marche pas 
                 
                 Machine m = new Machine(ref, des, x, y, coutH, etat, type, heureFinOcc); 
                 listeMachines.add(m);
