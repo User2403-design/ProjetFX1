@@ -41,7 +41,7 @@ public class CAfficherMachine {
         
         vueAfficher.getRetourButton().setOnAction(e -> {
             
-            CMachine controleurMachine = new CMachine(primaryStage, utilisateur, atelier);
+            CMachine controleurMachine = new CMachine(primaryStage, utilisateur, atelier, stockage);
             controleurMachine.afficherSectionMachine();
         });
     }
