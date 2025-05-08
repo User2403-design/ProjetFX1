@@ -12,7 +12,8 @@ import javafx.scene.layout.VBox;
  * @author Justin
  */
 public class VMachine {
-    Scene scene;
+    
+        Scene scene;
         Button afficher;
         Button ajouter;
         Button modifier;
