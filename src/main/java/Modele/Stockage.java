@@ -36,13 +36,15 @@ public class Stockage {
         this.listeMagDeBrut = new ArrayList<>();
         this.listePostes= new ArrayList();
         
+        //pas besoin je croit
         //chargerDepuisFichier(); // charge le fichier pour contenir la liste des machines bien mis à jour même entre plusieurs session
-        FichierMachine.sauvegarder(listeMachines);
+        //FichierMachine.sauvegarder(listeMachines); //enregistre les machines entré manuellement dans la liste, dans le fichier machine
+        
         // Création des machines (équipements)
-        Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f,"libre", "Découpe");
-        Machine M2 = new Machine("M232", "Machine de montage", 4f, 34f, 345f,"libre", "Montage");
-        Machine M3 = new Machine("M460", "Machine d'assemblage", 23.0f, 202f, 202f,"libre", "Assemblage");
-        Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f,"libre", "Fraisage");
+        Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f,"libre", "Découpe", LocalTime.now()); 
+        Machine M2 = new Machine("M232", "Machine de montage", 4f, 34f, 345f,"libre", "Montage", LocalTime.now());
+        Machine M3 = new Machine("M460", "Machine d'assemblage", 23.0f, 202f, 202f,"libre", "Assemblage", LocalTime.now());
+        Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f,"libre", "Fraisage", LocalTime.now());
 
         //ajout de la machine dans la liste des machines individuelle
         this.listeMachines.add(M1);
