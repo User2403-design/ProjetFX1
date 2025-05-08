@@ -24,7 +24,7 @@ public class VAfficherMachine {
     public VAfficherMachine(String machines){
         this.vbox = new VBox(10);
         this.titre= new Label("Liste des Machines :");
-        this.textArea = new TextArea();
+        this.textArea = new TextArea(machines);
         this.retourButton = new Button("Retour");
         
         vbox.setPadding(new Insets(10));//pour éviter que le contenu soit collé au conteneur
