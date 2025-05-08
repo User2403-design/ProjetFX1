@@ -36,7 +36,7 @@ public class FichierMachine {
             while ((ligne = br.readLine()) != null) {
                 String[] parties = ligne.split(";"); // car on sépares les champs par ";"
                 
-                if (parties.length == 8) { // vérifie qu'on à bien 8 partie = 8 attributs
+                if (parties.length >= 8) { // vérifie qu'on à bien 8 partie = 8 attributs
                     
                 String ref = parties[0];
                 String des = parties[1];
