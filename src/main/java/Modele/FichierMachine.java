@@ -55,6 +55,7 @@ public class FichierMachine {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return listeMachines;
     }
     
     //sauvegarde ce qui est ajouter dans la liste/ce que contient la liste dans le fichier machine
