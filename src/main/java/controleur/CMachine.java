@@ -6,6 +6,7 @@ package controleur;
 import Vue.VMachine;
 import javafx.stage.Stage;
 import Modele.Stockage;
+import Modele.FichierMachine;
 /**
  *
  * @author chloe
@@ -33,6 +34,7 @@ public class CMachine {
 
         vueMachine.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher !");
+            stockage.setListeMachines(FichierMachine.charger());
             CAfficherMachine controleurAff = new CAfficherMachine(primaryStage, utilisateur, atelier, stockage );
             controleurAff.afficher();
         });
