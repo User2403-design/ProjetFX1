@@ -5,6 +5,7 @@
 package controleur;
 import Vue.VMachine;
 import javafx.stage.Stage;
+import Modele.Stockage;
 /**
  *
  * @author chloe
@@ -12,12 +13,14 @@ import javafx.stage.Stage;
 public class CMachine {
     private Stage primaryStage;
     private VMachine vueMachine;
+    private Stockage stockage;
     
 
-    public CMachine(Stage primaryStage, String utilisateur, String atelier) {
+    public CMachine(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
         
         this.primaryStage = primaryStage;
         this.vueMachine = new VMachine();
+        this.stockage = stockage;
         lancerActions(utilisateur, atelier);
     }
 
@@ -30,6 +33,8 @@ public class CMachine {
 
         vueMachine.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher !");
+            CAfficherMachine controleurAff = new CAfficherMachine(primaryStage, utilisateur, atelier, stockage );
+            controleurAff.afficher();
         });
 
         vueMachine.getModifier().setOnAction(e -> {
