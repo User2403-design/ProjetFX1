@@ -25,7 +25,7 @@ public class Gamme {
     //Ajouter Gamme aussi
    
     
-    public void afficherGamme (){
+    /*public void afficherGamme (){
         System.out.println ("Référence de la Gamme :"+refGamme);
         for (Equipement e : equipements){
             e.afficherEquipement(); //meth de la classe abs Equipement
@@ -34,7 +34,7 @@ public class Gamme {
     System.out.println(" - Réf Opération : " + op.getRefOperation() + ", Durée : " + op.getDureeOperation() + " minutes, Equipement utilisé : " + op.getRefEquipement().getRefEquipement());
 
     }
-    }  /*
+    }  */
     public String afficherGamme() {
         
     StringBuilder sb = new StringBuilder(); //va contenir sous forme de texte l'affichage d'un poste pour ensuite être afficher dans l'interface
@@ -56,7 +56,7 @@ public class Gamme {
     }
     
     return sb.toString();
-    }*/
+    }
     
    
       

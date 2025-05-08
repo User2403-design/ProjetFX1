@@ -336,7 +336,7 @@ public class Stockage {
     
 
      // afficher toutes les gammes disponibles 
-       /*public String afficherToutesLesGammesDisponibles() {
+       public String afficherToutesLesGammesDisponibles() {
         StringBuilder sb = new StringBuilder();
         for (Gamme gamme : listeGammes) {
         sb.append(gamme.afficherGamme());
@@ -344,7 +344,7 @@ public class Stockage {
     }
     return sb.toString();
         }
-        */
+        
      // afficher toutes les machines
      
         /* public void afficherToutesLesMachines() {
@@ -385,11 +385,20 @@ public class Stockage {
         }
     }
     //afficher toutes les opérations
-    public void afficherToutesLesOperations() {
+    /*public void afficherToutesLesOperations() {
         System.out.println("Opérations disponibles :");
         for (Operation op : listeOperations) {
             op.afficherOperation();
         }
+    }*/
+    
+    public String afficherToutesLesOperations() {
+        StringBuilder sb = new StringBuilder();
+        for (Operation operation : listeOperations) {
+        sb.append(operation.afficherOperation());
+        sb.append("\n----------------------\n");//pour avoir un affichage propre
+    }
+    return sb.toString();
     }
     //afficher tous les postes de travail
     public String afficherTousLesPostes() {
