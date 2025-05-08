@@ -378,12 +378,21 @@ public class Stockage {
     }
 
           // afficher tous les opérateurs 
-    public void afficherTousLesOperateurs() {
+    /*public void afficherTousLesOperateurs() {
         System.out.println("Opérateurs disponibles :");
         for (Operateur o : listeOperateurs) {
             o.afficherOperateur();
         }
+    }*/
+    public String afficherToutesLesOperateurs() {
+        StringBuilder sb = new StringBuilder();
+        for (Operateur operateur : listeOperateurs) {
+        sb.append(operateur.afficherOperateur());
+        sb.append("\n----------------------\n");//pour avoir un affichage propre
     }
+    return sb.toString();
+    }
+    
     //afficher toutes les opérations
     /*public void afficherToutesLesOperations() {
         System.out.println("Opérations disponibles :");
