@@ -28,6 +28,7 @@ public class FichierMachine {
     }
     
     public void chargerDepuisFichierMachine(ArrayList<Machine> listeMachines) {
+        
         try (BufferedReader br = new BufferedReader(new FileReader("machines.txt"))) {
             String ligne;
             while ((ligne = br.readLine()) != null) {
