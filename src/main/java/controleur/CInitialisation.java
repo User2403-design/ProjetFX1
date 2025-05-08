@@ -18,7 +18,7 @@ public class CInitialisation {
     private VInitialisation vueInit; //vue que le controleur gère
     private Stockage stockage; //nécessaire pour pouvoir appeler le constructeur CAcceuil qui par la suite utilise le constructeur CMachine qui a besoin du stockage
 
-    public CInitialisation(Stage stage) {
+    public CInitialisation(Stage stage, Stockage stockage) {
         this.primaryStage = stage;
         this.vueInit = new VInitialisation(this);
         this.stockage = stockage; 
