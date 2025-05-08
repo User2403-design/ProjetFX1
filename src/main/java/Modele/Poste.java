@@ -64,7 +64,8 @@ public Poste(String refPoste, String dPoste, ArrayList<Machine> machines) {
     
     @Override
     public String afficherEquipement() {
-    StringBuilder sb = new StringBuilder();
+        
+    StringBuilder sb = new StringBuilder(); //va contenir sous forme de texte l'affichage d'un poste pour ensuite être afficher dans l'interface
     
     sb.append("Reference Poste : ").append(refEquipement).append("\n");
     sb.append("Designation : ").append(dEquipement).append("\n");
