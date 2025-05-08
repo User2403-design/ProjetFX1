@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import Modele.Stockage; // Si ton stockage est dans package Modele
 
 
+
 /**
  *
  * @author chloe
