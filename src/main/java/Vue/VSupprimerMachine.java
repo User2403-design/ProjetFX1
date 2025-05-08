@@ -35,6 +35,10 @@ public class VSupprimerMachine {
 
         scene = new Scene(vbox, 400, 300);
     }
+    
+    public void afficherMessage(String message) {
+        messageLabel.setText(message);
+    }
 
     public TextField getRefMachineField() {
         return refMachineField;
