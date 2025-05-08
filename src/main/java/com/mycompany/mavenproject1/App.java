@@ -16,14 +16,7 @@ import controleur.CInitialisation;
 import Modele.FichierMachine;
 
 public class App extends Application {
-    
-    //référence pour changer de scène facilement
-    //private Stage primaryStage;
-    //afin de pouvoir acceder au methode et element de la classe Stockage dans toute la classe
-    //private Stockage stockage = new Stockage();
-    
-        
-    
+
     @Override
     public void start(Stage primaryStage) { //appelle le controleur pour afficher la première vue
        
@@ -31,11 +24,6 @@ public class App extends Application {
         Stockage stockage = new Stockage();
         CInitialisation controleur = new CInitialisation(primaryStage, stockage);
         controleur.afficherConnexion();
-        //this.primaryStage = stage;
-        
-        
-        //appel de la première scéne
-        //afficherFenetreConnexion();
     }
     
     public static void main(String[] args) {
