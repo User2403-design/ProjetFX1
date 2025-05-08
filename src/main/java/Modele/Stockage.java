@@ -46,7 +46,7 @@ public class Stockage {
         Machine M3 = new Machine("M460", "Machine d'assemblage", 23.0f, 202f, 202f,"libre", "Assemblage", LocalTime.now());
         Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f,"libre", "Fraisage", LocalTime.now());
 
-        //ajout de la machine dans la liste des machines individuelle
+        //ajout de la machine dans la liste des machines individuelle : sert à rien a cause du fichier
         this.listeMachines.add(M1);
         this.listeMachines.add(M2);
         
@@ -165,10 +165,8 @@ public class Stockage {
 
     // Ajouter une machine
     public void ajouterMachine(Machine machine) {
-        ArrayList <Machine> newMachine = new ArrayList<>(); //truc rajouter pr tester plus parametre dans sauvegarder
-        newMachine.add(machine); // 
         this.listeMachines.add(machine);
-        FichierMachine.sauvegarder(newMachine); //sauvegarde dans le fichier machine l'ajout
+        FichierMachine.sauvegarder(listeMachines); //sauvegarde dans le fichier machine l'ajout
     }
 
     // Ajouter un poste de travail
