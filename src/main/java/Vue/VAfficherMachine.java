@@ -36,4 +36,25 @@ public class VAfficherMachine {
         Scene sceneListeMachines = new Scene(vbox, 400, 400);
         //primaryStage.setScene(sceneListeMachines);
     }
+
+    public Scene getSceneListeMachines() {
+        return sceneListeMachines;
+    }
+
+    public VBox getVbox() {
+        return vbox;
+    }
+
+    public Label getTitre() {
+        return titre;
+    }
+
+    public TextArea getTextArea() {
+        return textArea;
+    }
+
+    public Button getRetourButton() {
+        return retourButton;
+    }
+    
 }
