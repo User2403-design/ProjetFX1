@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import Modele.Stockage;
 import Modele.FichierMachine;
 import java.util.ArrayList;
+import Modele.Machine;
 /**
  *
  * @author chloe
