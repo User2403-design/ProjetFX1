@@ -37,10 +37,10 @@ public class Stockage {
         this.listePostes= new ArrayList(); 
         
         // Création des machines (équipements)
-        Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f, "Découpe");
-        Machine M2 = new Machine("M232", "Machine de montage", 4f, 34f, 345f, "Montage");
-        Machine M3 = new Machine("M460", "Machine d'assemblage", 23.0f, 202f, 202f, "Assemblage");
-        Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f, "Fraisage");
+        Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f,"libre", "Découpe");
+        Machine M2 = new Machine("M232", "Machine de montage", 4f, 34f, 345f,"libre", "Montage");
+        Machine M3 = new Machine("M460", "Machine d'assemblage", 23.0f, 202f, 202f,"libre", "Assemblage");
+        Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f,"libre", "Fraisage");
 
         //ajout de la machine dans la liste des machines individuelle
         this.listeMachines.add(M1);
@@ -337,7 +337,8 @@ public class Stockage {
             e.printStackTrace();
         }
     }
-        
+    
+    //charge ce qu'il y a dans le fichier dans la liste pour que quand on affiche la liste on affiche bien ce que contient le fichier     
     public void chargerDepuisFichier() {
         try (BufferedReader br = new BufferedReader(new FileReader("machines.txt"))) {
             String ligne;
