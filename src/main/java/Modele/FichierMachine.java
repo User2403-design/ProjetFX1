@@ -48,7 +48,7 @@ public class FichierMachine {
                 String type = parties[6];
                 LocalTime heureFinOcc = LocalTime.parse(parties[7]);
                 
-                Machine m = new Machine(ref, des, x, y, coutH, etat,type); 
+                Machine m = new Machine(ref, des, x, y, coutH, etat, type, heureFinOcc); 
                 listeMachines.add(m);
                 }
             }
