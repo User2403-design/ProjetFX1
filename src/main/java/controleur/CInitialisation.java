@@ -7,6 +7,7 @@ package controleur;
 import Vue.VInitialisation;
 import Vue.VAccueil;
 import javafx.stage.Stage;
+import Modele.Stockage;
 
 /**
  *
@@ -15,10 +16,12 @@ import javafx.stage.Stage;
 public class CInitialisation {
     private Stage primaryStage; //fenetre principale dont on va changer l'affichage 
     private VInitialisation vueInit; //vue que le controleur gère
+    private Stockage stockage; //nécessaire pour pouvoir appeler le constructeur CAcceuil qui par la suite utilise le constructeur CMachine qui a besoin du stockage
 
     public CInitialisation(Stage stage) {
         this.primaryStage = stage;
         this.vueInit = new VInitialisation(this);
+        this.stockage = stockage; 
     }
 
     public void afficherConnexion() {
@@ -37,7 +40,7 @@ public class CInitialisation {
             if (!utilisateur.isEmpty() && !atelier.isEmpty()) {
                 
                 // crée un controleur de type CAcceuil pour pouvoir appeler afficherAccueil et afficher la nouvelle fenètre 
-                CAcceuil controleurAccueil = new CAcceuil(primaryStage, utilisateur, atelier);
+                CAcceuil controleurAccueil = new CAcceuil(primaryStage, utilisateur, atelier, stockage);
                 controleurAccueil.afficherAccueil();
             }
 }       
