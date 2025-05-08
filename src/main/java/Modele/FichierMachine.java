@@ -56,7 +56,7 @@ public class FichierMachine {
     }
     
     //sauvegarde ce qui est ajouter dans la liste/ce que contient la liste dans le fichier machine
-        private static void sauvegarder(ArrayList<Machine> listeMachines) {
+        public static void sauvegarder(ArrayList<Machine> listeMachines) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt"))) {
             for (Machine machine : listeMachines) {
                 
