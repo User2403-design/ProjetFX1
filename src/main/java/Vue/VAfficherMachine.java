@@ -3,68 +3,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Vue;
+import Modele.Stockage;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.geometry.Insets;
 /**
  *
  * @author Justin
  */
 public class VAfficherMachine {
+    private Scene sceneListeMachines;
+    private VBox vbox;
+    private Label titre;
+    private TextArea textArea;
+    private Button retourButton;
+
     
-        Scene scene;
-        Button afficher;
-        Button ajouter;
-        Button modifier;
-        Button supprimer;
+    
+    public VAfficherMachine(String machines){
+        this.vbox = new VBox(10);
+        this.titre= new Label("Liste des Machines :");
+        this.textArea = new TextArea();
+        this.retourButton = new Button("Retour");
         
-        Button retour;
-        
-        VBox vbox;
-        
-        
-        public VAfficherMachine(){
-            this.afficher = new Button("afficher");
-            this.ajouter = new Button("ajouter");
-            this.modifier = new Button("modifier");
-            this.supprimer = new Button("supprimer");
-            this.retour = new Button("retour");
-            
-            this.vbox = new VBox(20);
-            
-            vbox.getChildren().addAll(afficher, ajouter, modifier, supprimer, retour);
-            
-            scene = new Scene(vbox, 600,300);
-        }
+        vbox.setPadding(new Insets(10));//pour éviter que le contenu soit collé au conteneur
+        textArea.setEditable(false);  // l'utilisateur ne pourra pas modifier
+        textArea.setWrapText(true);
+        //textArea.setText(stockage.afficherToutesLesMachines());
+        vbox.getChildren().addAll(titre, textArea, retourButton);
 
-    public Scene getScene() {
-        return scene;
+        Scene sceneListeMachines = new Scene(vbox, 400, 400);
+        //primaryStage.setScene(sceneListeMachines);
     }
-
-    public Button getAfficher() {
-        return afficher;
-    }
-
-    public Button getAjouter() {
-        return ajouter;
-    }
-
-    public Button getModifier() {
-        return modifier;
-    }
-
-    public Button getSupprimer() {
-        return supprimer;
-    }
-
-    public Button getRetour() {
-        return retour;
-    }
-
-    public VBox getVbox() {
-        return vbox;
-    }
-        
 }
