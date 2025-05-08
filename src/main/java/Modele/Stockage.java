@@ -363,11 +363,12 @@ public class Stockage {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }    
+        }
+    }
          
      // afficher tous les produits 
          
-          public void afficherTousLesProduits() {
+    public void afficherTousLesProduits() {
         System.out.println("Produits disponibles :");
         for (Produit p : listeProduits) {
             p.afficherProduit();
