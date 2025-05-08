@@ -36,7 +36,7 @@ public class VSupprimerMachine {
         scene = new Scene(vbox, 400, 300);
     }
     
-    public void afficherMessage(String message) {
+    public void afficherMessage(String message) { //pour afficher un message indiquand à l'utilisateur si la suppression à eu lieu
         messageLabel.setText(message);
     }
 
