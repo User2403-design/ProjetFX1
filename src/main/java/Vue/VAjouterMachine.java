@@ -106,6 +106,10 @@ public class VAjouterMachine {
     public Button getRetourButton() {
         return retourButton;
     }
+
+    public TextField getHeureFinOccField() {
+        return heureFinOccField;
+    }
     
     
 }
