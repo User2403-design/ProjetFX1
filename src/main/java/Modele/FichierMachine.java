@@ -27,7 +27,9 @@ public class FichierMachine {
         }
     }
     //methode pour remplir la liste qui contient les machines de l'atelier qu'on affiche par la suite
-    public static void charger(ArrayList<Machine> listeMachines) {
+    public static ArrayList<Machine> charger() {
+        
+        ArrayList<Machine> listeMachines = new ArrayList<>();
         
         try (BufferedReader br = new BufferedReader(new FileReader("machines.txt"))) {
             String ligne;
@@ -46,8 +48,8 @@ public class FichierMachine {
                 String type = parties[6];
                 LocalTime heureFinOcc = LocalTime.parse(parties[7]);
                 
-                    Machine m = new Machine(ref, des, x, y, coutH, etat,type); 
-                    listeMachines.add(m);
+                Machine m = new Machine(ref, des, x, y, coutH, etat,type); 
+                listeMachines.add(m);
                 }
             }
         } catch (IOException e) {
