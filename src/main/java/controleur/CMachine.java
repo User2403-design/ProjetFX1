@@ -27,7 +27,7 @@ public class CMachine {
     private void lancerActions(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
         
         vueMachine.getRetour().setOnAction(e -> {
-            CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier); //crée un objet de CAcceuil afin de pouvoir appeler la methode AfficherAccueil
+            CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage); //crée un objet de CAcceuil afin de pouvoir appeler la methode AfficherAccueil
             controleurAcc.afficherAccueil();
         });
 
