@@ -151,7 +151,8 @@ public class Stockage {
 
     // Ajouter une machine
     public void ajouterMachine(Machine machine) {
-        this.listeMachines.add(machine); 
+        this.listeMachines.add(machine);
+        sauvegarderMachines(); //sauvegarde dans le fichier machine l'ajout
     }
 
     // Ajouter un poste de travail
