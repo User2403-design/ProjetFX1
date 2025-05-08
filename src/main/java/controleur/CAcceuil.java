@@ -20,6 +20,7 @@ public class CAcceuil {
     private VInitialisation vueInit;
 
     public CAcceuil(Stage primaryStage, String utilisateur, String atelier) {
+        
         this.primaryStage = primaryStage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
@@ -68,7 +69,7 @@ public class CAcceuil {
 
     public void afficherAccueil() {
         primaryStage.setTitle("Accueil de l'Atelier");
-        primaryStage.setScene(vueAccueil.getScene());
+        primaryStage.setScene(vueAccueil.getScene()); //remplace la scene qu'il y a avait dans la fenetre principal par celle crée dans Vaccueil
         primaryStage.show();
     }
 
