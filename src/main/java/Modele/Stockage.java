@@ -199,7 +199,7 @@ public class Stockage {
     
     //methodes pour supprimer
     
-    public void supprimerOperation(String refOperation) {
+    public boolean supprimerOperation(String refOperation) {
          Operation aSupprimer = null;
             for (Operation op : listeOperations) {
                 if (op.getRefOperation().equals(refOperation)) {
@@ -210,12 +210,14 @@ public class Stockage {
                 if (aSupprimer != null) {
                      listeOperations.remove(aSupprimer);
                     System.out.println("Opération supprimée avec succès.");
+                    return true;
         }       else {
             System.out.println("Opération avec la référence " + refOperation + " non trouvée.");
+            return false;
         }
     }
   
-    public void supprimerGamme(String refGamme) {
+    public boolean supprimerGamme(String refGamme) {
         Gamme aSupprimer = null;
         for (Gamme g : listeGammes) {
             if (g.getRefGamme().equals(refGamme)) {
@@ -226,12 +228,14 @@ public class Stockage {
         if (aSupprimer != null) {
             listeGammes.remove(aSupprimer);
             System.out.println("Gamme supprimée avec succès.");
+            return true;
         } else {
             System.out.println("Gamme avec la référence " + refGamme + " non trouvée.");
+            return false;
         }
     }
 
-    public void supprimerProduit(String refProduit) {
+    public boolean supprimerProduit(String refProduit) {
          Produit aSupprimer = null;
         for (Produit p : listeProduits) {
             if (p.getCodeProduit().equals(refProduit)) {
@@ -242,13 +246,15 @@ public class Stockage {
         if (aSupprimer != null) {
             listeProduits.remove(aSupprimer);
             System.out.println("Produit supprimé avec succès.");
+            return true;
         } else {
             System.out.println("Produit avec la référence " + refProduit + " non trouvé.");
+            return false;
         }
     }
 
 
-    public void supprimerEquipement(String refEquipement) {
+    public boolean supprimerEquipement(String refEquipement) {
         Equipement aSupprimer = null;
         for (Equipement e : listeEquipements) {
             if (e.refEquipement.equals(refEquipement)) {
@@ -259,14 +265,16 @@ public class Stockage {
         if (aSupprimer != null) {
             listeEquipements.remove(aSupprimer);
             System.out.println("Équipement supprimé avec succès.");
+            return true;
         } else {
             System.out.println("Équipement avec la référence " + refEquipement + " non trouvé.");
+            return false;
         }
     }
     
     
     
-    public void supprimerOperateur(String codeOperateur) {
+    public boolean supprimerOperateur(String codeOperateur) {
        Operateur aSupprimer = null;
        for (Operateur o : listeOperateurs) {
            if (o.getCode().equals(codeOperateur)) {
@@ -277,8 +285,10 @@ public class Stockage {
        if (aSupprimer != null) {
            listeOperateurs.remove(aSupprimer);
            System.out.println("Opérateur supprimé avec succès.");
+           return true;
        } else {
            System.out.println("Opérateur avec le code " + codeOperateur + " non trouvé.");
+           return false;
        }
    }
 
@@ -304,7 +314,7 @@ public class Stockage {
     }
 
    
-    public void supprimerPoste(String refPoste) {
+    public boolean supprimerPoste(String refPoste) {
         Poste aSupprimer = null;
         for (Poste p : listePostes) {
             if (p.refEquipement.equals(refPoste)) {
@@ -315,8 +325,10 @@ public class Stockage {
         if (aSupprimer != null) {
             listePostes.remove(aSupprimer);
             System.out.println("Poste supprimé avec succès.");
+            return true;
         } else {
             System.out.println("Poste avec la référence " + refPoste + " non trouvé.");
+            return false;
         }
     }
     
