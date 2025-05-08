@@ -326,6 +326,7 @@ public class Stockage {
     }
     return sb.toString();
 }
+        //sauvegarde ce qui est ajouter dans la liste/ce que contient la liste dans le fichier machine
         private void sauvegarderMachines() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("machines.txt"))) {
             for (Machine machine : listeMachines) {
