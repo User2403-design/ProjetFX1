@@ -336,16 +336,18 @@ public class Stockage {
     
 
      // afficher toutes les gammes disponibles 
-        public void afficherToutesLesGammesDisponibles() {
-        System.out.println("Liste des gammes disponibles :");
-        for (Gamme g : listeGammes) {
-            g.afficherGamme();
+       /*public String afficherToutesLesGammesDisponibles() {
+        StringBuilder sb = new StringBuilder();
+        for (Gamme gamme : listeGammes) {
+        sb.append(gamme.afficherGamme());
+        sb.append("\n----------------------\n");//pour avoir un affichage propre
+    }
+    return sb.toString();
         }
-        }
-        
+        */
      // afficher toutes les machines
      
-         /*public void afficherToutesLesMachines() {
+        /* public void afficherToutesLesMachines() {
         System.out.println("Liste des machines disponibles :");
         for (Machine m : listeMachines) {
             m.afficherEquipement(); 

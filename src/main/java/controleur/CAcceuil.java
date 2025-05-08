@@ -55,6 +55,9 @@ public class CAcceuil {
 
         vueAccueil.getGamme().setOnAction(e -> {
             System.out.println("Cliqué sur Gamme !");
+            
+            
+            
         });
 
         vueAccueil.getOperation().setOnAction(e -> {

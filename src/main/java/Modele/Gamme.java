@@ -34,7 +34,32 @@ public class Gamme {
     System.out.println(" - Réf Opération : " + op.getRefOperation() + ", Durée : " + op.getDureeOperation() + " minutes, Equipement utilisé : " + op.getRefEquipement().getRefEquipement());
 
     }
-    }    
+    }  /*
+    public String afficherGamme() {
+        
+    StringBuilder sb = new StringBuilder(); //va contenir sous forme de texte l'affichage d'un poste pour ensuite être afficher dans l'interface
+    
+    sb.append("Reference Poste : ").append(refGamme).append("\n");
+    
+    for (Equipement e : equipements) {
+        sb.append(e.afficherEquipement()).append("\n");
+        sb.append("--------\n");
+    }
+     for (Operation op : operations) {
+        sb.append("- Ref Opération : ");
+        sb.append(op.getRefOperation());
+        sb.append(", durée : ");
+        sb.append(op.getDureeOperation());
+        sb.append(" mintes, Equipement utilisé : ");
+        sb.append(op.getRefEquipement());
+        sb.append("--------\n");
+    }
+    
+    return sb.toString();
+    }*/
+    
+   
+      
     
     public float coutGamme(){    
         float coutTotal = 0;
