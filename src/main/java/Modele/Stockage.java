@@ -103,13 +103,14 @@ public class Stockage {
         
     }
     
-    public void chargerDepuisFichier() {
+    /*public void chargerDepuisFichier() {
         listeMachines = FichierMachine.charger(); // retourne une liste
     }
 
     public void sauvegarderDansFichier() {
         FichierMachine.sauvegarder(listeMachines); // envoie la liste
-    }
+    }*/
+    
     public ArrayList<Poste> getListePostes() {
         return listePostes;
     }
@@ -163,7 +164,7 @@ public class Stockage {
     // Ajouter une machine
     public void ajouterMachine(Machine machine) {
         this.listeMachines.add(machine);
-        sauvegarderDansFichier(); //sauvegarde dans le fichier machine l'ajout
+        FichierMachine.sauvegarder(listeMachines); //sauvegarde dans le fichier machine l'ajout
     }
 
     // Ajouter un poste de travail
@@ -294,7 +295,7 @@ public class Stockage {
         } else {
             System.out.println("Machine avec la référence " + refMachine + " non trouvée.");
         }
-        sauvegarderDansFichier();; //sauvegarde le changement dans le fichier machine
+        FichierMachine.sauvegarder(listeMachines); //sauvegarde le changement dans le fichier machine
     }
 
    
