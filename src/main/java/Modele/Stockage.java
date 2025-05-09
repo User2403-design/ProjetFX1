@@ -47,8 +47,8 @@ public class Stockage {
         Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f,"libre", "Fraisage", LocalTime.now());
 
         //ajout de la machine dans la liste des machines individuelle : sert à rien a cause du fichier
-        this.listeMachines.add(M1);
-        this.listeMachines.add(M2);
+        //this.listeMachines.add(M1);
+        //this.listeMachines.add(M2);
         
 
         // Initialisation de la liste de machines
