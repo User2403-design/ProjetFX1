@@ -40,7 +40,7 @@ public class COperateur {
 
         vueOperateur.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            CModifierMachine controleurModif = new CModifierMachine(primaryStage, utilisateur, atelier, stockage);
+            CModifierOperateur controleurModif = new CModifierOperateur(primaryStage, utilisateur, atelier, stockage);
             controleurModif.afficher();
         });
 
