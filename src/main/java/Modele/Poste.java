@@ -34,7 +34,7 @@ public Poste(String refPoste, String dPoste, ArrayList<Machine> machines) {
         if (machine != null){ //&& !refMachine.isEmpty()
             machines.add(machine); 
         }
-    }
+    }//sert pas pour l'instant
 
     // Pour supprimer une machine de la liste par référence : a supprimer
     public boolean supprimerMachine(Machine machine) {
@@ -103,8 +103,5 @@ public Poste(String refPoste, String dPoste, ArrayList<Machine> machines) {
 
     public void setMachines(ArrayList<Machine> machines) {
         this.machines = machines;
-    }
-    
-    
-    
+    } 
 }
