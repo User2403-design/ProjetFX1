@@ -70,8 +70,7 @@ public class CAcceuil {
         vueAccueil.getOperateur().setOnAction(e -> {
             System.out.println("Cliqué sur Operateur !");
             
-            COperateur controleurOP = new COperateur(primaryStage, utilisateur, atelier, stockage);        
-            controleurOP.afficherSectionOperateur();
+           
         });
             
             
@@ -79,6 +78,8 @@ public class CAcceuil {
 
         vueAccueil.getProduit().setOnAction(e -> {
             System.out.println("Cliqué sur Produit !");
+            CProduit controleurPR = new CProduit(primaryStage, utilisateur, atelier, stockage);        
+            controleurPR.afficherSectionProduit(); 
         });
 
         vueAccueil.getFiabilite().setOnAction(e -> {

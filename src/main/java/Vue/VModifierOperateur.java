@@ -106,7 +106,10 @@ public class VModifierOperateur {
                 modifierButton,
                 retourButton);
         scene = new Scene(layout, 400, 500);
-    }}
+        
+    }
+
+}
 
   
 /*

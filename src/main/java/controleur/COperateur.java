@@ -34,7 +34,10 @@ public class COperateur {
         });
 
         vueOperateur.getAfficher().setOnAction(e -> {
-            System.out.println("Cliqué sur Afficher !");
+            System.out.println("Cliqué sur Afficher!");
+            
+          CAfficherOperateur controleurModif = new CAfficherOperateur(primaryStage, utilisateur, atelier, stockage);
+            controleurModif.afficher();  
             
         });
 
@@ -54,7 +57,7 @@ public class COperateur {
         vueOperateur.getSupprimer().setOnAction(e -> {
             System.out.println("Cliqué sur Supprimer !");
             
-           CAjouterOperateur controleursup = new CAjouterOperateur(primaryStage, utilisateur, atelier, stockage);
+           CSupprimerOperateur controleursup = new CSupprimerOperateur(primaryStage, utilisateur, atelier, stockage);
             controleursup.afficher();
         });
     }

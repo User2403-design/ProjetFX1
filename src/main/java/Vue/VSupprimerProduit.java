@@ -15,34 +15,30 @@ import javafx.scene.layout.VBox;
  *
  * @author Justin
  */
-public class VSupprimerOperateur {
-
+public class VSupprimerProduit {
     private TextField nomField;
     private Button supprimerButton;
     private Button retourButton;
     private Label messageLabel;
     private Scene scene;
 
-    public VSupprimerOperateur() {
+    public VSupprimerProduit() {
         VBox vbox = new VBox(10);
         vbox.setPadding(new Insets(20));
-
-        Label instructionLabel = new Label("Entrez le code de l'opérateur à supprimer :");
+        Label instructionLabel = new Label("Entrez le code du produit à supprimer :");
         nomField = new TextField();
         supprimerButton = new Button("Supprimer");
         retourButton = new Button("Retour");
         messageLabel = new Label();
-
         vbox.getChildren().addAll(instructionLabel, nomField, supprimerButton, retourButton, messageLabel);
-
         scene = new Scene(vbox, 400, 300);
     }
-    
-    public void afficherMessage(String message) { //pour afficher un message indiquand à l'utilisateur si la suppression à eu lieu
+
+    public void afficherMessage(String message) { // pour afficher un message indiquant à l'utilisateur si la suppression a eu lieu
         messageLabel.setText(message);
     }
 
-    public TextField getNomOperateurField() {
+    public TextField getNomProduitField() {
         return nomField;
     }
 
@@ -61,5 +57,4 @@ public class VSupprimerOperateur {
     public Scene getScene() {
         return scene;
     }
-    
 }

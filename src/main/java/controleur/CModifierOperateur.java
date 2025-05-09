@@ -61,4 +61,9 @@ public class CModifierOperateur {
             controleurOperateur.afficherSectionOperateur();
         });
     }
+    public void afficher() {
+        primaryStage.setTitle("Modifier un Operateur");
+        primaryStage.setScene(vueModifier.getScene());
+        primaryStage.show();
+    }
 }
