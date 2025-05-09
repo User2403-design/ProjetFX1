@@ -76,8 +76,8 @@ public class CAjouterPoste {
     }
 
     private void retour() {
-        Cposte controleurPoste = new Cposte(primaryStage, utilisateur, atelier, stockage);
-        controleurPoste.afficherSectionPoste();
+        // Cposte controleurPoste = new Cposte(primaryStage, utilisateur, atelier, stockage);
+       // controleurPoste.afficherSectionPoste();
     }
 
     public void afficher() {

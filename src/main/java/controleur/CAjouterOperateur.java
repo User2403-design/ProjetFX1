@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
+
+
 import javafx.stage.Stage;
 import Modele.Operateur;
 import Modele.Stockage;
@@ -44,6 +46,8 @@ public class CAjouterOperateur {
                 System.out.println("Veuillez remplir tous les champs !");
                 return;
             }
+            Operateur nouvelOperateur = new Operateur (nom, prenom, code, true); // Etat initial = true
+                stockage.ajouterOperateur(nouvelOperateur);
 
             // Création de l'opérateur et ajout à la liste des opérateurs
             Operateur operateur = new Operateur(nom, prenom, code, true); // L'état initial est "true" (disponible)

@@ -4,7 +4,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-
 /**
  *
  * @author Justin
@@ -12,12 +11,72 @@ import javafx.scene.layout.VBox;
 public class VModifierOperateur {
     
     private TextField nomField; 
-    private TextField posteField;
-    private TextField etatField;
-    private TextField codeField;
+    private TextField NouvelEtatField;
+    private TextField NouveauPrenomField;
+    private TextField NouveauCodeField;
     private Button modifierButton;
     private Button retourButton;
     private Scene scene;
+
+    public TextField getNouveauPrenomField() {
+        return NouveauPrenomField;
+    }
+
+    public void setNouveauPrenomField(TextField NouveauPrenomField) {
+        this.NouveauPrenomField = NouveauPrenomField;
+    }
+   
+    
+
+    public TextField getNomField() {
+        return nomField;
+    }
+    
+
+    public void setNomField(TextField nomField) {
+        this.nomField = nomField;
+    }
+
+ 
+    public TextField getNouvelEtatField() {
+        return NouvelEtatField;
+    }
+
+    public void setNouvelEtatField(TextField NouvelEtatField) {
+        this.NouvelEtatField = NouvelEtatField;
+    }
+
+    public TextField getNouveauCodeField() {
+        return NouveauCodeField;
+    }
+
+    public void setNouveauCodeField(TextField NouveauCodeField) {
+        this.NouveauCodeField = NouveauCodeField;
+    }
+
+    public Button getModifierButton() {
+        return modifierButton;
+    }
+
+    public void setModifierButton(Button modifierButton) {
+        this.modifierButton = modifierButton;
+    }
+
+    public Button getRetourButton() {
+        return retourButton;
+    }
+
+    public void setRetourButton(Button retourButton) {
+        this.retourButton = retourButton;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
 
     public VModifierOperateur() {
         VBox layout = new VBox(10);
@@ -26,39 +85,31 @@ public class VModifierOperateur {
         nomField = new TextField();
         nomField.setPromptText("Nom de l'opérateur où vous souhaitez apporter des modifications");
 
+        NouveauPrenomField = new TextField();
+        NouveauPrenomField.setPromptText("Nouveau Nom de l'opérateur (Mariage/Divorce)");      
+       
+        NouvelEtatField = new TextField();
+        NouvelEtatField.setPromptText("Malade / En congé / Actif ");
         
-        posteField = new TextField();
-        posteField.setPromptText("Nouveau poste attribué ");
-                
-        etatField = new TextField();
-        etatField.setPromptText("Malade / En congé / Actif ");
-        
-        codeField = new TextField();
-        codeField.setPromptText("Nouveau code de l'opérateur");
+        NouveauCodeField = new TextField();
+        NouveauCodeField.setPromptText("Nouveau code de l'opérateur");
                 
         modifierButton = new Button("Modifier");
         retourButton = new Button("Retour");
         
        
         layout.getChildren().addAll(
-                posteField, 
+                NouveauPrenomField,
                 nomField, 
-                etatField,
-                codeField,
+                NouvelEtatField,
+                NouveauCodeField,
                 modifierButton,
                 retourButton);
         scene = new Scene(layout, 400, 500);
-    }
+    }}
 
-    public Scene getScene() { return scene; }
-    public TextField getidOperationField() { return posteField; }
-    public TextField getrefOperationField() { return nomField; }
-    public TextField getrefMachineField() { return etatField; }
-    public TextField getdureeOperation() { return codeField; }
-    public Button getModifierButton() { return modifierButton; }
-    public Button getRetourButton() { return retourButton; }
-
-}/*
+  
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */

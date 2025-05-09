@@ -48,8 +48,8 @@ public class CAcceuil {
         vueAccueil.getPoste().setOnAction(e -> {
             System.out.println("Cliqué sur Poste !");
             
-            Cposte controleurMach = new Cposte(primaryStage, utilisateur, atelier, stockage);        
-            controleurMach.afficherSectionPoste();
+            //Cposte controleurMach = new Cposte(primaryStage, utilisateur, atelier, stockage);        
+            //controleurMach.afficherSectionPoste();
             
         });
 
@@ -69,7 +69,13 @@ public class CAcceuil {
 
         vueAccueil.getOperateur().setOnAction(e -> {
             System.out.println("Cliqué sur Operateur !");
+            
+            COperateur controleurOP = new COperateur(primaryStage, utilisateur, atelier, stockage);        
+            controleurOP.afficherSectionOperateur();
         });
+            
+            
+       
 
         vueAccueil.getProduit().setOnAction(e -> {
             System.out.println("Cliqué sur Produit !");
