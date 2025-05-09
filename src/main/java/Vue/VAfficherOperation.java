@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package Vue;
 import Modele.Stockage;
 import javafx.scene.Scene;
@@ -13,8 +12,8 @@ import javafx.geometry.Insets;
  *
  * @author Justin
  */
-public class VAfficherOperateur {
-    private Scene sceneListeOperateurs;
+public class VAfficherOperation {
+    private Scene sceneListeOperations;
     private VBox vbox;
     private Label titre;
     private TextArea textArea;
@@ -22,25 +21,25 @@ public class VAfficherOperateur {
 
     
     
-    public VAfficherOperateur(String operateurs){
+    public VAfficherOperation(String operations){
         this.vbox = new VBox(10);
-        this.titre= new Label("Liste des Operateurs :");
-        this.textArea = new TextArea(operateurs);
+        this.titre= new Label("Liste des Opérations :");
+        this.textArea = new TextArea(operations);
         this.retourButton = new Button("Retour");
         
         vbox.setPadding(new Insets(10));//pour éviter que le contenu soit collé au conteneur
         textArea.setEditable(false);  // l'utilisateur ne pourra pas modifier
         textArea.setWrapText(true);
-        textArea.setText(operateurs);
-        //textArea.setText(stockage.afficherToutesLesOperateurs());
+        textArea.setText(operations);
+        //textArea.setText(stockage.afficherToutesLesMachines());
         vbox.getChildren().addAll(titre, textArea, retourButton);
 
-        sceneListeOperateurs = new Scene(vbox, 400, 400);
-        //primaryStage.setScene(sceneListeOperateurs);
+        sceneListeOperations = new Scene(vbox, 400, 400);
+        //primaryStage.setScene(sceneListeMachines);
     }
 
-    public Scene getSceneListeOperateurs() {
-        return sceneListeOperateurs;
+    public Scene getSceneListeOperations() {
+        return sceneListeOperations;
     }
 
     public VBox getVbox() {

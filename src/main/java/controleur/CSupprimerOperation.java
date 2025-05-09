@@ -4,10 +4,17 @@
  */
 package controleur;
 
+import Modele.Stockage;
+import Vue.VSupprimerOperateur;
+import javafx.stage.Stage;
+
 /**
  *
  * @author chloe
  */
 public class CSupprimerOperation {
-    
+ 
+
+      
+ 
 }

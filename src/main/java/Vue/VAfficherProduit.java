@@ -11,10 +11,10 @@ import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 /**
  *
- * @author Justin
+ * @author chloe
  */
-public class VAfficherOperateur {
-    private Scene sceneListeOperateurs;
+public class VAfficherProduit {
+    private Scene sceneListeProduits;
     private VBox vbox;
     private Label titre;
     private TextArea textArea;
@@ -22,25 +22,25 @@ public class VAfficherOperateur {
 
     
     
-    public VAfficherOperateur(String operateurs){
+    public VAfficherProduit(String produits){
         this.vbox = new VBox(10);
-        this.titre= new Label("Liste des Operateurs :");
-        this.textArea = new TextArea(operateurs);
+        this.titre= new Label("Liste des Produits :");
+        this.textArea = new TextArea(produits);
         this.retourButton = new Button("Retour");
         
         vbox.setPadding(new Insets(10));//pour éviter que le contenu soit collé au conteneur
         textArea.setEditable(false);  // l'utilisateur ne pourra pas modifier
         textArea.setWrapText(true);
-        textArea.setText(operateurs);
-        //textArea.setText(stockage.afficherToutesLesOperateurs());
+        textArea.setText(produits);
+        //textArea.setText(stockage.afficherToutesLesProduits());
         vbox.getChildren().addAll(titre, textArea, retourButton);
 
-        sceneListeOperateurs = new Scene(vbox, 400, 400);
-        //primaryStage.setScene(sceneListeOperateurs);
+        sceneListeProduits = new Scene(vbox, 400, 400);
+        //primaryStage.setScene(sceneListeProduits);
     }
 
-    public Scene getSceneListeOperateurs() {
-        return sceneListeOperateurs;
+    public Scene getSceneListeProduits() {
+        return sceneListeProduits;
     }
 
     public VBox getVbox() {
