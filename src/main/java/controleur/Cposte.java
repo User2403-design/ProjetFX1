@@ -55,7 +55,7 @@ public class Cposte {
         vuePoste.getAjouter().setOnAction(e -> {
             System.out.println("Cliqué sur Ajouter !");
             
-            CAjouterMachine controleurAjout = new CAjouterMachine(primaryStage, utilisateur, atelier, stockage);
+            CAjouterPoste controleurAjout = new CAjouterPoste(primaryStage, utilisateur, atelier, stockage);
             controleurAjout.afficher();
         });
 
