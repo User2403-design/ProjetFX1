@@ -62,6 +62,9 @@ public class CAcceuil {
 
         vueAccueil.getOperation().setOnAction(e -> {
             System.out.println("Cliqué sur Operation !");
+            
+            COperation controleurMach = new COperation(primaryStage, utilisateur, atelier, stockage);        
+            controleurMach.afficherSectionOperation();
         });
 
         vueAccueil.getOperateur().setOnAction(e -> {
