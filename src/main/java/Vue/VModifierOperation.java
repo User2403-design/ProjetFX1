@@ -41,7 +41,7 @@ public class VModifierOperation {
             new HBox(10, enregistrerButton, retourButton)
         );
 
-        scene = new Scene(layout, 400, 600);
+        scene = new Scene(layout, 500, 500);
     }
 
     public Scene getScene() { return scene; }

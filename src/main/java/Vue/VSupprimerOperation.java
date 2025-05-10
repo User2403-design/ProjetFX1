@@ -33,7 +33,7 @@ public class VSupprimerOperation {
         listeOperation.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); 
 
         vbox.getChildren().addAll(new Label("Sélectionner une opération à supprimer :"), listeOperation, supprimerButton, retourButton);
-        scene = new Scene(vbox, 400, 600);
+        scene = new Scene(vbox, 500, 400);
     }
     
     public void afficherMessage(String message) { //pour afficher un message indiquand à l'utilisateur si la suppression à eu lieu

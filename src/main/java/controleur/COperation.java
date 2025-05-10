@@ -49,7 +49,7 @@ public class COperation {
         vueOperation.getAjouter().setOnAction(e -> {
             System.out.println("Cliqué sur Ajouter !");
             
-            CAjouterOperateur controleurAjout = new CAjouterOperateur(primaryStage, utilisateur, atelier, stockage);
+            CAjouterOperation controleurAjout = new CAjouterOperation(primaryStage, utilisateur, atelier, stockage);
             controleurAjout.afficher();
         });
 
