@@ -163,6 +163,8 @@ public class Stockage {
         this.listeMachines = listeMachines;
     }
     
+    //methodes pour recherché un objet par sa référence
+    
     public Machine rechercherMachineParRef(String ref) {
     for (Machine m : listeMachines) {
         if (m.getRefmachine().equals(ref)) {
