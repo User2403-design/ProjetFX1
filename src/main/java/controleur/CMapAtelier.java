@@ -1,0 +1,33 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controleur;
+import javafx.stage.Stage;
+import Vue.VMapAtelier;
+import Modele.Machine;
+import Modele.Stockage;
+import java.util.List;
+
+/**
+ *
+ * @author Elève
+ */
+public class CMapAtelier {
+    
+    private Stage primaryStage;
+    private VMapAtelier vueMap;
+
+    public CMapAtelier(Stage primaryStage, Stockage stockage) {
+        this.primaryStage = primaryStage;
+        List<Machine> machines = stockage.getListeMachines(); // on récupère toutes les machines connues
+        vueMap = new VMapAtelier(machines);
+    }
+
+    public void afficher() {
+        primaryStage.setTitle("Carte de l'Atelier");
+        primaryStage.setScene(vueMap.getScene());
+        primaryStage.show();
+    }
+
+}
