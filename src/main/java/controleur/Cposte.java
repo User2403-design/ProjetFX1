@@ -56,7 +56,7 @@ public class Cposte {
 
         vuePoste.getSupprimer().setOnAction(e -> {
             System.out.println("Cliqué sur Supprimer !");
-            CSupprimerMachine controleurSup = new CSupprimerMachine(primaryStage, utilisateur, atelier, stockage);
+            CSupprimerPoste controleurSup = new CSupprimerPoste(primaryStage, utilisateur, atelier, stockage);
             controleurSup.afficher();
         });
     }
