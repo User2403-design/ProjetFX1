@@ -53,7 +53,7 @@ public class CModifierMachine {
                 vueModifier.getNouvelEtatField().setText(machineTrouvee.getEtat());
                 vueModifier.getNouveauTypeField().setText(machineTrouvee.getType());
 
-                // Quand l'utilisateur appuie sur "Modifier"
+                // Quand l'utilisateur appuie sur "Modifier" : récupère tout les attributs entrer par l'utilisateur dans les zones de textes
                 vueModifier.getModifierButton().setOnAction(modify -> {
                     String description = vueModifier.getNouvelleDescriptionField().getText();
                     float x = Float.parseFloat(vueModifier.getNouvelleXField().getText());
