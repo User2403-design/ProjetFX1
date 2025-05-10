@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-/*package Vue;
+package Vue;
 
 
 import javafx.geometry.Insets;
@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public class VModifierProduit {
+public class VModifierPoduit {
 
     private TextField codeRechercheField;     // Pour rechercher le produit à modifier
     private TextField nouveauCodeField;       // Nouveau code produit
@@ -20,7 +20,7 @@ public class VModifierProduit {
     private Button retourButton;
     private Scene scene;
 
-    public VModifierProduit() {
+    public VModifierPoduit() {
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20));
 
@@ -70,4 +70,4 @@ public class VModifierProduit {
     public Scene getScene() {
         return scene;
     }
-}*/
+}
