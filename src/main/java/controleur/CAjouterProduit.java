@@ -8,7 +8,7 @@
  * @author chloe
  */
 
-package controleur;
+/*package controleur;
 
 import javafx.stage.Stage;
 import Modele.Produit;
@@ -50,7 +50,7 @@ public class CAjouterProduit {
             Produit nouveauProduit = new Produit(nom, prenom, code, true); // Etat initial = true
             stockage.ajouterProduit(nouveauProduit);
 
-            // Création du produit et ajout à la liste des produits
+            Création du produit et ajout à la liste des produits
             Produit produit = new Produit(nom, prenom, code, true); // L'état initial est "true" (disponible)
             stockage.getListeProduits().add(produit);
             System.out.println("Produit ajouté avec succès !");
@@ -74,4 +74,4 @@ public class CAjouterProduit {
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
-}
+}*/

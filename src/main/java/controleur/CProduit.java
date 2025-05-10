@@ -51,8 +51,8 @@ public class CProduit {
         
         vueProduit.getAjouter().setOnAction(e -> {
             System.out.println("Cliqué sur Ajouter !");
-            CAjouterProduit controleurAjout = new CAjouterProduit(primaryStage, utilisateur, atelier, stockage);
-            controleurAjout.afficher();
+            ///CAjouterProduit controleurAjout = new CAjouterProduit(primaryStage, utilisateur, atelier, stockage);
+            ///controleurAjout.afficher();
         });
         
         vueProduit.getSupprimer().setOnAction(e -> {
