@@ -20,6 +20,7 @@ public class VSupprimerPoste {
     private Button retourButton;
     private VBox vbox;
     private Scene scene;
+    private Label messageLabel;
     
 
     public VSupprimerPoste() {
@@ -27,11 +28,16 @@ public class VSupprimerPoste {
         listePostes = new ListView<>();
         supprimerButton = new Button("Supprimer Poste");
         retourButton = new Button("Retour");
+        messageLabel = new Label();
         
         listePostes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); 
 
         vbox.getChildren().addAll(new Label("Sélectionner un poste à supprimer :"), listePostes, supprimerButton, retourButton);
         scene = new Scene(vbox, 400, 600);
+    }
+    
+    public void afficherMessage(String message) { //pour afficher un message indiquand à l'utilisateur si la suppression à eu lieu
+        messageLabel.setText(message);
     }
 
     public Scene getScene() { return scene; }
