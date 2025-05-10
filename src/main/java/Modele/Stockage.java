@@ -36,9 +36,6 @@ public class Stockage {
         this.listeMagDeBrut = new ArrayList<>();
         this.listePostes= new ArrayList();
         
-        //pas besoin je croit
-        //chargerDepuisFichier(); // charge le fichier pour contenir la liste des machines bien mis à jour même entre plusieurs session
-        //FichierMachine.sauvegarder(listeMachines); //enregistre les machines entré manuellement dans la liste, dans le fichier machine
         
         // Création des machines (équipements)
         Machine M1 = new Machine("M231", "Machine de découpe", 0f, 0f, 234f,"libre", "Découpe", LocalTime.now()); 
@@ -46,9 +43,9 @@ public class Stockage {
         Machine M3 = new Machine("M460", "Machine d'assemblage", 23.0f, 202f, 202f,"libre", "Assemblage", LocalTime.now());
         Machine M4 = new Machine ("M543", "Machine de fraisage", 12f, 3f, 120f,"libre", "Fraisage", LocalTime.now());
 
-        //ajout de la machine dans la liste des machines individuelle : sert à rien a cause du fichier
-        //this.listeMachines.add(M1);
-        //this.listeMachines.add(M2);
+        //ajout de la machine dans la liste des machines individuelle 
+        this.listeMachines.add(M1);
+        this.listeMachines.add(M2);
         
 
         // Initialisation de la liste de machines
@@ -106,14 +103,7 @@ public class Stockage {
        this.listeOperateurs.add(operateur1);
         
     }
-    
-    /*public void chargerDepuisFichier() {
-        listeMachines = FichierMachine.charger(); // retourne une liste
-    }
-
-    public void sauvegarderDansFichier() {
-        FichierMachine.sauvegarder(listeMachines); // envoie la liste
-    }*/
+   
     
     public ArrayList<Poste> getListePostes() {
         return listePostes;
@@ -188,7 +178,6 @@ public class Stockage {
     // Ajouter une machine
     public void ajouterMachine(Machine machine) {
         this.listeMachines.add(machine);
-        FichierMachine.sauvegarder(listeMachines); //sauvegarde dans le fichier machine l'ajout
     }
 
     // Ajouter un poste de travail
@@ -325,7 +314,6 @@ public class Stockage {
         }
         if (aSupprimer != null) {
             listeMachines.remove(aSupprimer);
-            FichierMachine.sauvegarder(listeMachines); //sauvegarde le changement dans le fichier machine
             System.out.println("Machine supprimée avec succès.");
             return true; // pour permettre au controleur de savoir si la suppression à été reussi ou non
         } else {
