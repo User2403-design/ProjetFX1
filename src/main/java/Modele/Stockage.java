@@ -174,6 +174,15 @@ public class Stockage {
     return null;
     }
     
+    public Poste rechercherPosteParRef(String ref) {
+    for (Poste p : listePostes) {
+        if (p.getRefposte().equals(ref)) { 
+            return p;
+        }
+    }
+    return null;
+}
+    
     // Méthodes pour ajouter des objets dans le stockage
 
     // Ajouter une machine
