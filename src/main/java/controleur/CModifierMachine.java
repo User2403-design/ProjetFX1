@@ -69,7 +69,7 @@ public class CModifierMachine {
                     stockage.supprimerMachine(ref); // Appel à la méthode pour supprimer la machine par référence
 
                     // Ajouter la nouvelle machine modifiée
-                    stockage.ajouterMachine(nouvelleMachine); // On rajoute la machine modifiée
+                    stockage.ajouterMachine(nouvelleMachine); //Appel à la methode pour ajouter une nouvelle machine dans le stockage
                 });
 
             } else {
