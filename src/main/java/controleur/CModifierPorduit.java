@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-/*package controleur;
+package controleur;
 
 import javafx.stage.Stage;
 import Modele.Produit;
@@ -30,7 +30,7 @@ public class CModifierPorduit {
 
     private void lancerActions() {
         vueModifier.getModifierButton().setOnAction(e -> {
-            String codeRecherche = vueModifier.getCodeProduitField().getText();
+            String codeRecherche = vueModifier.getNouveauCodeField().getText();
             Produit produitTrouve = null;
 
             for (Produit produit : stockage.getListeProduits()) {
@@ -41,8 +41,8 @@ public class CModifierPorduit {
             }
 
             if (produitTrouve != null) {
-                String nouveauCode = vueModifier.getCodeProduitField().getText();
-                String nouvelleDesignation = vueModifier.getDesignationProduitField().getText();
+                String nouveauCode = vueModifier.getNouveauCodeField().getText();
+                String nouvelleDesignation = vueModifier.getNouvelleDesignationField().getText();
 
                 if (!nouvelleDesignation.isEmpty()) {
                     produitTrouve.setdProduit(nouvelleDesignation);
@@ -65,4 +65,4 @@ public class CModifierPorduit {
         primaryStage.setScene(vueModifier.getScene());
         primaryStage.show();
     }
-}*/
+}

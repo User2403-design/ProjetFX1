@@ -5,11 +5,7 @@
 package Vue;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 /**
@@ -17,11 +13,10 @@ import javafx.scene.layout.VBox;
  * @author chloe
  */
 public class VAjouterProduit {
-
-    private TextField nomField;
-    private TextField prenomField; // À adapter si un produit n'a pas de "prénom"
+    private TextField designationField;
     private TextField codeField;
     private ListView<String> listeProduits;
+    private ListView<String> listeGammes; // Renommé proprement
     private Button ajouterButton;
     private Button retourButton;
     private VBox vbox;
@@ -30,30 +25,33 @@ public class VAjouterProduit {
     public VAjouterProduit() {
         vbox = new VBox(10);
 
-        // Champs de texte pour nom, prénom et code du produit
-        nomField = new TextField();
-        nomField.setPromptText("Nom du produit :");
-
-        prenomField = new TextField();
-        prenomField.setPromptText("Prénom du produit :"); // À adapter si non pertinent
+        // Champs de texte pour désignation et code du produit
+        designationField = new TextField();
+        designationField.setPromptText("Désignation du produit :");
 
         codeField = new TextField();
         codeField.setPromptText("Code du produit :");
 
-        // Liste des produits, si nécessaire pour afficher ceux déjà existants
+        // Liste des produits existants
         listeProduits = new ListView<>();
         listeProduits.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        // Boutons pour ajouter un produit et revenir à l'écran précédent
+        // Liste des gammes à associer
+        listeGammes = new ListView<>();
+        listeGammes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); // un produit -> une gamme
+        // tu peux aussi mettre MULTIPLE si tu veux plusieurs gammes par produit
+        listeGammes.setPlaceholder(new Label("Aucune gamme disponible"));
+
+        // Boutons
         ajouterButton = new Button("Ajouter Produit");
         retourButton = new Button("Retour");
 
-        // Mise en page avec labels et champs
+        // Mise en page
         vbox.getChildren().addAll(
-            new Label("Nom du produit :"), nomField,
-            new Label("Prénom du produit :"), prenomField,
             new Label("Code du produit :"), codeField,
-            new Label("Liste des produits :"), listeProduits,
+            new Label("Désignation du produit :"), designationField,
+            new Label("Gamme du produit :"), listeGammes,
+            new Label("Liste des produits existants :"), listeProduits,
             ajouterButton, retourButton
         );
 
@@ -61,25 +59,29 @@ public class VAjouterProduit {
         scene = new Scene(vbox, 400, 600);
     }
 
-    // Getters pour accéder aux éléments
+    // Getters
     public Scene getScene() {
         return scene;
     }
 
-    public TextField getNomField() {
-        return nomField;
-    }
-
-    public TextField getPrenomField() {
-        return prenomField;
+    public TextField getDesignationField() {
+        return designationField;
     }
 
     public TextField getCodeField() {
         return codeField;
     }
 
+    public VBox getVbox() {
+        return vbox;
+    }
+
     public ListView<String> getListeProduits() {
         return listeProduits;
+    }
+
+    public ListView<String> getListeGammes() {
+        return listeGammes;
     }
 
     public Button getAjouterButton() {
@@ -89,4 +91,5 @@ public class VAjouterProduit {
     public Button getRetourButton() {
         return retourButton;
     }
+    
 }
