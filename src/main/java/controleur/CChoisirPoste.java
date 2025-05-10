@@ -37,6 +37,7 @@ public class CChoisirPoste {
     private void lancerAction() {
         
         vue.getValiderButton().setOnAction(e -> {
+            
             String refChoisie = vue.getListePostes().getSelectionModel().getSelectedItem();
             if (refChoisie != null){
             Poste posteChoisi = stockage.rechercherPosteParRef(refChoisie);
