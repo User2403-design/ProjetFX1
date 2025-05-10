@@ -58,7 +58,7 @@ public class VModifierMachine {
         layout.getChildren().addAll(refMachineField, nouvelleDescriptionField, nouvelleXField, nouvelleYField,
                                     nouveauCoutField, nouvelEtatField, nouveauTypeField, modifierButton, retourButton);
 
-        scene = new Scene(layout, 400, 500);
+        scene = new Scene(layout, 600, 500);
     }
 
     public Scene getScene() { return scene; }
