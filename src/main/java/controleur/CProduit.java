@@ -42,7 +42,7 @@ public class CProduit {
 
         vueProduit.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            CModifierProduit controleurModif = new CModifierProduit(primaryStage, utilisateur, atelier, stockage);
+            CModifierPorduit controleurModif = new CModifierPorduit(primaryStage, utilisateur, atelier, stockage);
             controleurModif.afficher();
         });
 

@@ -69,9 +69,12 @@ public class CAcceuil {
 
         vueAccueil.getOperateur().setOnAction(e -> {
             System.out.println("Cliqué sur Operateur !");
-            
-           
+              
+            COperateur controleurPR = new COperateur(primaryStage, utilisateur, atelier, stockage);        
+            controleurPR.afficherSectionOperateur(); 
         });
+           
+        
             
             
        

@@ -12,16 +12,15 @@ import javafx.scene.Scene;
  * @author chloe
  */
 
-
 public class VOperateur {
 
-    private Button afficher;
-    private Button modifier;
-    private Button ajouter;
-    private Button supprimer;
-    private Button retour;
-    private VBox layout;
-
+    Button afficher;
+    Button modifier;
+    Button ajouter;
+    Button supprimer;
+    Button retour;
+    VBox layout;
+        
     public VOperateur() {
         afficher = new Button("Afficher les Opérateurs");
         modifier = new Button("Modifier Opérateur");

@@ -4,84 +4,83 @@
  */
 package Vue;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
-/**
- *
- * @author chloe
- */
 public class VAjouterProduit {
-    private TextField designationField;
-    private TextField codeField;
-    private ListView<String> listeProduits;
-    private ListView<String> listeGammes; // Renommé proprement
+    private TextField codeProduitField;
+    private TextField designationProduitField;
+    private ListView<String> listeGammesView;
     private Button ajouterButton;
     private Button retourButton;
-    private VBox vbox;
     private Scene scene;
 
     public VAjouterProduit() {
-        vbox = new VBox(10);
+        // Titre principal
+        Label titre = new Label("Ajouter un Produit");
+        titre.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        titre.setTextFill(Color.web("#2b4d70"));
 
-        // Champs de texte pour désignation et code du produit
-        designationField = new TextField();
-        designationField.setPromptText("Désignation du produit :");
+        // Champs de saisie
+        Label codeLabel = new Label("Code du produit :");
+        codeProduitField = new TextField();
+        codeProduitField.setPromptText("Ex : P001");
 
-        codeField = new TextField();
-        codeField.setPromptText("Code du produit :");
+        Label designationLabel = new Label("Désignation :");
+        designationProduitField = new TextField();
+        designationProduitField.setPromptText("Ex : Roulement, Arbre...");
 
-        // Liste des produits existants
-        listeProduits = new ListView<>();
-        listeProduits.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        Label gammeLabel = new Label("Sélectionner des gammes :");
+        listeGammesView = new ListView<>();
+        listeGammesView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        listeGammesView.setPrefHeight(150);
 
-        // Liste des gammes à associer
-        listeGammes = new ListView<>();
-        listeGammes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); // un produit -> une gamme
-        // tu peux aussi mettre MULTIPLE si tu veux plusieurs gammes par produit
-        listeGammes.setPlaceholder(new Label("Aucune gamme disponible"));
-
-        // Boutons
         ajouterButton = new Button("Ajouter Produit");
         retourButton = new Button("Retour");
 
-        // Mise en page
-        vbox.getChildren().addAll(
-            new Label("Code du produit :"), codeField,
-            new Label("Désignation du produit :"), designationField,
-            new Label("Gamme du produit :"), listeGammes,
-            new Label("Liste des produits existants :"), listeProduits,
-            ajouterButton, retourButton
-        );
+        // Mise en page avec GridPane pour alignement propre
+        GridPane formGrid = new GridPane();
+        formGrid.setHgap(10);
+        formGrid.setVgap(10);
+        formGrid.add(codeLabel, 0, 0);
+        formGrid.add(codeProduitField, 1, 0);
+        formGrid.add(designationLabel, 0, 1);
+        formGrid.add(designationProduitField, 1, 1);
+        formGrid.add(gammeLabel, 0, 2);
+        formGrid.add(listeGammesView, 1, 2);
 
-        // Création de la scène
-        scene = new Scene(vbox, 400, 600);
+        // Boutons centrés en bas
+        HBox buttonBox = new HBox(15, ajouterButton, retourButton);
+        buttonBox.setPadding(new Insets(10));
+        buttonBox.setStyle("-fx-alignment: center;");
+
+        // Layout principal
+        VBox root = new VBox(20, titre, formGrid, buttonBox);
+        root.setPadding(new Insets(30));
+        root.setStyle("-fx-background-color: #f2f7fc;");
+
+        scene = new Scene(root, 500, 450);
     }
 
-    // Getters
     public Scene getScene() {
         return scene;
     }
 
-    public TextField getDesignationField() {
-        return designationField;
-    }
-
     public TextField getCodeField() {
-        return codeField;
+        return codeProduitField;
     }
 
-    public VBox getVbox() {
-        return vbox;
+    public TextField getDesignationField() {
+        return designationProduitField;
     }
 
-    public ListView<String> getListeProduits() {
-        return listeProduits;
-    }
-
-    public ListView<String> getListeGammes() {
-        return listeGammes;
+    public ListView<String> getListeGammesView() {
+        return listeGammesView;
     }
 
     public Button getAjouterButton() {
@@ -91,5 +90,4 @@ public class VAjouterProduit {
     public Button getRetourButton() {
         return retourButton;
     }
-    
 }

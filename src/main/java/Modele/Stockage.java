@@ -380,12 +380,15 @@ public class Stockage {
          
      // afficher tous les produits 
          
-    public void afficherTousLesProduits() {
-        System.out.println("Produits disponibles :");
-        for (Produit p : listeProduits) {
-            p.afficherProduit();
-        }
+    public String afficherTousLesProduits() {
+       StringBuilder sb = new StringBuilder();
+        for (Produit produit : listeProduits) {
+        sb.append(produit.afficherProduit());
+        sb.append("\n----------------------\n");//pour avoir un affichage propre
     }
+    return sb.toString();
+}
+    
 
           // afficher tous les opérateurs 
     /*public void afficherTousLesOperateurs() {
@@ -394,6 +397,7 @@ public class Stockage {
             o.afficherOperateur();
         }
     }*/
+    
     public String afficherToutesLesOperateurs() {
         StringBuilder sb = new StringBuilder();
         for (Operateur operateur : listeOperateurs) {

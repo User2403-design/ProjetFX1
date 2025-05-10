@@ -5,67 +5,32 @@
 
 package Vue;
 
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 
 public class VAfficherProduit {
-
-    private TextField codeProduitField;
-    private TextField designationProduitField;
-    private ListView<String> listeProduits;
-    private Button ajouterButton;
+    private TextArea zoneAffichage;
     private Button retourButton;
     private VBox vbox;
-    private Scene scene;
+    private Scene sceneListeProduits;
 
-    public VAfficherProduit() {
+    public VAfficherProduit(String produits) {
         vbox = new VBox(10);
 
-        codeProduitField = new TextField();
-        codeProduitField.setPromptText("Code du produit :");
+        zoneAffichage = new TextArea(produits);
+        zoneAffichage.setEditable(false); // Lecture seule
 
-        designationProduitField = new TextField();
-        designationProduitField.setPromptText("Désignation du produit :");
-
-        listeProduits = new ListView<>();
-        listeProduits.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-        ajouterButton = new Button("Ajouter Produit");
         retourButton = new Button("Retour");
 
-        vbox.getChildren().addAll(
-            new Label("Code du produit :"), codeProduitField,
-            new Label("Désignation du produit :"), designationProduitField,
-            new Label("Liste des produits :"), listeProduits,
-            ajouterButton, retourButton
-        );
-
-        scene = new Scene(vbox, 400, 600);
+        vbox.getChildren().addAll(zoneAffichage, retourButton);
+        sceneListeProduits = new Scene(vbox, 500, 600);
     }
 
-    public Scene getScene() {
-        return scene;
-    }
-
-    public TextField getCodeProduitField() {
-        return codeProduitField;
-    }
-
-    public TextField getDesignationProduitField() {
-        return designationProduitField;
-    }
-
-    public ListView<String> getListeProduits() {
-        return listeProduits;
-    }
-
-    public Button getAjouterButton() {
-        return ajouterButton;
+    public Scene getSceneListeProduits() {
+        return sceneListeProduits;
     }
 
     public Button getRetourButton() {

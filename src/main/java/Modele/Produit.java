@@ -6,7 +6,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modele;
-import Modele.Gamme;
+
 import java.util.ArrayList;
 
 public class Produit {
@@ -17,13 +17,23 @@ public class Produit {
     public Produit(String codeProduit, String dProduit, ArrayList<Gamme> gammeselect) {
         this.codeProduit = codeProduit;
         this.dProduit = dProduit;
-        this.listeGamme = new ArrayList<>(gammeselect);
+        this.listeGamme = new ArrayList<>(gammeselect); // Copie pour éviter les effets de bord
     }
 
-    public void afficherProduit() {
+    
+    public String afficherProduit(){
+        return "Code Poduit: " + codeProduit+"\n"+"Designation " + dProduit+"\n"+"Gammes associées:"+ listeGamme;
+    }
+    
+   /* public void afficherProduit() {
         System.out.println("Code du produit : " + codeProduit);
         System.out.println("Désignation du produit : " + dProduit);
-    }
+        System.out.println("Gammes associées : ");
+        for (Gamme g : listeGamme) {
+            System.out.println(" - " + g.getRefGamme());
+        }
+       
+    }*/
 
     public String getCodeProduit() {
         return codeProduit;
@@ -31,6 +41,10 @@ public class Produit {
 
     public String getdProduit() {
         return dProduit;
+    }
+
+    public ArrayList<Gamme> getListeGamme() {
+        return listeGamme;
     }
 
     public void setCodeProduit(String codeProduit) {
@@ -41,9 +55,19 @@ public class Produit {
         this.dProduit = dProduit;
     }
 
-    // Pour affichage dans JavaFX ListView
+    public void setListeGamme(ArrayList<Gamme> listeGamme) {
+        this.listeGamme = listeGamme;
+    }
+
     @Override
     public String toString() {
-        return codeProduit + " - " + dProduit;
+        StringBuilder sb = new StringBuilder(codeProduit + " - " + dProduit + " | Gammes : ");
+        for (Gamme g : listeGamme) {
+            sb.append(g.getRefGamme()).append(", ");
+        }
+        if (!listeGamme.isEmpty()) {
+            sb.setLength(sb.length() - 2); // Retirer la virgule finale
+        }
+        return sb.toString();
     }
 }
