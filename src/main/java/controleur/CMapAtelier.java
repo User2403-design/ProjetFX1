@@ -17,11 +17,22 @@ public class CMapAtelier {
     
     private Stage primaryStage;
     private VMapAtelier vueMap;
+    private String utilisateur;
+    private String atelier;
+    private Stockage stockage;
 
     public CMapAtelier(Stage primaryStage, Stockage stockage) {
         this.primaryStage = primaryStage;
         List<Machine> machines = stockage.getListeMachines(); // on récupère toutes les machines connues
         vueMap = new VMapAtelier(machines);
+        
+        lancerAction(utilisateur, atelier);
+    }
+    
+    private void lancerAction(String utilisateur, String atelier){
+        vueMap.getRetour().setOnAction(e -> {
+            CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage); 
+        });
     }
 
     public void afficher() {
