@@ -76,4 +76,8 @@ public class VMapAtelier {
         return scene;
     }
 
+    public Button getRetour() {
+        return retour;
+    }
+
 }
