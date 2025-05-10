@@ -41,8 +41,8 @@ public class CAfficherPoste {
         
         vueAfficher.getRetourButton().setOnAction(e -> {
             
-           // Cposte controleurPoste = new Cposte(primaryStage, utilisateur, atelier, stockage);
-           // controleurPoste.afficherSectionPoste();
+           Cposte controleurPoste = new Cposte(primaryStage, utilisateur, atelier, stockage);
+           controleurPoste.afficherSectionPoste();
         });
     }
 
