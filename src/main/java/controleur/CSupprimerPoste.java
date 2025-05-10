@@ -27,11 +27,11 @@ public class CSupprimerPoste {
         this.atelier = atelier;
         this.vue = new VSupprimerPoste();
 
-        initialiserListe();
+        remplirListe();
         lancerActions();
     }
 
-    private void initialiserListe() {
+    private void remplirListe() {
         for (Poste p : stockage.getListePostes()) {
             vue.getListePostes().getItems().add(p.getRefEquipement());
         }
