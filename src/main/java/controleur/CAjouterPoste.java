@@ -53,9 +53,9 @@ public class CAjouterPoste {
             ArrayList<Machine> machineSelect = new ArrayList<>(); // liste qui va contenir les machines selectionnées par l'utilisateur pour crée un poste
             
             //parcourt toute les machines du stockages pour ajouter leur référence à la listView
-            /*for (Machine m : stockage.getListeMachines()) {
+            for (Machine m : stockage.getListeMachines()) {
                  vue.getListeMachines().getItems().add(m.getRefmachine());
-            }*/
+            }
             
             for (String refMachine : vue.getListeMachines().getSelectionModel().getSelectedItems()) { //parcourt les références des machines selectionnées dans la vue
                 for (Machine machine : stockage.getListeMachines()) { // pour chaque référence selectionnées, on cherche la machine correspondante
