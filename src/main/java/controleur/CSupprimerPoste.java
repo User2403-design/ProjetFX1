@@ -4,8 +4,9 @@
  */
 package controleur;
 
-import Modele.Stockage;
 import Vue.VSupprimerPoste;
+import Modele.Stockage;
+import Modele.Poste;
 import javafx.stage.Stage;
 
 /**
@@ -14,40 +15,56 @@ import javafx.stage.Stage;
  */
 public class CSupprimerPoste {
     private Stage primaryStage;
-    private VSupprimerPoste vueSupprimer;
+    private Stockage stockage;
     private String utilisateur;
     private String atelier;
-    private Stockage stockage;
+    private VSupprimerPoste vue;
 
     public CSupprimerPoste(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
         this.primaryStage = primaryStage;
+        this.stockage = stockage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
-        this.stockage = stockage;
+        this.vue = new VSupprimerPoste();
 
-        this.vueSupprimer = new VSupprimerPoste();
+        initialiserListe();
         lancerActions();
     }
 
+    private void initialiserListe() {
+        for (Poste p : stockage.getListePostes()) {
+            vue.getListePostes().getItems().add(p.getRefEquipement());
+        }
+    }
+
     private void lancerActions() {
-        vueSupprimer.getRetourButton().setOnAction(e -> {
-            Cposte controleurPoste = new Cposte(primaryStage, utilisateur, atelier, stockage);
-            controleurPoste.afficherSectionPoste();
+        vue.getSupprimerButton().setOnAction(e -> {
+            String refSelectionnee = vue.getListePostes().getSelectionModel().getSelectedItem();
+            if (refSelectionnee != null) {
+                stockage.supprimerPoste(refSelectionnee);
+                vue.getListePostes().getItems().remove(refSelectionnee);
+                System.out.println("Poste supprimé !");
+            } else {
+                System.out.println("Veuillez sélectionner un poste.");
+            }
         });
 
-        vueSupprimer.getSupprimerButton().setOnAction(e -> {
-            String refPoste = vueSupprimer.getRefPosteField().getText();
-            if (stockage.supprimerMachine(refMachine)) {
-                vueSupprimer.afficherMessage("Machine supprimée avec succès !");
-            } else {
-                vueSupprimer.afficherMessage("Machine non trouvée.");
-            }
+        vue.getRetourButton().setOnAction(e -> {
+            Cposte cPoste = new Cposte(primaryStage, utilisateur, atelier, stockage);
+            cPoste.afficherSectionPoste();
         });
     }
 
+    /*private void afficherMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }*/
+
     public void afficher() {
-        primaryStage.setTitle("Supprimer une Machine");
-        primaryStage.setScene(vueSupprimer.getScene());
+        primaryStage.setTitle("Supprimer Poste");
+        primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
 }
