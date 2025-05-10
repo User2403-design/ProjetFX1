@@ -38,6 +38,7 @@ public class CSupprimerPoste {
     }
 
     private void lancerActions() {
+        
         vue.getSupprimerButton().setOnAction(e -> {
             String refSelectionnee = vue.getListePostes().getSelectionModel().getSelectedItem();
             if (refSelectionnee != null) {
