@@ -40,11 +40,12 @@ public class Cposte {
             CAfficherPoste controleurAff = new CAfficherPoste(primaryStage, utilisateur, atelier, stockage );
             controleurAff.afficher();
         });
+        
 
         vuePoste.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            //CModifierMachine controleurModif = new CModifierMachine(primaryStage, utilisateur, atelier, stockage);
-            //controleurModif.afficher();
+            CChoisirPoste controleurChoisir = new CChoisirPoste(primaryStage, utilisateur, atelier, stockage);
+            controleurChoisir.afficher();
         });
 
         vuePoste.getAjouter().setOnAction(e -> {
