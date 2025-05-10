@@ -2,17 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controleur;
+
+/**
+ *
+ * @author chloe
+ */
+/*package controleur;
 
 import Modele.Stockage;
 import Vue.VSupprimerProduit;
 import javafx.stage.Stage;
 import Modele.Produit;
 
-/**
- *
- * @author chloe
- */
+
 public class CSupprimerProduit {
     private Stage primaryStage;
     private VSupprimerProduit vueSupprimer;
@@ -50,4 +52,4 @@ public class CSupprimerProduit {
         primaryStage.setScene(vueSupprimer.getScene());
         primaryStage.show();
     }
-}
+}*/
