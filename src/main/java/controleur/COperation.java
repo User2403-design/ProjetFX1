@@ -46,18 +46,18 @@ public class COperation {
             controleurModif.afficher();
         });
 
-        vueOperateur.getAjouter().setOnAction(e -> {
+        vueOperation.getAjouter().setOnAction(e -> {
             System.out.println("Cliqué sur Ajouter !");
             
             CAjouterOperateur controleurAjout = new CAjouterOperateur(primaryStage, utilisateur, atelier, stockage);
             controleurAjout.afficher();
         });
-
-        vueOperateur.getSupprimer().setOnAction(e -> {
+*/
+        vueOperation.getSupprimer().setOnAction(e -> {
             System.out.println("Cliqué sur Supprimer !");
-            CSupprimerOperateur controleurSup = new CSupprimerOperateur(primaryStage, utilisateur, atelier, stockage);
+            CSupprimerOperation controleurSup = new CSupprimerOperation(primaryStage, utilisateur, atelier, stockage);
             controleurSup.afficher();
-        });*/
+        });    
     }
 
     public void afficherSectionOperation() {
