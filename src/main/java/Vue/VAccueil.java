@@ -20,7 +20,7 @@ public class VAccueil {
     private VBox vbox;
     private Label bienvenue;
     private Button deconnexion;
-    private Button machine, poste, gamme, operation, operateur, produit, fiabilite;
+    private Button machine, poste, gamme, operation, operateur, produit, fiabilite, map;
 
     public VAccueil(String utilisateur, String atelier) {
         // Création de la mise en page principale
@@ -46,9 +46,10 @@ public class VAccueil {
         operateur = new Button("Opérateur");
         produit = new Button("Produit");
         fiabilite = new Button("Fiabilité");
+        map = new Button("Carte de l'Atelier");
 
         // Style commun aux boutons
-        Button[] boutons = {machine, poste, gamme, operation, operateur, produit, fiabilite};
+        Button[] boutons = {machine, poste, gamme, operation, operateur, produit, fiabilite, map};
         for (Button b : boutons) {
             b.setStyle(
                 "-fx-background-color: #dceefc;" +
@@ -62,7 +63,7 @@ public class VAccueil {
         }
 
         ligne1.getChildren().addAll(machine, poste, gamme, operation);
-        ligne2.getChildren().addAll(operateur, produit, fiabilite);
+        ligne2.getChildren().addAll(operateur, produit, fiabilite, map);
 
         // Bouton de déconnexion
         deconnexion = new Button("Déconnexion");
@@ -92,4 +93,6 @@ public class VAccueil {
     public Button getOperateur() { return operateur; }
     public Button getProduit() { return produit; }
     public Button getFiabilite() { return fiabilite; }
+    public Button getMap() { return map;}
+    
 }
