@@ -88,6 +88,12 @@ public class CAcceuil {
         vueAccueil.getFiabilite().setOnAction(e -> {
             System.out.println("Cliqué sur Fiabilité !");
         });
+        
+        vueAccueil.getMap().setOnAction(e-> {
+            System.out.println("Cliqué sur Map !");
+            CMapAtelier controleurMap = new CMapAtelier(primaryStage, stockage);
+            controleurMap.afficher();
+        });
     }
 
     public void afficherAccueil() {
