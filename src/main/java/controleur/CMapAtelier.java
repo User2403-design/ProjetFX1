@@ -25,6 +25,7 @@ public class CMapAtelier {
         this.primaryStage = primaryStage;
         List<Machine> machines = stockage.getListeMachines(); // on récupère toutes les machines connues
         vueMap = new VMapAtelier(machines);
+        this.stockage = stockage;
         
         lancerAction(utilisateur, atelier);
     }
