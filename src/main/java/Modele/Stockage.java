@@ -163,6 +163,15 @@ public class Stockage {
         this.listeMachines = listeMachines;
     }
     
+    public Machine rechercherMachineParRef(String ref) {
+    for (Machine m : listeMachines) {
+        if (m.getRefmachine().equals(ref)) {
+            return m;
+        }
+    }
+    return null;
+    }
+    
     // Méthodes pour ajouter des objets dans le stockage
 
     // Ajouter une machine
