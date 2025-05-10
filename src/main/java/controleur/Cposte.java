@@ -43,8 +43,8 @@ public class Cposte {
 
         vuePoste.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            CModifierMachine controleurModif = new CModifierMachine(primaryStage, utilisateur, atelier, stockage);
-            controleurModif.afficher();
+            //CModifierMachine controleurModif = new CModifierMachine(primaryStage, utilisateur, atelier, stockage);
+            //controleurModif.afficher();
         });
 
         vuePoste.getAjouter().setOnAction(e -> {
