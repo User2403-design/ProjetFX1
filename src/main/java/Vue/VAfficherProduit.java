@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package Vue;
+/*package Vue;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -71,4 +71,4 @@ public class VAjouterProduit {
     public Button getRetourButton() {
         return retourButton;
     }
-}
+}*/
