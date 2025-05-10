@@ -2,26 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-/*package controleur;
+
+package controleur;
 
 import javafx.stage.Stage;
 import Modele.Produit;
 import Modele.Stockage;
-import Vue.VModifierProduit;
+import Vue.VModifierPoduit;
 
 public class CModifierPorduit {
     private Stage primaryStage;
     private String utilisateur;
     private String atelier;
     private Stockage stockage;
-    private VModifierProduit vueModifier;
+    private VModifierPoduit vueModifier;
 
     public CModifierPorduit(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
         this.primaryStage = primaryStage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.stockage = stockage;
-        this.vueModifier = new VModifierProduit();
+        this.vueModifier = new VModifierPoduit();
         lancerActions();
         primaryStage.setScene(vueModifier.getScene());
         primaryStage.show();
@@ -64,4 +65,4 @@ public class CModifierPorduit {
         primaryStage.setScene(vueModifier.getScene());
         primaryStage.show();
     }
-}*/
+}
