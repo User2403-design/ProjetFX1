@@ -174,6 +174,14 @@ public class Stockage {
     }
     return null;
 }
+    public Operation rechercherOperationParRef(String ref) {
+            for (Operation op : listeOperations) {
+                if (op.getRefOperation().equals(ref)) {
+            return op;
+        }
+    }
+    return null; // pas trouvé
+}
     
     // Méthodes pour ajouter des objets dans le stockage
 

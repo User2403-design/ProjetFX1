@@ -40,9 +40,9 @@ public class COperation {
             controleurAff.afficher();
         });
 
-        /*vueOperation.getModifier().setOnAction(e -> {
+        vueOperation.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            CModifierOperation controleurModif = new CModifierOperation(primaryStage, utilisateur, atelier, stockage);
+            CChoisirOperation controleurModif = new CChoisirOperation(primaryStage, utilisateur, atelier, stockage);
             controleurModif.afficher();
         });
 
@@ -52,7 +52,7 @@ public class COperation {
             CAjouterOperateur controleurAjout = new CAjouterOperateur(primaryStage, utilisateur, atelier, stockage);
             controleurAjout.afficher();
         });
-*/
+
         vueOperation.getSupprimer().setOnAction(e -> {
             System.out.println("Cliqué sur Supprimer !");
             CSupprimerOperation controleurSup = new CSupprimerOperation(primaryStage, utilisateur, atelier, stockage);
