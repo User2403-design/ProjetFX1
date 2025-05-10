@@ -71,4 +71,4 @@ public class VAjouterProduit {
     public Button getRetourButton() {
         return retourButton;
     }
-}oui
+}
