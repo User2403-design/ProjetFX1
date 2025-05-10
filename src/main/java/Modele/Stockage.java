@@ -81,8 +81,8 @@ public class Stockage {
         this.listeOperations.add(op6);
 
         // Création des gammes
-        Gamme gammeChassis = new Gamme("G001", new ArrayList<>(Arrays.asList(op1, op2, op3)), new ArrayList<>(Arrays.asList(M1, M2, M3)));
-        Gamme gammePince = new Gamme("G002", new ArrayList<>(Arrays.asList(op4, op5, op6)), new ArrayList<>(Arrays.asList(M1, M2, M3)));
+        Gamme gammeChassis = new Gamme("G001", new ArrayList<>(Arrays.asList(op1, op2, op3)));
+        Gamme gammePince = new Gamme("G002", new ArrayList<>(Arrays.asList(op4, op5, op6)));
 
         this.listeGammes.add(gammeChassis);
         this.listeGammes.add(gammePince);
