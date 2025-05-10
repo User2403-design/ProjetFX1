@@ -8,7 +8,7 @@
  * @author chloe
  */
 
-/*package controleur;
+package controleur;
 
 import Vue.VProduit;
 import javafx.stage.Stage;
@@ -18,7 +18,7 @@ import Modele.Produit;
 
 
 public class CProduit {
-    private Stage primaryStage;
+    /*private Stage primaryStage;
     private VProduit vueProduit;
     private Stockage stockage;
     
@@ -66,5 +66,5 @@ public class CProduit {
         primaryStage.setTitle("Section Produit");
         primaryStage.setScene(vueProduit.getScene());
         primaryStage.show();
-    }
-}*/
+    }*/
+}
