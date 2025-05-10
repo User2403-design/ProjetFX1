@@ -32,7 +32,7 @@ public class VSupprimerPoste {
         
         listePostes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); 
 
-        vbox.getChildren().addAll(new Label("Sélectionner un poste à supprimer :"), listePostes, supprimerButton, retourButton);
+        vbox.getChildren().addAll(new Label("Sélectionner un poste à supprimer :"), listePostes, supprimerButton, retourButton, messageLabel);
         scene = new Scene(vbox, 400, 600);
     }
     
