@@ -36,6 +36,7 @@ public class CModifierPoste {
         lancerActions();
     }
 
+    //remplit les zones de texte avec la reference et la désignation du Poste selectionné en vu de les modifiers
     private void remplirChamps() {
         vue.getRefField().setText(posteAModifier.getRefposte());
         vue.getDesignationField().setText(posteAModifier.getDposte());
