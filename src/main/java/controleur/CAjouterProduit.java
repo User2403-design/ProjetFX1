@@ -8,7 +8,7 @@
  * @author chloe
  */
 
-/*package controleur;
+package controleur;
 
 import javafx.stage.Stage;
 import Modele.Produit;
@@ -74,4 +74,4 @@ public class CAjouterProduit {
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
-}*/
+}

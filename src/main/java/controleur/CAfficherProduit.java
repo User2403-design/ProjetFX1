@@ -7,7 +7,7 @@
  * @author chloe
  */
 
-/*package controleur;
+package controleur;
 
 import Vue.VAfficherProduit;
 import javafx.stage.Stage;
@@ -48,4 +48,4 @@ public class CAfficherProduit {
         primaryStage.setScene(vueAfficher.getSceneListeProduits());
         primaryStage.show();
     }
-}*/
+}
