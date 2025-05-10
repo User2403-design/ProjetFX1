@@ -36,10 +36,11 @@ public class Operation {
     
     sb.append("Reference Operation : ").append(refOperation).append("\n");
     sb.append("Designation : ").append(idOperation).append("\n");
+    sb.append("Durée de l'opération : (en minutes) ").append(dureeOperation).append("\n");
     sb.append("--------\n");
     
     if (refEquipement != null){
-        sb.append(refEquipement.afficherEquipement()).append("/n");
+        sb.append(refEquipement.afficherEquipement()).append("\n");
     }else {
         sb.append("Aucun équipement assigné.\n");
     }
