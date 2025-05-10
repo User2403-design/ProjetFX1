@@ -36,6 +36,7 @@ public class CModifierMachine {
             String ref = vueModifier.getRefMachineField().getText();
             Machine machineTrouvee = null;
 
+            //A MODIFIER AVEC LA NOUVELLE METHODE RECHERCHE PAR REF dans stockage 
             // Trouver la machine par la référence
             for (Machine machine : stockage.getListeMachines()) {
                 if (machine.getRefmachine().equals(ref)) {
