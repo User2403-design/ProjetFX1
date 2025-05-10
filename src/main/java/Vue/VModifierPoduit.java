@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Vue;
+/*package Vue;
 
 
 import javafx.geometry.Insets;
@@ -70,4 +70,4 @@ public class VModifierProduit {
     public Scene getScene() {
         return scene;
     }
-}
+}*/
