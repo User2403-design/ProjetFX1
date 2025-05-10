@@ -10,6 +10,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import Modele.Machine;
 import java.util.List;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -17,13 +19,19 @@ import java.util.List;
  */
 public class VMapAtelier {
     
+    private VBox vbox;
     private Pane pane;
     private Scene scene;
+    private Button retour;
 
     public VMapAtelier(List<Machine> machines) {
+        vbox = new VBox(10); //pour mettre la carte et le bouton retour en collonne
         pane = new Pane();
-        afficherMachines(machines);
         scene = new Scene(pane, 1000, 800); 
+        retour = new Button();
+        afficherMachines(machines);
+        vbox.getChildren().addAll(pane, retour);
+        scene = new Scene(vbox, 1000, 800);
     }
 
     private void afficherMachines(List<Machine> machines) {
