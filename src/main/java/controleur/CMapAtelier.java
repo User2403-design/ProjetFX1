@@ -32,6 +32,7 @@ public class CMapAtelier {
     private void lancerAction(String utilisateur, String atelier){
         vueMap.getRetour().setOnAction(e -> {
             CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage); 
+            controleurAcc.afficherAccueil();
         });
     }
 
