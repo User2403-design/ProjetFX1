@@ -33,7 +33,7 @@ public class VSupprimerPoste {
         listePostes.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); 
 
         vbox.getChildren().addAll(new Label("Sélectionner un poste à supprimer :"), listePostes, supprimerButton, retourButton, messageLabel);
-        scene = new Scene(vbox, 400, 600);
+        scene = new Scene(vbox, 600, 300);
     }
     
     public void afficherMessage(String message) { //pour afficher un message indiquand à l'utilisateur si la suppression à eu lieu
