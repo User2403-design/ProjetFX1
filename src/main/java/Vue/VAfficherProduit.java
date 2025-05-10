@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-/*package Vue;
+package Vue;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,7 +13,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public class VAjouterProduit {
+public class VAfficherProduit {
 
     private TextField codeProduitField;
     private TextField designationProduitField;
@@ -23,7 +23,7 @@ public class VAjouterProduit {
     private VBox vbox;
     private Scene scene;
 
-    public VAjouterProduit() {
+    public VAfficherProduit() {
         vbox = new VBox(10);
 
         codeProduitField = new TextField();
@@ -71,4 +71,4 @@ public class VAjouterProduit {
     public Button getRetourButton() {
         return retourButton;
     }
-}*/
+}
