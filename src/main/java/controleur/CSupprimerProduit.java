@@ -7,7 +7,7 @@
  *
  * @author chloe
  */
-/*package controleur;
+package controleur;
 
 import Modele.Stockage;
 import Vue.VSupprimerProduit;
@@ -52,4 +52,4 @@ public class CSupprimerProduit {
         primaryStage.setScene(vueSupprimer.getScene());
         primaryStage.show();
     }
-}*/
+}
