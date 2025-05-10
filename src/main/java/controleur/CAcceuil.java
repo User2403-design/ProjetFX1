@@ -55,6 +55,8 @@ public class CAcceuil {
 
         vueAccueil.getGamme().setOnAction(e -> {
             System.out.println("Cliqué sur Gamme !");
+            CGamme controleurPoste = new CGamme(primaryStage, utilisateur, atelier, stockage);        
+            controleurPoste.afficherSectionGamme();
             
             
             
