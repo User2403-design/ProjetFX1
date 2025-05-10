@@ -33,7 +33,7 @@ public class VAjouterProduit {
 
         Label designationLabel = new Label("Désignation :");
         designationProduitField = new TextField();
-        designationProduitField.setPromptText("Ex : Roulement, Arbre...");
+        designationProduitField.setPromptText("Ex : Perceuse, Scie...");
 
         Label gammeLabel = new Label("Sélectionner des gammes :");
         listeGammesView = new ListView<>();

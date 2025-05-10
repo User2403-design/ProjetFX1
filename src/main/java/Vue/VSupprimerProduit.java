@@ -31,15 +31,14 @@ public class VSupprimerProduit {
         vbox.setPadding(new Insets(20));
 
         // Initialisation des éléments
-        Label instructionLabel = new Label("Entrez le code du produit à supprimer :");
-        nomField = new TextField();
+       
         supprimerButton = new Button("Supprimer");
         retourButton = new Button("Retour");
         messageLabel = new Label();
         listeProduits = new ListView<>(); // Initialisation de la ListView pour afficher les produits
 
         // Ajout des éléments au layout
-        vbox.getChildren().addAll(instructionLabel, nomField, supprimerButton, retourButton, listeProduits, messageLabel);
+        vbox.getChildren().addAll(supprimerButton, retourButton, listeProduits, messageLabel);
 
         // Création de la scène
         scene = new Scene(vbox, 400, 300);
