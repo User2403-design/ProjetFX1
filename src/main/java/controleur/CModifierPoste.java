@@ -12,10 +12,6 @@ import javafx.stage.Stage;
 /**
  *
  * @author Elèveimport Modele.Machine;
-import Modele.Poste;
-import Modele.Stockage;
-import Vue.VModifierPoste;
-import javafx.stage.Stage;
  */
 public class CModifierPoste {
     
