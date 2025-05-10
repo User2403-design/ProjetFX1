@@ -34,16 +34,16 @@ public class CModifierMachine {
     private void lancerActions() {
         vueModifier.getModifierButton().setOnAction(e -> {
             String ref = vueModifier.getRefMachineField().getText();
-            Machine machineTrouvee = stockage.rechercherMachineParRef(ref);
+            Machine machineTrouvee = null; //stockage.rechercherMachineParRef(ref);
 
             //A MODIFIER AVEC LA NOUVELLE METHODE RECHERCHE PAR REF dans stockage 
             // Trouver la machine par la référence
-            /*for (Machine machine : stockage.getListeMachines()) {
+            for (Machine machine : stockage.getListeMachines()) {
                 if (machine.getRefmachine().equals(ref)) {
                     machineTrouvee = machine;
                     break;
                 }
-            }*/
+            }
 
             if (machineTrouvee != null) {
                 // Afficher les informations existantes dans les champs
