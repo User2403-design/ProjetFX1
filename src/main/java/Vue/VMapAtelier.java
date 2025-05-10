@@ -28,7 +28,7 @@ public class VMapAtelier {
         vbox = new VBox(10); //pour mettre la carte et le bouton retour en collonne
         pane = new Pane();
         scene = new Scene(pane, 1000, 800); 
-        retour = new Button();
+        retour = new Button("Retour");
         afficherMachines(machines);
         vbox.getChildren().addAll(pane, retour);
         scene = new Scene(vbox, 1000, 800);
