@@ -43,9 +43,9 @@ public class CSupprimerPoste {
             if (refSelectionnee != null) {
                 stockage.supprimerPoste(refSelectionnee);
                 vue.getListePostes().getItems().remove(refSelectionnee);
-                System.out.println("Poste supprimé !");
+                vue.afficherMessage("Poste supprimé !");
             } else {
-                System.out.println("Veuillez sélectionner un poste.");
+                vue.afficherMessage("Veuillez sélectionner un poste.");
             }
         });
 
@@ -55,12 +55,6 @@ public class CSupprimerPoste {
         });
     }
 
-    /*private void afficherMessage(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setContentText(message);
-        alert.showAndWait();
-    }*/
 
     public void afficher() {
         primaryStage.setTitle("Supprimer Poste");
