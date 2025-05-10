@@ -2,16 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controleur;
+/**
+ *
+ * @author chloe
+ */
+
+/*package controleur;
 
 import Vue.VAfficherProduit;
 import javafx.stage.Stage;
 import Modele.Stockage;
 
-/**
- *
- * @author chloe
- */
+
 public class CAfficherProduit {
 
     private Stage primaryStage;
@@ -46,4 +48,4 @@ public class CAfficherProduit {
         primaryStage.setScene(vueAfficher.getSceneListeProduits());
         primaryStage.show();
     }
-}
+}*/

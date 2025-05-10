@@ -3,7 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package controleur;
+/**
+ *
+ * @author chloe
+ */
+
+/*package controleur;
 
 import javafx.stage.Stage;
 import Modele.Produit;
@@ -11,10 +16,7 @@ import Modele.Stockage;
 import Vue.VAjouterProduit;
 import javafx.stage.Stage;
 
-/**
- *
- * @author chloe
- */
+
 public class CAjouterProduit {
 
     private Stage primaryStage;
@@ -72,4 +74,4 @@ public class CAjouterProduit {
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
-}
+}*/
