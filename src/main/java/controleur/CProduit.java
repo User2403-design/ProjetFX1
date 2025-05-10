@@ -39,14 +39,14 @@ public class CProduit {
         
         vueProduit.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher!");
-            CAfficherProduit controleurModif = new CAfficherProduit(primaryStage, utilisateur, atelier, stockage);
-            controleurModif.afficher();  
+            ///CAfficherProduit controleurModif = new CAfficherProduit(primaryStage, utilisateur, atelier, stockage);
+            ///controleurModif.afficher();  
         });
         
         vueProduit.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            CModifierPorduit controleurModif = new CModifierPorduit(primaryStage, utilisateur, atelier, stockage);
-            controleurModif.afficher();
+            ///CModifierPorduit controleurModif = new CModifierPorduit(primaryStage, utilisateur, atelier, stockage);
+            ///controleurModif.afficher();
         });
         
         vueProduit.getAjouter().setOnAction(e -> {
