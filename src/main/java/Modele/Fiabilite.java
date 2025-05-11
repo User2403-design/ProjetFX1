@@ -23,8 +23,8 @@ public class Fiabilite {
 }
     public void analyser(List<Evenement> ev) {
         for (Evenement e : ev) {
-            String machine = e.getMachine();// récupère le nom de la machine et le type d'evenement 
-            char type = e.getTypeEv(); //.toUpperCase(); que si de type String
+            String machine = e.getMachine();// récupère le nom de la machine  
+            char type = e.getTypeEv(); //.toUpperCase(); que si de type String //récupère le type d'evenement
 
             if (type=='A') {
                 arretsEnCours.put(machine, e); // stocke l'ev avec sa machine associé si c'est un arrêt
