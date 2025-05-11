@@ -34,7 +34,7 @@ public class Gamme {
     public String afficherGamme() {
         StringBuilder sb = new StringBuilder(); // Va contenir sous forme de texte l'affichage d'une gamme pour ensuite être affiché dans l'interface
 
-        sb.append("Reference Poste : ").append(refGamme).append("\n");
+        sb.append("Reference Gamme : ").append(refGamme).append("\n");
 
         for (Equipement e : equipements) {
             sb.append(e.afficherEquipement()).append("\n");
@@ -48,7 +48,7 @@ public class Gamme {
             sb.append(op.getDureeOperation());
             sb.append(" minutes, Equipement utilisé : ");
             sb.append(op.getRefEquipement());
-            sb.append("--------\n");
+            sb.append("==============\n");
         }
 
         return sb.toString();
