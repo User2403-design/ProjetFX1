@@ -12,7 +12,7 @@ import java.io.IOException;
  *
  * @author Elève
  */
-public class CAjouterEvenement {
+/*public class CAjouterEvenement {
     
     private Stage primaryStage;
     private VAjouterEvenement vue;
@@ -71,4 +71,4 @@ public class CAjouterEvenement {
         primaryStage.show();
     }
 
-}
+}*/
