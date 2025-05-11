@@ -42,7 +42,7 @@ public class Gamme {
         }
         
         for (Operation op : operations) {
-            sb.append("- Ref Opération : ");
+            sb.append("- Ref Opération : "+"\n");
             sb.append(op.getRefOperation());
             sb.append(", durée : ");
             sb.append(op.getDureeOperation());
