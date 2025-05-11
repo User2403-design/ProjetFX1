@@ -48,7 +48,7 @@ public class Gamme {
             sb.append(op.getDureeOperation());
             sb.append(" minutes, Equipement utilisé : ");
             sb.append(op.getRefEquipement());
-            sb.append("==============\n");
+            sb.append("--------\n");
         }
 
         return sb.toString();
