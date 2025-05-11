@@ -174,6 +174,14 @@ public class Stockage {
     }
     return null;
 }
+    public Gamme rechercherGammeParRef(String ref) {
+    for (Gamme g : listeGammes) {
+        if (g.getRefGamme().equals(ref)) { 
+            return g;
+        }
+    }
+    return null;
+}
     public Operation rechercherOperationParRef(String ref) {
             for (Operation op : listeOperations) {
                 if (op.getRefOperation().equals(ref)) {

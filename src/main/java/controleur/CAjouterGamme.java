@@ -58,7 +58,7 @@ public class CAjouterGamme {
         });
 
         vue.getRetourButton().setOnAction(e -> {
-            new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation();
+            new CGamme(primaryStage, utilisateur, atelier, stockage).afficherSectionGamme();
         });
     }
 

@@ -37,13 +37,13 @@ public class CGamme {
             CAfficherGamme controleurAff = new CAfficherGamme(primaryStage, utilisateur, atelier, stockage);
             controleurAff.afficher();
         });
-/*
+
         vueGamme.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            CModifierGamme controleurModif = new CModifierGamme(primaryStage, utilisateur, atelier, stockage);
+            CChoisirGamme controleurModif = new CChoisirGamme(primaryStage, stockage);
             controleurModif.afficher();
         });
-*/
+
         vueGamme.getAjouter().setOnAction(e -> {
             System.out.println("Cliqué sur Ajouter !");
             CAjouterGamme controleurAjout = new CAjouterGamme(primaryStage, utilisateur, atelier, stockage);
@@ -63,6 +63,3 @@ public class CGamme {
         primaryStage.show();
     }
 }
-    
-    
-

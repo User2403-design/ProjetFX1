@@ -61,7 +61,15 @@ public class Gamme {
         }
         return coutTotal;
     }
-
+    
+    
+    public void ajouterOperation(Operation operation) {
+        // Vérifier si l'opération n'est pas déjà présente dans la gamme
+        if (!operations.contains(operation)) {
+            operations.add(operation);
+        }
+    }
+    
     public float dureeGamme() {
         float dureeMax = 0;
         for (Operation op : operations) {

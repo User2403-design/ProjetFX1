@@ -24,7 +24,6 @@ public class VModifierOperation {
         idField = new TextField();
         refField = new TextField();
         dureeField = new TextField();
-        equipementField = new TextField();
         machinesDisponibles = new ListView<>();
         postesDisponibles = new ListView<>();
         enregistrerButton = new Button("Enregistrer");
@@ -34,7 +33,6 @@ public class VModifierOperation {
         layout.getChildren().addAll(
             new Label("ID de l'opération :"), idField,
             new Label("Référence :"), refField,
-            new Label("Choisir un équipement :"), equipementField,
             new Label("Durée :"), dureeField,
             new Label("Machines disponibles :"), machinesDisponibles,
             new Label("Postes disponibles :"), postesDisponibles,
@@ -48,7 +46,6 @@ public class VModifierOperation {
     public TextField getIdField() { return idField; }
     public TextField getRefField() { return refField; }
     public TextField getDureeField() { return dureeField; }
-    public TextField getEquipementField() { return equipementField; }
     public ListView<String> getMachinesDisponibles() { return machinesDisponibles; }
     public ListView<String> getPostesDisponibles() { return postesDisponibles; }
     public Button getEnregistrerButton() { return enregistrerButton; }

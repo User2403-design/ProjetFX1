@@ -57,7 +57,7 @@ public class CSupprimerOperation {
 
 
     public void afficher() {
-        primaryStage.setTitle("Supprimer Poste");
+        primaryStage.setTitle("Supprimer Opération");
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
