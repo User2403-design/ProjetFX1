@@ -10,7 +10,7 @@ import Modele.Stockage;
  *
  * @author Elève
  */
-public class CEvenement {
+/*public class CEvenement {
     
     private Stage primaryStage;
     private VEvenement vue;
@@ -51,4 +51,4 @@ public class CEvenement {
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
-}
+}*/
