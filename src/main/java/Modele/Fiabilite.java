@@ -33,7 +33,7 @@ public class Fiabilite {
                 if (debut != null) { // vérifie que cet évenement existe bien (normalement oui)
                     long duree = calculerDuree(debut.getDate(), debut.getHeure(), e.getDate(), e.getHeure());
                     tempsArret.put(machine, tempsArret.getOrDefault(machine, 0L) + duree); //ajoute la durée d'arrêt dans le temps totale d'arrêt de la machine
-                    arretsEnCours.remove(machine); // on retire l'arrêt de la machine une fois traité de la "mémoire" pour que qu'en on recroise "D" on sache avec quel "A" faire le calcule (avec le seul stocké = le dernier rencontré)
+                    arretsEnCours.remove(machine); // on retire l'arrêt de la machine une fois traité de la "mémoire" pour que quand on recroise "D" on sache avec quel "A" faire le calcule (avec le seul stocké = le dernier rencontré)
                 }
                 else { 
                     System.out.println("Il manque l'évenement d'arrêt pour la machine "+machine);
