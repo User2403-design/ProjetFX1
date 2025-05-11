@@ -41,7 +41,7 @@ public class Gamme {
             sb.append("--------\n");
         }
         
-        sb.append("---- Operation utilisé :");
+        sb.append("Operation utilisé :"+"\n");
         for (Operation op : operations) {
             
             sb.append("- Ref Opération : ");
