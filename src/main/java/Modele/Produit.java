@@ -22,7 +22,17 @@ public class Produit {
 
     
     public String afficherProduit(){
-        return "Code Poduit: " + codeProduit+"\n"+"Designation " + dProduit+"\n"+"Gammes associées:"+ listeGamme;
+    String resultat = "Code Produit: " + codeProduit + "\n" +
+                      "Designation: " + dProduit + "\n" +
+                      "Gammes associées:\n";
+
+    for (Gamme g : listeGamme) {
+        resultat += " - " + g.getRefGamme() + "\n";
+    }
+
+    return resultat;
+
+        //return "Code Poduit: " + codeProduit+"\n"+"Designation " + dProduit+"\n"+"Gammes associées:"+ listeGamme;
     }
     
    /* public void afficherProduit() {
