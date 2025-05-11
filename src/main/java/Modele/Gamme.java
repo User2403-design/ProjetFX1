@@ -41,8 +41,10 @@ public class Gamme {
             sb.append("--------\n");
         }
         
+        sb.append("---- Operation utilisé :");
         for (Operation op : operations) {
-            sb.append("- Ref Opération : "+"\n");
+            
+            sb.append("- Ref Opération : ");
             sb.append(op.getRefOperation());
             sb.append(", durée : ");
             sb.append(op.getDureeOperation());
