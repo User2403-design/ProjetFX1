@@ -26,10 +26,10 @@ public class LectureFichier {
             String ligne;
             
             while ((ligne = lire.readLine()) != null) {
-                if (ligne.trim().isEmpty()) continue; // sauter lignes vides
+                if (ligne.trim().isEmpty()) continue; // saute lignes vides
 
                 String[] tokens = ligne.split("\\s+");// crée tableau pour stocker les token obtenue par découpage de la chaine en token chaque fois que y'a un ou plusieurs espaces grâce a split
-                if (tokens.length < 6) continue; // ignorer lignes malformées
+                if (tokens.length < 6) continue; // ignore lignes malformées
 
                 String date = tokens[0];
                 String heure = tokens[1];
