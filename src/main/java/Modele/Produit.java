@@ -27,7 +27,7 @@ public class Produit {
                       "Gammes associées:\n";
 
     for (Gamme g : listeGamme) {
-        resultat += " - " + g.getRefGamme() + "\n";
+        resultat += " - " + g.getRefGamme() +"\n";
     }
 
     return resultat;
