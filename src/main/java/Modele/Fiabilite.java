@@ -46,7 +46,7 @@ public class Fiabilite {
         
         //crée un DateTimeFormatter pour pouvoir écrire les date et les heures sous un format spécifié que java peut interpréter/manipuler 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        //converti date et heure de début et de fin en LocalDateTime, le format que Java peut manipuler 
+        //converti date et heure de début et de fin en LocalDateTime : le format que Java peut manipuler 
         LocalDateTime debut = LocalDateTime.parse(dateDebut + " " + heureDebut, formatter);
         LocalDateTime fin = LocalDateTime.parse(dateFin + " " + heureFin, formatter);
         //calcul la durée entre les deux instants
