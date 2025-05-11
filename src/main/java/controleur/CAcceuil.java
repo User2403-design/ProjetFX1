@@ -43,7 +43,7 @@ public class CAcceuil {
             
             CMachine controleurMach = new CMachine(primaryStage, utilisateur, atelier, stockage);        
             controleurMach.afficherSectionMachine();
-        });
+        }); 
 
         vueAccueil.getPoste().setOnAction(e -> {
             System.out.println("Cliqué sur Poste !");
