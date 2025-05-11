@@ -41,8 +41,8 @@ public class CEvenement {
         });
 
         vue.getRetourButton().setOnAction(e -> {
-            CAcceuil controleurAccueil = new CAcceuil(primaryStage, utilisateur, atelier);
-            controleurAccueil.afficher();
+            CAcceuil controleurAccueil = new CAcceuil(primaryStage, utilisateur, atelier, stockage);
+            controleurAccueil.afficherAccueil();
         });
     }
 
