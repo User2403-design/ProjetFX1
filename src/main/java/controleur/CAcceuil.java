@@ -85,6 +85,7 @@ public class CAcceuil {
         vueAccueil.getFiabilite().setOnAction(e -> {
             System.out.println("Cliqué sur Fiabilité !");
             CEvenement controleurEv = new CEvenement(primaryStage, utilisateur, atelier,"machine.txt", stockage);
+            controleurEv.afficherSectionEvenements();
         });
         
         vueAccueil.getMap().setOnAction(e-> {
