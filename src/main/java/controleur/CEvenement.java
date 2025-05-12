@@ -10,7 +10,7 @@ import Modele.Stockage;
  *
  * @author Elève
  */
-/*public class CEvenement {
+public class CEvenement {
     
     private Stage primaryStage;
     private VEvenement vue;
@@ -31,7 +31,7 @@ import Modele.Stockage;
 
     private void lancerActions() {
         vue.getAjouterButton().setOnAction(e -> {
-            CAjouterEvenement controleurAjout = new CAjouterEvenement(primaryStage, utilisateur, atelier, cheminFichierEvenements);
+            CAjouterEvenement controleurAjout = new CAjouterEvenement(primaryStage, utilisateur, atelier, cheminFichierEvenements, stockage);
             controleurAjout.afficher();
         });
 
@@ -51,4 +51,4 @@ import Modele.Stockage;
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
-}*/
+}
