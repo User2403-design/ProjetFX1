@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.io.*;
 import java.util.*;
+
 public class LectureFichier {
       
     public static Map<String, ArrayList<Evenement>> LireFichier (String nomFichier) {// pk ArrayList ?
