@@ -8,23 +8,26 @@ import javafx.stage.Stage;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import Modele.Stockage;
 /**
  *
  * @author Elève
  */
-/*public class CAjouterEvenement {
+public class CAjouterEvenement {
     
     private Stage primaryStage;
     private VAjouterEvenement vue;
     private String fichierEvenements; // chemin du fichier événements
     private String utilisateur;
     private String atelier;
+    private Stockage stockage;
 
-    public CAjouterEvenement(Stage primaryStage, String utilisateur, String atelier, String fichierEvenements) {
+    public CAjouterEvenement(Stage primaryStage, String utilisateur, String atelier, String fichierEvenements, Stockage stockage) {
         this.primaryStage = primaryStage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.fichierEvenements = fichierEvenements;
+        this.stockage = stockage;
         vue = new VAjouterEvenement();
         lancerActions();
     }
@@ -61,7 +64,7 @@ import java.io.IOException;
     }
 
     private void retour() {
-        CEvenement controleurEvenement = new CEvenement(primaryStage, utilisateur, atelier, fichierEvenements);
+        CEvenement controleurEvenement = new CEvenement(primaryStage, utilisateur, atelier, fichierEvenements, stockage);
         controleurEvenement.afficherSectionEvenements();
     }
 
@@ -71,4 +74,4 @@ import java.io.IOException;
         primaryStage.show();
     }
 
-}*/
+}
