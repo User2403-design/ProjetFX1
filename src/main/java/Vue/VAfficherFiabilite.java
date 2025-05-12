@@ -4,29 +4,42 @@
  */
 package Vue;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 /**
  *
  * @author Elève
  */
 public class VAfficherFiabilite {
-    
+  
     private VBox vbox;
-    private ListView<String> listViewFiabilite;
-    private Button retourButton;
     private Scene scene;
+    private ListView<String> listeFiabilite;
+    private Button retourButton;
 
     public VAfficherFiabilite() {
         vbox = new VBox(10);
-        listViewFiabilite = new ListView<>();
+
+        Label titre = new Label("Fiabilité des Machines");
+        listeFiabilite = new ListView<>();
         retourButton = new Button("Retour");
-        vbox.getChildren().addAll(new Label("Fiabilité des machines (%) :"), listViewFiabilite, retourButton);
+
+        vbox.getChildren().addAll(titre, listeFiabilite, retourButton);
         scene = new Scene(vbox, 400, 600);
     }
 
-    public Scene getScene() { return scene; }
-    public ListView<String> getListViewFiabilite() { return listViewFiabilite; }
-    public Button getRetourButton() { return retourButton; }
+    public Scene getScene() {
+        return scene;
+    }
+
+    public ListView<String> getListeFiabilite() {
+        return listeFiabilite;
+    }
+
+    public Button getRetourButton() {
+        return retourButton;
+    }
 
 }
