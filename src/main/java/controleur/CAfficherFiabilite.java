@@ -3,21 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
-import Modele.Fiabilite;
-import Modele.Stockage;
-import Vue.VAfficherFiabilite;
-import javafx.stage.Stage;
-import java.util.Map;
+
+
+
 import Modele.Machine;
-import javafx.stage.Stage;
+
 import Vue.VAfficherFiabilite;
-import Modele.Fiabilite;
+
 import Modele.Stockage;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
+
 import java.util.Map;
 import Modele.Fiabilite;
-import Vue.VFiabilite;
+
 /**
  *
  * @author Elève
