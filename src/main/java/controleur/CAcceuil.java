@@ -76,11 +76,6 @@ public class CAcceuil {
             controleurPR.afficherSectionOperateur(); 
         });
            
-        
-            
-            
-       
-
         vueAccueil.getProduit().setOnAction(e -> {
             System.out.println("Cliqué sur Produit !");
             CProduit controleurPR = new CProduit(primaryStage, utilisateur, atelier, stockage);        
@@ -89,6 +84,7 @@ public class CAcceuil {
 
         vueAccueil.getFiabilite().setOnAction(e -> {
             System.out.println("Cliqué sur Fiabilité !");
+            CEvenement controleurEv = new CEvenement(primaryStage, utilisateur, atelier,"machine.txt", stockage);
         });
         
         vueAccueil.getMap().setOnAction(e-> {
