@@ -3,56 +3,60 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
-import Modele.Stockage;
 import Modele.Fiabilite;
+import Modele.Stockage;
 import Vue.VAfficherFiabilite;
 import javafx.stage.Stage;
 import java.util.Map;
+import Modele.Machine;
+import javafx.stage.Stage;
+import Vue.VAfficherFiabilite;
+import Modele.Fiabilite;
+import Modele.Stockage;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import java.util.Map;
+import Modele.Fiabilite;
+import Vue.VFiabilite;
 /**
  *
  * @author Elève
  */
 public class CAfficherFiabilite {
-    
+
     private Stage primaryStage;
+    private VAfficherFiabilite vue;
+    private Fiabilite fiabilite; // ton objet Fiabilite existant
+    private long tempsObservation; // en minutes
     private String utilisateur;
     private String atelier;
     private Stockage stockage;
-    private String cheminFichierEvenements;
-    private VAfficherFiabilite vue;
 
-    public CAfficherFiabilite(Stage primaryStage, String utilisateur, String atelier, Stockage stockage, String cheminFichierEvenements) {
+    public CAfficherFiabilite(Stage primaryStage, Fiabilite fiabilite, long tempsObservation) {
         this.primaryStage = primaryStage;
-        this.utilisateur = utilisateur;
-        this.atelier = atelier;
-        this.stockage = stockage;
-        this.cheminFichierEvenements = cheminFichierEvenements;
+        this.fiabilite = fiabilite;
+        this.tempsObservation = tempsObservation;
         vue = new VAfficherFiabilite();
-        afficherFiabilite();
+        afficherFiabilites();
         lancerActions();
     }
 
-    private void afficherFiabilite() {
-        Fiabilite fiabilite = new Fiabilite(new HashMap<>(), new HashMap<>());
-        Map<String, java.util.ArrayList<Evenement>> mapEv = LectureFichier.LireFichier(cheminFichierEvenements);
+    private void afficherFiabilites() {
+        // On appelle ta méthode existante correctement
+        Map<String, Double> fiabilites = fiabilite.calculerFiabilites(tempsObservation);
 
-        for (java.util.ArrayList<Evenement> listeEv : mapEv.values()) {
-            fiabilite.analyser(listeEv);
-        }
-
-        Map<String, Double> fiabilitePourcentage = fiabilite.calculerFiabilitePourcentage();
-        
-        for (Map.Entry<String, Double> entry : fiabilitePourcentage.entrySet()) {
+        // On affiche proprement chaque machine et son pourcentage
+        for (Map.Entry<String, Double> entry : fiabilites.entrySet()) {
             String machine = entry.getKey();
-            double pourcentage = entry.getValue();
-            vue.getListViewFiabilite().getItems().add(machine + " : " + String.format("%.2f", pourcentage) + " %");
+            double pourcentage = entry.getValue() * 100.0;
+            vue.getListeFiabilite().getItems().add(machine + " : " + String.format("%.2f", pourcentage) + "%");
         }
     }
 
     private void lancerActions() {
         vue.getRetourButton().setOnAction(e -> {
-            CEvenement controleurEvenement = new CEvenement(primaryStage, utilisateur, atelier, stockage, cheminFichierEvenements);
-            controleurEvenement.afficher();
+            CEvenement cEvenement = new CEvenement(primaryStage, utilisateur, atelier, "machine.txt", stockage);
+            cEvenement.afficherSectionEvenements();
         });
     }
 
@@ -61,5 +65,8 @@ public class CAfficherFiabilite {
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
-
 }
+ 
+
+    
+
