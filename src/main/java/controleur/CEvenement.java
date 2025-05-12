@@ -6,6 +6,7 @@ package controleur;
 import Vue.VEvenement;
 import javafx.stage.Stage;
 import Modele.Stockage;
+import Modele.Fiabilite;
 /**
  *
  * @author Elève
@@ -18,6 +19,7 @@ public class CEvenement {
     private String atelier;
     private String cheminFichierEvenements;
     private Stockage stockage; // obliger de l'avoir pour appeler le controleur de Acceuil, même si on s'en sert pas 
+    private Fiabilite fiabilite;
 
     public CEvenement(Stage primaryStage, String utilisateur, String atelier, String cheminFichierEvenements, Stockage stockage) {
         this.primaryStage = primaryStage;
@@ -36,8 +38,9 @@ public class CEvenement {
         });
 
         vue.getFiabiliteButton().setOnAction(e -> {
-            // ICI on appellera plus tard le contrôleur pour calculer la fiabilité
             System.out.println("Calcul de fiabilité : en cours de développement");
+            CAfficherFiabilite cFiabilite = new CAfficherFiabilite(primaryStage, fiabilite, 30);
+            cFiabilite.afficher();
         });
 
         vue.getRetourButton().setOnAction(e -> {
