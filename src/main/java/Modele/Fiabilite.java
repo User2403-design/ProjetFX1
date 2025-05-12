@@ -53,6 +53,20 @@ public class Fiabilite {
         Duration duree = Duration.between(debut, fin);
         return duree.toMinutes();
     }
+    
+    public Map<String, Double> calculerFiabilites(long tempsObservation) {
+        
+    Map<String, Double> fiabilites = new HashMap<>();
+    
+    for (Map.Entry<String, Long> e : tempsArret.entrySet()) { //transforme la map en un ensemble d'objets Map.Entry pour pouvoir la parcourir machine par machine
+        String machine = e.getKey(); // récup la "clé" = la ref de la machine
+        long tempsArretMachine = e.getValue(); // récup la "valeur" = temps d'arret de la machine en minutes
+        double fiabilite = 1.0 - ((double) tempsArretMachine / tempsObservation);
+        if (fiabilite < 0) fiabilite = 0; // pour éviter fiabilité négative en cas d'erreur
+        fiabilites.put(machine, fiabilite);
+    }
+    return fiabilites;
+}
 
     public List<Map.Entry<String, Long>> TrieMachine() {
         //crée une liste triable qui va contenir des parie clé-valeurs de la map TempsArret
