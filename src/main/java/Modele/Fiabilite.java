@@ -54,7 +54,7 @@ public class Fiabilite {
         return duree.toMinutes();
     }
     
-    public Map<String, Double> calculerFiabilites(long tempsObservation) { // tempsObservation = nombre de jours d'observation (type = int?)
+    public Map<String, Double> calculerFiabilites(double tempsObservation) { // tempsObservation = nombre de jours d'observation (type = int?)
         
     Map<String, Double> fiabilites = new HashMap<>(); // stocke la fiabilité de chaque machine
     
