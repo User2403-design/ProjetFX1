@@ -61,7 +61,7 @@ public class Fiabilite {
     for (Map.Entry<String, Long> e : tempsArret.entrySet()) { //transforme la map en un ensemble d'objets Map.Entry pour pouvoir la parcourir machine par machine
         String machine = e.getKey(); // récup la "clé" = la ref de la machine
         long tempsArretMachine = e.getValue(); // récup la "valeur" = temps d'arret de la machine en minutes
-        double fiabilite = 1.0 - ((double) tempsArretMachine / tempsObservation*840); // 840 = temps d'ouverture de l'atelier en minute
+        double fiabilite = 1.0 - ((double) tempsArretMachine / tempsObservation); // prend en compte le nombre de jour et la durée d'ouverture de l'atelier par jour
         if (fiabilite < 0) fiabilite = 0; // pour éviter une fiabilité négative en cas d'erreur
         fiabilites.put(machine, fiabilite);
     }
