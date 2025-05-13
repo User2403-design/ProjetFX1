@@ -25,7 +25,7 @@ public class VChoisirMachine {
             validerButton,
             retourButton
         );
-        scene = new Scene(vbox, 400, 500);
+        scene = new Scene(vbox, 400, 300);
     }
 
     public Scene getScene() { return scene; }
