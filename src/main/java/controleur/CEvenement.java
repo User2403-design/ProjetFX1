@@ -39,7 +39,7 @@ public class CEvenement {
 
         vue.getFiabiliteButton().setOnAction(e -> {
             System.out.println("Calcul de fiabilité : en cours de développement");
-            CAfficherFiabilite cFiabilite = new CAfficherFiabilite(primaryStage, fiabilite, 30);
+            CAfficherFiabilite cFiabilite = new CAfficherFiabilite(primaryStage, utilisateur, atelier, stockage, "suivie_maintenance.txt");
             cFiabilite.afficher();
         });
 
