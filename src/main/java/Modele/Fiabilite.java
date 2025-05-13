@@ -85,6 +85,7 @@ public class Fiabilite {
         } else {
             fiabilite = (1 - (double) tempsArretTotalMinutes / tempsObservationTotalMinutes) * 100;
         }
+        fiabilites.put(machine, fiabilite);
     }
 
         return fiabilites;
