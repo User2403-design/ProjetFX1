@@ -76,7 +76,7 @@ public class Fiabilite {
                 i++;
             }
 
-            long tempsObservationTotalMinutes = Duration.between(debutObservation.get(machine), LocalDateTime.now().withNano(0)).toMinutes();
+            long tempsObservationTotalMinutes = Duration.between(debutObservation.get(machine), LocalDateTime.now().withSecond(0).withNano(0)).toMinutes();
             
         double fiabilite;
 
