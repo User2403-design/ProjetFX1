@@ -77,12 +77,15 @@ public class Fiabilite {
             }
 
             long tempsObservationTotalMinutes = Duration.between(debutObservation.get(machine), LocalDateTime.now()).toMinutes();
-            double fiabilite = tempsObservationTotalMinutes == 0
-                    ? 100.0
-                    : (1 - (double) tempsArretTotalMinutes / tempsObservationTotalMinutes) * 100;
+            
+        double fiabilite;
 
-            fiabilites.put(machine, Math.max(0, Math.min(fiabilite, 100))); // Clamp entre 0 et 100
+        if (tempsObservationTotalMinutes == 0) {
+            fiabilite = 100.0;
+        } else {
+            fiabilite = (1 - (double) tempsArretTotalMinutes / tempsObservationTotalMinutes) * 100;
         }
+    }
 
         return fiabilites;
     }
