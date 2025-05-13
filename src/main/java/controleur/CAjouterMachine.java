@@ -10,6 +10,11 @@ import Modele.Machine;
 import Modele.FichierMachine;
 import Vue.VAjouterMachine;
 import java.time.LocalTime;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class CAjouterMachine {
 
@@ -46,6 +51,7 @@ public class CAjouterMachine {
                 // Création de la nouvelle machine
                 Machine nouvelleMachine = new Machine(ref, description, x, y, coutHoraire, etat, type, heureFinOcc);
                 stockage.ajouterMachine(nouvelleMachine);
+                enregistrerEvenementDemarrage(nouvelleMachine.getRefmachine(), utilisateur);
 
                 // Sauvegarde du fichier
                 FichierMachine.sauvegarder(stockage.getListeMachines());
@@ -62,6 +68,15 @@ public class CAjouterMachine {
             controleurMachine.afficherSectionMachine();
         });
     }
+    
+    private void enregistrerEvenementDemarrage(String refMachine, String utilisateur) {
+    String ligne = LocalDate.now() + ";" + LocalTime.now() + ";" + refMachine + ";D;" + utilisateur + ";ajout_machine\n";
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("suivi_maintenance.csv", true))) {
+        writer.write(ligne);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
 
     public void afficher() {
         primaryStage.setTitle("Ajouter une Machine");
