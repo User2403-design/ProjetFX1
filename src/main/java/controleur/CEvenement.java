@@ -33,7 +33,7 @@ public class CEvenement {
 
     private void actionClic() {
         vue.getAjouterButton().setOnAction(e -> {
-            CAjouterEvenement controleurAjout = new CAjouterEvenement(primaryStage, utilisateur, atelier, cheminFichierEvenements, stockage);
+            CAjouterEvenement controleurAjout = new CAjouterEvenement(primaryStage, utilisateur, atelier, "suivie_maintenance.txt", stockage);
             controleurAjout.afficher();
         });
 
