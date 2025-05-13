@@ -6,12 +6,12 @@ package Vue;
 import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
+import javafx.scene.control.TextArea;
 import java.util.Map;
 /**
  *
@@ -49,6 +49,7 @@ public class VAfficherFiabilite {
         return retourButton;
     }
 
+    //mettre dans stockage
     public void afficherFiabilites(Map<String, Double> fiabilites) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, Double> entry : fiabilites.entrySet()) {
