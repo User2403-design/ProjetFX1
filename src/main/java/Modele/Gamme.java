@@ -30,12 +30,37 @@ public class Gamme {
         }
         return equipements;
     }
-    
     public String afficherGamme() {
+    StringBuilder sb = new StringBuilder();
+    
+    sb.append("🔹 Référence Gamme : ").append(refGamme).append("\n\n");
+
+    sb.append("🔧 Équipements utilisés :\n");
+    for (Equipement e : equipements) {
+        sb.append("   • ").append(e.afficherEquipement()).append("\n\n");
+    }
+
+    sb.append("\n🛠️  Opérations :\n");
+    for (Operation op : operations) {
+        sb.append(String.format(
+            "   • Ref: %-10s | Durée: %5.1f min | Équipement: %s\n",
+            op.getRefOperation(),
+            op.getDureeOperation(),
+            op.getRefEquipement().getRefEquipement()
+        ));
+    }
+
+    sb.append("\n💰 Coût total de la gamme : ")
+      .append(String.format("%.2f €", coutGamme()))
+      .append("\n");
+
+    return sb.toString();
+}
+    /*public String afficherGamme() {
         StringBuilder sb = new StringBuilder(); // Va contenir sous forme de texte l'affichage d'une gamme pour ensuite être affiché dans l'interface
 
         sb.append("Reference Gamme : ").append(refGamme).append("\n");
-
+        sb.append("--------\n");
         for (Equipement e : equipements) {
             sb.append(e.afficherEquipement()).append("\n");
             sb.append("--------\n");
@@ -52,18 +77,20 @@ public class Gamme {
             sb.append(op.getRefEquipement());
             sb.append("--------\n");
         }
-
-        return sb.toString();
-    }
-
+        // Affichage du coût à deux décimales
+    sb.append(String.format("Coût total de la gamme : %.2f €", coutGamme()));
+    return sb.toString();
+    }*/
     public float coutGamme() {
-        float coutTotal = 0;
-        for (Operation op : operations) {
-            coutTotal += op.getRefEquipement().coutOperation(op.getDureeOperation());
-        }
-        return coutTotal;
+    float coutTotal = 0;
+    for (Operation op : operations) {
+        // conversion des minutes en heures plus logique pour entrer la durée d'une gamme
+        float dureeHeure = op.getDureeOperation() / 60.0f;
+        coutTotal += op.getRefEquipement().coutOperation(dureeHeure);
     }
-    
+    return coutTotal;
+}
+   
     
     public void ajouterOperation(Operation operation) {
         // Vérifier si l'opération n'est pas déjà présente dans la gamme

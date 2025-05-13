@@ -61,7 +61,7 @@ public class COperation {
     }
 
     public void afficherSectionOperation() {
-        primaryStage.setTitle("Section Poste");
+        primaryStage.setTitle("Section Operation");
         primaryStage.setScene(vueOperation.getScene());
         primaryStage.show();
     }

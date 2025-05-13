@@ -32,7 +32,7 @@ public class VModifierMachine {
             new Label("Désignation :"), designationField,
             new Label("Position X :"), xField,
             new Label("Position Y :"), yField,
-            new Label("Coût Horaire :"), coutField,
+            new Label("Coût Horaire (euro/heure):"), coutField,
             new Label("Type :"), typeField,
             new Label("État :"), etatComboBox,
             enregistrerButton,

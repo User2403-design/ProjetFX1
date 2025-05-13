@@ -58,7 +58,7 @@ public class VAjouterMachine {
         layout.add(xField, 1, 2);
         layout.add(new Label("Y :"), 0, 3);
         layout.add(yField, 1, 3);
-        layout.add(new Label("Coût Horaire :"), 0, 4);
+        layout.add(new Label("Coût Horaire (euro/heure)"), 0, 4);
         layout.add(coutHField, 1, 4);
         layout.add(new Label("État :"), 0, 5);
         layout.add(etatComboBox, 1, 5); // Le comboBox à la place du TextField
