@@ -50,7 +50,7 @@ public class CAjouterEvenement {
             return;
         }
 
-        String evenement = date + " " + heure + " " + machine + " " + type + " " + operateur + " " + cause;
+        String evenement = date + ";" + heure + ";" + machine + ";" + type + ";" + operateur + ";" + cause;
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fichierEvenements, true))) {
             writer.write(evenement);
