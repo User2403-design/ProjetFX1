@@ -182,6 +182,15 @@ public class Stockage {
     }
     return null;
 }
+    public Produit rechercherProduitParCode(String codeProduit) {
+    for (Produit p : listeProduits) {
+        if (p.getCodeProduit().equalsIgnoreCase(codeProduit)) {
+            return p;
+        }
+    }
+    return null; // Si aucun produit trouvé
+}
+    
     public Operation rechercherOperationParRef(String ref) {
             for (Operation op : listeOperations) {
                 if (op.getRefOperation().equals(ref)) {

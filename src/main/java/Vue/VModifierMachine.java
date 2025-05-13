@@ -3,73 +3,53 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Vue;
-import javafx.geometry.Insets;
+
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
-/**
- *
- * @author Justin
- */
 public class VModifierMachine {
-    
-    private TextField refMachineField; // Pour entrer la référence de la machine
-    private TextField nouvelleDescriptionField;
-    private TextField nouvelleXField;
-    private TextField nouvelleYField;
-    private TextField nouveauCoutField;
-    private TextField nouvelEtatField;
-    private TextField nouveauTypeField;
-    private Button modifierButton;
-    private Button retourButton;
+    private TextField refField, designationField, xField, yField, coutField, typeField;
+    private ComboBox<String> etatComboBox;
+    private Button enregistrerButton, retourButton;
     private Scene scene;
 
     public VModifierMachine() {
         VBox layout = new VBox(10);
-        layout.setPadding(new Insets(20));
-
-        refMachineField = new TextField();
-        refMachineField.setPromptText("Référence de la machine à modifier");
-
-        nouvelleDescriptionField = new TextField();
-        nouvelleDescriptionField.setPromptText("Nouvelle description");
-
-        nouvelleXField = new TextField();
-        nouvelleXField.setPromptText("Nouvelle position X");
-
-        nouvelleYField = new TextField();
-        nouvelleYField.setPromptText("Nouvelle position Y");
-
-        nouveauCoutField = new TextField();
-        nouveauCoutField.setPromptText("Nouveau coût horaire");
-
-        nouvelEtatField = new TextField();
-        nouvelEtatField.setPromptText("Nouvel état");
-
-        nouveauTypeField = new TextField();
-        nouveauTypeField.setPromptText("Nouveau type");
-
-        modifierButton = new Button("Modifier");
+        refField = new TextField();
+        designationField = new TextField();
+        xField = new TextField();
+        yField = new TextField();
+        coutField = new TextField();
+        typeField = new TextField();
+        etatComboBox = new ComboBox<>();
+        etatComboBox.getItems().addAll("libre", "panne", "occupée", "maintenance");
+        enregistrerButton = new Button("Enregistrer Modifications");
         retourButton = new Button("Retour");
 
-        layout.getChildren().addAll(refMachineField, nouvelleDescriptionField, nouvelleXField, nouvelleYField,
-                                    nouveauCoutField, nouvelEtatField, nouveauTypeField, modifierButton, retourButton);
+        layout.getChildren().addAll(
+            new Label("Référence :"), refField,
+            new Label("Désignation :"), designationField,
+            new Label("Position X :"), xField,
+            new Label("Position Y :"), yField,
+            new Label("Coût Horaire :"), coutField,
+            new Label("Type :"), typeField,
+            new Label("État :"), etatComboBox,
+            enregistrerButton,
+            retourButton
+        );
 
-        scene = new Scene(layout, 600, 500);
+        scene = new Scene(layout, 400, 600);
     }
 
     public Scene getScene() { return scene; }
-    public TextField getRefMachineField() { return refMachineField; }
-    public TextField getNouvelleDescriptionField() { return nouvelleDescriptionField; }
-    public TextField getNouvelleXField() { return nouvelleXField; }
-    public TextField getNouvelleYField() { return nouvelleYField; }
-    public TextField getNouveauCoutField() { return nouveauCoutField; }
-    public TextField getNouvelEtatField() { return nouvelEtatField; }
-    public TextField getNouveauTypeField() { return nouveauTypeField; }
-    public Button getModifierButton() { return modifierButton; }
+    public TextField getRefField() { return refField; }
+    public TextField getDesignationField() { return designationField; }
+    public TextField getXField() { return xField; }
+    public TextField getYField() { return yField; }
+    public TextField getCoutField() { return coutField; }
+    public TextField getTypeField() { return typeField; }
+    public ComboBox<String> getEtatComboBox() { return etatComboBox; }
+    public Button getEnregistrerButton() { return enregistrerButton; }
     public Button getRetourButton() { return retourButton; }
-
 }

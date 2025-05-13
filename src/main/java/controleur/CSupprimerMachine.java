@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
-import Modele.Stockage;
+
 import Vue.VSupprimerMachine;
+import Modele.Stockage;
+import Modele.Machine;
 import javafx.stage.Stage;
 
 /**
@@ -12,42 +14,51 @@ import javafx.stage.Stage;
  * @author chloe
  */
 public class CSupprimerMachine {
-
     private Stage primaryStage;
-    private VSupprimerMachine vueSupprimer;
+    private Stockage stockage;
     private String utilisateur;
     private String atelier;
-    private Stockage stockage;
+    private VSupprimerMachine vue;
 
     public CSupprimerMachine(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
         this.primaryStage = primaryStage;
+        this.stockage = stockage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
-        this.stockage = stockage;
+        this.vue = new VSupprimerMachine();
 
-        this.vueSupprimer = new VSupprimerMachine();
+        initialiserListe();
         lancerActions();
     }
 
+    private void initialiserListe() {
+        for (Machine m : stockage.getListeMachines()) {
+            vue.getListeMachine().getItems().add(m.getRefmachine());
+        }
+    }
+
     private void lancerActions() {
-        vueSupprimer.getRetourButton().setOnAction(e -> {
-            CMachine controleurMachine = new CMachine(primaryStage, utilisateur, atelier, stockage);
-            controleurMachine.afficherSectionMachine();
+        vue.getSupprimerButton().setOnAction(e -> {
+            String refSelectionnee = vue.getListeMachine().getSelectionModel().getSelectedItem();
+            if (refSelectionnee != null) {
+                stockage.supprimerMachine(refSelectionnee);
+                vue.getListeMachine().getItems().remove(refSelectionnee);
+                vue.afficherMessage("Machine supprimée !");
+            } else {
+                vue.afficherMessage("Veuillez sélectionner une Machine.");
+            }
         });
 
-        vueSupprimer.getSupprimerButton().setOnAction(e -> {
-            String refMachine = vueSupprimer.getRefMachineField().getText();
-            if (stockage.supprimerMachine(refMachine)) {
-                vueSupprimer.afficherMessage("Machine supprimée avec succès !");
-            } else {
-                vueSupprimer.afficherMessage("Machine non trouvée.");
-            }
+        vue.getRetourButton().setOnAction(e -> {
+            CMachine cMachine = new CMachine(primaryStage, utilisateur, atelier, stockage);
+            cMachine.afficherSectionMachine();
         });
     }
 
+
     public void afficher() {
-        primaryStage.setTitle("Supprimer une Machine");
-        primaryStage.setScene(vueSupprimer.getScene());
+        primaryStage.setTitle("Supprimer Machine");
+        primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
 }

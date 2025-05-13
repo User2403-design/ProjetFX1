@@ -1,69 +1,54 @@
 package controleur;
 
-import javafx.stage.Stage;
 import Modele.Operateur;
 import Modele.Stockage;
 import Vue.VModifierOperateur;
+import javafx.stage.Stage;
 
 public class CModifierOperateur {
+
     private Stage primaryStage;
     private String utilisateur;
     private String atelier;
     private Stockage stockage;
-    private VModifierOperateur vueModifier;
+    private Operateur operateur;
+    private VModifierOperateur vue;
 
-    public CModifierOperateur(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
+    public CModifierOperateur(Stage primaryStage, String utilisateur, String atelier, Stockage stockage, Operateur operateur) {
         this.primaryStage = primaryStage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.stockage = stockage;
-        this.vueModifier = new VModifierOperateur();
+        this.operateur = operateur;
+        this.vue = new VModifierOperateur();
+        remplirChamps();
         lancerActions();
-        primaryStage.setScene(vueModifier.getScene());
-        primaryStage.show();
+    }
+
+    private void remplirChamps() {
+        vue.getNomField().setText(operateur.getNom());
+        vue.getPrenomField().setText(operateur.getPrenom());
+        vue.getCodeField().setText(operateur.getCode());
+        vue.getEtatCheckBox().setSelected(operateur.getEtat());
     }
 
     private void lancerActions() {
-        vueModifier.getModifierButton().setOnAction(e -> {
-            String codeRecherche = vueModifier.getNouveauCodeField().getText();
-            Operateur operateurTrouve = null;
-
-            // Cherche l'opérateur par son code
-            for (Operateur operateur : stockage.getListeOperateurs()) {
-                if (operateur.getCode().equalsIgnoreCase(codeRecherche)) {
-                    operateurTrouve = operateur;
-                    break;
-                }
-            }
-
-            if (operateurTrouve != null) {
-                String nouveauNom = vueModifier.getNomField().getText();
-                String nouveauPrenom = vueModifier.getNouveauPrenomField().getText();
-                String nouvelEtatText = vueModifier.getNouvelEtatField().getText();
-                boolean nouvelEtat = nouvelEtatText.equalsIgnoreCase("Actif");
-
-                // Applique les changements (on ne modifie PAS le code car c’est l’identifiant)
-                operateurTrouve.ModifierOperateur(
-                    nouveauNom.isEmpty() ? operateurTrouve.getNom() : nouveauNom,
-                    nouveauPrenom.isEmpty() ? operateurTrouve.getPrenom() : nouveauPrenom,
-                    operateurTrouve.getCode(),
-                    nouvelEtat
-                );
-
-                System.out.println("Opérateur modifié avec succès.");
-            } else {
-                System.out.println("Opérateur non trouvé !");
-            }
+        vue.getEnregistrerButton().setOnAction(e -> {
+            operateur.setNom(vue.getNomField().getText());
+            operateur.setPrenom(vue.getPrenomField().getText());
+            operateur.setCode(vue.getCodeField().getText());
+            operateur.setEtat(vue.getEtatCheckBox().isSelected());
+            new COperateur(primaryStage, utilisateur, atelier, stockage).afficherSectionOperateur();
         });
 
-        vueModifier.getRetourButton().setOnAction(e -> {
-            COperateur controleurOperateur = new COperateur(primaryStage, utilisateur, atelier, stockage);
-            controleurOperateur.afficherSectionOperateur();
+        vue.getRetourButton().setOnAction(e -> {
+            new COperateur(primaryStage, utilisateur, atelier, stockage).afficherSectionOperateur();
         });
     }
+
     public void afficher() {
-        primaryStage.setTitle("Modifier un Operateur");
-        primaryStage.setScene(vueModifier.getScene());
+        primaryStage.setTitle("Modifier Opérateur");
+        primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
 }

@@ -43,7 +43,7 @@ public class CMachine {
 
         vueMachine.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            CModifierMachine controleurModif = new CModifierMachine(primaryStage, utilisateur, atelier, stockage);
+            CChoisirMachine controleurModif = new CChoisirMachine(primaryStage, utilisateur, atelier, stockage);
             controleurModif.afficher();
         });
 

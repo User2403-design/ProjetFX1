@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+
 package controleur;
 
 import Vue.VProduit;
@@ -42,7 +43,7 @@ public class CProduit {
 
         vueProduit.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            CModifierPorduit controleurModif = new CModifierPorduit(primaryStage, utilisateur, atelier, stockage);
+            CChoisirProduit controleurModif = new CChoisirProduit(primaryStage, utilisateur, atelier, stockage);
             controleurModif.afficher();
         });
 

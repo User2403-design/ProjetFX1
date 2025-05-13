@@ -162,6 +162,9 @@ public class Machine extends Equipement {
     public void setType(String type) {
         this.type = type;
     }
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
     
 }
    

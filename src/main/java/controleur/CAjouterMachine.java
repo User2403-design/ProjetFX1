@@ -3,18 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
+
 import javafx.stage.Stage;
 import Modele.Stockage;
 import Modele.Machine;
 import Modele.FichierMachine;
 import Vue.VAjouterMachine;
 import java.time.LocalTime;
-/**
- *
- * @author chloe
- */
+
 public class CAjouterMachine {
-    
+
     private Stage primaryStage;
     private String utilisateur;
     private String atelier;
@@ -26,7 +24,6 @@ public class CAjouterMachine {
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.stockage = stockage;
-
         this.vueAjouter = new VAjouterMachine();
         lancerActions();
     }
@@ -39,16 +36,19 @@ public class CAjouterMachine {
                 float x = Float.parseFloat(vueAjouter.getxField().getText());
                 float y = Float.parseFloat(vueAjouter.getyField().getText());
                 float coutHoraire = Float.parseFloat(vueAjouter.getCoutHField().getText());
-                String etat = vueAjouter.getEtatField().getText();
+                
+                // Récupération de l'état via le ComboBox
+                String etat = vueAjouter.getEtatComboBox().getValue(); // Changement ici pour récupérer la valeur du ComboBox
+                
                 String type = vueAjouter.getTypeField().getText();
                 LocalTime heureFinOcc = LocalTime.parse(vueAjouter.getHeureFinOccField().getText());
 
+                // Création de la nouvelle machine
                 Machine nouvelleMachine = new Machine(ref, description, x, y, coutHoraire, etat, type, heureFinOcc);
                 stockage.ajouterMachine(nouvelleMachine);
 
-                // Met à jour le fichier
+                // Sauvegarde du fichier
                 FichierMachine.sauvegarder(stockage.getListeMachines());
-
                 System.out.println("Machine ajoutée avec succès !");
             } catch (NumberFormatException ex) {
                 System.out.println("Erreur de format dans les champs numériques.");
@@ -69,4 +69,3 @@ public class CAjouterMachine {
         primaryStage.show();
     }
 }
-

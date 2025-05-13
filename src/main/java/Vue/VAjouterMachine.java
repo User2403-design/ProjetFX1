@@ -2,29 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Vue;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
 /**
  *
  * @author Justin
  */
+package Vue;
+
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+
 public class VAjouterMachine {
-    
+
     private Scene sceneAjouterMachine;
     private TextField refField;
     private TextField desField;
     private TextField xField;
     private TextField yField;
     private TextField coutHField;
-    private TextField etatField;
+    private ComboBox<String> etatComboBox;
     private TextField typeField;
     private TextField heureFinOccField;
     private Button ajouterButton;
     private Button retourButton;
-   
 
     public VAjouterMachine() {
         GridPane layout = new GridPane();
@@ -37,10 +38,15 @@ public class VAjouterMachine {
         xField = new TextField();
         yField = new TextField();
         coutHField = new TextField();
-        etatField = new TextField();
+        
+        // Remplacement ici
+        etatComboBox = new ComboBox<>();
+        etatComboBox.getItems().addAll("libre", "panne", "occupée", "maintenance");
+        etatComboBox.setValue("libre"); // Valeur par défaut
+
         typeField = new TextField();
         heureFinOccField = new TextField();
-        
+
         ajouterButton = new Button("Ajouter Machine");
         retourButton = new Button("Retour");
 
@@ -55,12 +61,11 @@ public class VAjouterMachine {
         layout.add(new Label("Coût Horaire :"), 0, 4);
         layout.add(coutHField, 1, 4);
         layout.add(new Label("État :"), 0, 5);
-        layout.add(etatField, 1, 5);
+        layout.add(etatComboBox, 1, 5); // Le comboBox à la place du TextField
         layout.add(new Label("Type :"), 0, 6);
         layout.add(typeField, 1, 6);
         layout.add(new Label("Heure de fin d'occupation :"), 0, 7);
         layout.add(heureFinOccField, 1, 7);
-
         layout.add(ajouterButton, 0, 8);
         layout.add(retourButton, 1, 8);
 
@@ -91,8 +96,9 @@ public class VAjouterMachine {
         return coutHField;
     }
 
-    public TextField getEtatField() {
-        return etatField;
+    // Nouveau getter
+    public ComboBox<String> getEtatComboBox() {
+        return etatComboBox;
     }
 
     public TextField getTypeField() {
@@ -110,6 +116,4 @@ public class VAjouterMachine {
     public TextField getHeureFinOccField() {
         return heureFinOccField;
     }
-    
-    
 }

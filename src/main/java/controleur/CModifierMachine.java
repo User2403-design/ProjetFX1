@@ -2,92 +2,64 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controleur;  
-import javafx.stage.Stage;
+package controleur;
+
 import Modele.Machine;
 import Modele.Stockage;
 import Vue.VModifierMachine;
-import java.time.*;
+import javafx.stage.Stage;
 
-/**
- *
- * @author Elève
- */
 public class CModifierMachine {
-
     private Stage primaryStage;
     private String utilisateur;
     private String atelier;
     private Stockage stockage;
-    private VModifierMachine vueModifier;
+    private Machine machine;
+    private VModifierMachine vue;
 
-    public CModifierMachine(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
+    public CModifierMachine(Stage primaryStage, String utilisateur, String atelier, Stockage stockage, Machine machine) {
         this.primaryStage = primaryStage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.stockage = stockage;
-        this.vueModifier = new VModifierMachine();
+        this.machine = machine;
+        this.vue = new VModifierMachine();
 
+        remplirChamps();
         lancerActions();
     }
 
+    private void remplirChamps() {
+        vue.getRefField().setText(machine.getRefmachine());
+        vue.getDesignationField().setText(machine.getDmachine());
+        vue.getXField().setText(String.valueOf(machine.getX()));
+        vue.getYField().setText(String.valueOf(machine.getY()));
+        vue.getCoutField().setText(String.valueOf(machine.getCoût()));
+        vue.getTypeField().setText(machine.getType());
+        vue.getEtatComboBox().setValue(machine.getEtat());
+    }
+
     private void lancerActions() {
-        vueModifier.getModifierButton().setOnAction(e -> {
-            String ref = vueModifier.getRefMachineField().getText();
-            Machine machineTrouvee = null; //stockage.rechercherMachineParRef(ref);
+        vue.getEnregistrerButton().setOnAction(e -> {
+            machine.setRefmachine(vue.getRefField().getText());
+            machine.setDmachine(vue.getDesignationField().getText());
+            machine.setX(Float.parseFloat(vue.getXField().getText()));
+            machine.setY(Float.parseFloat(vue.getYField().getText()));
+            machine.setCoût(Float.parseFloat(vue.getCoutField().getText()));
+            machine.setType(vue.getTypeField().getText());
+            machine.setEtat(vue.getEtatComboBox().getValue());
 
-            //A MODIFIER AVEC LA NOUVELLE METHODE RECHERCHE PAR REF dans stockage 
-            // Trouver la machine par la référence
-            for (Machine machine : stockage.getListeMachines()) {
-                if (machine.getRefmachine().equals(ref)) {
-                    machineTrouvee = machine;
-                    break;
-                }
-            }
-
-            if (machineTrouvee != null) {
-                // Afficher les informations existantes dans les champs
-                vueModifier.getNouvelleDescriptionField().setText(machineTrouvee.getDmachine());
-                vueModifier.getNouvelleXField().setText(String.valueOf(machineTrouvee.getX()));
-                vueModifier.getNouvelleYField().setText(String.valueOf(machineTrouvee.getY()));
-                vueModifier.getNouveauCoutField().setText(String.valueOf(machineTrouvee.getCoût()));
-                vueModifier.getNouvelEtatField().setText(machineTrouvee.getEtat());
-                vueModifier.getNouveauTypeField().setText(machineTrouvee.getType());
-
-                // Quand l'utilisateur appuie sur "Modifier" : récupère tout les attributs entrer par l'utilisateur dans les zones de textes
-                vueModifier.getModifierButton().setOnAction(modify -> {
-                    String description = vueModifier.getNouvelleDescriptionField().getText();
-                    float x = Float.parseFloat(vueModifier.getNouvelleXField().getText());
-                    float y = Float.parseFloat(vueModifier.getNouvelleYField().getText());
-                    float cout = Float.parseFloat(vueModifier.getNouveauCoutField().getText());
-                    String etat = vueModifier.getNouvelEtatField().getText();
-                    String type = vueModifier.getNouveauTypeField().getText();
-
-                    // Créer la nouvelle machine modifiée
-                    Machine nouvelleMachine = new Machine(ref, description, x, y, cout, etat, type, LocalTime.now());
-
-                    // Supprimer l'ancienne machine
-                    stockage.supprimerMachine(ref); // Appel à la méthode pour supprimer la machine par référence
-
-                    // Ajouter la nouvelle machine modifiée
-                    stockage.ajouterMachine(nouvelleMachine); //Appel à la methode pour ajouter une nouvelle machine dans le stockage
-                });
-
-            } else {
-                System.out.println("Machine non trouvée !");
-            }
+            new CMachine(primaryStage, utilisateur, atelier, stockage).afficherSectionMachine(); // ou retour vers une page machine
         });
 
-        vueModifier.getRetourButton().setOnAction(e -> {
-            CMachine controleurMachine = new CMachine(primaryStage, utilisateur, atelier, stockage);
-            controleurMachine.afficherSectionMachine();
+        vue.getRetourButton().setOnAction(e -> {
+            new CMachine(primaryStage, utilisateur, atelier, stockage).afficherSectionMachine();
         });
     }
 
     public void afficher() {
-        primaryStage.setTitle("Modifier une Machine");
-        primaryStage.setScene(vueModifier.getScene());
+        primaryStage.setTitle("Modifier Machine");
+        primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
-
 }
