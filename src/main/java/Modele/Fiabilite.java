@@ -25,7 +25,7 @@ public class Fiabilite {
         Map<String, List<LocalDateTime>> redemarrages = new HashMap<>();
         Map<String, LocalDateTime> debutObservation = new HashMap<>();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss.SSSSSSSSS");
 
         try (BufferedReader br = new BufferedReader(new FileReader(cheminFichier))) {
             String ligne;
