@@ -7,12 +7,11 @@ package controleur;
 
 
 import Modele.Machine;
-
-import Vue.VAfficherFiabilite;
-
 import Modele.Stockage;
 import javafx.stage.Stage;
-
+import javafx.stage.Stage;
+import Vue.VAfficherFiabilite;
+import java.util.Map;
 import java.util.Map;
 import Modele.Fiabilite;
 
@@ -23,6 +22,39 @@ import Modele.Fiabilite;
 public class CAfficherFiabilite {
 
     private Stage primaryStage;
+    private String cheminFichier;
+    private String utilisateur;
+    private String atelier;
+    private Stockage stockage;
+    private VAfficherFiabilite vue;
+
+    public CAfficherFiabilite(Stage primaryStage, String utilisateur, String atelier, Stockage stockage, String cheminFichier) {
+        this.primaryStage = primaryStage;
+        this.cheminFichier = cheminFichier;
+        this.utilisateur = utilisateur;
+        this.atelier = atelier;
+        this.stockage = stockage;
+        this.vue = new VAfficherFiabilite();
+        initialiser();
+    }
+
+    private void initialiser() {
+        Map<String, Double> fiabilites = Fiabilite.calculerFiabiliteMachines(cheminFichier);
+        vue.afficherFiabilites(fiabilites);
+
+        vue.getRetourButton().setOnAction(e -> {
+            CEvenement cEvenement = new CEvenement(primaryStage,utilisateur, atelier,"suivie_maintenance.txt", stockage); // adapter selon besoin
+            cEvenement.afficherSectionEvenements();
+        });
+    }
+
+    public void afficher() {
+        primaryStage.setScene(vue.getScene());
+        primaryStage.setTitle("Fiabilité des machines");
+        primaryStage.show();
+    }
+
+    /*private Stage primaryStage;
     private VAfficherFiabilite vue;
     private Fiabilite fiabilite; // ton objet Fiabilite existant
     private long tempsObservation; // en minutes
@@ -62,7 +94,7 @@ public class CAfficherFiabilite {
         primaryStage.setTitle("Fiabilité des Machines");
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
-    }
+    }*/
 }
  
 
