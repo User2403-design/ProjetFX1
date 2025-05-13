@@ -54,7 +54,7 @@ public class CAjouterMachine {
                 enregistrerEvenementDemarrage(nouvelleMachine.getRefmachine(), utilisateur);
 
                 // Sauvegarde du fichier
-                FichierMachine.sauvegarder(stockage.getListeMachines());
+                //FichierMachine.sauvegarder(stockage.getListeMachines());
                 System.out.println("Machine ajoutée avec succès !");
             } catch (NumberFormatException ex) {
                 System.out.println("Erreur de format dans les champs numériques.");
