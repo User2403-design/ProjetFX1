@@ -70,7 +70,7 @@ public class CAjouterMachine {
     }
     
     private void enregistrerEvenementDemarrage(String refMachine, String utilisateur) {
-    String ligne = LocalDate.now() + ";" + LocalTime.now().withSecond(0).withNano(0) + ";" + refMachine + ";D;" + utilisateur + ";ajout_machine\n"; //withNano(0) pour pas avoir plein chiffre après les secondes
+    String ligne = LocalDate.now() + ";" + LocalTime.now().withSecond(0).withNano(0) + ";" + refMachine + ";D;" + utilisateur + ";ajout_machine\n"; //withSecond(0) pour enlever les secondes, withNano(0) pour pas avoir plein chiffre après les secondes
     try (BufferedWriter writer = new BufferedWriter(new FileWriter("suivie_maintenance.txt", true))) {
         writer.write(ligne);
     } catch (IOException e) {
