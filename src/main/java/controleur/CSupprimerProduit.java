@@ -30,7 +30,7 @@ public class CSupprimerProduit {
         this.vue = new VSupprimerProduit();
 
         initialiserListe();
-        lancerActions();
+        actionClic();
     }
 
     // Initialiser la liste des produits dans la vue
@@ -42,7 +42,7 @@ public class CSupprimerProduit {
     }
 
     // Gérer les actions des boutons
-    private void lancerActions() {
+    private void actionClic() {
         // Action retour
         vue.getRetourButton().setOnAction(e -> {
             CProduit controleurProduit = new CProduit(primaryStage, utilisateur, atelier, stockage);

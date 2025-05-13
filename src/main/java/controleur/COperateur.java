@@ -23,10 +23,10 @@ public class COperateur {
         this.primaryStage = primaryStage;
         this.vueOperateur = new VOperateur();
         this.stockage = stockage;
-        lancerActions(utilisateur, atelier);
+        actionClic(utilisateur, atelier);
     }
 
-    private void lancerActions(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
+    private void actionClic(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
         
         vueOperateur.getRetour().setOnAction(e -> {
             CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage); //crée un objet de CAcceuil afin de pouvoir appeler la methode AfficherAccueil

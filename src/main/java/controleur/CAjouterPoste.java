@@ -30,7 +30,7 @@ public class CAjouterPoste {
 
         vue = new VAjouterPoste();
         remplirListeMachines();
-        lancerActions();
+        actionClic();
     }
 
     private void remplirListeMachines() {
@@ -39,7 +39,7 @@ public class CAjouterPoste {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getAjouterButton().setOnAction(e -> {
             
             String ref = vue.getRefField().getText();

@@ -25,10 +25,10 @@ public class CProduit {
         this.primaryStage = primaryStage;
         this.vueProduit = new VProduit();
         this.stockage = stockage;
-        lancerActions(utilisateur, atelier);
+        actionClic(utilisateur, atelier);
     }
 
-    private void lancerActions(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un bouton
+    private void actionClic(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un bouton
 
         vueProduit.getRetour().setOnAction(e -> {
             CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage);

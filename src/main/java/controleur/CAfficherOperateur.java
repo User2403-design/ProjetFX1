@@ -29,10 +29,10 @@ public class CAfficherOperateur {
         
         this.vueAfficher = new VAfficherOperateur(operateurs);
         
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         
         vueAfficher.getRetourButton().setOnAction(e -> {
             

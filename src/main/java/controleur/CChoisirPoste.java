@@ -24,7 +24,7 @@ public class CChoisirPoste {
         this.stockage = stockage;
 
         vue = new VChoisirPoste();
-        lancerAction();
+        actionClic();
         remplirListe();
     }
     
@@ -34,7 +34,7 @@ public class CChoisirPoste {
         }
     }
 
-    private void lancerAction() {
+    private void actionClic() {
         
         vue.getValiderButton().setOnAction(e -> {
             

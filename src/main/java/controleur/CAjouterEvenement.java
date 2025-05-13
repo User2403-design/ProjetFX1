@@ -29,10 +29,10 @@ public class CAjouterEvenement {
         this.fichierEvenements = fichierEvenements;
         this.stockage = stockage;
         vue = new VAjouterEvenement();
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getAjouterButton().setOnAction(e -> ajouterEvenement());
         vue.getRetourButton().setOnAction(e -> retour());
     }

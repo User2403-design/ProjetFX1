@@ -26,10 +26,10 @@ public class CSupprimerOperateur {
         this.stockage = stockage;
 
         this.vueSupprimer = new VSupprimerOperateur();
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vueSupprimer.getRetourButton().setOnAction(e -> {
             COperateur controleurOperateur = new COperateur(primaryStage, utilisateur, atelier, stockage);
             controleurOperateur.afficherSectionOperateur();

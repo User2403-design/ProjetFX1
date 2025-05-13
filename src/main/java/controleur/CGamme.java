@@ -22,10 +22,10 @@ public class CGamme {
         this.primaryStage = primaryStage;
         this.vueGamme = new VGamme();
         this.stockage = stockage;
-        lancerActions(utilisateur, atelier);
+        actionClic(utilisateur, atelier);
     }
 
-    private void lancerActions(String utilisateur, String atelier) {
+    private void actionClic(String utilisateur, String atelier) {
 
         vueGamme.getRetour().setOnAction(e -> {
             CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage);

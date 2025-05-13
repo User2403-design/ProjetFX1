@@ -33,10 +33,10 @@ public class CAjouterProduit {
             vue.getListeGammesView().getItems().add(g.getRefGamme());
         }
 
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getAjouterButton().setOnAction(e -> {
             String code = vue.getCodeField().getText();
             String designation = vue.getDesignationField().getText();

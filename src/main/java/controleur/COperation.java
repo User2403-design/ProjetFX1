@@ -24,9 +24,9 @@ public class COperation {
         this.primaryStage = primaryStage;
         this.vueOperation = new VOperation();
         this.stockage = stockage;
-        lancerActions(utilisateur, atelier);
+        actionClic(utilisateur, atelier);
     }
-    private void lancerActions(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
+    private void actionClic(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
         
         vueOperation.getRetour().setOnAction(e -> {
             CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage); //crée un objet de CAcceuil afin de pouvoir appeler la methode AfficherAccueil

@@ -24,7 +24,7 @@ public class CChoisirMachine {
         this.vue = new VChoisirMachine();
 
         remplirListe();
-        lancerActions();
+       actionClic();
     }
 
     private void remplirListe() {
@@ -33,7 +33,7 @@ public class CChoisirMachine {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getValiderButton().setOnAction(e -> {
             String ref = vue.getListeMachines().getSelectionModel().getSelectedItem();
             if (ref != null) {

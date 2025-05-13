@@ -25,10 +25,10 @@ public class CAjouterMachine {
         this.atelier = atelier;
         this.stockage = stockage;
         this.vueAjouter = new VAjouterMachine();
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vueAjouter.getAjouterButton().setOnAction(e -> {
             try {
                 String ref = vueAjouter.getRefField().getText();

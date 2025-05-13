@@ -34,10 +34,10 @@ public class CAfficherPoste {
         
         this.vueAfficher = new VAfficherPoste(postes);
         
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         
         vueAfficher.getRetourButton().setOnAction(e -> {
             

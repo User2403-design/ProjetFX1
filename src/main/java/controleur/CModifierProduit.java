@@ -28,7 +28,7 @@ public class CModifierProduit {
 
         remplirChamps();
         remplirListes();
-        lancerActions();
+        actionClic();
     }
 
     private void remplirChamps() {
@@ -48,7 +48,7 @@ public class CModifierProduit {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getAjouterGammeButton().setOnAction(e -> {
             String selected = vue.getListeGammesDisponibles().getSelectionModel().getSelectedItem();
             if (selected != null) {

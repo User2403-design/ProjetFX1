@@ -28,7 +28,7 @@ public class CSupprimerGamme {
         this.vue = new VSupprimerGamme();
 
         initialiserListe();
-        lancerActions();
+        actionClic();
     }
 
     private void initialiserListe() {
@@ -37,7 +37,7 @@ public class CSupprimerGamme {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getSupprimerButton().setOnAction(e -> {
             String refSelectionnee = vue.getListeGamme().getSelectionModel().getSelectedItem();
             if (refSelectionnee != null) {

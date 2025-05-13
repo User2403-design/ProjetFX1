@@ -33,7 +33,7 @@ public class CModifierPoste {
         remplirChamps();
         remplirListes();
 
-        lancerActions();
+        actionClic();
     }
 
     //remplit les zones de texte avec la reference et la désignation du Poste selectionné en vu de les modifiers
@@ -55,7 +55,7 @@ public class CModifierPoste {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getAjouterMachineButton().setOnAction(e -> {
             String selected = vue.getListeMachinesDisponibles().getSelectionModel().getSelectedItem();
             if (selected != null) {

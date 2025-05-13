@@ -26,7 +26,7 @@ public class CModifierGamme {
         this.vue = new VModifierGamme();
         remplirChamps();
         remplirListes();
-        lancerActions();
+        actionClic();
     }
 
     // Remplir les champs de la fenêtre de modification
@@ -50,7 +50,7 @@ public class CModifierGamme {
     }
 
     // Gérer les actions des boutons
-    private void lancerActions() {
+    private void actionClic() {
         // Ajouter une opération à la gamme
         vue.getAjouterOperationButton().setOnAction(e -> {
             String selected = vue.getListeOperationsDisponibles().getSelectionModel().getSelectedItem();

@@ -22,7 +22,7 @@ public class CChoisirGamme {
         this.stockage = stockage;
         this.vue = new VChoisirGamme();
         initialiserListeGammes();
-        lancerActions();
+        actionClic();
     }
 
     // Initialiser la liste des gammes dans la fenêtre
@@ -34,7 +34,7 @@ public class CChoisirGamme {
     }
 
     // Actions associées aux boutons et interactions
-    private void lancerActions() {
+    private void actionClic() {
         vue.getChoisirButton().setOnAction(e -> {
             // Récupérer la gamme sélectionnée
             String refGamme = vue.getListeGammes().getSelectionModel().getSelectedItem();

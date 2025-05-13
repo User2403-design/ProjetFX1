@@ -23,7 +23,7 @@ public class CAjouterOperation {
         this.stockage = stockage;
         this.vue = new VAjouterOperation();
         remplirListes();
-        lancerActions();
+        actionClic();
     }
 
     private void remplirListes() {
@@ -36,7 +36,7 @@ public class CAjouterOperation {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getAjouterButton().setOnAction(e -> {
             try {
                 String id = vue.getIdField().getText();

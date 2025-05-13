@@ -26,7 +26,7 @@ public class CAjouterGamme {
         this.stockage = stockage;
         this.vue = new VAjouterGamme();
         initialiserListe();
-        lancerActions();
+        actionClic();
     }
 
     private void initialiserListe() {
@@ -35,7 +35,7 @@ public class CAjouterGamme {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
             String ref = vue.getRefGammeField().getText();
             List<String> refsOp = vue.getListeOperations().getSelectionModel().getSelectedItems();

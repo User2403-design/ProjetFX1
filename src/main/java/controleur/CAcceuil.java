@@ -28,10 +28,10 @@ public class CAcceuil {
         this.atelier = atelier;
         this.vueAccueil = new VAccueil(utilisateur, atelier);
         this.stockage = stockage;
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() { //définit toutes les actions quand on clique sur un boutons
+    private void actionClic() { //définit toutes les actions quand on clique sur un boutons
         
         vueAccueil.getDeconnexion().setOnAction(e -> {
             CInitialisation controleurInit = new CInitialisation(primaryStage, stockage);

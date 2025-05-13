@@ -24,7 +24,7 @@ public class CModifierOperation {
         this.vue = new VModifierOperation();
         remplirChamps();
         remplirListes();
-        lancerActions();
+        actionClic();
     }
 
     private void remplirChamps() {
@@ -50,7 +50,7 @@ public class CModifierOperation {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
             appliquerModifications();
             new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation();

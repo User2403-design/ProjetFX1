@@ -22,7 +22,7 @@ public class CModifierOperateur {
         this.operateur = operateur;
         this.vue = new VModifierOperateur();
         remplirChamps();
-        lancerActions();
+        actionClic();
     }
 
     private void remplirChamps() {
@@ -32,7 +32,7 @@ public class CModifierOperateur {
         vue.getEtatCheckBox().setSelected(operateur.getEtat());
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
             operateur.setNom(vue.getNomField().getText());
             operateur.setPrenom(vue.getPrenomField().getText());

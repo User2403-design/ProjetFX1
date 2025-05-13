@@ -24,10 +24,10 @@ public class Cposte {
         this.primaryStage = primaryStage;
         this.vuePoste = new VPoste();
         this.stockage = stockage;
-        lancerActions(utilisateur, atelier);
+        actionClic(utilisateur, atelier);
     }
 
-    private void lancerActions(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
+    private void actionClic(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
         
         vuePoste.getRetour().setOnAction(e -> {
             CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage); //crée un objet de CAcceuil afin de pouvoir appeler la methode AfficherAccueil

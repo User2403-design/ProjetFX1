@@ -23,7 +23,7 @@ public class CChoisirProduit {
         this.vue = new VChoisirProduit();
 
         remplirListe();
-        lancerActions();
+        actionClic();
     }
 
     private void remplirListe() {
@@ -32,7 +32,7 @@ public class CChoisirProduit {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getValiderButton().setOnAction(e -> {
             String codeChoisi = vue.getListeProduits().getSelectionModel().getSelectedItem();
             if (codeChoisi != null) {

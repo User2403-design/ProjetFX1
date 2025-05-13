@@ -26,7 +26,7 @@ public class CModifierMachine {
         this.vue = new VModifierMachine();
 
         remplirChamps();
-        lancerActions();
+        actionClic();
     }
 
     private void remplirChamps() {
@@ -39,7 +39,7 @@ public class CModifierMachine {
         vue.getEtatComboBox().setValue(machine.getEtat());
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
             machine.setRefmachine(vue.getRefField().getText());
             machine.setDmachine(vue.getDesignationField().getText());

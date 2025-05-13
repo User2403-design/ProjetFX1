@@ -35,10 +35,10 @@ public class CAfficherMachine {
         
         this.vueAfficher = new VAfficherMachine(machines);
         
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         
         vueAfficher.getRetourButton().setOnAction(e -> {
             

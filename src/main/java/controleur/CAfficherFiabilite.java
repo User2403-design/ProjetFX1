@@ -36,7 +36,7 @@ public class CAfficherFiabilite {
         this.tempsObservation = tempsObservation;
         vue = new VAfficherFiabilite();
         afficherFiabilites();
-        lancerActions();
+        actionClic();
     }
 
     private void afficherFiabilites() {
@@ -51,7 +51,7 @@ public class CAfficherFiabilite {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getRetourButton().setOnAction(e -> {
             CEvenement cEvenement = new CEvenement(primaryStage, utilisateur, atelier, "machine.txt", stockage);
             cEvenement.afficherSectionEvenements();

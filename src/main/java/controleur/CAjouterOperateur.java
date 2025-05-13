@@ -31,10 +31,10 @@ public class CAjouterOperateur {
         this.atelier = atelier;
         this.stockage = stockage;
         vue = new VAjouterOperateur();
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getAjouterButton().setOnAction(e -> {
             // Récupérer les valeurs des champs de texte
             String nom = vue.getNomField().getText();

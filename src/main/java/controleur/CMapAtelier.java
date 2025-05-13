@@ -27,10 +27,10 @@ public class CMapAtelier {
         vueMap = new VMapAtelier(machines);
         this.stockage = stockage;
         
-        lancerAction(utilisateur, atelier);
+        actionClic(utilisateur, atelier);
     }
     
-    private void lancerAction(String utilisateur, String atelier){
+    private void actionClic(String utilisateur, String atelier){
         vueMap.getRetour().setOnAction(e -> {
             CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage); 
             controleurAcc.afficherAccueil();

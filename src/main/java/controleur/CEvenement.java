@@ -28,10 +28,10 @@ public class CEvenement {
         this.cheminFichierEvenements = cheminFichierEvenements;
         this.stockage = stockage;
         vue = new VEvenement();
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getAjouterButton().setOnAction(e -> {
             CAjouterEvenement controleurAjout = new CAjouterEvenement(primaryStage, utilisateur, atelier, cheminFichierEvenements, stockage);
             controleurAjout.afficher();

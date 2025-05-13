@@ -34,10 +34,10 @@ public class CAfficherOperation {
         
         this.vueAfficher = new VAfficherOperation(operations);
         
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         
         vueAfficher.getRetourButton().setOnAction(e -> {
             

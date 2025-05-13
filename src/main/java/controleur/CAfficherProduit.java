@@ -25,10 +25,10 @@ public class CAfficherProduit {
         String produits = stockage.afficherTousLesProduits(); 
         this.vueAfficher = new VAfficherProduit(produits);
 
-        lancerActions();
+        actionClic();
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vueAfficher.getRetourButton().setOnAction(e -> {
             CProduit controleurProduit = new CProduit(primaryStage, utilisateur, atelier, stockage);
             controleurProduit.afficherSectionProduit();

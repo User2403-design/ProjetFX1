@@ -23,7 +23,7 @@ public class CChoisirOperation {
         this.vue = new VChoisirOperation();
 
         remplirListe();
-        lancerActions();
+        actionClic();
     }
 
     private void remplirListe() {
@@ -32,7 +32,7 @@ public class CChoisirOperation {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getValiderButton().setOnAction(e -> {
             String refChoisie = vue.getListeOperations().getSelectionModel().getSelectedItem();
             if (refChoisie != null) {

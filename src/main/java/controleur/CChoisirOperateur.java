@@ -23,7 +23,7 @@ public class CChoisirOperateur {
         this.stockage = stockage;
         this.vue = new VChoisirOperateur();
         remplirListe();
-        lancerActions();
+        actionClic();
     }
 
     private void remplirListe() {
@@ -32,7 +32,7 @@ public class CChoisirOperateur {
         }
     }
 
-    private void lancerActions() {
+    private void actionClic() {
         vue.getValiderButton().setOnAction(e -> {
             int index = vue.getListeOperateurs().getSelectionModel().getSelectedIndex();
             if (index >= 0) {
