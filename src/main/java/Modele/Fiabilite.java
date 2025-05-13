@@ -11,10 +11,83 @@ package Modele;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class Fiabilite {
     
-    private Map<String, Long> tempsArret = new HashMap<>(); // pour stocker les temps d'arrêt totals de chaque machine
+    public static Map<String, Double> calculerFiabiliteMachines(String cheminFichier) {
+        Map<String, List<LocalDateTime>> arrets = new HashMap<>();
+        Map<String, List<LocalDateTime>> redemarrages = new HashMap<>();
+        Map<String, LocalDateTime> debutObservation = new HashMap<>();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+        try (BufferedReader br = new BufferedReader(new FileReader(cheminFichier))) {
+            String ligne;
+            while ((ligne = br.readLine()) != null) {
+                String[] tokens = ligne.split(";");
+                if (tokens.length < 4) continue;
+
+                LocalDateTime dateHeure = LocalDateTime.parse(tokens[0] + " " + tokens[1], formatter);
+                String machine = tokens[2];
+                String typeEvenement = tokens[3];
+
+                if (typeEvenement.equals("D")) {
+                    debutObservation.putIfAbsent(machine, dateHeure);
+                    redemarrages.computeIfAbsent(machine, k -> new ArrayList<>()).add(dateHeure);
+                } else if (typeEvenement.equals("A")) {
+                    arrets.computeIfAbsent(machine, k -> new ArrayList<>()).add(dateHeure);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Map<String, Double> fiabilites = new HashMap<>();
+
+        for (String machine : debutObservation.keySet()) {
+            List<LocalDateTime> listA = arrets.getOrDefault(machine, new ArrayList<>());
+            List<LocalDateTime> listD = redemarrages.getOrDefault(machine, new ArrayList<>());
+
+            listA.sort(Comparator.naturalOrder());
+            listD.sort(Comparator.naturalOrder());
+
+            long tempsArretTotalMinutes = 0;
+            int i = 0, j = 0;
+
+            while (i < listA.size()) {
+                LocalDateTime debutArret = listA.get(i);
+                LocalDateTime finArret;
+
+                // Chercher le redémarrage suivant
+                if (j < listD.size() && listD.get(j).isAfter(debutArret)) {
+                    finArret = listD.get(j);
+                    j++;
+                } else {
+                    finArret = LocalDateTime.now(); // Pas de redémarrage -> considérer que c'est encore en panne
+                }
+
+                tempsArretTotalMinutes += Duration.between(debutArret, finArret).toMinutes();
+                i++;
+            }
+
+            long tempsObservationTotalMinutes = Duration.between(debutObservation.get(machine), LocalDateTime.now()).toMinutes();
+            double fiabilite = tempsObservationTotalMinutes == 0
+                    ? 100.0
+                    : (1 - (double) tempsArretTotalMinutes / tempsObservationTotalMinutes) * 100;
+
+            fiabilites.put(machine, Math.max(0, Math.min(fiabilite, 100))); // Clamp entre 0 et 100
+        }
+
+        return fiabilites;
+    }
+
+    /*private Map<String, Long> tempsArret = new HashMap<>(); // pour stocker les temps d'arrêt totals de chaque machine
     private Map<String, Evenement> arretsEnCours = new HashMap<>(); // pour mémoriser l'evenement de type A et l'utiliser pour calculer le temps d'arret d'une machine
 
     public Fiabilite (Map<String, Long> tempsArret, Map<String, Evenement> arretsEnCours ){
@@ -103,7 +176,7 @@ public class Fiabilite {
 
     public void setArretsEnCours(Map<String, Evenement> arretsEnCours) {
         this.arretsEnCours = arretsEnCours;
-    }
+    }*/
     
 }
 
