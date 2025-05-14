@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Vue;
+import Modele.Machine;
+import Modele.Stockage;
 import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,6 +24,7 @@ public class VAfficherFiabilite {
     private Scene scene;
     private TextArea fiabiliteArea;
     private Button retourButton;
+    private Stockage stockage;
 
     public VAfficherFiabilite() {
         BorderPane root = new BorderPane();
@@ -52,11 +55,12 @@ public class VAfficherFiabilite {
     //mettre dans stockage
     public void afficherFiabilites(Map<String, Double> fiabilites) {
         StringBuilder sb = new StringBuilder();
+        for (Machine machine : stockage.getListeMachines()) { // pour seulement afficher la fiabilité des machines présentes dans l'atelier
+        String ref = machine.getRefmachine();
         for (Map.Entry<String, Double> entry : fiabilites.entrySet()) {
-            sb.append("Machine ").append(entry.getKey())
-              .append(" : ").append(String.format("%.2f", entry.getValue())).append("%\n");
+            sb.append("Machine ").append(entry.getKey()).append(" : ").append(String.format("%.2f", entry.getValue())).append("%\n");
+        }
         }
         fiabiliteArea.setText(sb.toString());
     }
-
 }
