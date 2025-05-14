@@ -14,7 +14,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
 public class VAjouterMachine {
-
     private Scene sceneAjouterMachine;
     private TextField refField;
     private TextField desField;
@@ -26,6 +25,7 @@ public class VAjouterMachine {
     private TextField heureFinOccField;
     private Button ajouterButton;
     private Button retourButton;
+    private Label messageLabel; // Nouveau label pour les messages
 
     public VAjouterMachine() {
         GridPane layout = new GridPane();
@@ -38,17 +38,16 @@ public class VAjouterMachine {
         xField = new TextField();
         yField = new TextField();
         coutHField = new TextField();
-        
-        // Remplacement ici
+
         etatComboBox = new ComboBox<>();
         etatComboBox.getItems().addAll("libre", "panne", "occupée", "maintenance");
-        etatComboBox.setValue("libre"); // Valeur par défaut
+        etatComboBox.setValue("libre");
 
         typeField = new TextField();
         heureFinOccField = new TextField();
-
         ajouterButton = new Button("Ajouter Machine");
         retourButton = new Button("Retour");
+        messageLabel = new Label(); // Initialisation du label
 
         layout.add(new Label("Référence :"), 0, 0);
         layout.add(refField, 1, 0);
@@ -61,15 +60,16 @@ public class VAjouterMachine {
         layout.add(new Label("Coût Horaire (euro/heure)"), 0, 4);
         layout.add(coutHField, 1, 4);
         layout.add(new Label("État :"), 0, 5);
-        layout.add(etatComboBox, 1, 5); // Le comboBox à la place du TextField
+        layout.add(etatComboBox, 1, 5);
         layout.add(new Label("Type :"), 0, 6);
         layout.add(typeField, 1, 6);
         layout.add(new Label("Heure de fin d'occupation :"), 0, 7);
         layout.add(heureFinOccField, 1, 7);
         layout.add(ajouterButton, 0, 8);
         layout.add(retourButton, 1, 8);
+        layout.add(messageLabel, 0, 9, 2, 1); // Span sur 2 colonnes
 
-        sceneAjouterMachine = new Scene(layout, 400, 400);
+        sceneAjouterMachine = new Scene(layout, 400, 450);
     }
 
     public Scene getSceneAjouterMachine() {
@@ -96,13 +96,16 @@ public class VAjouterMachine {
         return coutHField;
     }
 
-    // Nouveau getter
     public ComboBox<String> getEtatComboBox() {
         return etatComboBox;
     }
 
     public TextField getTypeField() {
         return typeField;
+    }
+
+    public TextField getHeureFinOccField() {
+        return heureFinOccField;
     }
 
     public Button getAjouterButton() {
@@ -113,7 +116,7 @@ public class VAjouterMachine {
         return retourButton;
     }
 
-    public TextField getHeureFinOccField() {
-        return heureFinOccField;
+    public Label getMessageLabel() {
+        return messageLabel;
     }
 }

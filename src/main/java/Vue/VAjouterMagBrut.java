@@ -16,10 +16,11 @@ public class VAjouterMagBrut {
     private TextField quantiteField;
     private Button ajouterButton;
     private Button retourButton;
+    private Label messageLabel;
     private VBox root;
 
     public VAjouterMagBrut() {
-        Label titre = new Label("Ajouter une matière dans le stock brut");
+        Label titre = new Label("Ajouter une matière au stock brut");
         titre.setFont(new Font("Arial", 20));
 
         matiereField = new TextField();
@@ -31,7 +32,10 @@ public class VAjouterMagBrut {
         ajouterButton = new Button("Ajouter");
         retourButton = new Button("Retour");
 
-        VBox formBox = new VBox(10, matiereField, quantiteField, ajouterButton, retourButton);
+        messageLabel = new Label();
+        messageLabel.setStyle("-fx-text-fill: red;");
+
+        VBox formBox = new VBox(10, matiereField, quantiteField, ajouterButton, retourButton, messageLabel);
         formBox.setPadding(new Insets(20));
         formBox.setPrefWidth(300);
 
@@ -57,5 +61,9 @@ public class VAjouterMagBrut {
 
     public Button getRetourButton() {
         return retourButton;
+    }
+
+    public Label getMessageLabel() {
+        return messageLabel;
     }
 }

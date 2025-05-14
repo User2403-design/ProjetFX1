@@ -37,12 +37,18 @@ public class CModifierMagBrut {
         vue.getEnregistrerButton().setOnAction(e -> {
             matiere.setMatiere(vue.getNomField().getText());
             try {
+                // Vérification de la quantité
                 int quantite = Integer.parseInt(vue.getQuantiteField().getText());
+                if (quantite < 0) {
+                    throw new NumberFormatException();
+                }
                 matiere.setQuantite(quantite);
+                // Réinitialisation du message d'erreur
+                vue.getErrorLabel().setText("");
+                new CMagBrut(primaryStage, utilisateur, atelier, stockage).afficherSectionMagBrut();
             } catch (NumberFormatException ex) {
-                // Gérer l’erreur proprement (popup, couleur rouge, etc.)
+                vue.getErrorLabel().setText("Erreur: Entrez une quantité valide (nombre positif).");
             }
-            new CMagBrut(primaryStage, utilisateur, atelier, stockage).afficherSectionMagBrut();
         });
 
         vue.getRetourButton().setOnAction(e -> {

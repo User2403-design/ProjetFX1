@@ -12,14 +12,11 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-/**
- *
- * @author Justin
- */
 public class VAjouterPoste {
+
     private TextField refField;
     private TextField designationField;
-    private ListView<String> listeMachines; // pour afficher les machines sélectionnables
+    private ListView<String> listeMachines;
     private Button ajouterButton;
     private Button retourButton;
     private VBox vbox;
@@ -27,22 +24,34 @@ public class VAjouterPoste {
 
     public VAjouterPoste() {
         vbox = new VBox(10);
+
+        // Initialisation des champs de texte
         refField = new TextField();
         refField.setPromptText("Référence du poste :");
 
         designationField = new TextField();
         designationField.setPromptText("Désignation du poste :");
 
-        listeMachines = new ListView<>(); //création d'une listView vide pour stocker toutes les machines dispo (rempli dans le controleur)
-        listeMachines.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); //autorise l'utilisateur à selectionné plusierus machines
+        // Liste des machines disponibles
+        listeMachines = new ListView<>();
+        listeMachines.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); // Permet de sélectionner plusieurs machines
 
+        // Initialisation des boutons
         ajouterButton = new Button("Ajouter Poste");
         retourButton = new Button("Retour");
 
-        vbox.getChildren().addAll(new Label("Référence:"), refField, new Label("Designation:"), designationField, new Label("Sélectionner les machines :"), listeMachines, ajouterButton, retourButton);
+        // Organisation des éléments dans le layout
+        vbox.getChildren().addAll(
+            new Label("Référence :"), refField,
+            new Label("Désignation :"), designationField,
+            new Label("Sélectionner les machines :"), listeMachines,
+            ajouterButton, retourButton
+        );
+
         scene = new Scene(vbox, 400, 600);
     }
 
+    // Getters pour accéder aux éléments dans le contrôleur
     public Scene getScene() { return scene; }
     public TextField getRefField() { return refField; }
     public TextField getDesignationField() { return designationField; }

@@ -21,38 +21,42 @@ public class CAjouterMagBrut {
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.stockage = stockage;
-
         this.vue = new VAjouterMagBrut();
 
-        actionClic();
+        configurerActions();
     }
 
-    private void actionClic() {
-        vue.getAjouterButton().setOnAction(e -> {
-            String matiere = vue.getMatiereField().getText().trim();
-            String quantiteText = vue.getQuantiteField().getText().trim();
+    private void configurerActions() {
+        vue.getAjouterButton().setOnAction(e -> ajouterMatiere());
+        vue.getRetourButton().setOnAction(e -> retourner());
+    }
 
-            if (!matiere.isEmpty() && !quantiteText.isEmpty()) {
-                try {
-                    int quantite = Integer.parseInt(quantiteText);
-                    stockage.ajouterStockBrut(matiere, quantite);
-                    vue.getMatiereField().clear();
-                    vue.getQuantiteField().clear();
-                } catch (NumberFormatException ex) {
-                    System.out.println("Erreur : La quantité doit être un nombre entier.");
-                }
-            } else {
-                System.out.println("Veuillez remplir tous les champs.");
-            }
-        });
+    private void ajouterMatiere() {
+        String matiere = vue.getMatiereField().getText().trim();
+        String quantiteText = vue.getQuantiteField().getText().trim();
 
-      vue.getRetourButton().setOnAction(e -> {
-            new CMagBrut(primaryStage, utilisateur, atelier, stockage).afficherSectionMagBrut();
-        });
+        if (matiere.isEmpty() || quantiteText.isEmpty()) {
+            vue.getMessageLabel().setText("Veuillez remplir tous les champs.");
+            return;
+        }
+
+        try {
+            int quantite = Integer.parseInt(quantiteText);
+            stockage.ajouterStockBrut(matiere, quantite);
+            vue.getMessageLabel().setText("Matière ajoutée avec succès !");
+            vue.getMatiereField().clear();
+            vue.getQuantiteField().clear();
+        } catch (NumberFormatException ex) {
+            vue.getMessageLabel().setText("Erreur : La quantité doit être un nombre entier.");
+        }
+    }
+
+    private void retourner() {
+        new CMagBrut(primaryStage, utilisateur, atelier, stockage).afficherSectionMagBrut();
     }
 
     public void afficher() {
-        primaryStage.setTitle("Ajouter dans le Stock Brut");
+        primaryStage.setTitle("Ajouter au Stock Brut");
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }

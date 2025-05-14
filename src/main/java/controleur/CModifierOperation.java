@@ -40,7 +40,6 @@ public class CModifierOperation {
         for (Poste p : stockage.getListePostes()) {
             vue.getPostesDisponibles().getItems().add(p.getRefEquipement());
         }
-
         // Sélectionner l'équipement actuel
         Equipement eq = operation.getRefEquipement();
         if (eq instanceof Machine) {
@@ -52,10 +51,18 @@ public class CModifierOperation {
 
     private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
-            appliquerModifications();
-            new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation();
+            // Vérification de la validité de la durée
+            try {
+                float duree = Float.parseFloat(vue.getDureeField().getText());
+                if (duree <= 0) {
+                    throw new NumberFormatException();
+                }
+                appliquerModifications();
+                new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation();
+            } catch (NumberFormatException ex) {
+                vue.getErrorLabel().setText("Erreur: Entrez une durée valide (nombre positif).");
+            }
         });
-
         vue.getRetourButton().setOnAction(e -> {
             new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation();
         });
@@ -63,14 +70,16 @@ public class CModifierOperation {
 
     private void appliquerModifications() {
         operation.setRefOperation(vue.getRefField().getText());
-        operation.setDureeOperation(Float.parseFloat(vue.getDureeField().getText()));
+
+        // Durée déjà validée
+        float duree = Float.parseFloat(vue.getDureeField().getText());
+        operation.setDureeOperation(duree);
 
         String selectedMachine = vue.getMachinesDisponibles().getSelectionModel().getSelectedItem();
         String selectedPoste = vue.getPostesDisponibles().getSelectionModel().getSelectedItem();
 
         if (selectedMachine != null && selectedPoste != null) {
-            // Si les deux sont sélectionnés, on peut afficher un message d'erreur ou choisir une priorité
-            // Par exemple, priorité à la machine
+            // Priorité à la machine si les deux sont sélectionnés
             selectedPoste = null;
         }
 

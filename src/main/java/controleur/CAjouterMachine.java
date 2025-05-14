@@ -1,23 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controleur;
 
 import javafx.stage.Stage;
 import Modele.Stockage;
 import Modele.Machine;
-import Modele.FichierMachine;
 import Vue.VAjouterMachine;
+
 import java.time.LocalTime;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class CAjouterMachine {
-
     private Stage primaryStage;
     private String utilisateur;
     private String atelier;
@@ -41,24 +35,22 @@ public class CAjouterMachine {
                 float x = Float.parseFloat(vueAjouter.getxField().getText());
                 float y = Float.parseFloat(vueAjouter.getyField().getText());
                 float coutHoraire = Float.parseFloat(vueAjouter.getCoutHField().getText());
-                
-                // Récupération de l'état via le ComboBox
-                String etat = vueAjouter.getEtatComboBox().getValue(); // Changement ici pour récupérer la valeur du ComboBox
-                
+                String etat = vueAjouter.getEtatComboBox().getValue();
                 String type = vueAjouter.getTypeField().getText();
                 LocalTime heureFinOcc = LocalTime.parse(vueAjouter.getHeureFinOccField().getText());
 
-                // Création de la nouvelle machine
                 Machine nouvelleMachine = new Machine(ref, description, x, y, coutHoraire, etat, type, heureFinOcc);
                 stockage.ajouterMachine(nouvelleMachine);
                 enregistrerEvenementDemarrage(nouvelleMachine.getRefmachine(), utilisateur);
 
-                // Sauvegarde du fichier
-                //FichierMachine.sauvegarder(stockage.getListeMachines());
-                System.out.println("Machine ajoutée avec succès !");
+                vueAjouter.getMessageLabel().setStyle("-fx-text-fill: green;");
+                vueAjouter.getMessageLabel().setText("Machine ajoutée avec succès !");
             } catch (NumberFormatException ex) {
-                System.out.println("Erreur de format dans les champs numériques.");
+                vueAjouter.getMessageLabel().setStyle("-fx-text-fill: red;");
+                vueAjouter.getMessageLabel().setText("Erreur : Veuillez entrer des valeurs numériques valides.");
             } catch (Exception ex) {
+                vueAjouter.getMessageLabel().setStyle("-fx-text-fill: red;");
+                vueAjouter.getMessageLabel().setText("Erreur lors de l'ajout de la machine.");
                 ex.printStackTrace();
             }
         });
@@ -68,15 +60,15 @@ public class CAjouterMachine {
             controleurMachine.afficherSectionMachine();
         });
     }
-    
+
     private void enregistrerEvenementDemarrage(String refMachine, String utilisateur) {
-    String ligne = LocalDate.now() + ";" + LocalTime.now().withSecond(0).withNano(0) + ";" + refMachine + ";D;" + utilisateur + ";ajout_machine\n"; //withSecond(0) pour enlever les secondes, withNano(0) pour pas avoir plein chiffre après les secondes
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter("suivie_maintenance.txt", true))) {
-        writer.write(ligne);
-    } catch (IOException e) {
-        e.printStackTrace();
+        String ligne = LocalDate.now() + ";" + LocalTime.now().withSecond(0).withNano(0) + ";" + refMachine + ";D;" + utilisateur + ";ajout_machine\n";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("suivie_maintenance.txt", true))) {
+            writer.write(ligne);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-}
 
     public void afficher() {
         primaryStage.setTitle("Ajouter une Machine");

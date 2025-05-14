@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class CAjouterProduit {
+
     private Stage primaryStage;
     private VAjouterProduit vue;
     private Stockage stockage;
@@ -25,14 +26,11 @@ public class CAjouterProduit {
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.stockage = stockage;
-
         vue = new VAjouterProduit();
-
         // Remplir la liste des gammes dans la vue
         for (Gamme g : stockage.getListeGammes()) {
             vue.getListeGammesView().getItems().add(g.getRefGamme());
         }
-
         actionClic();
     }
 
@@ -41,6 +39,7 @@ public class CAjouterProduit {
             String code = vue.getCodeField().getText();
             String designation = vue.getDesignationField().getText();
 
+            // Vérification si tous les champs sont remplis
             if (code.isEmpty() || designation.isEmpty() || vue.getListeGammesView().getSelectionModel().getSelectedItems().isEmpty()) {
                 System.out.println("Veuillez remplir tous les champs !");
                 return;
@@ -55,7 +54,6 @@ public class CAjouterProduit {
             // Création et ajout du produit
             Produit produit = new Produit(code, designation, listeGammes);
             stockage.getListeProduits().add(produit);
-
             System.out.println("Produit ajouté avec succès !");
             retour();
         });
@@ -64,6 +62,7 @@ public class CAjouterProduit {
     }
 
     private void retour() {
+        // Retour à la section produit
         CProduit controleurProduit = new CProduit(primaryStage, utilisateur, atelier, stockage);
         controleurProduit.afficherSectionProduit();
     }
