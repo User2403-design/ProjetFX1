@@ -56,10 +56,7 @@ public class CAcceuil {
         vueAccueil.getGamme().setOnAction(e -> {
             System.out.println("Cliqué sur Gamme !");
             CGamme controleurPoste = new CGamme(primaryStage, utilisateur, atelier, stockage);        
-            controleurPoste.afficherSectionGamme();
-            
-            
-            
+            controleurPoste.afficherSectionGamme();  
         });
 
         vueAccueil.getOperation().setOnAction(e -> {
@@ -68,7 +65,13 @@ public class CAcceuil {
             COperation controleurMach = new COperation(primaryStage, utilisateur, atelier, stockage);        
             controleurMach.afficherSectionOperation();
         });
-
+        
+        vueAccueil.getStock().setOnAction(e -> {
+            System.out.println("Cliqué sur Magasin de brut !");
+            CMagBrut controleurMB = new CMagBrut(primaryStage, utilisateur, atelier, stockage);        
+            controleurMB.afficherSectionMagBrut(); 
+        });
+        
         vueAccueil.getOperateur().setOnAction(e -> {
             System.out.println("Cliqué sur Operateur !");
               
