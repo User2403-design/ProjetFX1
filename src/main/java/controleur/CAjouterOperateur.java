@@ -4,21 +4,13 @@
  */
 package controleur;
 
-
 import javafx.stage.Stage;
 import Modele.Operateur;
 import Modele.Stockage;
 import Vue.VAjouterOperateur;
-import javafx.stage.Stage;
-import java.util.ArrayList;
-
-/**
- *
- * @author chloe
- */
 
 public class CAjouterOperateur {
-    
+
     private Stage primaryStage;
     private VAjouterOperateur vue;
     private Stockage stockage;
@@ -30,43 +22,43 @@ public class CAjouterOperateur {
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.stockage = stockage;
-        vue = new VAjouterOperateur();
-        actionClic();
+
+        this.vue = new VAjouterOperateur();
+        configurerActions();
     }
 
-    private void actionClic() {
-        vue.getAjouterButton().setOnAction(e -> {
-            // Récupérer les valeurs des champs de texte
-            String nom = vue.getNomField().getText();
-            String prenom = vue.getPrenomField().getText();
-            String code = vue.getCodeField().getText();
-
-            // Vérification que les champs sont remplis
-            if (nom.isEmpty() || prenom.isEmpty() || code.isEmpty()) {
-                System.out.println("Veuillez remplir tous les champs !");
-                return;
-            }
-           
-            // Création de l'opérateur et ajout à la liste des opérateurs
-            Operateur operateur = new Operateur(nom, prenom, code, true); // L'état initial est "true" (disponible)
-            stockage.getListeOperateurs().add(operateur);
-            System.out.println("Opérateur ajouté avec succès !");
-            
-            // Retour à la vue des opérateurs
-            retour();
-        });
-
+    private void configurerActions() {
+        vue.getAjouterButton().setOnAction(e -> ajouterOperateur());
         vue.getRetourButton().setOnAction(e -> retour());
     }
 
+    private void ajouterOperateur() {
+        String nom = vue.getNomField().getText().trim();
+        String prenom = vue.getPrenomField().getText().trim();
+        String code = vue.getCodeField().getText().trim();
+
+        if (nom.isEmpty() || prenom.isEmpty() || code.isEmpty()) {
+            vue.getMessageLabel().setText("Veuillez remplir tous les champs.");
+            return;
+        }
+
+        Operateur operateur = new Operateur(nom, prenom, code, true);
+        stockage.getListeOperateurs().add(operateur);
+
+        vue.getMessageLabel().setStyle("-fx-text-fill: green;");
+        vue.getMessageLabel().setText("Opérateur ajouté avec succès !");
+
+        vue.getNomField().clear();
+        vue.getPrenomField().clear();
+        vue.getCodeField().clear();
+    }
+
     private void retour() {
-        // Retour à la vue des opérateurs
-        COperateur controleurOperateur = new COperateur(primaryStage, utilisateur, atelier, stockage);
-        controleurOperateur.afficherSectionOperateur();
+        COperateur controleur = new COperateur(primaryStage, utilisateur, atelier, stockage);
+        controleur.afficherSectionOperateur();
     }
 
     public void afficher() {
-        // Affichage de la vue d'ajout d'opérateur
         primaryStage.setTitle("Ajouter un Opérateur");
         primaryStage.setScene(vue.getScene());
         primaryStage.show();

@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class VAjouterProduit {
+
     private TextField codeProduitField;
     private TextField designationProduitField;
     private ListView<String> listeGammesView;
@@ -63,10 +64,10 @@ public class VAjouterProduit {
         VBox root = new VBox(20, titre, formGrid, buttonBox);
         root.setPadding(new Insets(30));
         root.setStyle("-fx-background-color: #f2f7fc;");
-
         scene = new Scene(root, 500, 450);
     }
 
+    // Getters pour accéder aux éléments dans le contrôleur
     public Scene getScene() {
         return scene;
     }

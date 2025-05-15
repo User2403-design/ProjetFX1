@@ -4,11 +4,11 @@
  */
 package Vue;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 
 public class VAjouterOperateur {
 
@@ -17,55 +17,49 @@ public class VAjouterOperateur {
     private TextField codeField;
     private Button ajouterButton;
     private Button retourButton;
-    private VBox vbox;
+    private Label messageLabel;
     private Scene scene;
 
     public VAjouterOperateur() {
-        vbox = new VBox(10);
+        VBox layout = new VBox(10);
+        layout.setPadding(new Insets(20));
+
+        Label titre = new Label("Ajouter un Opérateur");
+        titre.setFont(new Font("Arial", 20));
 
         nomField = new TextField();
-        nomField.setPromptText("Nom de l'opérateur :");
+        nomField.setPromptText("Nom");
 
         prenomField = new TextField();
-        prenomField.setPromptText("Prénom de l'opérateur :");
+        prenomField.setPromptText("Prénom");
 
         codeField = new TextField();
-        codeField.setPromptText("Code de l'opérateur :");
+        codeField.setPromptText("Code opérateur");
 
-        ajouterButton = new Button("Ajouter Opérateur");
+        ajouterButton = new Button("Ajouter");
         retourButton = new Button("Retour");
 
-        vbox.getChildren().addAll(
-            new Label("Nom de l'opérateur :"), nomField,
-            new Label("Prénom de l'opérateur :"), prenomField,
-            new Label("Code de l'opérateur :"), codeField,
-            ajouterButton, retourButton
+        messageLabel = new Label();
+        messageLabel.setStyle("-fx-text-fill: red;");
+
+        VBox form = new VBox(8,
+            new Label("Nom :"), nomField,
+            new Label("Prénom :"), prenomField,
+            new Label("Code :"), codeField,
+            ajouterButton, retourButton,
+            messageLabel
         );
 
-        scene = new Scene(vbox, 400, 300);
+        layout.getChildren().addAll(titre, form);
+
+        scene = new Scene(layout, 400, 350);
     }
 
-    public Scene getScene() {
-        return scene;
-    }
-
-    public TextField getNomField() {
-        return nomField;
-    }
-
-    public TextField getPrenomField() {
-        return prenomField;
-    }
-
-    public TextField getCodeField() {
-        return codeField;
-    }
-
-    public Button getAjouterButton() {
-        return ajouterButton;
-    }
-
-    public Button getRetourButton() {
-        return retourButton;
-    }
+    public Scene getScene() { return scene; }
+    public TextField getNomField() { return nomField; }
+    public TextField getPrenomField() { return prenomField; }
+    public TextField getCodeField() { return codeField; }
+    public Button getAjouterButton() { return ajouterButton; }
+    public Button getRetourButton() { return retourButton; }
+    public Label getMessageLabel() { return messageLabel; }
 }

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CAjouterGamme {
+
     private Stage primaryStage;
     private String utilisateur, atelier;
     private Stockage stockage;
@@ -25,41 +26,59 @@ public class CAjouterGamme {
         this.atelier = atelier;
         this.stockage = stockage;
         this.vue = new VAjouterGamme();
-        initialiserListe();
-        actionClic();
+
+        initialiserListeOperations();
+        configurerActions();
     }
 
-    private void initialiserListe() {
+    private void initialiserListeOperations() {
+        vue.getListeOperations().getItems().clear();
         for (Operation op : stockage.getListeOperations()) {
             vue.getListeOperations().getItems().add(op.getRefOperation());
         }
     }
 
-    private void actionClic() {
-        vue.getEnregistrerButton().setOnAction(e -> {
-            String ref = vue.getRefGammeField().getText();
-            List<String> refsOp = vue.getListeOperations().getSelectionModel().getSelectedItems();
+    private void configurerActions() {
+        vue.getEnregistrerButton().setOnAction(e -> enregistrerGamme());
+        vue.getRetourButton().setOnAction(e -> retourner());
+    }
 
-            if (!ref.isEmpty() && !refsOp.isEmpty()) {
-                ArrayList<Operation> operations = new ArrayList<>();
-                for (String r : refsOp) {
-                    Operation op = stockage.rechercherOperationParRef(r);
-                    if (op != null) operations.add(op);
-                }
+    private void enregistrerGamme() {
+        String ref = vue.getRefGammeField().getText().trim();
+        List<String> refsOp = vue.getListeOperations().getSelectionModel().getSelectedItems();
 
-                Gamme nouvelleGamme = new Gamme(ref, operations);
-                stockage.ajouterGamme(nouvelleGamme);
+        if (ref.isEmpty()) {
+            vue.getMessageLabel().setText("Veuillez entrer une référence pour la gamme.");
+            return;
+        }
 
-                System.out.println("Gamme ajoutée avec succès !");
-                new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation();
-            } else {
-                System.out.println("Veuillez remplir tous les champs.");
+        if (refsOp.isEmpty()) {
+            vue.getMessageLabel().setText("Veuillez sélectionner au moins une opération.");
+            return;
+        }
+
+        ArrayList<Operation> operations = new ArrayList<>();
+        for (String r : refsOp) {
+            Operation op = stockage.rechercherOperationParRef(r);
+            if (op != null) {
+                operations.add(op);
             }
-        });
+        }
 
-        vue.getRetourButton().setOnAction(e -> {
-            new CGamme(primaryStage, utilisateur, atelier, stockage).afficherSectionGamme();
-        });
+        if (operations.isEmpty()) {
+            vue.getMessageLabel().setText("Les opérations sélectionnées sont invalides.");
+            return;
+        }
+
+        Gamme nouvelleGamme = new Gamme(ref, operations);
+        stockage.ajouterGamme(nouvelleGamme);
+        vue.getMessageLabel().setText("Gamme ajoutée avec succès !");
+        new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation();
+    }
+
+    private void retourner() {
+        CGamme controleurGamme = new CGamme(primaryStage, utilisateur, atelier, stockage);
+        controleurGamme.afficherSectionGamme();
     }
 
     public void afficher() {

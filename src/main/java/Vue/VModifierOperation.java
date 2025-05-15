@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 public class VModifierOperation {
     private TextField idField;
@@ -18,6 +19,7 @@ public class VModifierOperation {
     private ListView<String> postesDisponibles;
     private Button enregistrerButton;
     private Button retourButton;
+    private Label errorLabel;  // Label pour l'erreur de durée
     private Scene scene;
 
     public VModifierOperation() {
@@ -29,6 +31,10 @@ public class VModifierOperation {
         enregistrerButton = new Button("Enregistrer");
         retourButton = new Button("Retour");
 
+        // Label d'erreur global
+        errorLabel = new Label();
+        errorLabel.setTextFill(Color.RED);  // Le message d'erreur sera en rouge
+
         VBox layout = new VBox(10);
         layout.getChildren().addAll(
             new Label("ID de l'opération :"), idField,
@@ -36,6 +42,7 @@ public class VModifierOperation {
             new Label("Durée :"), dureeField,
             new Label("Machines disponibles :"), machinesDisponibles,
             new Label("Postes disponibles :"), postesDisponibles,
+            errorLabel,  // Affichage de l'erreur sous les champs
             new HBox(10, enregistrerButton, retourButton)
         );
 
@@ -50,4 +57,5 @@ public class VModifierOperation {
     public ListView<String> getPostesDisponibles() { return postesDisponibles; }
     public Button getEnregistrerButton() { return enregistrerButton; }
     public Button getRetourButton() { return retourButton; }
+    public Label getErrorLabel() { return errorLabel; }  // Méthode pour accéder au label d'erreur
 }

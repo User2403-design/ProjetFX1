@@ -3,21 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
+
 import Vue.VAjouterEvenement;
 import javafx.stage.Stage;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import Modele.Stockage;
-/**
- *
- * @author Elève
- */
+
 public class CAjouterEvenement {
-    
+
     private Stage primaryStage;
     private VAjouterEvenement vue;
-    private String fichierEvenements; // chemin du fichier événements
+    private String fichierEvenements;
     private String utilisateur;
     private String atelier;
     private Stockage stockage;
@@ -44,23 +42,20 @@ public class CAjouterEvenement {
         String type = vue.getTypeComboBox().getValue();
         String operateur = vue.getOperateurField().getText();
         String cause = vue.getCauseField().getText();
-        
+
         if (date.isEmpty() || heure.isEmpty() || machine.isEmpty() || type == null || operateur.isEmpty() || cause.isEmpty()) {
-            System.out.println("Veuillez remplir tous les champs !");
+            vue.getMessageLabel().setText("Veuillez remplir tous les champs !");
             return;
         }
 
         String evenement = date + ";" + heure + ";" + machine + ";" + type + ";" + operateur + ";" + cause;
-
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fichierEvenements, true))) {
             writer.write(evenement);
             writer.newLine();
-            System.out.println("Événement ajouté avec succès !");
+            vue.getMessageLabel().setText("✅ Événement ajouté avec succès !");
         } catch (IOException ex) {
-            System.err.println("Erreur lors de l'ajout de l'événement : " + ex.getMessage());
+            vue.getMessageLabel().setText("❌ Erreur : " + ex.getMessage());
         }
-
-        retour();
     }
 
     private void retour() {
@@ -73,5 +68,4 @@ public class CAjouterEvenement {
         primaryStage.setScene(vue.getScene());
         primaryStage.show();
     }
-
 }

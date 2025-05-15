@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
-
 import Modele.Machine;
 import Modele.Stockage;
 import Vue.VModifierMachine;
@@ -24,7 +23,6 @@ public class CModifierMachine {
         this.stockage = stockage;
         this.machine = machine;
         this.vue = new VModifierMachine();
-
         remplirChamps();
         actionClic();
     }
@@ -41,15 +39,29 @@ public class CModifierMachine {
 
     private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
-            machine.setRefmachine(vue.getRefField().getText());
-            machine.setDmachine(vue.getDesignationField().getText());
-            machine.setX(Float.parseFloat(vue.getXField().getText()));
-            machine.setY(Float.parseFloat(vue.getYField().getText()));
-            machine.setCoût(Float.parseFloat(vue.getCoutField().getText()));
-            machine.setType(vue.getTypeField().getText());
-            machine.setEtat(vue.getEtatComboBox().getValue());
+            try {
+                // Vérification de la validité des champs X et Y
+                float x = Float.parseFloat(vue.getXField().getText());
+                float y = Float.parseFloat(vue.getYField().getText());
 
-            new CMachine(primaryStage, utilisateur, atelier, stockage).afficherSectionMachine(); // ou retour vers une page machine
+                // Vérification de la validité du coût horaire
+                float cout = Float.parseFloat(vue.getCoutField().getText());
+
+                // Si tout est valide, mise à jour de la machine
+                machine.setRefmachine(vue.getRefField().getText());
+                machine.setDmachine(vue.getDesignationField().getText());
+                machine.setX(x);
+                machine.setY(y);
+                machine.setCoût(cout);
+                machine.setType(vue.getTypeField().getText());
+                machine.setEtat(vue.getEtatComboBox().getValue());
+
+                // Retour vers la page des machines après enregistrement
+                new CMachine(primaryStage, utilisateur, atelier, stockage).afficherSectionMachine();
+            } catch (NumberFormatException ex) {
+                // Si la conversion échoue, afficher un message d'erreur global
+                vue.getErrorLabel().setText("Erreur: Entrez un nombre valide pour les positions X, Y et le coût horaire.");
+            }
         });
 
         vue.getRetourButton().setOnAction(e -> {

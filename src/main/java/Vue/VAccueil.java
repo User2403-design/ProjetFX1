@@ -20,7 +20,7 @@ public class VAccueil {
     private VBox vbox;
     private Label bienvenue;
     private Button deconnexion;
-    private Button machine, poste, gamme, operation, operateur, produit, fiabilite, map;
+    private Button machine, poste, gamme, operation, operateur, produit, stock, fiabilite, map;
 
     public VAccueil(String utilisateur, String atelier) {
         // Création de la mise en page principale
@@ -36,20 +36,23 @@ public class VAccueil {
         // Ligne de boutons - Organisation en 2 lignes
         HBox ligne1 = new HBox(15);
         HBox ligne2 = new HBox(15);
+        HBox ligne3 = new HBox(15);
         ligne1.setAlignment(Pos.CENTER);
         ligne2.setAlignment(Pos.CENTER);
-
+        ligne2.setAlignment(Pos.CENTER);
+        
         machine = new Button("Machine");
         poste = new Button("Poste");
         gamme = new Button("Gamme");
         operation = new Button("Opération");
         operateur = new Button("Opérateur");
         produit = new Button("Produit");
+        stock = new Button("Magasin de brut");
         fiabilite = new Button("Fiabilité");
         map = new Button("Carte de l'Atelier");
 
         // Style commun aux boutons
-        Button[] boutons = {machine, poste, gamme, operation, operateur, produit, fiabilite, map};
+        Button[] boutons = {machine, poste, gamme, operation, operateur, produit,stock, fiabilite, map};
         for (Button b : boutons) {
             b.setStyle(
                 "-fx-background-color: #dceefc;" +
@@ -63,7 +66,8 @@ public class VAccueil {
         }
 
         ligne1.getChildren().addAll(machine, poste, gamme, operation);
-        ligne2.getChildren().addAll(operateur, produit, fiabilite, map);
+        ligne2.getChildren().addAll(operateur, produit,stock);
+        ligne3.getChildren().addAll(fiabilite, map);
 
         // Bouton de déconnexion
         deconnexion = new Button("Déconnexion");
@@ -77,7 +81,7 @@ public class VAccueil {
         );
 
         // Ajout au VBox principal
-        vbox.getChildren().addAll(bienvenue, ligne1, ligne2, deconnexion);
+        vbox.getChildren().addAll(bienvenue, ligne1, ligne2,ligne3, deconnexion);
 
         scene = new Scene(vbox, 700, 400);
     }
@@ -92,6 +96,7 @@ public class VAccueil {
     public Button getOperation() { return operation; }
     public Button getOperateur() { return operateur; }
     public Button getProduit() { return produit; }
+    public Button getStock() { return stock; }
     public Button getFiabilite() { return fiabilite; }
     public Button getMap() { return map;}
     

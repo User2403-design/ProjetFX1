@@ -233,7 +233,24 @@ public class Stockage {
         this.listeProduits.add(produit); 
     }
 
+    public void ajouterStockBrut(String matiere, double quantite) {
+    boolean found = false;
     
+    for (Magasindebrut m : listeMagDeBrut) {
+        if (m.getMatiere().equalsIgnoreCase(matiere)) {
+            m.setQuantite(m.getQuantite() + quantite);
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        Magasindebrut nouveau = new Magasindebrut(matiere, quantite);
+        listeMagDeBrut.add(nouveau);
+    }
+
+    System.out.println("Matière '" + matiere + "' ajoutée ou mise à jour avec " + quantite + " unités.");
+}
     
     //methodes pour supprimer
     
@@ -309,7 +326,25 @@ public class Stockage {
             return false;
         }
     }
-    
+    public boolean supprimerMagBrut(String nomMatiere) {
+    Magasindebrut aSupprimer = null;
+
+    for (Magasindebrut m : listeMagDeBrut) {
+        if (m.getMatiere().equalsIgnoreCase(nomMatiere)) {
+            aSupprimer = m;
+            break;
+        }
+    }
+
+    if (aSupprimer != null) {
+        listeMagDeBrut.remove(aSupprimer);
+        System.out.println("Matière supprimée avec succès.");
+        return true;
+    } else {
+        System.out.println("Matière \"" + nomMatiere + "\" non trouvée.");
+        return false;
+    }
+}
     
     
     public boolean supprimerOperateur(String codeOperateur) {
@@ -411,6 +446,22 @@ public class Stockage {
         sb.append(produit.afficherProduit());
         sb.append("\n----------------------\n");//pour avoir un affichage propre
     }
+    return sb.toString();
+}
+    public String afficherMagasinDeBrut() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("\n=== Magasin de Matières Brutes ===\n");
+    sb.append(String.format("%-25s | %s\n", "Matière", "Quantité"));
+    sb.append("-----------------------------------------\n");
+
+    if (listeMagDeBrut.isEmpty()) {
+        sb.append("Aucune matière enregistrée.\n");
+    } else {
+        for (Magasindebrut m : this.listeMagDeBrut) {
+            sb.append(String.format("%-25s | %.2f\n", m.getMatiere(), m.getQuantite()));
+        }
+    }
+
     return sb.toString();
 }
     
