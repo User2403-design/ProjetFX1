@@ -28,12 +28,13 @@ public class VAfficherFiabilite {
     private Stockage stockage;
     private Fiabilite fiab;
 
-    public VAfficherFiabilite(Map<String, Double> fiabilites) {
+    public VAfficherFiabilite(Map<String, Double> fiabilites, Stockage stockage){
         BorderPane root = new BorderPane();
         fiabiliteArea = new TextArea();
         fiabiliteArea.setEditable(false);
         fiabiliteArea.setWrapText(true);
         retourButton = new Button("Retour");
+        this.stockage = stockage;
         this.fiab = new Fiabilite(stockage);
         
 
