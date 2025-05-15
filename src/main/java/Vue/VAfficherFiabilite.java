@@ -37,8 +37,8 @@ public class VAfficherFiabilite {
         this.fiab = new Fiabilite(stockage);
         
 
-        String texte = fiab.afficherFiabilites(fiabilites);
-        fiabiliteArea.setText(texte);
+        String texte = fiab.afficherFiabilites(fiabilites);//texte contient le texte dans lequel il est écrit la faibilité de chaque machine présente actuellement dans l'atelier
+        fiabiliteArea.setText(texte);//on le met dans la zone d'affichage 
 
         VBox vbox = new VBox(10, new Label("Fiabilité des machines :"), fiabiliteArea, retourButton);
         vbox.setPadding(new Insets(20));
