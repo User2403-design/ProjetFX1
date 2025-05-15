@@ -102,6 +102,7 @@ public class Fiabilite {
         StringBuilder sb = new StringBuilder();
         for (Machine machine : stockage.getListeMachines()) { // pour seulement afficher la fiabilité des machines présentes dans l'atelier
         String ref = machine.getRefmachine();
+        
         if (fiabilites.containsKey(ref)) {
             double fiabilite = fiabilites.get(ref);
             sb.append("Machine ").append(ref).append(" : ").append(String.format("%.2f",fiabilite)).append("%\n");
