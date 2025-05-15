@@ -37,7 +37,7 @@ public class CAfficherFiabilite {
         
         Map<String, Double> fiabilites = Fiabilite.calculerFiabiliteMachines(cheminFichier); //calcule les fiabilités et remplie la map
 
-        this.vue = new VAfficherFiabilite(fiabilites); //affiche les fiabilité de chaque machine de l'atelier dans la vue 
+        this.vue = new VAfficherFiabilite(fiabilites, stockage); //affiche les fiabilité de chaque machine de l'atelier dans la vue 
         ActionClic();
     }
 
