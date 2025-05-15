@@ -34,14 +34,15 @@ public class CAfficherFiabilite {
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.stockage = stockage;
-        this.vue = new VAfficherFiabilite();
-        initialiser();
+        
+        Map<String, Double> fiabilites = Fiabilite.calculerFiabiliteMachines(cheminFichier); //calcule les fiabilités et remplie la map
+
+        this.vue = new VAfficherFiabilite(fiabilites); //affiche les fiabilité de chaque machine de l'atelier dans la vue 
+        ActionClic();
     }
 
-    private void initialiser() {
-        Map<String, Double> fiabilites = Fiabilite.calculerFiabiliteMachines(cheminFichier);
-        vue.afficherFiabilites(fiabilites);
-
+    private void ActionClic() {
+       
         vue.getRetourButton().setOnAction(e -> {
             CEvenement cEvenement = new CEvenement(primaryStage,utilisateur, atelier,"suivie_maintenance.txt", stockage); // adapter selon besoin
             cEvenement.afficherSectionEvenements();
