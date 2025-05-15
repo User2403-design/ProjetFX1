@@ -105,8 +105,8 @@ public class Fiabilite {
         for (Map.Entry<String, Double> entry : fiabilites.entrySet()) {
             sb.append("Machine ").append(entry.getKey()).append(" : ").append(String.format("%.2f", entry.getValue())).append("%\n");
         }
-    return sb.toString();
         }
+        return sb.toString();
     }
     
 
