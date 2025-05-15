@@ -10,6 +10,11 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import Modele.Stockage;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 
 public class CAjouterEvenement {
 
@@ -47,8 +52,26 @@ public class CAjouterEvenement {
             vue.getMessageLabel().setText("Veuillez remplir tous les champs !");
             return;
         }
+        // Vérification du format de la date
+        try {
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate.parse(date, dateFormatter);
+        } catch (DateTimeParseException e) {
+            vue.getMessageLabel().setText("❌ Format de date invalide (attendu : yyyy-MM-dd)");
+            return;
+        }
 
+        // Vérification du format de l'heure
+        try {
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+            LocalTime.parse(heure, timeFormatter);
+        } catch (DateTimeParseException e) {
+            vue.getMessageLabel().setText("❌ Format d'heure invalide (attendu : HH:mm)");
+            return;
+        }
+        //si tout est bon on crée l'evenement associé 
         String evenement = date + ";" + heure + ";" + machine + ";" + type + ";" + operateur + ";" + cause;
+        
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fichierEvenements, true))) {
             writer.write(evenement);
             writer.newLine();
