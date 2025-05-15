@@ -18,6 +18,7 @@ import java.util.Map;
 import java.io.*;
 import java.util.*;
 
+//on s'en sert pas 
 public class LectureFichier {
       
     public static Map<String, ArrayList<Evenement>> LireFichier (String nomFichier) {// pk ArrayList ?
