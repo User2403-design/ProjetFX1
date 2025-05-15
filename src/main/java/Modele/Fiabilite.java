@@ -17,8 +17,14 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import Modele.Stockage;
 
 public class Fiabilite {
+    private Stockage stockage;
+    
+    public Fiabilite(Stockage stockage){
+        this.stockage = stockage;
+    }
     
     public static Map<String, Double> calculerFiabiliteMachines(String cheminFichier) {
         Map<String, List<LocalDateTime>> arrets = new HashMap<>();
@@ -90,6 +96,19 @@ public class Fiabilite {
 
         return fiabilites;
     }
+    
+    //mettre dans stockage ou fiabilité
+    public String afficherFiabilites(Map<String, Double> fiabilites) {
+        StringBuilder sb = new StringBuilder();
+        for (Machine machine : stockage.getListeMachines()) { // pour seulement afficher la fiabilité des machines présentes dans l'atelier
+        String ref = machine.getRefmachine();
+        for (Map.Entry<String, Double> entry : fiabilites.entrySet()) {
+            sb.append("Machine ").append(entry.getKey()).append(" : ").append(String.format("%.2f", entry.getValue())).append("%\n");
+        }
+    return sb.toString();
+        }
+    }
+    
 
     /*private Map<String, Long> tempsArret = new HashMap<>(); // pour stocker les temps d'arrêt totals de chaque machine
     private Map<String, Evenement> arretsEnCours = new HashMap<>(); // pour mémoriser l'evenement de type A et l'utiliser pour calculer le temps d'arret d'une machine
