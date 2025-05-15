@@ -26,7 +26,7 @@ public class VAfficherFiabilite {
     private TextArea fiabiliteArea;
     private Button retourButton;
     private Stockage stockage;
-    private Fiabilite fiabilites;
+    private Fiabilite fiab;
 
     public VAfficherFiabilite(Map<String, Double> fiabilites) {
         BorderPane root = new BorderPane();
@@ -34,7 +34,7 @@ public class VAfficherFiabilite {
         fiabiliteArea.setEditable(false);
         fiabiliteArea.setWrapText(true);
         retourButton = new Button("Retour");
-        
+        this.fiab = new Fiabilite(stockage);
         
 
         String texte = fiab.afficherFiabilites(fiabilites);
