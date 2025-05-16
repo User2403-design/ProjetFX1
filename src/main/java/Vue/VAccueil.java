@@ -2,45 +2,58 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
 
-  */  
+ * @author chloe
+ */
 
 package Vue;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.geometry.Pos;               // Gestion alignement
+import javafx.scene.Scene;               // Conteneur scène
+import javafx.scene.control.Button;     // Boutons
+import javafx.scene.layout.*;            // Layouts (VBox, HBox, StackPane)
+import javafx.scene.paint.Color;        // Couleurs
+import javafx.scene.text.*;              // Textes et polices
+import javafx.scene.effect.DropShadow;  // Ombre portée
 
 public class VAccueil {
+    // Boutons de navigation
+    private Button machine, poste, gamme, operation, operateur, produit, stock, map, deconnexion, fiabilite;
+    private VBox layoutPrincipal;  // Layout principal vertical
+    private Scene scene;           // Scène principale
 
-    private Scene scene;
-    private VBox vbox;
-    private Label bienvenue;
-    private Button deconnexion;
-    private Button machine, poste, gamme, operation, operateur, produit, stock, fiabilite, map;
-
+    // Constructeur, reçoit noms utilisateur et atelier pour le titre
     public VAccueil(String utilisateur, String atelier) {
-        // Création de la mise en page principale
-        vbox = new VBox(30);
-        vbox.setPadding(new Insets(30));
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setStyle("-fx-background-color: #f4f7fa;"); // correspond au code couleur
+        // Création titre stylé
+        TextFlow titre = new TextFlow();
+        titre.setTextAlignment(TextAlignment.CENTER);
 
-        // Titre de bienvenue
-        bienvenue = new Label("Bienvenue " + utilisateur + " dans l'atelier " + atelier + " !"); 
-        bienvenue.setStyle("-fx-font-size: 18px; -fx-text-fill: #333; -fx-font-weight: bold;");
+        Text bienvenue = new Text("Bienvenue ");
+        bienvenue.setFill(Color.web("#333333"));
+        bienvenue.setFont(Font.font("Serif", FontWeight.NORMAL, 60));
 
-        // Ligne de boutons - Organisation en 2 lignes
-        HBox ligne1 = new HBox(15);
-        HBox ligne2 = new HBox(15);
-        HBox ligne3 = new HBox(15);
-        ligne1.setAlignment(Pos.CENTER);
-        ligne2.setAlignment(Pos.CENTER);
-        ligne2.setAlignment(Pos.CENTER);
-        
+        Text nomUtilisateur = new Text(utilisateur);
+        nomUtilisateur.setFill(Color.PINK);
+        nomUtilisateur.setFont(Font.font("Serif", FontWeight.BOLD, 60));
+
+        Text dans = new Text(" dans l'atelier ");
+        dans.setFill(Color.web("#333333"));
+        dans.setFont(Font.font("Serif", FontWeight.NORMAL, 60));
+
+        Text nomAtelier = new Text(atelier + " !");
+        nomAtelier.setFill(Color.PINK);
+        nomAtelier.setFont(Font.font("Serif", FontWeight.BOLD, 60));
+
+        titre.getChildren().addAll(bienvenue, nomUtilisateur, dans, nomAtelier);
+
+        // Style commun boutons bleu ciel
+        String buttonStyle = "-fx-background-color: #66e0e5;" + // Bleu ciel
+                             "-fx-text-fill: white;" +
+                             "-fx-font-weight: bold;" +
+                             "-fx-font-size: 20px;" +
+                             "-fx-background-radius: 30;" +
+                             "-fx-padding: 10 25;";
+
+        // Création boutons
         machine = new Button("Machine");
         poste = new Button("Poste");
         gamme = new Button("Gamme");
@@ -48,56 +61,95 @@ public class VAccueil {
         operateur = new Button("Opérateur");
         produit = new Button("Produit");
         stock = new Button("Magasin de brut");
-        fiabilite = new Button("Fiabilité");
         map = new Button("Carte de l'Atelier");
+        fiabilite = new Button("Fiabilité");
 
-        // Style commun aux boutons
-        Button[] boutons = {machine, poste, gamme, operation, operateur, produit,stock, fiabilite, map};
-        for (Button b : boutons) {
-            b.setStyle(
-                "-fx-background-color: #dceefc;" +
-                "-fx-text-fill: #003366;" +
-                "-fx-font-weight: bold;" +
-                "-fx-padding: 10px 20px;" +
-                "-fx-border-radius: 10px;" +
-                "-fx-background-radius: 10px;" +
-                "-fx-font-size: 14px;"
-            );
+        // Application style commun
+        for (Button b : new Button[]{machine, poste, gamme, operation, operateur, produit, stock, map, fiabilite}) {
+            b.setStyle(buttonStyle);
         }
 
-        ligne1.getChildren().addAll(machine, poste, gamme, operation);
-        ligne2.getChildren().addAll(operateur, produit,stock);
-        ligne3.getChildren().addAll(fiabilite, map);
-
-        // Bouton de déconnexion
+        // Bouton déconnexion style rose
         deconnexion = new Button("Déconnexion");
-        deconnexion.setStyle(
-            "-fx-background-color: #ffcccc;" +
-            "-fx-text-fill: #990000;" +
-            "-fx-font-weight: bold;" +
-            "-fx-padding: 10px 20px;" +
-            "-fx-border-radius: 10px;" +
-            "-fx-background-radius: 10px;"
+        deconnexion.setStyle("-fx-background-color: #f77ca2;" +
+                             "-fx-text-fill: white;" +
+                             "-fx-font-weight: bold;" +
+                             "-fx-font-size: 20px;" +
+                             "-fx-background-radius: 30;" +
+                             "-fx-padding: 10 25;");
+
+        // Organisation des boutons sur 2 lignes + carte
+        HBox ligne1 = new HBox(25, machine, poste, gamme, operation, fiabilite);
+        ligne1.setAlignment(Pos.CENTER);
+        HBox ligne2 = new HBox(25, operateur, produit, stock);
+        ligne2.setAlignment(Pos.CENTER);
+        VBox blocCentre = new VBox(30, ligne1, ligne2, map);
+        blocCentre.setAlignment(Pos.CENTER);
+
+        // Layout principal (titre, centre avec boutons, déconnexion)
+        layoutPrincipal = new VBox(50, titre, blocCentre, deconnexion);
+        layoutPrincipal.setAlignment(Pos.CENTER);
+
+        // ----- Ajout du cadre blanc arrondi avec ombre -----
+        // Conteneur cadre pour contenir layoutPrincipal
+        StackPane cadre = new StackPane(layoutPrincipal);
+        cadre.setMaxWidth(900);  // Largeur max du cadre
+        cadre.setMaxHeight(650); // Hauteur max du cadre
+        cadre.setStyle(
+            "-fx-background-color: white;" +      // Fond blanc propre
+            "-fx-background-radius: 25;" +        // Coins arrondis rayon 25px
+            "-fx-padding: 40;"                     // Padding intérieur généreux
         );
 
-        // Ajout au VBox principal
-        vbox.getChildren().addAll(bienvenue, ligne1, ligne2,ligne3, deconnexion);
+        // Ombre portée douce sous le cadre
+        DropShadow ombre = new DropShadow();
+        ombre.setRadius(20);                 // Flou de l’ombre
+        ombre.setOffsetX(0);                 // Pas de décalage horizontal
+        ombre.setOffsetY(10);                // Décalage vertical vers le bas
+        ombre.setColor(Color.color(0, 0, 0, 0.3)); // Noir à 30% d’opacité
+        cadre.setEffect(ombre);
 
-        scene = new Scene(vbox);
+        // Conteneur racine pour centrer le cadre dans la scène
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");  // Fond gris clair général
+        root.setAlignment(Pos.CENTER);
+
+        // Création scène finale
+        scene = new Scene(root, 1000, 700);
     }
 
-    public Scene getScene() { return scene; }
-    public VBox getVbox() { return vbox; }
-    public Label getBienvenue() { return bienvenue; }
-    public Button getDeconnexion() { return deconnexion; }
-    public Button getMachine() { return machine; }
-    public Button getPoste() { return poste; }
-    public Button getGamme() { return gamme; }
-    public Button getOperation() { return operation; }
-    public Button getOperateur() { return operateur; }
-    public Button getProduit() { return produit; }
-    public Button getStock() { return stock; }
-    public Button getFiabilite() { return fiabilite; }
-    public Button getMap() { return map;}
-    
+    // Getters pour contrôleur
+    public Scene getScene() {
+        return scene;
+    }
+    public Button getMachine() {
+        return machine;
+    }
+    public Button getPoste() {
+        return poste;
+    }
+    public Button getGamme() {
+        return gamme;
+    }
+    public Button getOperation() {
+        return operation;
+    }
+    public Button getOperateur() {
+        return operateur;
+    }
+    public Button getProduit() {
+        return produit;
+    }
+    public Button getStock() {
+        return stock;
+    }
+    public Button getMap() {
+        return map;
+    }
+    public Button getDeconnexion() {
+        return deconnexion;
+    }
+    public Button getFiabilite() {
+        return fiabilite;
+    }
 }
