@@ -32,7 +32,7 @@ public class VAccueil {
         bienvenue.setFont(Font.font("Serif", FontWeight.NORMAL, 60));
 
         Text nomUtilisateur = new Text(utilisateur);
-        nomUtilisateur.setFill(Color.PINK);
+        nomUtilisateur.setFill(Color.GREEN);
         nomUtilisateur.setFont(Font.font("Serif", FontWeight.BOLD, 60));
 
         Text dans = new Text(" dans l'atelier ");
@@ -40,13 +40,13 @@ public class VAccueil {
         dans.setFont(Font.font("Serif", FontWeight.NORMAL, 60));
 
         Text nomAtelier = new Text(atelier + " !");
-        nomAtelier.setFill(Color.PINK);
+        nomAtelier.setFill(Color.GREEN);
         nomAtelier.setFont(Font.font("Serif", FontWeight.BOLD, 60));
 
         titre.getChildren().addAll(bienvenue, nomUtilisateur, dans, nomAtelier);
 
         // Style commun boutons bleu ciel
-        String buttonStyle = "-fx-background-color: #66e0e5;" + // Bleu ciel
+        String buttonStyle = "-fx-background-color: #cccccc;" + // Bleu ciel
                              "-fx-text-fill: white;" +
                              "-fx-font-weight: bold;" +
                              "-fx-font-size: 20px;" +
