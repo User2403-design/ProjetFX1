@@ -34,6 +34,7 @@ public class CAfficherGamme {
     public void afficher() {
         primaryStage.setTitle("Afficher les Gammes");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

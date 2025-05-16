@@ -72,6 +72,7 @@ public class CModifierMachine {
     public void afficher() {
         primaryStage.setTitle("Modifier Machine");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

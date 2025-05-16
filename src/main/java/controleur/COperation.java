@@ -63,6 +63,7 @@ public class COperation {
     public void afficherSectionOperation() {
         primaryStage.setTitle("Section Operation");
         primaryStage.setScene(vueOperation.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 } 

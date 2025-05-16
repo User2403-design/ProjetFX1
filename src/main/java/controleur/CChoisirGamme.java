@@ -59,6 +59,7 @@ public class CChoisirGamme {
     public void afficher() {
         primaryStage.setTitle("Choisir une Gamme");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

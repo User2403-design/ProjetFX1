@@ -52,7 +52,7 @@ public class VAjouterOperateur {
 
         layout.getChildren().addAll(titre, form);
 
-        scene = new Scene(layout, 400, 350);
+        scene = new Scene(layout);
     }
 
     public Scene getScene() { return scene; }

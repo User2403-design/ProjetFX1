@@ -61,7 +61,7 @@ public class VAjouterEvenement {
                 messageLabel // affichage du message ici
         );
 
-        scene = new Scene(vbox, 400, 600);
+        scene = new Scene(vbox);
     }
 
     public Scene getScene() {

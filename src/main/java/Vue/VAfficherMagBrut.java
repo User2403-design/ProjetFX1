@@ -28,7 +28,7 @@ public class VAfficherMagBrut {
         vbox.setPadding(new Insets(15));
         vbox.getChildren().addAll(titre, textArea, retourButton);
 
-        scene = new Scene(vbox, 400, 400);
+        scene = new Scene(vbox);
     }
 
     public Scene getScene() {

@@ -50,6 +50,7 @@ public class CChoisirOperateur {
     public void afficher() {
         primaryStage.setTitle("Choisir un Opérateur à Modifier");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

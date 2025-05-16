@@ -59,6 +59,7 @@ public class CSupprimerGamme {
     public void afficher() {
         primaryStage.setTitle("Supprimer Gamme");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

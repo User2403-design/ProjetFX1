@@ -59,6 +59,7 @@ public class CSupprimerMachine {
     public void afficher() {
         primaryStage.setTitle("Supprimer Machine");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

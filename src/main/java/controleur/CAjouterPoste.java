@@ -78,6 +78,7 @@ public class CAjouterPoste {
     public void afficher() {
         primaryStage.setTitle("Ajouter un Poste");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

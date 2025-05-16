@@ -104,6 +104,7 @@ public class CAjouterOperation {
     public void afficher() {
         primaryStage.setTitle("Ajouter une opération");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

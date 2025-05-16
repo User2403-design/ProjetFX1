@@ -91,6 +91,7 @@ public class CModifierProduit {
     public void afficher() {
         primaryStage.setTitle("Modifier Produit");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

@@ -83,7 +83,7 @@ public class VAccueil {
         // Ajout au VBox principal
         vbox.getChildren().addAll(bienvenue, ligne1, ligne2,ligne3, deconnexion);
 
-        scene = new Scene(vbox, 700, 400);
+        scene = new Scene(vbox);
     }
 
     public Scene getScene() { return scene; }

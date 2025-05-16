@@ -89,6 +89,7 @@ public class CAjouterEvenement {
     public void afficher() {
         primaryStage.setTitle("Ajouter un Événement");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

@@ -48,6 +48,7 @@ public class CSupprimerOperateur {
     public void afficher() {
         primaryStage.setTitle("Supprimer une Operateur");
         primaryStage.setScene(vueSupprimer.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

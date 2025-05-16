@@ -49,6 +49,7 @@ public class CAfficherPoste {
     public void afficher() {
         primaryStage.setTitle("Liste des Postes");
         primaryStage.setScene(vueAfficher.getSceneListePostes());
+        
         primaryStage.show();
     }
 

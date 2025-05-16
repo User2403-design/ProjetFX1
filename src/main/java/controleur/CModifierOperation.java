@@ -97,6 +97,7 @@ public class CModifierOperation {
     public void afficher() {
         primaryStage.setTitle("Modifier opération");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

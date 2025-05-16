@@ -51,6 +51,7 @@ public class CSupprimerMagBrut {
     public void afficher() {
         primaryStage.setTitle("Supprimer une Matière Première");
         primaryStage.setScene(vueSupprimer.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

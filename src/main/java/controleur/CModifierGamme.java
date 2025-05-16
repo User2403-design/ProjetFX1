@@ -101,6 +101,7 @@ public class CModifierGamme {
     public void afficher() {
         primaryStage.setTitle("Modifier Gamme");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

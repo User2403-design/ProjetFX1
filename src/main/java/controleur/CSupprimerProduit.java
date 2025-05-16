@@ -73,6 +73,7 @@ public class CSupprimerProduit {
     public void afficher() {
         primaryStage.setTitle("Supprimer un Produit");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

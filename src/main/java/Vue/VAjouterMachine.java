@@ -69,7 +69,7 @@ public class VAjouterMachine {
         layout.add(retourButton, 1, 8);
         layout.add(messageLabel, 0, 9, 2, 1); // Span sur 2 colonnes
 
-        sceneAjouterMachine = new Scene(layout, 400, 450);
+        sceneAjouterMachine = new Scene(layout);
     }
 
     public Scene getSceneAjouterMachine() {

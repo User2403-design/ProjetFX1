@@ -44,7 +44,7 @@ public class VAjouterMagBrut {
     }
 
     public Scene getScene() {
-        return new Scene(root, 400, 300);
+        return new Scene(root);
     }
 
     public TextField getMatiereField() {

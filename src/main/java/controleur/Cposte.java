@@ -65,6 +65,7 @@ public class Cposte {
     public void afficherSectionPoste() {
         primaryStage.setTitle("Section Poste");
         primaryStage.setScene(vuePoste.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

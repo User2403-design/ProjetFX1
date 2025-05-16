@@ -35,7 +35,7 @@ public class VAfficherOperateur {
         //textArea.setText(stockage.afficherToutesLesOperateurs());
         vbox.getChildren().addAll(titre, textArea, retourButton);
 
-        sceneListeOperateurs = new Scene(vbox, 400, 400);
+        sceneListeOperateurs = new Scene(vbox);
         //primaryStage.setScene(sceneListeOperateurs);
     }
 

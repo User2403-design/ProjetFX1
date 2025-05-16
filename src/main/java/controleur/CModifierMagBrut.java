@@ -59,6 +59,7 @@ public class CModifierMagBrut {
     public void afficher() {
         primaryStage.setTitle("Modifier Matière Première");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

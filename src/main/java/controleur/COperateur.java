@@ -65,6 +65,7 @@ public class COperateur {
     public void afficherSectionOperateur() {
         primaryStage.setTitle("Section Operateur");
         primaryStage.setScene(vueOperateur.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

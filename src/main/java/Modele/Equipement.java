@@ -9,8 +9,9 @@ package Modele;
  * @author chloe
  */
 public abstract class Equipement {
-     protected String refEquipement;
+    protected String refEquipement;
     protected String dEquipement;
+    
     
  public String getRefEquipement() {
     return refEquipement;

@@ -60,6 +60,7 @@ public class CGamme {
     public void afficherSectionGamme() {
         primaryStage.setTitle("Section Gamme");
         primaryStage.setScene(vueGamme.getScene());
+        
         primaryStage.show();
     }
 }

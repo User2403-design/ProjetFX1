@@ -49,6 +49,7 @@ public class CModifierOperateur {
     public void afficher() {
         primaryStage.setTitle("Modifier Opérateur");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

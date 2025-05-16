@@ -73,6 +73,7 @@ public class CAjouterMachine {
     public void afficher() {
         primaryStage.setTitle("Ajouter une Machine");
         primaryStage.setScene(vueAjouter.getSceneAjouterMachine());
+        
         primaryStage.show();
     }
 }

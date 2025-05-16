@@ -63,6 +63,7 @@ public class CProduit {
     public void afficherSectionProduit() {
         primaryStage.setTitle("Section Produit");
         primaryStage.setScene(vueProduit.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

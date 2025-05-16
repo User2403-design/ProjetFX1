@@ -27,6 +27,7 @@ public class CInitialisation {
     public void afficherConnexion() {
         primaryStage.setTitle("Connexion");
         primaryStage.setScene(vueInit.getScene());
+       
         primaryStage.show();
     }
     

@@ -38,6 +38,7 @@ public class CAfficherProduit {
     public void afficher() {
         primaryStage.setTitle("Liste des Produits");
         primaryStage.setScene(vueAfficher.getSceneListeProduits());
+        
         primaryStage.show();
     }
 }

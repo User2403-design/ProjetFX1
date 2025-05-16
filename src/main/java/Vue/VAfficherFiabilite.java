@@ -45,7 +45,7 @@ public class VAfficherFiabilite {
         vbox.setPadding(new Insets(20));
 
         root.setCenter(vbox);
-        scene = new Scene(root, 500, 400);
+        scene = new Scene(root);
     }
    
 

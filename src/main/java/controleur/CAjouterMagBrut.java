@@ -58,6 +58,7 @@ public class CAjouterMagBrut {
     public void afficher() {
         primaryStage.setTitle("Ajouter au Stock Brut");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

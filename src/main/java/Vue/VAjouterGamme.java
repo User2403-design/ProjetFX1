@@ -47,7 +47,7 @@ public class VAjouterGamme {
             messageLabel
         );
 
-        scene = new Scene(layout, 500, 500);
+        scene = new Scene(layout);
     }
 
     public Scene getScene() {

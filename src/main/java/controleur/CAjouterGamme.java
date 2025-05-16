@@ -84,6 +84,7 @@ public class CAjouterGamme {
     public void afficher() {
         primaryStage.setTitle("Ajouter une Gamme");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

@@ -53,6 +53,7 @@ public class CChoisirMachine {
     public void afficher() {
         primaryStage.setTitle("Choisir une Machine à Modifier");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

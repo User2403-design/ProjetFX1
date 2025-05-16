@@ -34,7 +34,7 @@ public class VAfficherOperation {
         //textArea.setText(stockage.afficherToutesLesMachines());
         vbox.getChildren().addAll(titre, textArea, retourButton);
 
-        sceneListeOperations = new Scene(vbox, 400, 400);
+        sceneListeOperations = new Scene(vbox);
         //primaryStage.setScene(sceneListeMachines);
     }
 

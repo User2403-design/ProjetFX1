@@ -59,6 +59,7 @@ public class CSupprimerOperation {
     public void afficher() {
         primaryStage.setTitle("Supprimer Opération");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

@@ -61,6 +61,7 @@ public class CAjouterOperateur {
     public void afficher() {
         primaryStage.setTitle("Ajouter un Opérateur");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

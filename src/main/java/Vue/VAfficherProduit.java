@@ -26,7 +26,7 @@ public class VAfficherProduit {
         retourButton = new Button("Retour");
 
         vbox.getChildren().addAll(zoneAffichage, retourButton);
-        sceneListeProduits = new Scene(vbox, 500, 600);
+        sceneListeProduits = new Scene(vbox);
     }
 
     public Scene getSceneListeProduits() {

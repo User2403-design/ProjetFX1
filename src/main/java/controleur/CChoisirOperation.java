@@ -51,6 +51,7 @@ public class CChoisirOperation {
     public void afficher() {
         primaryStage.setTitle("Choisir une opération à modifier");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

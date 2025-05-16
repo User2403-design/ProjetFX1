@@ -52,6 +52,7 @@ public class CEvenement {
     public void afficherSectionEvenements() {
         primaryStage.setTitle("Gestion des Événements");
         primaryStage.setScene(vue.getScene());
+        
         primaryStage.show();
     }
 }

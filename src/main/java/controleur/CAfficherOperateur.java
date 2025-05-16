@@ -44,6 +44,7 @@ public class CAfficherOperateur {
     public void afficher() {
         primaryStage.setTitle("Liste des Operateurs");
         primaryStage.setScene(vueAfficher.getSceneListeOperateurs());
+        
         primaryStage.show();
     }
 
