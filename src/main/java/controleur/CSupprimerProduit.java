@@ -8,6 +8,8 @@ import Modele.Stockage;
 import Vue.VSupprimerProduit;
 import javafx.stage.Stage;
 import Modele.Produit;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 /**
  *
  * @author chloe
@@ -74,6 +76,12 @@ public class CSupprimerProduit {
         primaryStage.setTitle("Supprimer un Produit");
         primaryStage.setScene(vue.getScene());
         primaryStage.setMaximized(true);
+        primaryStage.show();
+            
+
+        // Empêche la redimension de la fenêtre par l'utilisateur
+        primaryStage.setResizable(false);
+        // Affiche la fenêtre avec les paramètres définis
         primaryStage.show();
     }
 }

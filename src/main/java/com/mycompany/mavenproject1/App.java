@@ -1,43 +1,23 @@
 package com.mycompany.mavenproject1;
 
-
-/**
- * JavaFX App
- */
 import Modele.Stockage;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.geometry.Insets;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import controleur.CInitialisation;
-import Modele.FichierMachine;
-import javafx.stage.Screen;
-import javafx.geometry.Rectangle2D;
+
 public class App extends Application {
 
-    @Override
-    public void start(Stage primaryStage) { //appelle le controleur pour afficher la première vue
-       
-         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds(); // récupère l'écran principal / on otbient la zone visible à l'écran : donne une zone rectangulaire de type rectangle 2D
-        primaryStage.setX(screenBounds.getMinX());// position de la fenètre à la cordonnée X minimale de la zone visible 
-        primaryStage.setY(screenBounds.getMinY());// même chose mais selon Y
-        primaryStage.setWidth(screenBounds.getWidth()); // donne à la fenetre la largeur exacte de la zone de l'écran 
-        primaryStage.setHeight(screenBounds.getHeight()); // donne à la fenêtre la hauteur exacte 
-        
-        Stockage stockage = new Stockage();
-        
-        CInitialisation controleur = new CInitialisation(primaryStage, stockage);
-        controleur.afficherConnexion(); 
-       
-    }
+   @Override
+public void start(Stage primaryStage) {
+    Stockage stockage = new Stockage();
+    CInitialisation controleur = new CInitialisation(primaryStage, stockage);
     
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
+    // Affiche la première scène dans le stage
+    controleur.afficherConnexion();
+
+}}
     /*
     //mettre dans classe VueInitialisation
     private void afficherFenetreConnexion(){
@@ -312,6 +292,5 @@ public class App extends Application {
         Scene sceneFiabilite = new Scene(vbox, 600,300);
         primaryStage.setScene(sceneFiabilite);
     }*/
-}
 
     

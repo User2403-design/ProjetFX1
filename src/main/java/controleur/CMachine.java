@@ -64,7 +64,7 @@ public class CMachine {
     public void afficherSectionMachine() {
         primaryStage.setTitle("Section Machine");
         primaryStage.setScene(vueMachine.getScene());
+       
         
-        primaryStage.show();
     }
 }

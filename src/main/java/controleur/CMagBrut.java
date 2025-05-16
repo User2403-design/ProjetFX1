@@ -58,7 +58,6 @@ public class CMagBrut {
     public void afficherSectionMagBrut() {
         primaryStage.setTitle("Gestion du Magasin de Brut");
         primaryStage.setScene(vue.getScene());
-        
         primaryStage.show();
     }
 }
