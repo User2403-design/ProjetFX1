@@ -39,7 +39,7 @@ public class VMapAtelier {
             Label labelMachine = new Label(machine.getRefmachine());
             labelMachine.setFont(new Font("Arial", 12));
             labelMachine.setStyle("-fx-border-color: black; -fx-alignment: center;");
-            labelMachine.setMinSize(100, 40);
+            labelMachine.setMinSize(40, 20);
             
             String etat = machine.getEtat(); 
 
