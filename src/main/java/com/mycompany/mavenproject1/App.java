@@ -14,16 +14,24 @@ import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import controleur.CInitialisation;
 import Modele.FichierMachine;
-
+import javafx.stage.Screen;
+import javafx.geometry.Rectangle2D;
 public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) { //appelle le controleur pour afficher la première vue
        
+         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds(); // récupère l'écran principal / on otbient la zone visible à l'écran : donne une zone rectangulaire de type rectangle 2D
+        primaryStage.setX(screenBounds.getMinX());// position de la fenètre à la cordonnée X minimale de la zone visible 
+        primaryStage.setY(screenBounds.getMinY());// même chose mais selon Y
+        primaryStage.setWidth(screenBounds.getWidth()); // donne à la fenetre la largeur exacte de la zone de l'écran 
+        primaryStage.setHeight(screenBounds.getHeight()); // donne à la fenêtre la hauteur exacte 
         
         Stockage stockage = new Stockage();
+        
         CInitialisation controleur = new CInitialisation(primaryStage, stockage);
-        controleur.afficherConnexion();
+        controleur.afficherConnexion(); 
+       
     }
     
     public static void main(String[] args) {
