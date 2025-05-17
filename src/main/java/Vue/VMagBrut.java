@@ -94,7 +94,11 @@ public class VMagBrut {
         // Création de la scène avec le conteneur racine, dimensions 800x600 pixels
         scene = new Scene(root, 2000, 1000);
     }
-
+    public void desactiver() {
+    modifierButton.setDisable(true);
+    ajouterButton.setDisable(true);
+    supprimerButton.setDisable(true);
+    }
     /** Retourne la scène principale de cette vue. */
     public Scene getScene() {
         return scene;

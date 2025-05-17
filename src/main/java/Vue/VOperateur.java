@@ -88,7 +88,11 @@ public class VOperateur {
 
         scene = new Scene(root, 2000, 1000);                            // Création de la scène de taille 800x600 pixels
     }
-
+    public void desactiver() {
+        modifier.setDisable(true);
+        ajouter.setDisable(true);
+        supprimer.setDisable(true);
+    }
     // Getters permettant au contrôleur d'accéder aux composants de la vue
     public Scene getScene() { return scene; }                       // Retourne la scène principale
     public Button getRetour() { return retour; }                     // Retourne le bouton "Retour"

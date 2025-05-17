@@ -77,7 +77,11 @@ public class VMachine {
         // Scène avec taille 2000x1000
         scene = new Scene(root, 2000, 1000);
     }
-
+    public void desactiver() {
+    modifier.setDisable(true);
+    ajouter.setDisable(true);
+    supprimer.setDisable(true);
+    }
     public Scene getScene() { return scene; }
     public Button getRetour() { return retour; }
     public Button getAfficher() { return afficher; }

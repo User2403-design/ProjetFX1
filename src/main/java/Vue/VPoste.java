@@ -98,7 +98,11 @@ public class VPoste {
         // Création de la scène principale avec dimensions 800x600
         scene = new Scene(root, 2000, 1000);
     }
-
+    public void desactiver() {
+    modifier.setDisable(true);
+    ajouter.setDisable(true);
+    supprimer.setDisable(true);
+    }
     // Getters pour accéder aux boutons et à la scène
     public Scene getScene() { return scene; }
     public Button getRetour() { return retour; }

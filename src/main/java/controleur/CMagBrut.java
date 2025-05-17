@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package controleur;
 
 import Vue.VMagBrut;
 import Modele.Stockage;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
-
+import Repertoire.GrandEcran;
 
 public class CMagBrut {
     private Stage primaryStage;
     private Stockage stockage;
-    private String utilisateur, atelier;
+    private String utilisateur, atelier, role;
     private VMagBrut vue;
 
     public CMagBrut(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
@@ -22,7 +22,9 @@ public class CMagBrut {
         this.atelier = atelier;
         this.stockage = stockage;
         this.vue = new VMagBrut();
+        this.role = stockage.getRole(utilisateur); // 👈 Récupération du rôle
         actionclic();
+        appliquerRestrictions(); // 👈 Application des restrictions si besoin
     }
 
     private void actionclic() {
@@ -57,10 +59,16 @@ public class CMagBrut {
         });
     }
 
+    private void appliquerRestrictions() {
+        if (!role.equals("chef")) {
+            vue.desactiver(); // 🔒 Restriction appliquée
+        }
+    }
+
     public void afficherSectionMagBrut() {
         primaryStage.setTitle("Gestion du Magasin de Brut");
         primaryStage.setScene(vue.getScene());
-          primaryStage.setMaximized(true);
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

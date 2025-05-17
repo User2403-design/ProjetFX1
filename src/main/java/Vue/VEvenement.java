@@ -102,8 +102,7 @@ public class VEvenement {
         // Création de la scène avec le conteneur racine, dimensions 800x600 pixels
         scene = new Scene(root, 800, 600);
     }
-
-    /**
+        /**
      * Getter pour accéder à la scène principale.
      * @return La scène affichée dans la fenêtre.
      */

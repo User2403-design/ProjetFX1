@@ -7,33 +7,34 @@ package controleur;
 import Vue.VGamme;
 import javafx.stage.Stage;
 import Modele.Stockage;
-import Modele.Gamme; // Supposé modèle
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+import Repertoire.GrandEcran;
 
-/**
- *
- * @author Justin
- */
 public class CGamme {
-
     private Stage primaryStage;
     private VGamme vueGamme;
     private Stockage stockage;
+    private String utilisateur;
+    private String atelier;
+    private String role;
 
     public CGamme(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
         this.primaryStage = primaryStage;
         this.vueGamme = new VGamme();
         this.stockage = stockage;
-        actionClic(utilisateur, atelier);
+        this.utilisateur = utilisateur;
+        this.atelier = atelier;
+        this.role = stockage.getRole(utilisateur); // 🔥 Récupère le rôle
+
+        actionClic();
+        appliquerRestrictions(); // 👈 On applique les restrictions
     }
 
-    private void actionClic(String utilisateur, String atelier) {
-
+    private void actionClic() {
         vueGamme.getRetour().setOnAction(e -> {
             CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage);
             controleurAcc.afficherAccueil();
         });
-        
+
         vueGamme.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher !");
             CAfficherGamme controleurAff = new CAfficherGamme(primaryStage, utilisateur, atelier, stockage);
@@ -59,12 +60,16 @@ public class CGamme {
         });
     }
 
+    private void appliquerRestrictions() {
+        if (!role.equals("chef")) {
+            vueGamme.desactiver(); // 🔒 On bloque tout sauf afficher + retour
+        }
+    }
+
     public void afficherSectionGamme() {
         primaryStage.setTitle("Section Gamme");
         primaryStage.setScene(vueGamme.getScene());
-        primaryStage.setMaximized(true);  primaryStage.setMaximized(true);
-    
-        primaryStage.show(); 
-        
+        primaryStage.setMaximized(true);
+        primaryStage.show();
     }
 }

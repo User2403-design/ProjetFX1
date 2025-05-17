@@ -3,44 +3,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
-
 import Modele.Stockage;
 import javafx.stage.Stage;
 import Vue.VPoste;
 
-/**
- *
- * @author chloe
- */
-
 public class Cposte {
-  private Stage primaryStage;
+    private Stage primaryStage;
     private VPoste vuePoste;
     private Stockage stockage;
-    
+    private String role;
 
     public Cposte(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
-        
         this.primaryStage = primaryStage;
         this.vuePoste = new VPoste();
         this.stockage = stockage;
+        this.role = stockage.getRole(utilisateur); // 👈 Récupérer le rôle
         actionClic(utilisateur, atelier);
+        appliquerRestrictions(); // 👈 Appliquer les restrictions
     }
 
-    private void actionClic(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
-        
+    private void actionClic(String utilisateur, String atelier) {
         vuePoste.getRetour().setOnAction(e -> {
-            CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage); //crée un objet de CAcceuil afin de pouvoir appeler la methode AfficherAccueil
+            CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage);
             controleurAcc.afficherAccueil();
         });
 
         vuePoste.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher !");
-           
-            CAfficherPoste controleurAff = new CAfficherPoste(primaryStage, utilisateur, atelier, stockage );
+            CAfficherPoste controleurAff = new CAfficherPoste(primaryStage, utilisateur, atelier, stockage);
             controleurAff.afficher();
         });
-        
 
         vuePoste.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
@@ -50,7 +42,6 @@ public class Cposte {
 
         vuePoste.getAjouter().setOnAction(e -> {
             System.out.println("Cliqué sur Ajouter !");
-            
             CAjouterPoste controleurAjout = new CAjouterPoste(primaryStage, utilisateur, atelier, stockage);
             controleurAjout.afficher();
         });
@@ -60,6 +51,12 @@ public class Cposte {
             CSupprimerPoste controleurSup = new CSupprimerPoste(primaryStage, utilisateur, atelier, stockage);
             controleurSup.afficher();
         });
+    }
+
+    private void appliquerRestrictions() {
+        if (!role.equals("chef")) {
+            vuePoste.desactiver(); // 🔒 Restriction des droits
+        }
     }
 
     public void afficherSectionPoste() {

@@ -3,44 +3,42 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
+
 import Vue.VOperateur;
 import javafx.stage.Stage;
 import Modele.Stockage;
-import java.util.ArrayList;
-import Modele.Operateur;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+import Repertoire.GrandEcran;
 
-/**
- *
- * @author chloe
- */
 public class COperateur {
+    
     private Stage primaryStage;
     private VOperateur vueOperateur;
     private Stockage stockage;
+    private String utilisateur;
+    private String atelier;
+    private String role;
     
-
     public COperateur(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
-        
         this.primaryStage = primaryStage;
         this.vueOperateur = new VOperateur();
         this.stockage = stockage;
-        actionClic(utilisateur, atelier);
+        this.utilisateur = utilisateur;
+        this.atelier = atelier;
+        this.role = stockage.getRole(utilisateur); // 🔥 On récupère le rôle
+        actionClic();
+        appliquerRestrictions(); // 🔒 Désactive les boutons selon le rôle
     }
-
-    private void actionClic(String utilisateur, String atelier) { //définit toutes les actions quand on clique sur un boutons
-        
+    
+    private void actionClic() {
         vueOperateur.getRetour().setOnAction(e -> {
-            CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage); //crée un objet de CAcceuil afin de pouvoir appeler la methode AfficherAccueil
+            CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage);
             controleurAcc.afficherAccueil();
         });
 
         vueOperateur.getAfficher().setOnAction(e -> {
             System.out.println("Cliqué sur Afficher!");
-            
-          CAfficherOperateur controleurModif = new CAfficherOperateur(primaryStage, utilisateur, atelier, stockage);
+            CAfficherOperateur controleurModif = new CAfficherOperateur(primaryStage, utilisateur, atelier, stockage);
             controleurModif.afficher();  
-            
         });
 
         vueOperateur.getModifier().setOnAction(e -> {
@@ -51,17 +49,21 @@ public class COperateur {
 
         vueOperateur.getAjouter().setOnAction(e -> {
             System.out.println("Cliqué sur Ajouter !");
-            
             CAjouterOperateur controleurAjout = new CAjouterOperateur(primaryStage, utilisateur, atelier, stockage);
             controleurAjout.afficher();
         });
 
         vueOperateur.getSupprimer().setOnAction(e -> {
             System.out.println("Cliqué sur Supprimer !");
-            
-           CSupprimerOperateur controleursup = new CSupprimerOperateur(primaryStage, utilisateur, atelier, stockage);
+            CSupprimerOperateur controleursup = new CSupprimerOperateur(primaryStage, utilisateur, atelier, stockage);
             controleursup.afficher();
         });
+    }
+
+    private void appliquerRestrictions() {
+        if (!role.equals("chef")) {
+            vueOperateur.desactiver(); // 👈 Empêche l'accès à l'ajout, modif, suppression
+        }
     }
 
     public void afficherSectionOperateur() {
