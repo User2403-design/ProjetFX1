@@ -90,11 +90,11 @@ public class Stockage {
         // Création des produits
         ArrayList<Gamme> gammeProduitChassis = new ArrayList<>();
         gammeProduitChassis.add(gammeChassis);
-        Produit Chassis = new Produit("P001", "Châssis métallique", gammeProduitChassis); //Chassis ou Produit1
+        Produit Chassis = new Produit("PDR001", "Châssis métallique", gammeProduitChassis); //Chassis ou Produit1
 
         ArrayList<Gamme> gammeProduitPince = new ArrayList<>();
         gammeProduitPince.add(gammePince);
-        Produit Pince = new Produit("P002", "Pince de serrage", gammeProduitPince);
+        Produit Pince = new Produit("PRD002", "Pince de serrage", gammeProduitPince);
 
         this.listeProduits.add(Chassis);
         this.listeProduits.add(Pince);
