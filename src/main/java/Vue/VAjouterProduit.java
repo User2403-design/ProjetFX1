@@ -30,7 +30,7 @@ public class VAjouterProduit {
         // Champs de saisie
         Label codeLabel = new Label("Code du produit :");
         codeProduitField = new TextField();
-        codeProduitField.setPromptText("Ex : P001");
+        codeProduitField.setPromptText("Ex : PRD001");
 
         Label designationLabel = new Label("Désignation :");
         designationProduitField = new TextField();
