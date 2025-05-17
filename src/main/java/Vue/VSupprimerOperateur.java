@@ -4,20 +4,16 @@
  */
 package Vue;
 
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.SelectionMode;
 
-/**
- *
- * @author Justin
- */
 public class VSupprimerOperateur {
-
-    private TextField nomField;
+    
+    private ListView<String> listeOperateurs;
     private Button supprimerButton;
     private Button retourButton;
     private Label messageLabel;
@@ -25,25 +21,23 @@ public class VSupprimerOperateur {
 
     public VSupprimerOperateur() {
         VBox vbox = new VBox(10);
-        vbox.setPadding(new Insets(20));
-
-        Label instructionLabel = new Label("Entrez le code de l'opérateur à supprimer :");
-        nomField = new TextField();
-        supprimerButton = new Button("Supprimer");
+        listeOperateurs = new ListView<>();
+        supprimerButton = new Button("Supprimer Opérateur");
         retourButton = new Button("Retour");
         messageLabel = new Label();
 
-        vbox.getChildren().addAll(instructionLabel, nomField, supprimerButton, retourButton, messageLabel);
-
-        scene = new Scene(vbox, 400, 300);
+        listeOperateurs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        vbox.getChildren().addAll(new Label("Sélectionnez un opérateur à supprimer :"),
+                                  listeOperateurs, supprimerButton, retourButton, messageLabel);
+        scene = new Scene(vbox, 400, 400);
     }
-    
-    public void afficherMessage(String message) { //pour afficher un message indiquand à l'utilisateur si la suppression à eu lieu
+
+    public void afficherMessage(String message) {
         messageLabel.setText(message);
     }
 
-    public TextField getNomOperateurField() {
-        return nomField;
+    public ListView<String> getListeOperateurs() {
+        return listeOperateurs;
     }
 
     public Button getSupprimerButton() {
@@ -54,12 +48,7 @@ public class VSupprimerOperateur {
         return retourButton;
     }
 
-    public Label getMessageLabel() {
-        return messageLabel;
-    }
-
     public Scene getScene() {
         return scene;
     }
-    
 }

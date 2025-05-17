@@ -3,16 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
+
 import Modele.Stockage;
 import Vue.VSupprimerOperateur;
 import javafx.stage.Stage;
 import Modele.Operateur;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+import Repertoire.GrandEcran;
 
-/**
- *
- * @author chloe
- */
 public class CSupprimerOperateur {
 
     private Stage primaryStage;
@@ -26,9 +23,16 @@ public class CSupprimerOperateur {
         this.utilisateur = utilisateur;
         this.atelier = atelier;
         this.stockage = stockage;
-
         this.vueSupprimer = new VSupprimerOperateur();
+        initialiserListe();
         actionClic();
+    }
+
+    private void initialiserListe() {
+        for (Operateur o : stockage.getListeOperateurs()) {
+            // On peut afficher son nom ou code ou les deux
+            vueSupprimer.getListeOperateurs().getItems().add(o.getNom());
+        }
     }
 
     private void actionClic() {
@@ -38,17 +42,23 @@ public class CSupprimerOperateur {
         });
 
         vueSupprimer.getSupprimerButton().setOnAction(e -> {
-            String nom = vueSupprimer.getNomOperateurField().getText();
-            if (stockage.supprimerOperateur(nom)) {
-                vueSupprimer.afficherMessage("Operateur supprimé avec succès !");
+            String nomSelectionne = vueSupprimer.getListeOperateurs().getSelectionModel().getSelectedItem();
+            if (nomSelectionne != null) {
+                boolean success = stockage.supprimerOperateur(nomSelectionne); // ⚠ méthode à ajouter
+                if (success) {
+                    vueSupprimer.getListeOperateurs().getItems().remove(nomSelectionne);
+                    vueSupprimer.afficherMessage("Opérateur supprimé avec succès !");
+                } else {
+                    vueSupprimer.afficherMessage("Opérateur non trouvé.");
+                }
             } else {
-                vueSupprimer.afficherMessage("Operateur non trouvé.");
+                vueSupprimer.afficherMessage("Veuillez sélectionner un opérateur.");
             }
         });
     }
 
     public void afficher() {
-        primaryStage.setTitle("Supprimer une Operateur");
+        primaryStage.setTitle("Supprimer un Opérateur");
         primaryStage.setScene(vueSupprimer.getScene());
         primaryStage.setMaximized(true);
         primaryStage.show();

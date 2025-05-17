@@ -354,24 +354,24 @@ public class Stockage {
     }
 }
     
-    
-    public boolean supprimerOperateur(String codeOperateur) {
-       Operateur aSupprimer = null;
-       for (Operateur o : listeOperateurs) {
-           if (o.getCode().equals(codeOperateur)) {
-               aSupprimer = o;
-               break;
-           }
-       }
-       if (aSupprimer != null) {
-           listeOperateurs.remove(aSupprimer);
-           System.out.println("Opérateur supprimé avec succès.");
-           return true;
-       } else {
-           System.out.println("Opérateur avec le code " + codeOperateur + " non trouvé.");
-           return false;
-       }
-   }
+    public boolean supprimerOperateur(String nomOperateur) {
+    Operateur aSupprimer = null;
+    for (Operateur o : listeOperateurs) {
+        if (o.getNom().equalsIgnoreCase(nomOperateur)) {
+            aSupprimer = o;
+            break;
+        }
+    }
+    if (aSupprimer != null) {
+        listeOperateurs.remove(aSupprimer);
+        System.out.println("Opérateur supprimé avec succès.");
+        return true;
+    } else {
+        System.out.println("Aucun opérateur trouvé avec le nom : " + nomOperateur);
+        return false;
+    }
+}
+   
 
     
     public boolean supprimerMachine(String refMachine) {
