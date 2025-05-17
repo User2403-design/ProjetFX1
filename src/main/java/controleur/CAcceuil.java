@@ -100,7 +100,7 @@ public class CAcceuil {  // début de la classe CAcceuil
         // quand on clique sur le bouton Map (carte atelier)
         vueAccueil.getMap().setOnAction(e-> {
             System.out.println("Cliqué sur Map !");  // afficher message dans la console
-            CMapAtelier controleurMap = new CMapAtelier(primaryStage, stockage);  // créer contrôleur carte atelier
+            CMapAtelier controleurMap = new CMapAtelier(primaryStage, utilisateur, atelier, stockage);  // créer contrôleur carte atelier
             controleurMap.afficher();  // afficher la carte atelier
         });
     }

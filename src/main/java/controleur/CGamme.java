@@ -62,7 +62,7 @@ public class CGamme {
 
     private void appliquerRestrictions() {
         if (!role.equals("chef")) {
-            vueGamme.desactiver(); // 🔒 On bloque tout sauf afficher + retour
+            vueGamme.desactiver(); // ?On bloque tout sauf afficher + retour
         }
     }
 
