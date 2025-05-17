@@ -7,6 +7,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import controleur.CInitialisation;
 
+
 public class App extends Application {
 
    @Override
@@ -17,6 +18,10 @@ public void start(Stage primaryStage) {
     // Affiche la première scène dans le stage
     controleur.afficherConnexion();
 
+
+
+    // Affiche la fenêtre (appelle show qu'une seule fois)
+    primaryStage.show();
 }}
     /*
     //mettre dans classe VueInitialisation

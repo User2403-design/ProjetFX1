@@ -8,6 +8,8 @@ import Vue.VGamme;
 import javafx.stage.Stage;
 import Modele.Stockage;
 import Modele.Gamme; // Supposé modèle
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+
 /**
  *
  * @author Justin
@@ -60,7 +62,9 @@ public class CGamme {
     public void afficherSectionGamme() {
         primaryStage.setTitle("Section Gamme");
         primaryStage.setScene(vueGamme.getScene());
-        primaryStage.setMaximized(true);
+        primaryStage.setMaximized(true);  primaryStage.setMaximized(true);
+    
+        primaryStage.show(); 
         
     }
 }

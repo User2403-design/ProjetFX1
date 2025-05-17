@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import Modele.Produit;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+
 
 /**
  *
@@ -65,7 +67,9 @@ public class CProduit {
     public void afficherSectionProduit() {
         primaryStage.setTitle("Section Produit");
         primaryStage.setScene(vueProduit.getScene());
-        
+          primaryStage.setMaximized(true);
+    
+        primaryStage.show(); 
      
        
     }

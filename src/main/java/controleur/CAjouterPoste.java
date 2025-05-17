@@ -10,6 +10,7 @@ import Modele.Stockage;
 import Vue.VAjouterPoste;
 import java.util.ArrayList;
 import javafx.stage.Stage;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CAjouterPoste {
 
@@ -78,7 +79,7 @@ public class CAjouterPoste {
     public void afficher() {
         primaryStage.setTitle("Ajouter un Poste");
         primaryStage.setScene(vue.getScene());
-        
+        primaryStage.setMaximized(true); 
         primaryStage.show();
     }
 }

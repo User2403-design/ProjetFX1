@@ -50,7 +50,7 @@ public class CAfficherMachine {
     public void afficher() {
         primaryStage.setTitle("Liste des Machines");
         primaryStage.setScene(vueAfficher.getSceneListeMachines());
-        
+        primaryStage.setMaximized(true); 
         primaryStage.show();
     }
 

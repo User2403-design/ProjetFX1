@@ -16,8 +16,6 @@ import javafx.geometry.Insets;
  */
 
 
-
-
 public class VSupprimerProduit {
     private TextField nomField;
     private Button supprimerButton;
@@ -78,4 +76,5 @@ public class VSupprimerProduit {
     public Scene getScene() {
         return scene;
     }
+    
 }

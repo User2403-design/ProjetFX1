@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import Modele.Stockage;
 import java.util.ArrayList;
 import Modele.Operateur;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+
 /**
  *
  * @author chloe

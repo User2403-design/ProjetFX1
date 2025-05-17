@@ -8,6 +8,8 @@ import Vue.VSupprimerPoste;
 import Modele.Stockage;
 import Modele.Poste;
 import javafx.stage.Stage;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+
 
 /**
  *
@@ -60,7 +62,7 @@ public class CSupprimerPoste {
     public void afficher() {
         primaryStage.setTitle("Supprimer Poste");
         primaryStage.setScene(vue.getScene());
-        primaryStage.setMaximized(true);
-        primaryStage.show();
+      GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
+           
     }
 }

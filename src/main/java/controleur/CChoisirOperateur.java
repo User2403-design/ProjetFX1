@@ -8,6 +8,7 @@ import Modele.Operateur;
 import Modele.Stockage;
 import Vue.VChoisirOperateur;
 import javafx.stage.Stage;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CChoisirOperateur {
     private Stage primaryStage;
@@ -50,7 +51,7 @@ public class CChoisirOperateur {
     public void afficher() {
         primaryStage.setTitle("Choisir un Opérateur à Modifier");
         primaryStage.setScene(vue.getScene());
-        
+        primaryStage.setMaximized(true); 
         primaryStage.show();
     }
 }

@@ -86,7 +86,7 @@ public class VProduit {
         root.setStyle("-fx-background-color: #f5f5f5;");                // Fond gris clair pour toute la scène
         root.setAlignment(Pos.CENTER);                                  // Centrage du contenu dans la fenêtre
 
-        scene = new Scene(root, 800, 600);                              // Création de la scène de taille 800x600 pixels
+        scene = new Scene(root, 2000, 1000);                              // Création de la scène de taille 800x600 pixels
     }
 
     // Getters permettant au contrôleur d'accéder aux composants de la vue

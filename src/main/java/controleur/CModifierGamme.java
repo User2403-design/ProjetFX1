@@ -11,6 +11,8 @@ import Modele.Stockage;
 import Vue.VModifierGamme;
 import javafx.stage.Stage;
 import java.util.List;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+
 
 public class CModifierGamme {
 
@@ -101,7 +103,7 @@ public class CModifierGamme {
     public void afficher() {
         primaryStage.setTitle("Modifier Gamme");
         primaryStage.setScene(vue.getScene());
-        
+        primaryStage.setMaximized(true); 
         primaryStage.show();
     }
 }

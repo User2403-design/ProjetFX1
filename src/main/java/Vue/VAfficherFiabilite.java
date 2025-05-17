@@ -83,7 +83,7 @@ public class VAfficherFiabilite {
         rootStack.setAlignment(Pos.CENTER);                    // Centrage horizontal et vertical du cadre
 
         // Création de la scène avec le conteneur racine et dimensions fixes 800x600 pixels
-        scene = new Scene(rootStack, 800, 600);
+        scene = new Scene(rootStack, 2000, 00);
     }
 
     /**

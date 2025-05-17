@@ -7,53 +7,57 @@
 
 package Vue;
 
-import javafx.geometry.Pos;               // Gestion alignement
-import javafx.scene.Scene;               // Conteneur scène
-import javafx.scene.control.Button;     // Boutons
-import javafx.scene.layout.*;            // Layouts (VBox, HBox, StackPane)
-import javafx.scene.paint.Color;        // Couleurs
-import javafx.scene.text.*;              // Textes et polices
-import javafx.scene.effect.DropShadow;  // Ombre portée
+import javafx.geometry.Pos;               // Pour gérer l'alignement des éléments
+import javafx.scene.Scene;               // Conteneur principal de la scène
+import javafx.scene.control.Button;     // Pour les boutons
+import javafx.scene.layout.*;            // Pour les layouts (VBox, HBox, StackPane)
+import javafx.scene.paint.Color;        // Pour la gestion des couleurs
+import javafx.scene.text.*;              // Pour gérer les textes et polices
 
 public class VAccueil {
-    // Boutons de navigation
+    // Déclaration des boutons de navigation
     private Button machine, poste, gamme, operation, operateur, produit, stock, map, deconnexion, fiabilite;
-    private VBox layoutPrincipal;  // Layout principal vertical
-    private Scene scene;           // Scène principale
+    private VBox layoutPrincipal;  // Layout vertical principal qui contient tout
+    private Scene scene;           // Scène principale affichée à l'écran
 
-    // Constructeur, reçoit noms utilisateur et atelier pour le titre
+    // Constructeur : reçoit le nom de l'utilisateur et de l'atelier pour personnaliser le titre
     public VAccueil(String utilisateur, String atelier) {
-        // Création titre stylé
+        // Création d'un TextFlow pour le titre composé de plusieurs Text
         TextFlow titre = new TextFlow();
-        titre.setTextAlignment(TextAlignment.CENTER);
+        titre.setTextAlignment(TextAlignment.CENTER);  // Centrer le texte du titre
 
+        // Texte "Bienvenue " avec style normal, couleur gris foncé, police taille 80
         Text bienvenue = new Text("Bienvenue ");
         bienvenue.setFill(Color.web("#333333"));
-        bienvenue.setFont(Font.font("Serif", FontWeight.NORMAL, 60));
+        bienvenue.setFont(Font.font("Serif", FontWeight.NORMAL, 35));
 
+        // Texte nom utilisateur en vert et gras, taille 80
         Text nomUtilisateur = new Text(utilisateur);
         nomUtilisateur.setFill(Color.GREEN);
-        nomUtilisateur.setFont(Font.font("Serif", FontWeight.BOLD, 60));
+        nomUtilisateur.setFont(Font.font("Serif", FontWeight.BOLD, 35));
 
+        // Texte " dans l'atelier " style normal, gris foncé, taille 80
         Text dans = new Text(" dans l'atelier ");
         dans.setFill(Color.web("#333333"));
-        dans.setFont(Font.font("Serif", FontWeight.NORMAL, 60));
+        dans.setFont(Font.font("Serif", FontWeight.NORMAL, 35));
 
+        // Texte nom atelier en vert et gras, taille 80
         Text nomAtelier = new Text(atelier + " !");
         nomAtelier.setFill(Color.GREEN);
-        nomAtelier.setFont(Font.font("Serif", FontWeight.BOLD, 60));
+        nomAtelier.setFont(Font.font("Serif", FontWeight.BOLD, 35));
 
+        // Ajout des parties du titre dans le TextFlow
         titre.getChildren().addAll(bienvenue, nomUtilisateur, dans, nomAtelier);
 
-        // Style commun boutons bleu ciel
-        String buttonStyle = "-fx-background-color: #cccccc;" + // Bleu ciel
-                             "-fx-text-fill: white;" +
-                             "-fx-font-weight: bold;" +
-                             "-fx-font-size: 20px;" +
-                             "-fx-background-radius: 30;" +
-                             "-fx-padding: 10 25;";
+        // Style CSS commun pour les boutons (fond gris moyen, texte blanc, gras, taille 26, arrondi)
+        String buttonStyle = "-fx-background-color: #999999;" +   // fond gris
+                             "-fx-text-fill: white;" +            // texte blanc
+                             "-fx-font-weight: bold;" +           // texte en gras
+                             "-fx-font-size: 26px;" +              // taille de police 26 px
+                             "-fx-background-radius: 30;" +       // coins arrondis rayon 30 px
+                             "-fx-padding: 15 35;";                // padding interne haut/bas 15, gauche/droite 35
 
-        // Création boutons
+        // Création de tous les boutons avec leurs libellés
         machine = new Button("Machine");
         poste = new Button("Poste");
         gamme = new Button("Gamme");
@@ -64,91 +68,88 @@ public class VAccueil {
         map = new Button("Carte de l'Atelier");
         fiabilite = new Button("Fiabilité");
 
-        // Application style commun
+        // Application du style commun à tous les boutons sauf déconnexion
         for (Button b : new Button[]{machine, poste, gamme, operation, operateur, produit, stock, map, fiabilite}) {
             b.setStyle(buttonStyle);
         }
 
-        // Bouton déconnexion style rose
+        // Bouton déconnexion avec style spécifique rose, texte blanc, gras, taille 26, arrondi
         deconnexion = new Button("Déconnexion");
-        deconnexion.setStyle("-fx-background-color: #f77ca2;" +
-                             "-fx-text-fill: white;" +
-                             "-fx-font-weight: bold;" +
-                             "-fx-font-size: 20px;" +
-                             "-fx-background-radius: 30;" +
-                             "-fx-padding: 10 25;");
+        deconnexion.setStyle("-fx-background-color: #f77ca2;" +   // fond rose
+                             "-fx-text-fill: white;" +            // texte blanc
+                             "-fx-font-weight: bold;" +           // texte en gras
+                             "-fx-font-size: 26px;" +              // taille de police 26 px
+                             "-fx-background-radius: 30;" +       // coins arrondis rayon 30 px
+                             "-fx-padding: 15 35;");               // padding interne haut/bas 15, gauche/droite 35
 
-        // Organisation des boutons sur 2 lignes + carte
-        HBox ligne1 = new HBox(25, machine, poste, gamme, operation, fiabilite);
-        ligne1.setAlignment(Pos.CENTER);
-        HBox ligne2 = new HBox(25, operateur, produit, stock);
-        ligne2.setAlignment(Pos.CENTER);
-        VBox blocCentre = new VBox(30, ligne1, ligne2, map);
-        blocCentre.setAlignment(Pos.CENTER);
+        // Création de la première ligne horizontale de boutons avec espace de 30 px entre eux
+        HBox ligne1 = new HBox(30, machine, poste, gamme, operation, fiabilite);
+        ligne1.setAlignment(Pos.CENTER);   // Centrer horizontalement les boutons
 
-        // Layout principal (titre, centre avec boutons, déconnexion)
-        layoutPrincipal = new VBox(50, titre, blocCentre, deconnexion);
-        layoutPrincipal.setAlignment(Pos.CENTER);
+        // Création de la deuxième ligne horizontale avec les autres boutons
+        HBox ligne2 = new HBox(30, operateur, produit, stock);
+        ligne2.setAlignment(Pos.CENTER);   // Centrer horizontalement
 
-        // ----- Ajout du cadre blanc arrondi avec ombre -----
-        // Conteneur cadre pour contenir layoutPrincipal
-        StackPane cadre = new StackPane(layoutPrincipal);
-        cadre.setMaxWidth(900);  // Largeur max du cadre
-        cadre.setMaxHeight(650); // Hauteur max du cadre
-        cadre.setStyle(
-            "-fx-background-color: white;" +      // Fond blanc propre
-            "-fx-background-radius: 25;" +        // Coins arrondis rayon 25px
-            "-fx-padding: 40;"                     // Padding intérieur généreux
-        );
+        // Regroupement des deux lignes plus le bouton carte en colonne verticale avec espacement 40 px
+        VBox blocCentre = new VBox(40, ligne1, ligne2, map);
+        blocCentre.setAlignment(Pos.CENTER);  // Centrer verticalement le bloc
 
-        // Ombre portée douce sous le cadre
-        DropShadow ombre = new DropShadow();
-        ombre.setRadius(20);                 // Flou de l’ombre
-        ombre.setOffsetX(0);                 // Pas de décalage horizontal
-        ombre.setOffsetY(10);                // Décalage vertical vers le bas
-        ombre.setColor(Color.color(0, 0, 0, 0.3)); // Noir à 30% d’opacité
-        cadre.setEffect(ombre);
+        // Layout principal vertical : titre en haut, bloc centre boutons, bouton déconnexion en bas
+        layoutPrincipal = new VBox(70, titre, blocCentre, deconnexion);
+        layoutPrincipal.setAlignment(Pos.CENTER);  // Centrer tout verticalement
 
-        // Conteneur racine pour centrer le cadre dans la scène
-        StackPane root = new StackPane(cadre);
-        root.setStyle("-fx-background-color: #f5f5f5;");  // Fond gris clair général
-        root.setAlignment(Pos.CENTER);
+        // Conteneur racine StackPane pour centrer le layout principal dans la scène
+        StackPane root = new StackPane(layoutPrincipal);
+        root.setStyle("-fx-background-color: #f5f5f5;");  // Fond gris clair de la fenêtre
+        root.setAlignment(Pos.CENTER);                    // Centrer le contenu
 
-        // Création scène finale
-        scene = new Scene(root, 1000, 700);
+        // Création de la scène principale avec taille 2000x1000 pixels
+        scene = new Scene(root, 2000, 1000);
     }
 
-    // Getters pour contrôleur
+    // Getter pour accéder à la scène depuis le contrôleur
     public Scene getScene() {
         return scene;
     }
+
+    // Getters pour accéder aux boutons depuis le contrôleur
+
     public Button getMachine() {
         return machine;
     }
+
     public Button getPoste() {
         return poste;
     }
+
     public Button getGamme() {
         return gamme;
     }
+
     public Button getOperation() {
         return operation;
     }
+
     public Button getOperateur() {
         return operateur;
     }
+
     public Button getProduit() {
         return produit;
     }
+
     public Button getStock() {
         return stock;
     }
+
     public Button getMap() {
         return map;
     }
+
     public Button getDeconnexion() {
         return deconnexion;
     }
+
     public Button getFiabilite() {
         return fiabilite;
     }

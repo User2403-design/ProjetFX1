@@ -8,6 +8,7 @@ import Modele.Operation;
 import Modele.Stockage;
 import Vue.VChoisirOperation;
 import javafx.stage.Stage;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CChoisirOperation {
     private Stage primaryStage;
@@ -51,7 +52,6 @@ public class CChoisirOperation {
     public void afficher() {
         primaryStage.setTitle("Choisir une opération à modifier");
         primaryStage.setScene(vue.getScene());
-        
-        primaryStage.show();
+       GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

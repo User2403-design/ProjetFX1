@@ -79,9 +79,6 @@ public class CSupprimerProduit {
         primaryStage.show();
             
 
-        // Empêche la redimension de la fenêtre par l'utilisateur
-        primaryStage.setResizable(false);
-        // Affiche la fenêtre avec les paramètres définis
-        primaryStage.show();
+        
     }
 }

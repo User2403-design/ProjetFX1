@@ -8,6 +8,7 @@ import Vue.VAccueil;  // import de la classe VAccueil (vue d'accueil)
 import Vue.VInitialisation;  // import de la classe VInitialisation (vue d'initialisation)
 import javafx.stage.Stage;  // import de la classe Stage (fenêtre JavaFX)
 import Modele.Stockage;  // import de la classe Stockage (modèle des données)
+import Repertoire.GrandEcran;
 
 /**
  * 
@@ -108,7 +109,5 @@ public class CAcceuil {  // début de la classe CAcceuil
     public void afficherAccueil() {
         primaryStage.setTitle("Accueil de l'Atelier");  // définir le titre de la fenêtre
         primaryStage.setScene(vueAccueil.getScene());  // définir la scène à afficher dans la fenêtre principale
-        primaryStage.show();  // afficher la fenêtre
-        primaryStage.setMaximized(true);  // maximiser la fenêtre (plein écran)
-     
+    GrandEcran.afficherPleinEcran(primaryStage, vueAccueil.getScene());
 }}

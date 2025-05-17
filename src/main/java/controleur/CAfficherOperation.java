@@ -49,7 +49,7 @@ public class CAfficherOperation {
     public void afficher() {
         primaryStage.setTitle("Liste des Opérations");
         primaryStage.setScene(vueAfficher.getSceneListeOperations());
-        
+        primaryStage.setMaximized(true); 
         primaryStage.show();
     }
 

@@ -92,7 +92,7 @@ public class VMagBrut {
         root.setAlignment(Pos.CENTER);                     // Centrer le contenu dans la fenêtre
 
         // Création de la scène avec le conteneur racine, dimensions 800x600 pixels
-        scene = new Scene(root, 800, 600);
+        scene = new Scene(root, 2000, 1000);
     }
 
     /** Retourne la scène principale de cette vue. */

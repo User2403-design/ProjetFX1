@@ -96,7 +96,7 @@ public class VPoste {
         root.setAlignment(Pos.CENTER);                              // Centrer contenu
 
         // Création de la scène principale avec dimensions 800x600
-        scene = new Scene(root, 800, 600);
+        scene = new Scene(root, 2000, 1000);
     }
 
     // Getters pour accéder aux boutons et à la scène

@@ -43,7 +43,7 @@ public class VMapAtelier {
 
         // Structure finale
         vbox.getChildren().addAll(titre, pane, legende, retour);
-        scene = new Scene(vbox, 1000, 800);
+        scene = new Scene(vbox, 2000, 1000);
     }
 
     private void ajouterCadreDynamique(List<Machine> machines) {

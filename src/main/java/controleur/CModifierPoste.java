@@ -8,6 +8,7 @@ import Modele.Poste;
 import Modele.Stockage;
 import Vue.VModifierPoste;
 import javafx.stage.Stage;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 /**
  *
@@ -101,8 +102,7 @@ public class CModifierPoste {
     public void afficher() {
         primaryStage.setTitle("Modifier Poste");
         primaryStage.setScene(vue.getScene());
-        primaryStage.setMaximized(true);
-        primaryStage.show();
+     GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 
 }

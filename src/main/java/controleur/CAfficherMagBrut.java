@@ -46,7 +46,7 @@ public class CAfficherMagBrut {
     public void afficher() {
         primaryStage.setTitle("Affichage du stock brut");
         primaryStage.setScene(vueAfficher.getScene()); // getScene() doit renvoyer la Scene associée
-        
+        primaryStage.setMaximized(true); 
         primaryStage.show();
     }
 }

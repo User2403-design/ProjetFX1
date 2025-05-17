@@ -26,7 +26,7 @@ public class VAfficherGamme {
         BorderPane layout = new BorderPane();
         layout.setCenter(vbox);
 
-        this.scene = new Scene(layout);
+        this.scene = new Scene(layout, 2000, 1000);
     }
 
     public Scene getScene() {

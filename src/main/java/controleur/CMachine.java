@@ -9,6 +9,10 @@ import Modele.Stockage;
 import Modele.FichierMachine;
 import java.util.ArrayList;
 import Modele.Machine;
+import Repertoire.GrandEcran;
+import javafx.geometry.Rectangle2D;  // Pour gérer la taille et la position de l'écran
+import javafx.stage.Screen;          // Pour récupérer les infos de l'écran principal
+import javafx.stage.Stage;           // Pour manipuler la fenêtre principale (Stage)
 /**
  *
  * @author chloe
@@ -60,11 +64,10 @@ public class CMachine {
             controleurSup.afficher();
         });
     }
+public void afficherSectionMachine() {
+    primaryStage.setTitle("Section Machine");               // Titre fenêtre
+    primaryStage.setScene(vueMachine.getScene());   
+    GrandEcran.afficherPleinEcran(primaryStage, vueMachine.getScene());
 
-    public void afficherSectionMachine() {
-        primaryStage.setTitle("Section Machine");
-        primaryStage.setScene(vueMachine.getScene());
-       
-        
-    }
-}
+     }}
+   

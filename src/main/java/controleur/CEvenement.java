@@ -7,6 +7,8 @@ import Vue.VEvenement;
 import javafx.stage.Stage;
 import Modele.Stockage;
 import Modele.Fiabilite;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+
 /**
  *
  * @author Elève
@@ -52,7 +54,8 @@ public class CEvenement {
     public void afficherSectionEvenements() {
         primaryStage.setTitle("Gestion des Événements");
         primaryStage.setScene(vue.getScene());
-        
+          primaryStage.setMaximized(true);
+   
         primaryStage.show();
     }
 }

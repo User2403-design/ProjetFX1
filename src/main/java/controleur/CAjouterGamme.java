@@ -9,6 +9,7 @@ import Modele.Stockage;
 import Modele.Gamme;
 import Vue.VAjouterGamme;
 import javafx.stage.Stage;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +85,6 @@ public class CAjouterGamme {
     public void afficher() {
         primaryStage.setTitle("Ajouter une Gamme");
         primaryStage.setScene(vue.getScene());
-        
-        primaryStage.show();
+      GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

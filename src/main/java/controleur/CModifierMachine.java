@@ -7,6 +7,8 @@ import Modele.Machine;
 import Modele.Stockage;
 import Vue.VModifierMachine;
 import javafx.stage.Stage;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+
 
 public class CModifierMachine {
     private Stage primaryStage;
@@ -72,7 +74,7 @@ public class CModifierMachine {
     public void afficher() {
         primaryStage.setTitle("Modifier Machine");
         primaryStage.setScene(vue.getScene());
-        
+        primaryStage.setMaximized(true); 
         primaryStage.show();
     }
 }

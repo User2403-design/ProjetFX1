@@ -52,8 +52,9 @@ public class CAfficherFiabilite {
     public void afficher() {
         primaryStage.setScene(vue.getScene());
         primaryStage.setTitle("Fiabilité des machines");
-        
+        primaryStage.setMaximized(true); 
         primaryStage.show();
+        
     }
 
     /*private Stage primaryStage;

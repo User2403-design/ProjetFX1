@@ -7,6 +7,8 @@ import Vue.VChoisirPoste;
 import Modele.Stockage;
 import Modele.Poste;
 import javafx.stage.Stage;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+
 /**
  *
  * @author Elève
@@ -56,7 +58,6 @@ public class CChoisirPoste {
     public void afficher() {
         primaryStage.setTitle("Choisir un Poste à Modifier");
         primaryStage.setScene(vue.getScene());
-        
-        primaryStage.show();
+        GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

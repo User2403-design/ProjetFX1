@@ -7,6 +7,8 @@ package controleur;
 import Vue.VMagBrut;
 import Modele.Stockage;
 import javafx.stage.Stage;
+import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+
 
 public class CMagBrut {
     private Stage primaryStage;
@@ -58,6 +60,7 @@ public class CMagBrut {
     public void afficherSectionMagBrut() {
         primaryStage.setTitle("Gestion du Magasin de Brut");
         primaryStage.setScene(vue.getScene());
+          primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }

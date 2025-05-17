@@ -8,6 +8,7 @@ import Vue.VAfficherProduit;
 import javafx.stage.Stage;
 import Modele.Stockage;
 
+
 public class CAfficherProduit {
     private Stage primaryStage;
     private VAfficherProduit vueAfficher;
@@ -38,7 +39,7 @@ public class CAfficherProduit {
     public void afficher() {
         primaryStage.setTitle("Liste des Produits");
         primaryStage.setScene(vueAfficher.getSceneListeProduits());
-        
+        primaryStage.setMaximized(true); 
         primaryStage.show();
     }
 }
