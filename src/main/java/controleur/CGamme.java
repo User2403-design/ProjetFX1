@@ -23,10 +23,9 @@ public class CGamme {
         this.stockage = stockage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
-        this.role = stockage.getRole(utilisateur); // 🔥 Récupère le rôle
-
+        this.role = stockage.getRole(utilisateur); // Récupère le rôle
         actionClic();
-        appliquerRestrictions(); // 👈 On applique les restrictions
+        appliquerRestrictions(); // Applique les restrictions selon rôle
     }
 
     private void actionClic() {
@@ -43,7 +42,8 @@ public class CGamme {
 
         vueGamme.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            CChoisirGamme controleurModif = new CChoisirGamme(primaryStage, stockage);
+            // Ajout des paramètres utilisateur & atelier ici aussi
+            CChoisirGamme controleurModif = new CChoisirGamme(primaryStage, utilisateur, atelier, stockage);
             controleurModif.afficher();
         });
 
@@ -62,7 +62,7 @@ public class CGamme {
 
     private void appliquerRestrictions() {
         if (!role.equals("chef")) {
-            vueGamme.desactiver(); // ?On bloque tout sauf afficher + retour
+            vueGamme.desactiver(); // Bloque tout sauf Afficher et Retour
         }
     }
 

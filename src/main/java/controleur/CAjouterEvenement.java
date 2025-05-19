@@ -116,8 +116,6 @@ public class CAjouterEvenement {
      */
     public void afficher() {
         primaryStage.setTitle("Ajouter un Événement");
-        primaryStage.setMaximized(true);
-        // Utilisation de la méthode utilitaire pour affichage plein écran
-        GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
+        primaryStage.setScene(vue.getScene());
     }
 }
