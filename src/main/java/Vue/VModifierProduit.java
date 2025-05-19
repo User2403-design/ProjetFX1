@@ -25,25 +25,33 @@ public class VModifierProduit {
         designationField = new TextField();
         listeGammesProduit = new ListView<>();
         listeGammesDisponibles = new ListView<>();
-        ajouterGammeButton = new Button("Ajouter Gamme");
-        retirerGammeButton = new Button("Retirer Gamme");
-        enregistrerButton = new Button("Enregistrer");
-        retourButton = new Button("Retour");
+
+        // Boutons stylés avec Style
+        ajouterGammeButton = Style.creerBouton("Ajouter Gamme");
+        retirerGammeButton = Style.creerBouton("Retirer Gamme");
+        enregistrerButton = Style.creerBouton("Enregistrer");
+        retourButton = Style.creerBoutonRetour();
+
+        Label codeLabel = new Label("Code Produit :");
+        Label designationLabel = new Label("Désignation :");
+        Label gammesAssocieesLabel = new Label("Gammes associées :");
+        Label gammesDisponiblesLabel = new Label("Gammes disponibles :");
 
         VBox layout = new VBox(10);
         layout.getChildren().addAll(
-            new Label("Code Produit :"), codeField,
-            new Label("Désignation :"), designationField,
-            new Label("Gammes associées :"), listeGammesProduit,
-            new Label("Gammes disponibles :"), listeGammesDisponibles,
+            codeLabel, codeField,
+            designationLabel, designationField,
+            gammesAssocieesLabel, listeGammesProduit,
+            gammesDisponiblesLabel, listeGammesDisponibles,
             new HBox(10, ajouterGammeButton, retirerGammeButton),
             enregistrerButton,
             retourButton
         );
 
-        scene = new Scene(layout, 500, 700);
+        scene = new Scene(Style.creerCadreCentre(layout), 1570,800);
     }
 
+    // Getters
     public Scene getScene() { return scene; }
     public TextField getCodeField() { return codeField; }
     public TextField getDesignationField() { return designationField; }

@@ -7,6 +7,8 @@ package Vue;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.StackPane;
+import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 
 public class VModifierMachine {
@@ -18,42 +20,57 @@ public class VModifierMachine {
 
     public VModifierMachine() {
         VBox layout = new VBox(10);
+        layout.setAlignment(Pos.CENTER_LEFT);
 
-        // Création des champs de saisie
+        // Utilisation des labels stylés
+        layout.getChildren().add(Style.creerLabel("Référence :"));
         refField = new TextField();
-        designationField = new TextField();
-        xField = new TextField();
-        yField = new TextField();
-        coutField = new TextField();
-        typeField = new TextField();
+        layout.getChildren().add(refField);
 
-        // ComboBox pour l'état de la machine
+        layout.getChildren().add(Style.creerLabel("Désignation :"));
+        designationField = new TextField();
+        layout.getChildren().add(designationField);
+
+        layout.getChildren().add(Style.creerLabel("Position X :"));
+        xField = new TextField();
+        layout.getChildren().add(xField);
+
+        layout.getChildren().add(Style.creerLabel("Position Y :"));
+        yField = new TextField();
+        layout.getChildren().add(yField);
+
+        layout.getChildren().add(Style.creerLabel("Coût Horaire (euro/heure) :"));
+        coutField = new TextField();
+        layout.getChildren().add(coutField);
+
+        layout.getChildren().add(Style.creerLabel("Type :"));
+        typeField = new TextField();
+        layout.getChildren().add(typeField);
+
+        layout.getChildren().add(Style.creerLabel("État :"));
         etatComboBox = new ComboBox<>();
         etatComboBox.getItems().addAll("libre", "panne", "occupée", "maintenance");
+        layout.getChildren().add(etatComboBox);
 
-        // Label d'erreur global
         errorLabel = new Label();
-        errorLabel.setTextFill(Color.RED);  // Le message d'erreur sera en rouge
+        errorLabel.setTextFill(Color.RED);
+        layout.getChildren().add(errorLabel);
 
-        // Boutons d'enregistrement et retour
-        enregistrerButton = new Button("Enregistrer Modifications");
-        retourButton = new Button("Retour");
+        enregistrerButton = Style.creerBouton("Enregistrer Modifications");
+        retourButton = Style.creerBoutonRetour();
 
-        // Ajout des éléments à la mise en page
-        layout.getChildren().addAll(
-            new Label("Référence :"), refField,
-            new Label("Désignation :"), designationField,
-            new Label("Position X :"), xField,
-            new Label("Position Y :"), yField,
-            new Label("Coût Horaire (euro/heure):"), coutField,
-            new Label("Type :"), typeField,
-            new Label("État :"), etatComboBox,
-            errorLabel,  // Affichage de l'erreur sous les champs
-            enregistrerButton,
-            retourButton
-        );
+        layout.getChildren().addAll(enregistrerButton, retourButton);
+        layout.setMaxWidth(350);
 
-        scene = new Scene(layout, 400, 600);
+        // Cadre centré avec style blanc et ombre
+        StackPane cadre = Style.creerCadreCentre(layout);
+
+        // Racine avec fond gris clair
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
+
+        scene = new Scene(root, 1570,800);
     }
 
     public Scene getScene() {
@@ -96,7 +113,6 @@ public class VModifierMachine {
         return retourButton;
     }
 
-    // Méthode pour accéder au label d'erreur
     public Label getErrorLabel() {
         return errorLabel;
     }

@@ -53,6 +53,7 @@ public class CChoisirProduit {
     public void afficher() {
         primaryStage.setTitle("Choisir un Produit à Modifier");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

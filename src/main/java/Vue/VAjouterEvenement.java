@@ -4,12 +4,13 @@
  */
 package Vue;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.StackPane;
 
 public class VAjouterEvenement {
-
     private TextField dateField;
     private TextField heureField;
     private TextField machineField;
@@ -23,8 +24,10 @@ public class VAjouterEvenement {
     private Scene scene;
 
     public VAjouterEvenement() {
-        vbox = new VBox(10);
+        // Titre stylé
+        var titre = Style.creerTitre("Ajouter un Événement");
 
+        // Champs texte
         dateField = new TextField();
         dateField.setPromptText("Date (yyyy-MM-dd)");
 
@@ -44,62 +47,68 @@ public class VAjouterEvenement {
         causeField = new TextField();
         causeField.setPromptText("Cause");
 
-        ajouterButton = new Button("Ajouter Événement");
-        retourButton = new Button("Retour");
+        // Boutons stylés
+        ajouterButton = Style.creerBouton("Ajouter Événement");
+        retourButton = Style.creerBoutonRetour();
 
-        messageLabel = new Label(); // Label pour afficher les messages (erreur ou succès)
+        // Label message
+        messageLabel = new Label();
+        messageLabel.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
 
-        vbox.getChildren().addAll(
-                new Label("Date :"), dateField,
-                new Label("Heure :"), heureField,
-                new Label("Machine :"), machineField,
-                new Label("Type (A ou D) :"), typeComboBox,
-                new Label("Opérateur :"), operateurField,
-                new Label("Cause :"), causeField,
-                ajouterButton,
-                retourButton,
-                messageLabel // affichage du message ici
+        // VBox avec espacement et alignement
+        vbox = new VBox(10,
+            titre,
+            new Label("Date :"), dateField,
+            new Label("Heure :"), heureField,
+            new Label("Machine :"), machineField,
+            new Label("Type (A ou D) :"), typeComboBox,
+            new Label("Opérateur :"), operateurField,
+            new Label("Cause :"), causeField,
+            ajouterButton,
+            retourButton,
+            messageLabel
         );
+        vbox.setAlignment(Pos.CENTER_LEFT);
 
-        scene = new Scene(vbox);
+        // Cadre stylé centré
+        StackPane cadre = Style.creerCadreCentre(vbox);
+
+        // Racine de la scène
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
+
+        scene = new Scene(root, 1570,800);
     }
 
+    // Getters
     public Scene getScene() {
         return scene;
     }
-
     public TextField getDateField() {
         return dateField;
     }
-
     public TextField getHeureField() {
         return heureField;
     }
-
     public TextField getMachineField() {
         return machineField;
     }
-
     public ComboBox<String> getTypeComboBox() {
         return typeComboBox;
     }
-
     public TextField getOperateurField() {
         return operateurField;
     }
-
     public TextField getCauseField() {
         return causeField;
     }
-
     public Button getAjouterButton() {
         return ajouterButton;
     }
-
     public Button getRetourButton() {
         return retourButton;
     }
-
     public Label getMessageLabel() {
         return messageLabel;
     }

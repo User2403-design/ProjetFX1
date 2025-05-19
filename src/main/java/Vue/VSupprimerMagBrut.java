@@ -7,34 +7,38 @@ package Vue;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.layout.StackPane;
+import javafx.geometry.Pos;
 
 public class VSupprimerMagBrut {
+
     private ListView<String> listeMatieres;
     private Button supprimerButton;
     private Button retourButton;
+    private Label messageLabel;
     private VBox vbox;
     private Scene scene;
-    private Label messageLabel;
 
     public VSupprimerMagBrut() {
-        vbox = new VBox(10);
         listeMatieres = new ListView<>();
-        supprimerButton = new Button("Supprimer Matière");
-        retourButton = new Button("Retour");
-        messageLabel = new Label();
+        listeMatieres.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        listeMatieres.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); 
+        supprimerButton = Style.creerBouton("Supprimer Matière");
+        retourButton = Style.creerBoutonRetour();
 
-        vbox.getChildren().addAll(
-            new Label("Sélectionnez une matière à supprimer :"),
-            listeMatieres,
-            supprimerButton,
-            retourButton,
-            messageLabel
-        );
+        Label instructionLabel = Style.creerLabel("Sélectionnez une matière à supprimer :");
+        messageLabel = Style.creerLabel("");
+        messageLabel.setWrapText(true);
 
-        scene = new Scene(vbox, 500, 400);
+        vbox = new VBox(15, instructionLabel, listeMatieres, supprimerButton, retourButton, messageLabel);
+        vbox.setAlignment(Pos.CENTER);
+
+        StackPane cadre = Style.creerCadreCentre(vbox);
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
+
+        scene = new Scene(root, 1570,800);
     }
 
     public void afficherMessage(String message) {

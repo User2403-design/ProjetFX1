@@ -102,6 +102,7 @@ public class CModifierPoste {
     public void afficher() {
         primaryStage.setTitle("Modifier Poste");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
      GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 

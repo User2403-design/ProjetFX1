@@ -85,6 +85,7 @@ public class CAjouterGamme {
     public void afficher() {
         primaryStage.setTitle("Ajouter une Gamme");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
       GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

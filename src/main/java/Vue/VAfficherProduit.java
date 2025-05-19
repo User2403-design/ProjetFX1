@@ -5,10 +5,10 @@
 
 package Vue;
 
-
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 public class VAfficherProduit {
@@ -18,15 +18,21 @@ public class VAfficherProduit {
     private Scene sceneListeProduits;
 
     public VAfficherProduit(String produits) {
-        vbox = new VBox(10);
+        // Utilisation des méthodes Style
+        zoneAffichage = Style.creerZoneTexte(produits);
+        retourButton = Style.creerBoutonRetour();
 
-        zoneAffichage = new TextArea(produits);
-        zoneAffichage.setEditable(false); // Lecture seule
-
-        retourButton = new Button("Retour");
-
+        vbox = new VBox(30);
+        vbox.setAlignment(javafx.geometry.Pos.CENTER);
         vbox.getChildren().addAll(zoneAffichage, retourButton);
-        sceneListeProduits = new Scene(vbox);
+
+        StackPane cadre = Style.creerCadreCentre(vbox);
+
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(javafx.geometry.Pos.CENTER);
+
+        sceneListeProduits = new Scene(root, 1570,800);
     }
 
     public Scene getSceneListeProduits() {

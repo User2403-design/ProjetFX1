@@ -71,6 +71,7 @@ public class CAjouterProduit {
     public void afficher() {
         primaryStage.setTitle("Ajouter un Produit");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

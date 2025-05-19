@@ -3,78 +3,73 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Vue;
+
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
-import javafx.geometry.Insets;
-/**
- *
- * @author Justin
- */
-
+import javafx.scene.layout.StackPane;
+import javafx.geometry.Pos;
 
 public class VSupprimerProduit {
+    
     private TextField nomField;
     private Button supprimerButton;
     private Button retourButton;
     private Label messageLabel;
     private Scene scene;
-    private ListView<String> listeProduits; // Déclaration de la ListView pour afficher les produits
+    private ListView<String> listeProduits;
 
     public VSupprimerProduit() {
-        VBox vbox = new VBox(10);
-        vbox.setPadding(new Insets(20));
+        // Initialisation des composants
+        listeProduits = new ListView<>();
+        nomField = new TextField();
+        nomField.setPromptText("Nom du produit à supprimer");
 
-        // Initialisation des éléments
-       
-        supprimerButton = new Button("Supprimer");
-        retourButton = new Button("Retour");
-        messageLabel = new Label();
-        listeProduits = new ListView<>(); // Initialisation de la ListView pour afficher les produits
+        supprimerButton = Style.creerBouton("Supprimer");
+        retourButton = Style.creerBoutonRetour();
+        messageLabel = Style.creerLabel("");
 
-        // Ajout des éléments au layout
-        vbox.getChildren().addAll(supprimerButton, retourButton, listeProduits, messageLabel);
+        Label titre = Style.creerLabel("Supprimer un produit");
 
-        // Création de la scène
-        scene = new Scene(vbox, 400, 300);
+        VBox vbox = new VBox(15, titre, listeProduits, nomField, supprimerButton, retourButton, messageLabel);
+        vbox.setAlignment(Pos.CENTER);
+
+        StackPane cadre = Style.creerCadreCentre(vbox);
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
+
+        scene = new Scene(root, 1570,800);
     }
 
-    // Méthode pour afficher des messages
     public void afficherMessage(String message) {
         messageLabel.setText(message);
     }
 
-    // Getter pour le champ de texte (nom produit)
     public TextField getNomProduitField() {
         return nomField;
     }
 
-    // Getter pour le bouton supprimer
     public Button getSupprimerButton() {
         return supprimerButton;
     }
 
-    // Getter pour la liste des produits
     public ListView<String> getListeProduits() {
         return listeProduits;
     }
 
-    // Getter pour le bouton retour
     public Button getRetourButton() {
         return retourButton;
     }
 
-    // Getter pour le label de message
     public Label getMessageLabel() {
         return messageLabel;
     }
 
-    // Getter pour la scène
     public Scene getScene() {
         return scene;
     }
-    
 }

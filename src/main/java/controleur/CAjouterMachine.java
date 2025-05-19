@@ -97,7 +97,8 @@ public class CAjouterMachine {
      * Affiche la vue ajout machine en plein écran
      */
     public void afficher() {
-        primaryStage.setTitle("Ajouter une Machine");                      // Titre de la fenêtre
+        primaryStage.setTitle("Ajouter une Machine");  
+        primaryStage.setMaximized(true);// Titre de la fenêtre
         primaryStage.setScene(vueAjouter.getSceneAjouterMachine());        // Applique la scène de la vue ajout machine
         GrandEcran.afficherPleinEcran(primaryStage, vueAjouter.getSceneAjouterMachine());  // Affiche en plein écran
     }

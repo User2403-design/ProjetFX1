@@ -4,11 +4,13 @@
  */
 package Vue;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class VAfficherGamme {
     private Scene scene;
@@ -16,17 +18,27 @@ public class VAfficherGamme {
     private Button retour;
 
     public VAfficherGamme() {
-        this.zoneAffichage = new TextArea();
-        this.zoneAffichage.setEditable(false);
-        this.zoneAffichage.setPrefHeight(400);
+        // Titre via Style
+        Text titre = Style.creerTitre("Affichage des Gammes");
 
-        this.retour = new Button("Retour");
+        // Zone de texte
+        zoneAffichage = new TextArea();
+        zoneAffichage.setEditable(false);
+        zoneAffichage.setPrefHeight(400);
+        zoneAffichage.setStyle("-fx-font-size: 16px; -fx-padding: 15; -fx-background-radius: 15;");
 
-        VBox vbox = new VBox(20, zoneAffichage, retour);
-        BorderPane layout = new BorderPane();
-        layout.setCenter(vbox);
+        // Bouton retour via Style
+        retour = Style.creerBoutonRetour();
 
-        this.scene = new Scene(layout, 2000, 1000);
+        // Mise en page VBox
+        VBox contenu = new VBox(30, titre, zoneAffichage, retour);
+        contenu.setAlignment(Pos.CENTER);
+
+        // Cadre avec style et effet via Style (on passe VBox directement)
+        StackPane cadre = Style.creerCadreCentre(contenu);
+
+        // Création de la scène
+        scene = new Scene(cadre, 1570,800);
     }
 
     public Scene getScene() {

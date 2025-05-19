@@ -62,6 +62,7 @@ public class CSupprimerPoste {
     public void afficher() {
         primaryStage.setTitle("Supprimer Poste");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
       GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
            
     }

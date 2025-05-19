@@ -4,26 +4,37 @@
  */
 package Vue;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class VChoisirGamme {
     private ListView<String> listeGammes;
     private Button choisirButton;
-    private Scene scene;
     private Button retourButton;
-    
-    public VChoisirGamme() {
-        listeGammes = new ListView<>();
-        choisirButton = new Button("Choisir");
-        retourButton = new Button("Retour");
+    private Scene scene;
 
-        VBox layout = new VBox(10);
-        layout.getChildren().addAll(listeGammes, choisirButton, retourButton);
-        
-        scene = new Scene(layout, 300, 200);
+    public VChoisirGamme() {
+        // Titre avec style
+        Text titre = Style.creerTitre("Choisir une Gamme");
+
+        listeGammes = new ListView<>();
+        listeGammes.setPrefHeight(200);
+
+        // Boutons avec style
+        choisirButton = Style.creerBouton("Choisir");
+        retourButton = Style.creerBoutonRetour();
+
+        VBox layout = new VBox(15, titre, listeGammes, choisirButton, retourButton);
+        layout.setPadding(new Insets(20));
+        layout.setStyle("-fx-background-color: #f2f7fc;");
+        layout.setMaxWidth(400);
+
+        // Utilisation du cadre centré de Style
+        scene = new Scene(Style.creerCadreCentre(layout), 1570,800);
     }
 
     public ListView<String> getListeGammes() {
@@ -34,10 +45,11 @@ public class VChoisirGamme {
         return choisirButton;
     }
 
+    public Button getRetourButton() {
+        return retourButton;
+    }
+
     public Scene getScene() {
         return scene;
-    }
-    public Button getRetourButton() { 
-        return retourButton; 
     }
 }

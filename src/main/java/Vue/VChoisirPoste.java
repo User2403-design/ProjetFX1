@@ -3,34 +3,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Vue;
+
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-/**
- *
- * @author Elève
- */
+import javafx.scene.text.Text;
+
 public class VChoisirPoste {
     private ListView<String> listePostes;
     private Button validerButton;
     private Button retourButton;
-    private VBox vbox;
     private Scene scene;
 
     public VChoisirPoste() {
-        listePostes = new ListView<>();
-        validerButton = new Button("Modifier ce poste");
-        retourButton = new Button("Retour");
+        Text titre = Style.creerTitre("Modifier un Poste");
 
-        vbox = new VBox(10);
-        vbox.getChildren().addAll(
+        listePostes = new ListView<>();
+        listePostes.setPrefHeight(350);
+
+        validerButton = Style.creerBouton("Modifier ce poste");
+        retourButton = Style.creerBoutonRetour();
+
+        VBox layout = new VBox(15);
+        layout.setPadding(new Insets(20));
+        layout.setStyle("-fx-background-color: #f2f7fc;");
+        layout.getChildren().addAll(
             new Label("Sélectionnez un poste à modifier :"),
             listePostes,
             validerButton,
             retourButton
         );
 
-        scene = new Scene(vbox, 400, 600);
+        scene = new Scene(Style.creerCadreCentre(layout), 1570,800);
     }
 
     public ListView<String> getListePostes() {

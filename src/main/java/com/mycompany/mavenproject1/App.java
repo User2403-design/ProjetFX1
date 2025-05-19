@@ -18,7 +18,7 @@ public void start(Stage primaryStage) {
     // Affiche la première scène dans le stage
     controleur.afficherConnexion();
 
-
+    primaryStage.setMaximized(true);
 
     // Affiche la fenêtre (appelle show qu'une seule fois)
     primaryStage.show();

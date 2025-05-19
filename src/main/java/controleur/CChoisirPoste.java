@@ -58,6 +58,7 @@ public class CChoisirPoste {
     public void afficher() {
         primaryStage.setTitle("Choisir un Poste à Modifier");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
         GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

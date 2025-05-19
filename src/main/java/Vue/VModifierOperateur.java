@@ -10,9 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.geometry.Pos;
 
 public class VModifierOperateur {
-
     private TextField nomField;
     private TextField prenomField;
     private TextField codeField;
@@ -22,25 +23,38 @@ public class VModifierOperateur {
     private Scene scene;
 
     public VModifierOperateur() {
-        VBox layout = new VBox(10);
-
         nomField = new TextField();
         prenomField = new TextField();
         codeField = new TextField();
         etatCheckBox = new CheckBox("Disponible");
 
-        enregistrerButton = new Button("Enregistrer les modifications");
-        retourButton = new Button("Retour");
+        // Boutons stylés
+        enregistrerButton = Style.creerBouton("Enregistrer les modifications");
+        retourButton = Style.creerBoutonRetour();
+
+        VBox layout = new VBox(10);
+        layout.setAlignment(Pos.CENTER_LEFT);
 
         layout.getChildren().addAll(
-                new Label("Nom :"), nomField,
-                new Label("Prénom :"), prenomField,
-                new Label("Code :"), codeField,
-                etatCheckBox,
-                new HBox(10, enregistrerButton, retourButton)
+            Style.creerLabel("Nom :"), nomField,
+            Style.creerLabel("Prénom :"), prenomField,
+            Style.creerLabel("Code :"), codeField,
+            etatCheckBox,
+            new HBox(10, enregistrerButton, retourButton)
         );
 
-        scene = new Scene(layout, 400, 400);
+        // Centrer horizontalement les boutons
+        ((HBox) layout.getChildren().get(layout.getChildren().size() - 1)).setAlignment(Pos.CENTER);
+
+        layout.setMaxWidth(350);
+
+        StackPane cadre = Style.creerCadreCentre(layout);
+
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
+
+        scene = new Scene(root, 1570,800);
     }
 
     public TextField getNomField() { return nomField; }

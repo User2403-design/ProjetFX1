@@ -7,11 +7,10 @@ package Vue;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
+import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 
 public class VAjouterOperation {
-
     private TextField idField;
     private TextField refField;
     private TextField dureeField;
@@ -20,63 +19,109 @@ public class VAjouterOperation {
     private Button ajouterButton;
     private Button retourButton;
     private Label messageLabel;
+    private VBox root;
     private Scene scene;
 
     public VAjouterOperation() {
-        GridPane layout = new GridPane();
-        layout.setPadding(new Insets(20));
-        layout.setVgap(10);
-        layout.setHgap(10);
+        // Titre stylé
+        Text titre = Style.creerTitre("Ajouter une Opération");
 
-        // Champs de saisie
+        // Champs stylés
         idField = new TextField();
+        idField.setPromptText("ID de l'opération");
+
         refField = new TextField();
+        refField.setPromptText("Référence");
+
         dureeField = new TextField();
+        dureeField.setPromptText("Durée en heures");
 
-        // Listes des machines et postes disponibles
         machinesDisponibles = new ListView<>();
+        machinesDisponibles.setPrefHeight(120);
+
         postesDisponibles = new ListView<>();
+        postesDisponibles.setPrefHeight(120);
 
-        // Boutons
-        ajouterButton = new Button("Ajouter");
-        retourButton = new Button("Retour");
+        // Boutons stylés
+        ajouterButton = Style.creerBouton("Ajouter");
+        retourButton = Style.creerBoutonRetour();
 
-        // Message label pour les erreurs et succès
         messageLabel = new Label();
-        messageLabel.setFont(new Font("Arial", 14));
+        messageLabel.setStyle("-fx-text-fill: red;");
 
-        // Ajout des éléments dans le layout
-        layout.add(new Label("ID de l'opération :"), 0, 0);
-        layout.add(idField, 1, 0);
+        // Formulaire avec étiquettes et champs
+        GridPane formGrid = new GridPane();
+        formGrid.setVgap(10);
+        formGrid.setHgap(15);
+        formGrid.setPadding(new Insets(10));
 
-        layout.add(new Label("Référence :"), 0, 1);
-        layout.add(refField, 1, 1);
+        formGrid.add(new Label("ID de l'opération :"), 0, 0);
+        formGrid.add(idField, 1, 0);
 
-        layout.add(new Label("Durée (h) :"), 0, 2);
-        layout.add(dureeField, 1, 2);
+        formGrid.add(new Label("Référence :"), 0, 1);
+        formGrid.add(refField, 1, 1);
 
-        layout.add(new Label("Machines disponibles :"), 0, 3);
-        layout.add(machinesDisponibles, 1, 3);
+        formGrid.add(new Label("Durée (h) :"), 0, 2);
+        formGrid.add(dureeField, 1, 2);
 
-        layout.add(new Label("Postes disponibles :"), 0, 4);
-        layout.add(postesDisponibles, 1, 4);
+        formGrid.add(new Label("Machines disponibles :"), 0, 3);
+        formGrid.add(machinesDisponibles, 1, 3);
 
-        layout.add(ajouterButton, 0, 5);
-        layout.add(retourButton, 1, 5);
+        formGrid.add(new Label("Postes disponibles :"), 0, 4);
+        formGrid.add(postesDisponibles, 1, 4);
 
-        layout.add(messageLabel, 0, 6, 2, 1);  // Message label à la fin
+        HBox boutonsBox = new HBox(20, ajouterButton, retourButton);
+        boutonsBox.setPadding(new Insets(10, 0, 0, 0));
 
-        scene = new Scene(layout, 500, 500);
+        VBox contenu = new VBox(15, formGrid, boutonsBox, messageLabel);
+        contenu.setPadding(new Insets(20));
+        contenu.setMaxWidth(450);
+
+        StackPane cadre = Style.creerCadreCentre(contenu);
+
+        root = new VBox(30, titre, cadre);
+        root.setPadding(new Insets(30));
+        root.setStyle("-fx-background-color: #f0f0f0;");
+        root.setMaxWidth(600);
+        root.setMaxHeight(650);
+        root.setAlignment(javafx.geometry.Pos.CENTER);
+
+        scene = new Scene(root, 1570,800);
     }
 
-    public Scene getScene() { return scene; }
+    public Scene getScene() {
+        return scene;
+    }
 
-    public TextField getIdField() { return idField; }
-    public TextField getRefField() { return refField; }
-    public TextField getDureeField() { return dureeField; }
-    public ListView<String> getMachinesDisponibles() { return machinesDisponibles; }
-    public ListView<String> getPostesDisponibles() { return postesDisponibles; }
-    public Button getAjouterButton() { return ajouterButton; }
-    public Button getRetourButton() { return retourButton; }
-    public Label getMessageLabel() { return messageLabel; }
+    public TextField getIdField() {
+        return idField;
+    }
+
+    public TextField getRefField() {
+        return refField;
+    }
+
+    public TextField getDureeField() {
+        return dureeField;
+    }
+
+    public ListView<String> getMachinesDisponibles() {
+        return machinesDisponibles;
+    }
+
+    public ListView<String> getPostesDisponibles() {
+        return postesDisponibles;
+    }
+
+    public Button getAjouterButton() {
+        return ajouterButton;
+    }
+
+    public Button getRetourButton() {
+        return retourButton;
+    }
+
+    public Label getMessageLabel() {
+        return messageLabel;
+    }
 }

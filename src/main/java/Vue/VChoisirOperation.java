@@ -4,35 +4,53 @@
  */
 package Vue;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class VChoisirOperation {
     private ListView<String> listeOperations;
     private Button validerButton;
     private Button retourButton;
-    private VBox vbox;
     private Scene scene;
 
     public VChoisirOperation() {
-        listeOperations = new ListView<>();
-        validerButton = new Button("Modifier cette opération");
-        retourButton = new Button("Retour");
+        Text titre = Style.creerTitre("Modifier une Opération");
 
-        vbox = new VBox(10);
-        vbox.getChildren().addAll(
+        listeOperations = new ListView<>();
+        listeOperations.setPrefHeight(250);
+
+        validerButton = Style.creerBouton("Modifier cette opération");
+        retourButton = Style.creerBoutonRetour();
+
+        VBox layout = new VBox(15);
+        layout.setPadding(new Insets(20));
+        layout.setStyle("-fx-background-color: #f2f7fc;");
+        layout.getChildren().addAll(
             new Label("Sélectionnez une opération à modifier :"),
             listeOperations,
             validerButton,
             retourButton
         );
 
-        scene = new Scene(vbox, 400, 400);
+        scene = new Scene(Style.creerCadreCentre(layout), 1570,800);
     }
 
-    public ListView<String> getListeOperations() { return listeOperations; }
-    public Button getValiderButton() { return validerButton; }
-    public Button getRetourButton() { return retourButton; }
-    public Scene getScene() { return scene; }
+    public ListView<String> getListeOperations() {
+        return listeOperations;
+    }
+
+    public Button getValiderButton() {
+        return validerButton;
+    }
+
+    public Button getRetourButton() {
+        return retourButton;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
 }

@@ -5,127 +5,61 @@
 
 package Vue;
 
-import javafx.geometry.Pos;             // Pour alignement (Pos.CENTER)
-import javafx.scene.Scene;             // Pour créer la scène
-import javafx.scene.control.Button;    // Pour utiliser les boutons
-import javafx.scene.effect.DropShadow; // Pour l'ombre portée
-import javafx.scene.layout.StackPane;  // Pour empiler les conteneurs (cadre)
-import javafx.scene.layout.VBox;        // Pour organiser verticalement
-import javafx.scene.paint.Color;       // Pour gérer les couleurs
-import javafx.scene.text.Font;          // Pour définir la police
-import javafx.scene.text.FontWeight;    // Pour définir le poids (gras) de la police
-import javafx.scene.text.Text;          // Pour afficher du texte
-import javafx.scene.text.TextAlignment; // Pour aligner le texte
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 public class VMagBrut {
-
-    // Déclaration des boutons utilisés dans la vue
     private Button afficherButton, modifierButton, ajouterButton, supprimerButton, retourButton;
-
-    // Conteneur principal vertical qui organise tout
     private VBox layoutPrincipal;
-
-    // La scène affichée dans la fenêtre principale
     private Scene scene;
 
-    // Constructeur de la vue VMagBrut
     public VMagBrut() {
-        // Création et personnalisation du titre
-        Text titre = new Text("Gestion du Magasin de Matières Brutes");
-        titre.setFont(Font.font("Serif", FontWeight.BOLD, 40));  // Police serif, gras, taille 40
-        titre.setFill(Color.web("#333333"));                      // Couleur gris foncé
-        titre.setTextAlignment(TextAlignment.CENTER);             // Centrer le texte horizontalement
+        // Titre stylé via Style
+        Text titre = Style.creerTitre("Gestion du Magasin de Matières Brutes");
 
-        // Style CSS commun pour les boutons principaux (bleu clair)
-        String buttonStyle = "-fx-background-color: #66e0e5;" +  // Couleur bleu ciel
-                             "-fx-text-fill: white;" +            // Texte blanc
-                             "-fx-font-weight: bold;" +           // Texte en gras
-                             "-fx-font-size: 18px;" +             // Taille de police plus grande
-                             "-fx-background-radius: 30;" +       // Bords arrondis
-                             "-fx-padding: 12 40;";               // Padding vertical et horizontal
+        // Boutons stylés via Style
+        afficherButton = Style.creerBouton("Afficher");
+        modifierButton = Style.creerBouton("Modifier");
+        ajouterButton = Style.creerBouton("Ajouter");
+        supprimerButton = Style.creerBouton("Supprimer");
+        retourButton = Style.creerBoutonRetour();
 
-        // Instanciation des boutons avec leur texte respectif
-        afficherButton = new Button("Afficher");
-        modifierButton = new Button("Modifier");
-        ajouterButton = new Button("Ajouter");
-        supprimerButton = new Button("Supprimer");
-        retourButton = new Button("Retour");
-
-        // Application du style commun aux boutons d'actions (sauf retour)
-        for (Button b : new Button[]{afficherButton, modifierButton, ajouterButton, supprimerButton}) {
-            b.setStyle(buttonStyle);
-        }
-
-        // Style spécifique pour le bouton retour (gris clair)
-        retourButton.setStyle("-fx-background-color: #cccccc;" +      // Fond gris clair
-                              "-fx-text-fill: #333333;" +               // Texte gris foncé
-                              "-fx-font-weight: bold;" +                // Texte en gras
-                              "-fx-font-size: 18px;" +                   // Taille identique aux autres
-                              "-fx-background-radius: 30;" +            // Bords arrondis
-                              "-fx-padding: 12 40;");                    // Padding uniforme
-
-        // Organisation verticale des boutons d'actions avec un espacement de 25 pixels
+        // VBox boutons (sauf retour)
         VBox boutonsBox = new VBox(25, afficherButton, modifierButton, ajouterButton, supprimerButton);
-        boutonsBox.setAlignment(Pos.CENTER);  // Centrer horizontalement
+        boutonsBox.setAlignment(Pos.CENTER);
 
-        // Organisation principale verticale : titre, boutons d'actions, puis bouton retour en bas
+        // VBox principal : titre, boutons, retour
         layoutPrincipal = new VBox(50, titre, boutonsBox, retourButton);
-        layoutPrincipal.setAlignment(Pos.CENTER); // Centrer tout verticalement et horizontalement
+        layoutPrincipal.setAlignment(Pos.CENTER);
 
-        // Création d'un cadre blanc arrondi autour du contenu principal
-        StackPane cadre = new StackPane(layoutPrincipal);
-        cadre.setMaxWidth(600);   // Largeur maximale du cadre
-        cadre.setMaxHeight(500);  // Hauteur maximale du cadre
-        cadre.setStyle("-fx-background-color: white; -fx-background-radius: 25; -fx-padding: 40;"); // Fond blanc avec bords arrondis et padding interne
+        // Cadre blanc arrondi avec ombre via Style
+        StackPane cadre = Style.creerCadreCentre(layoutPrincipal);
 
-        // Ajout d'une ombre portée pour donner du relief au cadre
-        DropShadow ombre = new DropShadow();
-        ombre.setRadius(15);                   // Rayon de flou de l'ombre
-        ombre.setOffsetX(0);                   // Pas de décalage horizontal
-        ombre.setOffsetY(8);                   // Décalage vertical (ombre en dessous)
-        ombre.setColor(Color.color(0, 0, 0, 0.25)); // Couleur noire avec transparence
-        cadre.setEffect(ombre);                // Appliquer l'effet d'ombre au cadre
-
-        // Conteneur racine qui centre le cadre et définit un fond gris clair pour toute la scène
+        // Conteneur racine avec fond gris clair et centrage
         StackPane root = new StackPane(cadre);
-        root.setStyle("-fx-background-color: #f5f5f5;");  // Fond gris clair
-        root.setAlignment(Pos.CENTER);                     // Centrer le contenu dans la fenêtre
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
 
-        // Création de la scène avec le conteneur racine, dimensions 800x600 pixels
-        scene = new Scene(root, 2000, 1000);
+        // Création scène taille 2000x1000 (à ajuster si besoin)
+        scene = new Scene(root, 1570,800);
     }
+
     public void desactiver() {
-    modifierButton.setDisable(true);
-    ajouterButton.setDisable(true);
-    supprimerButton.setDisable(true);
-    }
-    /** Retourne la scène principale de cette vue. */
-    public Scene getScene() {
-        return scene;
+        modifierButton.setDisable(true);
+        ajouterButton.setDisable(true);
+        supprimerButton.setDisable(true);
     }
 
-    /** Retourne le bouton "Afficher". */
-    public Button getAfficherButton() {
-        return afficherButton;
-    }
-
-    /** Retourne le bouton "Modifier". */
-    public Button getModifierButton() {
-        return modifierButton;
-    }
-
-    /** Retourne le bouton "Ajouter". */
-    public Button getAjouterButton() {
-        return ajouterButton;
-    }
-
-    /** Retourne le bouton "Supprimer". */
-    public Button getSupprimerButton() {
-        return supprimerButton;
-    }
-
-    /** Retourne le bouton "Retour". */
-    public Button getRetourButton() {
-        return retourButton;
-    }
+    public Scene getScene() { return scene; }
+    public Button getAfficherButton() { return afficherButton; }
+    public Button getModifierButton() { return modifierButton; }
+    public Button getAjouterButton() { return ajouterButton; }
+    public Button getSupprimerButton() { return supprimerButton; }
+    public Button getRetourButton() { return retourButton; }
 }

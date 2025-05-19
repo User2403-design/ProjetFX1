@@ -59,6 +59,7 @@ public class CMapAtelier {
     public void afficher() {
         primaryStage.setTitle("Carte de l'Atelier");
         primaryStage.setScene(vueMap.getScene());
+        primaryStage.setMaximized(true);
         GrandEcran.afficherPleinEcran(primaryStage, vueMap.getScene());
     }
 }

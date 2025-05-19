@@ -7,112 +7,57 @@
 
 package Vue;
 
-import javafx.geometry.Pos;               // Pour gérer l'alignement des éléments
-import javafx.scene.Scene;               // Conteneur principal de la scène
-import javafx.scene.control.Button;     // Pour les boutons
-import javafx.scene.layout.*;            // Pour les layouts (VBox, HBox, StackPane)
-import javafx.scene.paint.Color;        // Pour la gestion des couleurs
-import javafx.scene.text.*;              // Pour gérer les textes et polices
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.*;
+import javafx.scene.text.*;
 
 public class VAccueil {
-    // Déclaration des boutons de navigation
+
     private Button machine, poste, gamme, operation, operateur, produit, stock, map, deconnexion, fiabilite;
-    private VBox layoutPrincipal;  // Layout vertical principal qui contient tout
-    private Scene scene;           // Scène principale affichée à l'écran
+    private VBox layoutPrincipal;
+    private Scene scene;
 
-    // Constructeur : reçoit le nom de l'utilisateur et de l'atelier pour personnaliser le titre
     public VAccueil(String utilisateur, String atelier) {
-        // Création d'un TextFlow pour le titre composé de plusieurs Text
-        TextFlow titre = new TextFlow();
-        titre.setTextAlignment(TextAlignment.CENTER);  // Centrer le texte du titre
 
-        // Texte "Bienvenue " avec style normal, couleur gris foncé, police taille 80
-        Text bienvenue = new Text("Bienvenue ");
-        bienvenue.setFill(Color.web("#333333"));
-        bienvenue.setFont(Font.font("Serif", FontWeight.NORMAL, 35));
+        // Création du titre via la classe Style
+        Text titreTexte = Style.creerTitre("Bienvenue " + utilisateur + " dans l'atelier " + atelier + " !");
+        VBox blocTitre = new VBox(titreTexte);
+        blocTitre.setAlignment(Pos.CENTER);
 
-        // Texte nom utilisateur en vert et gras, taille 80
-        Text nomUtilisateur = new Text(utilisateur);
-        nomUtilisateur.setFill(Color.GREEN);
-        nomUtilisateur.setFont(Font.font("Serif", FontWeight.BOLD, 35));
+        // Création des boutons avec style personnalisé via Style
+        machine = Style.creerBouton("Machine");
+        poste = Style.creerBouton("Poste");
+        gamme = Style.creerBouton("Gamme");
+        operation = Style.creerBouton("Opération");
+        operateur = Style.creerBouton("Opérateur");
+        produit = Style.creerBouton("Produit");
+        stock = Style.creerBouton("Magasin de brut");
+        map = Style.creerBouton("Carte de l'Atelier");
+        fiabilite = Style.creerBouton("Fiabilité");
+        deconnexion = Style.creerBoutonRetour(); // Tu peux aussi créer Style.creerBoutonDeconnexion() si besoin
 
-        // Texte " dans l'atelier " style normal, gris foncé, taille 80
-        Text dans = new Text(" dans l'atelier ");
-        dans.setFill(Color.web("#333333"));
-        dans.setFont(Font.font("Serif", FontWeight.NORMAL, 35));
-
-        // Texte nom atelier en vert et gras, taille 80
-        Text nomAtelier = new Text(atelier + " !");
-        nomAtelier.setFill(Color.GREEN);
-        nomAtelier.setFont(Font.font("Serif", FontWeight.BOLD, 35));
-
-        // Ajout des parties du titre dans le TextFlow
-        titre.getChildren().addAll(bienvenue, nomUtilisateur, dans, nomAtelier);
-
-        // Style CSS commun pour les boutons (fond gris moyen, texte blanc, gras, taille 26, arrondi)
-        String buttonStyle = "-fx-background-color: #999999;" +   // fond gris
-                             "-fx-text-fill: white;" +            // texte blanc
-                             "-fx-font-weight: bold;" +           // texte en gras
-                             "-fx-font-size: 26px;" +              // taille de police 26 px
-                             "-fx-background-radius: 30;" +       // coins arrondis rayon 30 px
-                             "-fx-padding: 15 35;";                // padding interne haut/bas 15, gauche/droite 35
-
-        // Création de tous les boutons avec leurs libellés
-        machine = new Button("Machine");
-        poste = new Button("Poste");
-        gamme = new Button("Gamme");
-        operation = new Button("Opération");
-        operateur = new Button("Opérateur");
-        produit = new Button("Produit");
-        stock = new Button("Magasin de brut");
-        map = new Button("Carte de l'Atelier");
-        fiabilite = new Button("Fiabilité");
-
-        // Application du style commun à tous les boutons sauf déconnexion
-        for (Button b : new Button[]{machine, poste, gamme, operation, operateur, produit, stock, map, fiabilite}) {
-            b.setStyle(buttonStyle);
-        }
-
-        // Bouton déconnexion avec style spécifique rose, texte blanc, gras, taille 26, arrondi
-        deconnexion = new Button("Déconnexion");
-        deconnexion.setStyle("-fx-background-color: #f77ca2;" +   // fond rose
-                             "-fx-text-fill: white;" +            // texte blanc
-                             "-fx-font-weight: bold;" +           // texte en gras
-                             "-fx-font-size: 26px;" +              // taille de police 26 px
-                             "-fx-background-radius: 30;" +       // coins arrondis rayon 30 px
-                             "-fx-padding: 15 35;");               // padding interne haut/bas 15, gauche/droite 35
-
-        // Création de la première ligne horizontale de boutons avec espace de 30 px entre eux
+        // Organisation des boutons en lignes
         HBox ligne1 = new HBox(30, machine, poste, gamme, operation, fiabilite);
-        ligne1.setAlignment(Pos.CENTER);   // Centrer horizontalement les boutons
+        ligne1.setAlignment(Pos.CENTER);
 
-        // Création de la deuxième ligne horizontale avec les autres boutons
         HBox ligne2 = new HBox(30, operateur, produit, stock);
-        ligne2.setAlignment(Pos.CENTER);   // Centrer horizontalement
+        ligne2.setAlignment(Pos.CENTER);
 
-        // Regroupement des deux lignes plus le bouton carte en colonne verticale avec espacement 40 px
         VBox blocCentre = new VBox(40, ligne1, ligne2, map);
-        blocCentre.setAlignment(Pos.CENTER);  // Centrer verticalement le bloc
+        blocCentre.setAlignment(Pos.CENTER);
 
-        // Layout principal vertical : titre en haut, bloc centre boutons, bouton déconnexion en bas
-        layoutPrincipal = new VBox(70, titre, blocCentre, deconnexion);
-        layoutPrincipal.setAlignment(Pos.CENTER);  // Centrer tout verticalement
+        layoutPrincipal = new VBox(70, blocTitre, blocCentre, deconnexion);
+        layoutPrincipal.setAlignment(Pos.CENTER);
 
-        // Conteneur racine StackPane pour centrer le layout principal dans la scène
-        StackPane root = new StackPane(layoutPrincipal);
-        root.setStyle("-fx-background-color: #f5f5f5;");  // Fond gris clair de la fenêtre
-        root.setAlignment(Pos.CENTER);                    // Centrer le contenu
-
-        // Création de la scène principale avec taille 2000x1000 pixels
-        scene = new Scene(root, 2000, 1000);
+        StackPane contenuAvecStyle = Style.creerCadreCentre(new StackPane(layoutPrincipal));
+        scene = new Scene(contenuAvecStyle, 2000, 1000);
     }
 
-    // Getter pour accéder à la scène depuis le contrôleur
     public Scene getScene() {
         return scene;
     }
-
-    // Getters pour accéder aux boutons depuis le contrôleur
 
     public Button getMachine() {
         return machine;

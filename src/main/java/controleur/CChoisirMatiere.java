@@ -51,6 +51,7 @@ public class CChoisirMatiere {
     public void afficher() {
         primaryStage.setTitle("Choisir Matière à Modifier");
         primaryStage.setScene(vue.getScene());
+        primaryStage.setMaximized(true);
       GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

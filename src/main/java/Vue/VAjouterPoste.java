@@ -4,58 +4,75 @@
  */
 package Vue;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 
 public class VAjouterPoste {
-
     private TextField refField;
     private TextField designationField;
     private ListView<String> listeMachines;
     private Button ajouterButton;
     private Button retourButton;
-    private VBox vbox;
+    private VBox root;
     private Scene scene;
 
     public VAjouterPoste() {
-        vbox = new VBox(10);
+        Text titre = Style.creerTitre("Ajouter un Poste");
 
-        // Initialisation des champs de texte
         refField = new TextField();
-        refField.setPromptText("Référence du poste :");
+        refField.setPromptText("Référence du poste");
 
         designationField = new TextField();
-        designationField.setPromptText("Désignation du poste :");
+        designationField.setPromptText("Désignation du poste");
 
-        // Liste des machines disponibles
         listeMachines = new ListView<>();
-        listeMachines.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); // Permet de sélectionner plusieurs machines
+        listeMachines.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        listeMachines.setPrefHeight(200);
 
-        // Initialisation des boutons
-        ajouterButton = new Button("Ajouter Poste");
-        retourButton = new Button("Retour");
+        ajouterButton = Style.creerBouton("Ajouter Poste");
+        retourButton = Style.creerBoutonRetour();
 
-        // Organisation des éléments dans le layout
-        vbox.getChildren().addAll(
+        VBox form = new VBox(10,
             new Label("Référence :"), refField,
             new Label("Désignation :"), designationField,
             new Label("Sélectionner les machines :"), listeMachines,
-            ajouterButton, retourButton
+            new HBox(15, ajouterButton, retourButton)
         );
+        form.setPadding(new Insets(15));
+        form.setMaxWidth(350);
 
-        scene = new Scene(vbox, 400, 600);
+        root = new VBox(20, titre, Style.creerCadreCentre(form));
+        root.setPadding(new Insets(30));
+        root.setStyle("-fx-background-color: #f9f9f9;");
+        root.setMaxWidth(450);
+
+        scene = new Scene(root, 1570,800);
     }
 
-    // Getters pour accéder aux éléments dans le contrôleur
-    public Scene getScene() { return scene; }
-    public TextField getRefField() { return refField; }
-    public TextField getDesignationField() { return designationField; }
-    public ListView<String> getListeMachines() { return listeMachines; }
-    public Button getAjouterButton() { return ajouterButton; }
-    public Button getRetourButton() { return retourButton; }
+    public Scene getScene() {
+        return scene;
+    }
+
+    public TextField getRefField() {
+        return refField;
+    }
+
+    public TextField getDesignationField() {
+        return designationField;
+    }
+
+    public ListView<String> getListeMachines() {
+        return listeMachines;
+    }
+
+    public Button getAjouterButton() {
+        return ajouterButton;
+    }
+
+    public Button getRetourButton() {
+        return retourButton;
+    }
 }

@@ -4,9 +4,13 @@
  */
 package Vue;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class VChoisirMachine {
     private ListView<String> listeMachines;
@@ -15,21 +19,42 @@ public class VChoisirMachine {
     private Scene scene;
 
     public VChoisirMachine() {
+        // Titre stylé
+        Text titre = Style.creerTitre("Modifier une Machine");
+
         listeMachines = new ListView<>();
-        validerButton = new Button("Modifier cette machine");
-        retourButton = new Button("Retour");
-        VBox vbox = new VBox(10);
+        listeMachines.setPrefHeight(200);
+
+        validerButton = Style.creerBouton("Modifier cette machine");
+        retourButton = Style.creerBoutonRetour();
+
+        VBox vbox = new VBox(15);
+        vbox.setPadding(new Insets(20));
+        vbox.setStyle("-fx-background-color: #f2f7fc;");
         vbox.getChildren().addAll(
             new Label("Sélectionnez une machine à modifier :"),
             listeMachines,
             validerButton,
             retourButton
         );
-        scene = new Scene(vbox, 400, 300);
+
+        // Encapsulation dans un cadre centré avec ombre
+        scene = new Scene(Style.creerCadreCentre(vbox), 1570,800);
     }
 
-    public Scene getScene() { return scene; }
-    public ListView<String> getListeMachines() { return listeMachines; }
-    public Button getValiderButton() { return validerButton; }
-    public Button getRetourButton() { return retourButton; }
+    public Scene getScene() {
+        return scene;
+    }
+
+    public ListView<String> getListeMachines() {
+        return listeMachines;
+    }
+
+    public Button getValiderButton() {
+        return validerButton;
+    }
+
+    public Button getRetourButton() {
+        return retourButton;
+    }
 }

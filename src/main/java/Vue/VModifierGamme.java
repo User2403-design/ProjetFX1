@@ -4,13 +4,15 @@
  */
 package Vue;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class VModifierGamme {
-    
+
     private TextField refField;
     private ListView<String> listeOperationsGamme;
     private ListView<String> listeOperationsDisponibles;
@@ -19,42 +21,47 @@ public class VModifierGamme {
     private Button enregistrerButton;
     private Button retourButton;
     private Scene scene;
-    
+
     public VModifierGamme() {
-        VBox layout = new VBox(10);
-        
-        // Champ de référence de la gamme
+        // Champ de référence
         refField = new TextField();
-        
-        // ListView pour les opérations dans la gamme
+        refField.setPromptText("Référence");
+
+        // ListViews
         listeOperationsGamme = new ListView<>();
-        
-        // ListView pour les opérations disponibles
         listeOperationsDisponibles = new ListView<>();
-        
-        // Boutons d'ajout et de retrait des opérations
-        ajouterOperationButton = new Button("Ajouter Opération");
-        retirerOperationButton = new Button("Retirer Opération");
-        
-        // Boutons pour enregistrer ou revenir
-        enregistrerButton = new Button("Enregistrer Modifications");
-        retourButton = new Button("Retour");
-        
-        // Ajouter tous les éléments au layout
+
+        // Boutons stylisés
+        ajouterOperationButton = Style.creerBouton("Ajouter Opération");
+        retirerOperationButton = Style.creerBouton("Retirer Opération");
+        enregistrerButton = Style.creerBouton("Enregistrer Modifications");
+        retourButton = Style.creerBoutonRetour();
+
+        // Layouts
+        VBox layout = new VBox(15);
+        layout.setPadding(new Insets(20));
+        layout.setAlignment(Pos.TOP_CENTER);
+
+        Label labelRef = Style.creerLabel("Référence de la Gamme :");
+        Label labelOpsGamme = Style.creerLabel("Opérations de la Gamme :");
+        Label labelOpsDisponibles = Style.creerLabel("Opérations Disponibles :");
+
+        HBox boutonsOperations = new HBox(15, ajouterOperationButton, retirerOperationButton);
+        boutonsOperations.setAlignment(Pos.CENTER);
+
         layout.getChildren().addAll(
-                new Label("Référence de la Gamme :"), refField,
-                new Label("Opérations de la Gamme :"), listeOperationsGamme,
-                new Label("Opérations Disponibles :"), listeOperationsDisponibles,
-                new HBox(10, ajouterOperationButton, retirerOperationButton),
+                labelRef, refField,
+                labelOpsGamme, listeOperationsGamme,
+                labelOpsDisponibles, listeOperationsDisponibles,
+                boutonsOperations,
                 enregistrerButton,
                 retourButton
         );
-        
-        // Initialiser la scène
-        scene = new Scene(layout, 500, 500);
+
+        scene = new Scene(layout, 1570,800);
     }
 
-    // Getters pour accéder aux composants
+    // Getters
     public Scene getScene() { return scene; }
     public TextField getRefField() { return refField; }
     public ListView<String> getListeOperationsGamme() { return listeOperationsGamme; }

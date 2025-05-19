@@ -3,43 +3,53 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Vue;
+
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.geometry.Pos;
 import javafx.scene.control.SelectionMode;
-/**
- *
- * @author chloe
- */
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+
 public class VSupprimerGamme {
-    
+
     private ListView<String> listeGamme;
     private Button supprimerButton;
     private Button retourButton;
+    private Label messageLabel;
     private VBox vbox;
     private Scene scene;
-    private Label messageLabel;
-    
 
     public VSupprimerGamme() {
-        vbox = new VBox(10);
         listeGamme = new ListView<>();
-        supprimerButton = new Button("Supprimer Gamme");
-        retourButton = new Button("Retour");
-        messageLabel = new Label();
-        
-        listeGamme.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); 
+        listeGamme.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        vbox.getChildren().addAll(new Label("Sélectionner une gamme n à supprimer :"), listeGamme, supprimerButton, retourButton);
-        scene = new Scene(vbox, 400, 400);
+        supprimerButton = Style.creerBouton("Supprimer Gamme");
+        retourButton = Style.creerBoutonRetour();
+
+        messageLabel = Style.creerLabel("");
+        messageLabel.setWrapText(true);
+
+        Label instructionLabel = Style.creerLabel("Sélectionner une gamme à supprimer :");
+
+        vbox = new VBox(15, instructionLabel, listeGamme, supprimerButton, retourButton, messageLabel);
+        vbox.setAlignment(Pos.CENTER);
+
+        StackPane cadre = Style.creerCadreCentre(vbox);
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
+
+        scene = new Scene(root, 1570,800);
     }
-    
-    public void afficherMessage(String message) { //pour afficher un message indiquand à l'utilisateur si la suppression à eu lieu
+
+    public void afficherMessage(String message) {
         messageLabel.setText(message);
     }
 
+    // Getters
     public Scene getScene() { return scene; }
     public ListView<String> getListeGamme() { return listeGamme; }
     public Button getSupprimerButton() { return supprimerButton; }

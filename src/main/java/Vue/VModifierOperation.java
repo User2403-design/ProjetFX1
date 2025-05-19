@@ -14,7 +14,6 @@ public class VModifierOperation {
     private TextField idField;
     private TextField refField;
     private TextField dureeField;
-    private TextField equipementField;
     private ListView<String> machinesDisponibles;
     private ListView<String> postesDisponibles;
     private Button enregistrerButton;
@@ -23,32 +22,45 @@ public class VModifierOperation {
     private Scene scene;
 
     public VModifierOperation() {
+        // Champs
         idField = new TextField();
         refField = new TextField();
         dureeField = new TextField();
         machinesDisponibles = new ListView<>();
         postesDisponibles = new ListView<>();
-        enregistrerButton = new Button("Enregistrer");
-        retourButton = new Button("Retour");
-
-        // Label d'erreur global
+        
+        // Boutons stylés via Style
+        enregistrerButton = Style.creerBouton("Enregistrer");
+        retourButton = Style.creerBoutonRetour();
+        
+        // Label d'erreur rouge
         errorLabel = new Label();
-        errorLabel.setTextFill(Color.RED);  // Le message d'erreur sera en rouge
-
+        errorLabel.setTextFill(Color.RED);
+        
+        // Labels personnalisés (optionnel: tu peux aussi créer un style Label si besoin)
+        Label idLabel = new Label("ID de l'opération :");
+        Label refLabel = new Label("Référence :");
+        Label dureeLabel = new Label("Durée :");
+        Label machinesLabel = new Label("Machines disponibles :");
+        Label postesLabel = new Label("Postes disponibles :");
+        
+        // Layout vertical principal
         VBox layout = new VBox(10);
         layout.getChildren().addAll(
-            new Label("ID de l'opération :"), idField,
-            new Label("Référence :"), refField,
-            new Label("Durée :"), dureeField,
-            new Label("Machines disponibles :"), machinesDisponibles,
-            new Label("Postes disponibles :"), postesDisponibles,
-            errorLabel,  // Affichage de l'erreur sous les champs
+            idLabel, idField,
+            refLabel, refField,
+            dureeLabel, dureeField,
+            machinesLabel, machinesDisponibles,
+            postesLabel, postesDisponibles,
+            errorLabel,
             new HBox(10, enregistrerButton, retourButton)
         );
 
-        scene = new Scene(layout, 500, 500);
+        // Centrer le layout et appliquer le cadre stylé
+        scene = new Scene(Style.creerCadreCentre(layout), 600, 600);
     }
 
+    // Getters
     public Scene getScene() { return scene; }
     public TextField getIdField() { return idField; }
     public TextField getRefField() { return refField; }
@@ -57,5 +69,5 @@ public class VModifierOperation {
     public ListView<String> getPostesDisponibles() { return postesDisponibles; }
     public Button getEnregistrerButton() { return enregistrerButton; }
     public Button getRetourButton() { return retourButton; }
-    public Label getErrorLabel() { return errorLabel; }  // Méthode pour accéder au label d'erreur
+    public Label getErrorLabel() { return errorLabel; }
 }

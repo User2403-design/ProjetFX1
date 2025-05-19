@@ -9,10 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.control.SelectionMode;
+import javafx.geometry.Pos;
 
 public class VSupprimerOperateur {
-    
+
     private ListView<String> listeOperateurs;
     private Button supprimerButton;
     private Button retourButton;
@@ -20,16 +22,25 @@ public class VSupprimerOperateur {
     private Scene scene;
 
     public VSupprimerOperateur() {
-        VBox vbox = new VBox(10);
         listeOperateurs = new ListView<>();
-        supprimerButton = new Button("Supprimer Opérateur");
-        retourButton = new Button("Retour");
-        messageLabel = new Label();
-
         listeOperateurs.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        vbox.getChildren().addAll(new Label("Sélectionnez un opérateur à supprimer :"),
-                                  listeOperateurs, supprimerButton, retourButton, messageLabel);
-        scene = new Scene(vbox, 400, 400);
+
+        supprimerButton = Style.creerBouton("Supprimer Opérateur");
+        retourButton = Style.creerBoutonRetour();
+
+        Label instructionLabel = Style.creerLabel("Sélectionnez un opérateur à supprimer :");
+        messageLabel = Style.creerLabel("");
+        messageLabel.setWrapText(true);
+
+        VBox vbox = new VBox(15, instructionLabel, listeOperateurs, supprimerButton, retourButton, messageLabel);
+        vbox.setAlignment(Pos.CENTER);
+
+        StackPane cadre = Style.creerCadreCentre(vbox);
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
+
+        scene = new Scene(root, 1570,800);
     }
 
     public void afficherMessage(String message) {

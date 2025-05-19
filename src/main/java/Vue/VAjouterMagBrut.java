@@ -8,10 +8,9 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class VAjouterMagBrut {
-
     private TextField matiereField;
     private TextField quantiteField;
     private Button ajouterButton;
@@ -20,8 +19,8 @@ public class VAjouterMagBrut {
     private VBox root;
 
     public VAjouterMagBrut() {
-        Label titre = new Label("Ajouter une matière au stock brut");
-        titre.setFont(new Font("Arial", 20));
+        // Utilisation de Style pour créer un titre stylé
+        Text titre = Style.creerTitre("Ajouter une matière au stock brut");
 
         matiereField = new TextField();
         matiereField.setPromptText("Nom de la matière");
@@ -29,8 +28,9 @@ public class VAjouterMagBrut {
         quantiteField = new TextField();
         quantiteField.setPromptText("Quantité");
 
-        ajouterButton = new Button("Ajouter");
-        retourButton = new Button("Retour");
+        // Boutons avec style
+        ajouterButton = Style.creerBouton("Ajouter");
+        retourButton = Style.creerBoutonRetour();
 
         messageLabel = new Label();
         messageLabel.setStyle("-fx-text-fill: red;");
@@ -39,12 +39,19 @@ public class VAjouterMagBrut {
         formBox.setPadding(new Insets(20));
         formBox.setPrefWidth(300);
 
-        root = new VBox(15, titre, formBox);
+        // Ajout d'un cadre stylé avec ombre autour du formulaire
+        StackPane cadre = Style.creerCadreCentre(formBox);
+
+        root = new VBox(30, titre, cadre);
         root.setPadding(new Insets(20));
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setMaxWidth(400);
+        root.setMaxHeight(400);
+        root.setAlignment(javafx.geometry.Pos.CENTER);
     }
 
     public Scene getScene() {
-        return new Scene(root);
+        return new Scene(root, 1570,800);
     }
 
     public TextField getMatiereField() {

@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 
 public class VModifierMagBrut {
@@ -22,28 +24,62 @@ public class VModifierMagBrut {
     public VModifierMagBrut() {
         nomField = new TextField();
         quantiteField = new TextField();
-        enregistrerButton = new Button("Enregistrer");
-        retourButton = new Button("Retour");
 
-        // Label d'erreur global
+        // Utilisation des boutons stylés
+        enregistrerButton = Style.creerBouton("Enregistrer");
+        retourButton = Style.creerBoutonRetour();
+
+        // Label d'erreur en rouge
         errorLabel = new Label();
-        errorLabel.setTextFill(Color.RED);  // Le message d'erreur sera en rouge
+        errorLabel.setTextFill(Color.RED);
 
         VBox layout = new VBox(10);
+        layout.setAlignment(Pos.CENTER_LEFT);
+
         layout.getChildren().addAll(
-            new Label("Nom de la matière :"), nomField,
-            new Label("Quantité :"), quantiteField,
-            errorLabel,  // Affichage de l'erreur sous les champs
+            Style.creerLabel("Nom de la matière :"), nomField,
+            Style.creerLabel("Quantité :"), quantiteField,
+            errorLabel,
             new HBox(10, enregistrerButton, retourButton)
         );
 
-        scene = new Scene(layout, 400, 300);
+        // Centrer horizontalement les boutons
+        ((HBox) layout.getChildren().get(layout.getChildren().size() - 1)).setAlignment(Pos.CENTER);
+
+        layout.setMaxWidth(350);
+
+        // Cadre blanc arrondi avec ombre
+        StackPane cadre = Style.creerCadreCentre(layout);
+
+        // Racine avec fond gris clair
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
+
+        scene = new Scene(root, 1570,800);
     }
 
-    public Scene getScene() { return scene; }
-    public TextField getNomField() { return nomField; }
-    public TextField getQuantiteField() { return quantiteField; }
-    public Button getEnregistrerButton() { return enregistrerButton; }
-    public Button getRetourButton() { return retourButton; }
-    public Label getErrorLabel() { return errorLabel; }  // Méthode pour accéder au label d'erreur
+    public Scene getScene() {
+        return scene;
+    }
+
+    public TextField getNomField() {
+        return nomField;
+    }
+
+    public TextField getQuantiteField() {
+        return quantiteField;
+    }
+
+    public Button getEnregistrerButton() {
+        return enregistrerButton;
+    }
+
+    public Button getRetourButton() {
+        return retourButton;
+    }
+
+    public Label getErrorLabel() {
+        return errorLabel;
+    }
 }

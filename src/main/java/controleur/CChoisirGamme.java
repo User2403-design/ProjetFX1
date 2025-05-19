@@ -53,6 +53,7 @@ public class CChoisirGamme {
         vue.getRetourButton().setOnAction(e -> {
             new CGamme(primaryStage, utilisateur, atelier, stockage).afficherSectionGamme();
         });
+        
     }
 
     // Afficher la fenêtre

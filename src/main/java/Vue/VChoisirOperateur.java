@@ -4,9 +4,11 @@
  */
 package Vue;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class VChoisirOperateur {
     private ListView<String> listeOperateurs;
@@ -15,31 +17,36 @@ public class VChoisirOperateur {
     private Scene scene;
 
     public VChoisirOperateur() {
+        Text titre = Style.creerTitre("Modifier un Opérateur");
+
         listeOperateurs = new ListView<>();
-        validerButton = new Button("Modifier cet opérateur");
-        retourButton = new Button("Retour");
-        VBox layout = new VBox(10);
+        listeOperateurs.setPrefHeight(300);
+
+        validerButton = Style.creerBouton("Modifier cet opérateur");
+        retourButton = Style.creerBoutonRetour();
+
+        VBox layout = new VBox(15);
+        layout.setPadding(new Insets(20));
+        layout.setStyle("-fx-background-color: #f2f7fc;");
         layout.getChildren().addAll(
             new Label("Sélectionnez un opérateur à modifier :"),
             listeOperateurs,
             validerButton,
             retourButton
         );
-        scene = new Scene(layout, 400, 600);
+
+        scene = new Scene(Style.creerCadreCentre(layout), 1570,800);
     }
 
     public ListView<String> getListeOperateurs() {
         return listeOperateurs;
     }
-
     public Button getValiderButton() {
         return validerButton;
     }
-
     public Button getRetourButton() {
         return retourButton;
     }
-
     public Scene getScene() {
         return scene;
     }
