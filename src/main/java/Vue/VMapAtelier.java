@@ -120,7 +120,7 @@ public class VMapAtelier {
         hbox.getChildren().addAll(
             creerBlocLegende("Libre", "lightgreen"),
             creerBlocLegende("Occupée", "orange"),
-            creerBlocLegende("Panne", "red"),
+            creerBlocLegende("En panne", "red"),
             creerBlocLegende("Maintenance", "lightblue"),
             creerBlocLegende("Inconnue", "grey")
         );
