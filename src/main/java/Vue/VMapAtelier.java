@@ -35,7 +35,7 @@ public class VMapAtelier {
         titre.setStyle("-fx-font-weight: bold;");
 
         // Ajoute le cadre et les machines en focntion de leur coordonnées
-        CadreDynamique(machines);
+        //CadreDynamique(machines);
         afficherMachines(machines);
 
         // Légende
