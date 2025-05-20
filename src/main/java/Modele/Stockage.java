@@ -252,13 +252,8 @@ public class Stockage {
     //methodes pour supprimer
     
     public boolean supprimerOperation(String refOperation) {
-         Operation aSupprimer = null;
-            for (Operation op : listeOperations) {
-                if (op.getRefOperation().equals(refOperation)) {
-                aSupprimer = op;
-                break;
-            }
-        }
+         Operation aSupprimer = rechercherOperationParRef(refOperation); 
+     
                 if (aSupprimer != null) {
                      listeOperations.remove(aSupprimer);
                     System.out.println("Opération supprimée avec succès.");
