@@ -35,7 +35,7 @@ public class VMapAtelier {
         titre.setStyle("-fx-font-weight: bold;");
 
         // Ajoute le cadre et les machines en focntion de leur coordonnées
-        //CadreDynamique(machines);
+        CadreDynamique(machines);
         afficherMachines(machines);
 
         // Légende
@@ -46,14 +46,16 @@ public class VMapAtelier {
         scene = new Scene(vbox, 2000, 1000);
     }
 
-    private void CadreDynamique(List<Machine> machines) {
-        if (machines.isEmpty()) return;
+    private void CadreDynamique(List<Machine> machines) { //calcul un rectangle autour des machines pour les encadrer
+        if (machines.isEmpty()) return; // ne fais rien si la liste des machines est vide
 
+        //initialisation des bornes pour détecter les positions extremes des machines 
         double minX = Double.MAX_VALUE;
         double minY = Double.MAX_VALUE;
         double maxX = Double.MIN_VALUE;
         double maxY = Double.MIN_VALUE;
 
+        //calcule les coordonnées minimal et maximal de toutes les machines
         for (Machine machine : machines) {
             double x = machine.getX();
             double y = machine.getY();
@@ -63,13 +65,14 @@ public class VMapAtelier {
             maxY = Math.max(maxY, y);
         }
 
-        double padding = 40;
+        double marge = 40; // définit un marge de 40 pixels pour que le cadre ne soit pas collé aux machines
 
+        //création d'un rectangle JavaFX
         Rectangle cadre = new Rectangle(
-            minX - padding,
-            minY - padding,
-            (maxX - minX) + 2 * padding,
-            (maxY - minY) + 2 * padding
+            minX - marge, //position horizontal du coin supérieure gauche  
+            minY - marge, //position verticale du coin supérieure droit 
+            (maxX - minX) + 2 * marge, //largeur du rectangle
+            (maxY - minY) + 2 * marge //hauteur du rectangle
         );
 
         cadre.setFill(Color.TRANSPARENT);
@@ -81,12 +84,13 @@ public class VMapAtelier {
 
     private void afficherMachines(List<Machine> machines) {
         for (Machine machine : machines) {
-            Label labelMachine = new Label(machine.getRefmachine());
+            Label labelMachine = new Label(machine.getRefmachine());//récupère la ref de toute les machines
+            
             labelMachine.setFont(new Font("Arial", 12));
-            labelMachine.setStyle("-fx-border-color: black; -fx-alignment: center;");
+            labelMachine.setStyle("-fx-border-color: black; -fx-alignment: center;"); // définit un cadre noir et positionne le label au centre à l'aide d'un morceau de style CSS JavaFX 
             labelMachine.setMinSize(40, 20);
 
-            String couleurFond;
+            String couleurFond; // contient l'information de la couleur à appliqué en fonction de l'état de la machine
             switch (machine.getEtat().toLowerCase()) {
                 case "libre":
                     couleurFond = "lightgreen";
@@ -105,8 +109,9 @@ public class VMapAtelier {
                     break;
             }
 
-            labelMachine.setStyle(labelMachine.getStyle() + "-fx-background-color: " + couleurFond + ";");
-            labelMachine.setLayoutX(machine.getX());
+            labelMachine.setStyle(labelMachine.getStyle() + "-fx-background-color: " + couleurFond + ";");//applique la couleur de fond du Label  selon l'état en gardant les précédentes instruction de style (bordure noir, etc)
+            //place le label au coordonnées de la machine qu'elle représente
+            labelMachine.setLayoutX(machine.getX()); 
             labelMachine.setLayoutY(machine.getY());
 
             pane.getChildren().add(labelMachine);
