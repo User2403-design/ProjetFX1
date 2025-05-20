@@ -71,13 +71,19 @@ public class Fiabilite {
 
             while (i < listA.size()) {
                 LocalDateTime debutArret = listA.get(i); //stocke le début de l'arret localement
-                LocalDateTime finArret;
+                LocalDateTime finArret = null;
 
                 // Chercher le redémarrage suivant
-                if (j < listD.size() && listD.get(j).isAfter(debutArret)) {
+                while (j < listD.size()) {
+                if (listD.get(j).isAfter(debutArret)) {
                     finArret = listD.get(j); //stocke la fin de l'arret localement
                     j++;
-                } else {
+                    break ;
+                }
+                j++;
+                }
+
+                if (finArret == null){
                     finArret = LocalDateTime.now(); // Si pas de redémarrage trouver : considérer que c'est encore en panne
                 }
 
