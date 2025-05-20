@@ -25,7 +25,7 @@ public class VSupprimerOperation {
         listeOperation = new ListView<>();
         listeOperation.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        supprimerButton = Style.creerBouton("Supprimer Poste");
+        supprimerButton = Style.creerBouton("Supprimer Operation");
         retourButton = Style.creerBoutonRetour();
 
         Label instructionLabel = Style.creerLabel("Sélectionner une opération à supprimer :");
