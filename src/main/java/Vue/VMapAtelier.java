@@ -140,7 +140,7 @@ public class VMapAtelier {
         rect.setFill(Color.web(couleur)); //définit la couleur du fond 
         rect.setStroke(Color.BLACK); //définit la couleur de la bordure
 
-        Label label = new Label(texte); //création du label qui contient le texte indiquant quelle couleur correspond à quel état
+        Label label = new Label(texte); //création du label qui contiendra l'état correspondant à la couleur dans le bloc
         label.setFont(new Font("Arial", 14));
 
         HBox bloc = new HBox(5, rect, label);
