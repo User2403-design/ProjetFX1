@@ -33,13 +33,7 @@ public class Operateur {
         this.etat = newEtat;
     }
 
-    /*public void afficherOperateur() {
-        System.out.println("=== Opérateur ===");
-        System.out.println("Nom : " + nom);
-        System.out.println("Prénom : " + prenom);
-        System.out.println("Code : " + code);
-        System.out.println("État : " + (etat ? "Disponible" : "Occupé"));
-    }*/
+    
     public String afficherOperateur() {
         return "=== Opérateur ==="
         + "Nom : " + nom + "\n"
