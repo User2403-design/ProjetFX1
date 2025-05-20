@@ -20,7 +20,7 @@ import java.util.List;
 public class VMapAtelier {
 
     private VBox vbox;
-    private Pane pane;
+    private Pane pane; //zone libre où les machines seront placées visuellement
     private Scene scene;
     private Button retour;
 
@@ -34,8 +34,8 @@ public class VMapAtelier {
         titre.setFont(new Font("Arial", 24));
         titre.setStyle("-fx-font-weight: bold;");
 
-        // Ajoute le cadre et les machines
-        ajouterCadreDynamique(machines);
+        // Ajoute le cadre et les machines en focntion de leur coordonnées
+        CadreDynamique(machines);
         afficherMachines(machines);
 
         // Légende
@@ -46,7 +46,7 @@ public class VMapAtelier {
         scene = new Scene(vbox, 2000, 1000);
     }
 
-    private void ajouterCadreDynamique(List<Machine> machines) {
+    private void CadreDynamique(List<Machine> machines) {
         if (machines.isEmpty()) return;
 
         double minX = Double.MAX_VALUE;
