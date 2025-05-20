@@ -25,7 +25,7 @@ public class Stockage {
     private ArrayList<Magasindebrut> listeMagDeBrut;
     private ArrayList<Poste> listePostes; 
     
-    //constructeur pour initialiser les listes (peut pas appelé stockage et remplir toutes les listes en mm temps : crée liste vide qu'on modifie par les methodes ajouter, supprimer de chaque classes 
+    //constructeur pour initialiser les listes qu'on manipulera avec les methodes ajouter, supprimer de chaque classes 
     public Stockage (){
         this.listeMachines = new ArrayList<>();
         this.listeOperations = new ArrayList<>();
@@ -48,10 +48,7 @@ public class Stockage {
         this.listeMachines.add(M2);
         this.listeMachines.add(M3);
         this.listeMachines.add(M4);
-        
-
-        // Initialisation de la liste de machines
-        //ArrayList<Machine> machinesPoste1 = new ArrayList<>(Arrays.asList(M1,M2,M3));
+ 
     
         // Création des postes avec les machines affectées
         Poste Poste1 = new Poste("P001", "Poste de découpe", new ArrayList<>(Arrays.asList(M1,M2,M3)));
@@ -61,8 +58,7 @@ public class Stockage {
         this.listePostes.add(Poste1);
         this.listePostes.add(Poste2);
 
-        //ajouter dans la liste equipement mais jsp comment le faire le plus optimisé 
-
+        
         // Création des opérations pour le châssis métallique
         Operation op1 = new Operation("O001", "Découpe des plaques acier", M1, 2.0f);
         Operation op2 = new Operation("O002", "Soudage des éléments", M3, 3.5f);
@@ -118,6 +114,7 @@ public class Stockage {
     public void ajouterStocke (Magasindebrut stocke){
         this.listeMagDeBrut.add(stocke);
     }
+    
     //verifier si une matière existe en quantité suffisante pour fabriquer un produit
     public boolean VerifierStocke (ArrayList<Magasindebrut> mag, String matiere, double quantite){
         return listeMagDeBrut.stream().anyMatch( m -> m.getMatiere().equals(matiere) && m.getQuantite()>= quantite );
@@ -197,7 +194,7 @@ public class Stockage {
             return op;
         }
     }
-    return null; // pas trouvé
+    return null; // si pas trouvé
 }
     
     // Méthodes pour ajouter des objets dans le stockage
@@ -414,16 +411,7 @@ public class Stockage {
     }
     return sb.toString();
         }
-        
-     // afficher toutes les machines
-     
-        /* public void afficherToutesLesMachines() {
-        System.out.println("Liste des machines disponibles :");
-        for (Machine m : listeMachines) {
-            m.afficherEquipement(); 
-    }
-         }*/
-         
+       
         public String afficherToutesLesMachines() {
             
         StringBuilder sb = new StringBuilder();
@@ -432,12 +420,8 @@ public class Stockage {
         sb.append("\n----------------------\n");//pour avoir un affichage propre
     }
     return sb.toString();
-}
+}     
         
-    
-    //charge ce qu'il y a dans le fichier dans la liste pour que quand on affiche la liste on affiche bien ce que contient le fichier     
-    
-         
      // afficher tous les produits 
          
     public String afficherTousLesProduits() {
@@ -448,6 +432,7 @@ public class Stockage {
     }
     return sb.toString();
 }
+    
     public String afficherMagasinDeBrut() {
     StringBuilder sb = new StringBuilder();
     sb.append("\n=== Magasin de Matières Brutes ===\n");
@@ -464,16 +449,7 @@ public class Stockage {
 
     return sb.toString();
 }
-    
 
-          // afficher tous les opérateurs 
-    /*public void afficherTousLesOperateurs() {
-        System.out.println("Opérateurs disponibles :");
-        for (Operateur o : listeOperateurs) {
-            o.afficherOperateur();
-        }
-    }*/
-    
     public String afficherToutesLesOperateurs() {
         StringBuilder sb = new StringBuilder();
         for (Operateur operateur : listeOperateurs) {
@@ -483,14 +459,6 @@ public class Stockage {
     return sb.toString();
     }
     
-    //afficher toutes les opérations
-    /*public void afficherToutesLesOperations() {
-        System.out.println("Opérations disponibles :");
-        for (Operation op : listeOperations) {
-            op.afficherOperation();
-        }
-    }*/
-    
     public String afficherToutesLesOperations() {
         StringBuilder sb = new StringBuilder();
         for (Operation operation : listeOperations) {
@@ -499,6 +467,7 @@ public class Stockage {
     }
     return sb.toString();
     }
+    
     //afficher tous les postes de travail
     public String afficherTousLesPostes() {
         StringBuilder sb = new StringBuilder();
