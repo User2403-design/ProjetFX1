@@ -46,9 +46,9 @@ public class Fiabilite {
 
                 if (typeEvenement.equals("D")) {
                     debutObservation.putIfAbsent(machine, dateHeure); //stocke la date de début de l'observation = premier D rencontré
-                    //redemarrages.computeIfAbsent(machine, k -> new ArrayList<>()).add(dateHeure);// ajoute la date de redemaragge dans la liste des dates associé à la machine + crée cette liste si la machine n'étais pas contenu dans la map
-                    redemarrages.putIfAbsent(machine, new ArrayList<>());
-                    redemarrages.get(machine).add(dateHeure);
+                    redemarrages.computeIfAbsent(machine, k -> new ArrayList<>()).add(dateHeure);// ajoute la date de redemaragge dans la liste des dates associé à la machine + crée cette liste si la machine n'étais pas contenu dans la map
+                    //redemarrages.putIfAbsent(machine, new ArrayList<>());
+                    //redemarrages.get(machine).add(dateHeure);
                 } else if (typeEvenement.equals("A")) {
                     arrets.computeIfAbsent(machine, k -> new ArrayList<>()).add(dateHeure); //de même pour les arrets
                 }
