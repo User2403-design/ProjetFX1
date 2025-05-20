@@ -75,11 +75,11 @@ public class VMapAtelier {
             (maxY - minY) + 2 * marge //hauteur du rectangle
         );
 
-        cadre.setFill(Color.TRANSPARENT);
-        cadre.setStroke(Color.DARKGRAY);
-        cadre.setStrokeWidth(3);
+        cadre.setFill(Color.TRANSPARENT); //fond du rectangle transparent 
+        cadre.setStroke(Color.DARKGRAY); //bordure grise 
+        cadre.setStrokeWidth(3); // bordure d'épaisseur 3 pixels
 
-        pane.getChildren().add(cadre);
+        pane.getChildren().add(cadre); //ajout du cadre au pane
     }
 
     private void afficherMachines(List<Machine> machines) {
@@ -118,9 +118,10 @@ public class VMapAtelier {
         }
     }
 
+    //création d'une légende
     private HBox creerLegende() {
         HBox hbox = new HBox(15);
-        hbox.setStyle("-fx-padding: 10;");
+        hbox.setStyle("-fx-padding: 10;"); //définit un espace entre les blocs de la legende
         
         hbox.getChildren().addAll(
             creerBlocLegende("Libre", "lightgreen"),
@@ -133,12 +134,13 @@ public class VMapAtelier {
         return hbox;
     }
 
+    //création d'un bloc contenant un rectangle de couleur et un texte descriptif.
     private HBox creerBlocLegende(String texte, String couleur) {
         Rectangle rect = new Rectangle(20, 20);
-        rect.setFill(Color.web(couleur));
-        rect.setStroke(Color.BLACK);
+        rect.setFill(Color.web(couleur)); //définit la couleur du fond 
+        rect.setStroke(Color.BLACK); //définit la couleur de la bordure
 
-        Label label = new Label(texte);
+        Label label = new Label(texte); //création du label qui contient le texte indiquant quelle couleur correspond à quel état
         label.setFont(new Font("Arial", 14));
 
         HBox bloc = new HBox(5, rect, label);
