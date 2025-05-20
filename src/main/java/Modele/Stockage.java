@@ -251,15 +251,7 @@ public class Stockage {
 
     System.out.println("Matière '" + matiere + "' ajoutée ou mise à jour avec " + quantite + " unités.");
 }
-    public String getRole(String utilisateur) {
-    if (utilisateur.equalsIgnoreCase("Jean")) {
-        return "chef";
-    } else if (utilisateur.toLowerCase().endsWith("_m")) {
-        return "maintenance";
-    } else {
-        return "operateur";
-    }
-}
+    
     //methodes pour supprimer
     
     public boolean supprimerOperation(String refOperation) {
@@ -524,5 +516,15 @@ public class Stockage {
             eq.afficherEquipement();
         }
     }
+    
+    public String getRole(String utilisateur) {
+    if (utilisateur.equalsIgnoreCase("Jean")) {
+        return "chef";
+    } else if (utilisateur.toLowerCase().endsWith("_m")) {
+        return "maintenance";
+    } else {
+        return "operateur";
+    }
+}
     
 }
