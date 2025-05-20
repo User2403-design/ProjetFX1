@@ -23,10 +23,9 @@ public class VSupprimerProduit {
     private ListView<String> listeProduits;
 
     public VSupprimerProduit() {
+        
         // Initialisation des composants
         listeProduits = new ListView<>();
-        nomField = new TextField();
-        nomField.setPromptText("Nom du produit à supprimer");
 
         supprimerButton = Style.creerBouton("Supprimer");
         retourButton = Style.creerBoutonRetour();
