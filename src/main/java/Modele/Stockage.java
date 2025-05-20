@@ -283,13 +283,8 @@ public class Stockage {
     }
 
     public boolean supprimerProduit(String refProduit) {
-         Produit aSupprimer = null;
-        for (Produit p : listeProduits) {
-            if (p.getCodeProduit().equals(refProduit)) {
-                aSupprimer = p;
-                break;
-            }
-        }
+         Produit aSupprimer = rechercherProduitParCode(refProduit);
+       
         if (aSupprimer != null) {
             listeProduits.remove(aSupprimer);
             System.out.println("Produit supprimé avec succès.");
