@@ -37,8 +37,8 @@ public class CMapAtelier {
         this.atelier = atelier;
         this.stockage = stockage;
 
-        List<Machine> machines = stockage.getListeMachines();
-        this.vueMap = new VMapAtelier(machines);
+        List<Machine> machines = stockage.getListeMachines(); //récupère l'ensemble des machines présentes dans l'atelier
+        this.vueMap = new VMapAtelier(machines); //crée la vue pour afficher la map 
 
         actionClic();
     }
