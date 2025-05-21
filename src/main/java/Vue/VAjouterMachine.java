@@ -52,7 +52,6 @@ public class VAjouterMachine {
         etatComboBox.getItems().addAll("libre", "panne", "occupée", "maintenance");
         etatComboBox.setValue("libre");
         typeField = new TextField();
-        heureFinOccField = new TextField();
 
         // Boutons stylés
         ajouterButton = Style.creerBouton("Ajouter Machine");
@@ -77,8 +76,6 @@ public class VAjouterMachine {
         layout.add(etatComboBox, 1, 5);
         layout.add(new Label("Type :"), 0, 6);
         layout.add(typeField, 1, 6);
-        layout.add(new Label("Heure de fin d'occupation :"), 0, 7);
-        layout.add(heureFinOccField, 1, 7);
 
         layout.add(ajouterButton, 0, 8);
         layout.add(retourButton, 1, 8);
@@ -124,9 +121,7 @@ public class VAjouterMachine {
     public TextField getTypeField() {
         return typeField;
     }
-    public TextField getHeureFinOccField() {
-        return heureFinOccField;
-    }
+    
     public Button getAjouterButton() {
         return ajouterButton;
     }
