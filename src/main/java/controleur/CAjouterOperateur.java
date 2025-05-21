@@ -37,13 +37,14 @@ public class CAjouterOperateur {
         String nom = vue.getNomField().getText().trim();
         String prenom = vue.getPrenomField().getText().trim();
         String code = vue.getCodeField().getText().trim();
+        String competences = vue.getCompetencesField().getText().trim();
 
         if (nom.isEmpty() || prenom.isEmpty() || code.isEmpty()) {
             vue.getMessageLabel().setText("Veuillez remplir tous les champs.");
             return;
         }
 
-        Operateur operateur = new Operateur(nom, prenom, code, true);
+        Operateur operateur = new Operateur(nom, prenom, code, true, competences);
         stockage.getListeOperateurs().add(operateur);
 
         vue.getMessageLabel().setStyle("-fx-text-fill: green;");
