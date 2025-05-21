@@ -49,7 +49,16 @@ public class Stockage {
         this.listeMachines.add(M3);
         this.listeMachines.add(M4);
  
-    
+        //ajout dans magasin de brut
+        Magasindebrut MB1 = new Magasindebrut ("Bois", 100);
+        Magasindebrut MB2 = new Magasindebrut ("Plastique", 50);
+        Magasindebrut MB3 = new Magasindebrut ("Acier", 75);
+        
+        //ajout dans liste de MagDeBrut
+        this.listeMagDeBrut.add(MB1);
+        this.listeMagDeBrut.add(MB2);
+        this.listeMagDeBrut.add(MB3);
+
         // Création des postes avec les machines affectées
         Poste Poste1 = new Poste("P001", "Poste de découpe", new ArrayList<>(Arrays.asList(M1,M2,M3)));
         Poste Poste2 = new Poste("P002", "Poste de limage", new ArrayList<>(Arrays.asList(M2,M4)));
@@ -96,9 +105,10 @@ public class Stockage {
         this.listeProduits.add(Pince);
 
         // Création d'un opérateur fictif
-       Operateur operateur1 = new Operateur("TOURET", "Mathis", "0001", true,"fort en java");
-       
+       Operateur operateur1 = new Operateur("TOURET", "Mathis", "0001", true,"Assemblage");
+       Operateur operateur2 = new Operateur("DUBOIS", "Arthur", "0021", true,"soudeur");
        this.listeOperateurs.add(operateur1);
+       this.listeOperateurs.add(operateur2);
         
     }
    
@@ -433,7 +443,7 @@ public class Stockage {
         sb.append("Aucune matière enregistrée.\n");
     } else {
         for (Magasindebrut m : this.listeMagDeBrut) {
-            sb.append(String.format("%-25s | %.2f\n", m.getMatiere(), m.getQuantite()));
+            sb.append(String.format("%-25s | %.2f kg\n", m.getMatiere(), m.getQuantite()));
         }
     }
 

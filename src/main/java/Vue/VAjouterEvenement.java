@@ -61,7 +61,7 @@ public class VAjouterEvenement {
             new Label("Date :"), dateField,
             new Label("Heure :"), heureField,
             new Label("Machine :"), machineField,
-            new Label("Type (A ou D) :"), typeComboBox,
+            new Label("Type (Arrêt ou Démarage) :"), typeComboBox,
             new Label("Opérateur :"), operateurField,
             new Label("Cause :"), causeField,
             ajouterButton,

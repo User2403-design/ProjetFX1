@@ -38,7 +38,7 @@ public class VModifierMagBrut {
 
         layout.getChildren().addAll(
             Style.creerLabel("Nom de la matière :"), nomField,
-            Style.creerLabel("Quantité :"), quantiteField,
+            Style.creerLabel("Quantité (en kg) :"), quantiteField,
             errorLabel,
             new HBox(10, enregistrerButton, retourButton)
         );

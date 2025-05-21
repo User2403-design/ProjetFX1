@@ -26,7 +26,7 @@ public class VAjouterMagBrut {
         matiereField.setPromptText("Nom de la matière");
 
         quantiteField = new TextField();
-        quantiteField.setPromptText("Quantité");
+        quantiteField.setPromptText("Quantité (en kg)");
 
         // Boutons avec style
         ajouterButton = Style.creerBouton("Ajouter");

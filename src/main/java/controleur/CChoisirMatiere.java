@@ -29,7 +29,7 @@ public class CChoisirMatiere {
 
     private void remplirListe() {
         for (Magasindebrut m : stockage.getListeMagDeBrut()) {
-            vue.getListeMatieres().getItems().add(m.getMatiere() + " (" + m.getQuantite() + ")");
+            vue.getListeMatieres().getItems().add(m.getMatiere());
         }
     }
 
