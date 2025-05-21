@@ -80,4 +80,13 @@ public class Operateur {
     public void setEtat(boolean etat) {
         this.etat = etat;
     }
+
+    public boolean isEtat() {
+        return etat;
+    }
+
+    public String getCompetences() {
+        return competences;
+    }
+    
 }
