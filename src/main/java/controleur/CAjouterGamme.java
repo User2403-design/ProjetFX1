@@ -8,8 +8,7 @@ import Modele.Operation;
 import Modele.Stockage;
 import Modele.Gamme;
 import Vue.VAjouterGamme;
-import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
+import javafx.stage.Stage;  
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +73,7 @@ public class CAjouterGamme {
         Gamme nouvelleGamme = new Gamme(ref, operations);
         stockage.ajouterGamme(nouvelleGamme);
         vue.getMessageLabel().setText("Gamme ajoutée avec succès !");
-        new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation();
+        new CGamme(primaryStage, utilisateur, atelier, stockage).afficherSectionGamme();
     }
 
     private void retourner() {

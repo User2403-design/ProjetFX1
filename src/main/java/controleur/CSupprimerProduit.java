@@ -15,8 +15,6 @@ import javafx.stage.Screen;
  * @author chloe
  */
 
-
-
 public class CSupprimerProduit {
     private Stage primaryStage;
     private VSupprimerProduit vue;

@@ -47,7 +47,7 @@ public class Machine extends Equipement {
     
     @Override
     public String afficherEquipement(){
-        return "Reference Machine : " + refEquipement+"\n"+"Designation : " + dEquipement+"\n"+"Position : (" + x + ", " + y + ")"+"\n"+"Cout horaire : " + coût+"\n"+ "Etat : "+ etat+"\n"+"Type : " + type;
+        return "Reference Machine : " + refEquipement+"\n"+"Designation : " + dEquipement+"\n"+"Position : (" + x + ", " + y + ")"+"\n"+"Cout horaire : " + coût+" euro/heure \n"+ "Etat : "+ etat+"\n"+"Type : " + type;
     }
     //FAUT RAJOUTER LA DUREE
     

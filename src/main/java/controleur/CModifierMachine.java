@@ -67,7 +67,7 @@ public class CModifierMachine {
         });
 
         vue.getRetourButton().setOnAction(e -> {
-            new CMachine(primaryStage, utilisateur, atelier, stockage).afficherSectionMachine();
+            new CChoisirMachine(primaryStage, utilisateur, atelier, stockage).afficher();
         });
     }
 

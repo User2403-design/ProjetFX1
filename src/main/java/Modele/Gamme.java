@@ -33,14 +33,14 @@ public class Gamme {
     public String afficherGamme() {
     StringBuilder sb = new StringBuilder();
     
-    sb.append("🔹 Référence Gamme : ").append(refGamme).append("\n\n");
+    sb.append("Référence Gamme : ").append(refGamme).append("\n\n");
 
     sb.append("Équipements utilisés :\n");
     for (Equipement e : equipements) {
         sb.append("   • ").append(e.afficherEquipement()).append("\n\n");
     }
 
-    sb.append("\n🛠️  Opérations :\n");
+    sb.append("\n️Opérations :\n");
     for (Operation op : operations) {
         sb.append(String.format(
             "   • Ref: %-10s | Durée: %5.1f min | Équipement: %s\n",
@@ -51,10 +51,9 @@ public class Gamme {
     }
 
     sb.append("\nCoût total de la gamme : ")
-      .append(String.format("%.2f €", coutGamme()))
-      .append("\n");
+      .append(String.format("%.2f €", coutGamme()));
     
-    sb.append("\n temps total de la gamme : ")
+    sb.append("\nTemps total de la gamme : ")
       .append(String.format("%.2f minutes", dureeGamme()))
       .append("\n");
 

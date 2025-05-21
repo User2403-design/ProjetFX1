@@ -15,7 +15,6 @@ import javafx.geometry.Pos;
 
 public class VSupprimerProduit {
     
-    private TextField nomField;
     private Button supprimerButton;
     private Button retourButton;
     private Label messageLabel;
@@ -26,14 +25,13 @@ public class VSupprimerProduit {
         
         // Initialisation des composants
         listeProduits = new ListView<>();
-
         supprimerButton = Style.creerBouton("Supprimer");
         retourButton = Style.creerBoutonRetour();
         messageLabel = Style.creerLabel("");
 
         Label titre = Style.creerLabel("Supprimer un produit");
 
-        VBox vbox = new VBox(15, titre, listeProduits, nomField, supprimerButton, retourButton, messageLabel);
+        VBox vbox = new VBox(15, titre, listeProduits, supprimerButton, retourButton, messageLabel);
         vbox.setAlignment(Pos.CENTER);
 
         StackPane cadre = Style.creerCadreCentre(vbox);
@@ -46,10 +44,6 @@ public class VSupprimerProduit {
 
     public void afficherMessage(String message) {
         messageLabel.setText(message);
-    }
-
-    public TextField getNomProduitField() {
-        return nomField;
     }
 
     public Button getSupprimerButton() {
