@@ -40,7 +40,7 @@ public class VModifierOperation {
         // Labels personnalisés (optionnel: tu peux aussi créer un style Label si besoin)
         Label idLabel = new Label("ID de l'opération :");
         Label refLabel = new Label("Référence :");
-        Label dureeLabel = new Label("Durée :");
+        Label dureeLabel = new Label("Durée (min):");
         Label machinesLabel = new Label("Machines disponibles :");
         Label postesLabel = new Label("Postes disponibles :");
         
@@ -57,7 +57,7 @@ public class VModifierOperation {
         );
 
         // Centrer le layout et appliquer le cadre stylé
-        scene = new Scene(Style.creerCadreCentre(layout), 600, 600);
+        scene = new Scene(Style.creerCadreCentre(layout), 1570,800);
     }
 
     // Getters

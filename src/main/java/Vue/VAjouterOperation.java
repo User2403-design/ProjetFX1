@@ -34,7 +34,7 @@ public class VAjouterOperation {
         refField.setPromptText("Référence");
 
         dureeField = new TextField();
-        dureeField.setPromptText("Durée en heures");
+        dureeField.setPromptText("Durée en minutes");
 
         machinesDisponibles = new ListView<>();
         machinesDisponibles.setPrefHeight(120);
@@ -61,7 +61,7 @@ public class VAjouterOperation {
         formGrid.add(new Label("Référence :"), 0, 1);
         formGrid.add(refField, 1, 1);
 
-        formGrid.add(new Label("Durée (h) :"), 0, 2);
+        formGrid.add(new Label("Durée (min) :"), 0, 2);
         formGrid.add(dureeField, 1, 2);
 
         formGrid.add(new Label("Machines disponibles :"), 0, 3);

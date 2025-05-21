@@ -35,7 +35,7 @@ public class Gamme {
     
     sb.append("🔹 Référence Gamme : ").append(refGamme).append("\n\n");
 
-    sb.append("🔧 Équipements utilisés :\n");
+    sb.append("Équipements utilisés :\n");
     for (Equipement e : equipements) {
         sb.append("   • ").append(e.afficherEquipement()).append("\n\n");
     }
@@ -50,8 +50,12 @@ public class Gamme {
         ));
     }
 
-    sb.append("\n💰 Coût total de la gamme : ")
+    sb.append("\nCoût total de la gamme : ")
       .append(String.format("%.2f €", coutGamme()))
+      .append("\n");
+    
+    sb.append("\n temps total de la gamme : ")
+      .append(String.format("%.1f minutes", dureeGamme()))
       .append("\n");
 
     return sb.toString();
@@ -99,15 +103,13 @@ public class Gamme {
         }
     }
     
-    public float dureeGamme() {
-        float dureeMax = 0;
-        for (Operation op : operations) {
-            if (op.getDureeOperation() > dureeMax) {
-                dureeMax = op.getDureeOperation();
-            }
-        }
-        return dureeMax;
+   public float dureeGamme() {
+    float dureeTotale = 0;
+    for (Operation op : operations) {
+        dureeTotale += op.getDureeOperation();
     }
+    return dureeTotale;
+}
 
     public String getRefGamme() {
         return refGamme;

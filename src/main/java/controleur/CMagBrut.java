@@ -61,7 +61,7 @@ public class CMagBrut {
 
     private void appliquerRestrictions() {
         if (!role.equals("chef")) {
-            vue.desactiver(); // 🔒 Restriction appliquée
+            vue.desactiver(); // Restriction appliquée
         }
     }
 
