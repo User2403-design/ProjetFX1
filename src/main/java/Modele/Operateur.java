@@ -88,5 +88,9 @@ public class Operateur {
     public String getCompetences() {
         return competences;
     }
+
+    public void setCompetences(String competences) {
+        this.competences = competences;
+    }
     
 }
