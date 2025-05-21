@@ -13,6 +13,7 @@ public class Operation {
     private String refOperation;
     private Equipement refEquipement;
     private float dureeOperation;
+   
     
     public Operation(String idOperation,String refOperation,Equipement refEquipement, float dureeOperation ){
         this.idOperation = idOperation;
