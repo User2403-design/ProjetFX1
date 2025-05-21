@@ -53,6 +53,7 @@ public class CAjouterOperateur {
         vue.getNomField().clear();
         vue.getPrenomField().clear();
         vue.getCodeField().clear();
+        vue.getCompetencesField().clear();
     }
 
     private void retour() {
