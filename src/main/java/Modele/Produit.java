@@ -21,29 +21,22 @@ public class Produit {
     }
 
     
-    public String afficherProduit(){
+    public String afficherProduit() {
     String resultat = "Code Produit: " + codeProduit + "\n" +
                       "Designation: " + dProduit + "\n" +
                       "Gammes associées:\n";
-
     for (Gamme g : listeGamme) {
-        resultat += " - " + g.getRefGamme() +"\n";
+        String duree = String.format("%.2f", g.dureeGamme());
+        String cout = String.format("%.2f", g.coutGamme());
+        resultat += " - " + g.getRefGamme() +
+                    " | Durée: " + duree + "min" +
+                    " | Coût: " + cout + "€\n";
     }
-
     return resultat;
+}
 
-        //return "Code Poduit: " + codeProduit+"\n"+"Designation " + dProduit+"\n"+"Gammes associées:"+ listeGamme;
-    }
     
-   /* public void afficherProduit() {
-        System.out.println("Code du produit : " + codeProduit);
-        System.out.println("Désignation du produit : " + dProduit);
-        System.out.println("Gammes associées : ");
-        for (Gamme g : listeGamme) {
-            System.out.println(" - " + g.getRefGamme());
-        }
-       
-    }*/
+   
 
     public String getCodeProduit() {
         return codeProduit;

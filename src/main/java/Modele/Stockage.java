@@ -60,14 +60,14 @@ public class Stockage {
 
         
         // Création des opérations pour le châssis métallique
-        Operation op1 = new Operation("O001", "Découpe des plaques acier", M1, 2.0f);
-        Operation op2 = new Operation("O002", "Soudage des éléments", M3, 3.5f);
-        Operation op3 = new Operation("O003", "Montage du châssis", M2, 2.0f);
+        Operation op1 = new Operation("O001", "Découpe des plaques acier", M1, 20f);
+        Operation op2 = new Operation("O002", "Soudage des éléments", M3, 45f);
+        Operation op3 = new Operation("O003", "Montage du châssis", M2, 30f);
 
         // Création des opérations pour la pince de serrage
-        Operation op4 = new Operation("O004", "Découpe des mâchoires", M1, 1.0f);
-        Operation op5 = new Operation("O005", "Assemblage mécanisme", M3, 2.5f);
-        Operation op6 = new Operation("O006", "Finition poignée", M2, 1.5f);
+        Operation op4 = new Operation("O004", "Découpe des mâchoires", M1, 25f);
+        Operation op5 = new Operation("O005", "Assemblage mécanisme", M3, 20f);
+        Operation op6 = new Operation("O006", "Finition poignée", M2, 15f);
 
         this.listeOperations.add(op1);
         this.listeOperations.add(op2);
