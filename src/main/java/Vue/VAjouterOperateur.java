@@ -14,6 +14,7 @@ public class VAjouterOperateur {
     private TextField nomField;
     private TextField prenomField;
     private TextField codeField;
+    private TextField competencesField;
     private Button ajouterButton;
     private Button retourButton;
     private Label messageLabel;
@@ -32,6 +33,9 @@ public class VAjouterOperateur {
 
         codeField = new TextField();
         codeField.setPromptText("Code opérateur");
+        
+        competencesField = new TextField();
+        competencesField.setPromptText("Code opérateur : ...,...,... ");
 
         // Boutons stylés
         ajouterButton = Style.creerBouton("Ajouter");
@@ -44,10 +48,12 @@ public class VAjouterOperateur {
             new Label("Nom :"), nomField,
             new Label("Prénom :"), prenomField,
             new Label("Code :"), codeField,
+            new Label("Compétences : "), competencesField,     
             ajouterButton,
             retourButton,
             messageLabel
         );
+        
         form.setPadding(new Insets(20));
         form.setPrefWidth(350);
 
