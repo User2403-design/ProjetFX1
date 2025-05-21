@@ -30,6 +30,7 @@ public class CModifierOperateur {
         vue.getNomField().setText(operateur.getNom());
         vue.getPrenomField().setText(operateur.getPrenom());
         vue.getCodeField().setText(operateur.getCode());
+        vue.getCompetencesField().setText(operateur.getCompetences());
         vue.getEtatCheckBox().setSelected(operateur.getEtat());
     }
 
@@ -38,6 +39,7 @@ public class CModifierOperateur {
             operateur.setNom(vue.getNomField().getText());
             operateur.setPrenom(vue.getPrenomField().getText());
             operateur.setCode(vue.getCodeField().getText());
+            operateur.setCompetences(vue.getCompetencesField().getText());
             operateur.setEtat(vue.getEtatCheckBox().isSelected());
             new COperateur(primaryStage, utilisateur, atelier, stockage).afficherSectionOperateur();
         });
