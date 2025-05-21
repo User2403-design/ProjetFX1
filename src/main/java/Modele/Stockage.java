@@ -96,7 +96,7 @@ public class Stockage {
         this.listeProduits.add(Pince);
 
         // Création d'un opérateur fictif
-       Operateur operateur1 = new Operateur("TOURET", "Mathis", "0001", true);
+       Operateur operateur1 = new Operateur("TOURET", "Mathis", "0001", true,"fort en java");
        
        this.listeOperateurs.add(operateur1);
         
