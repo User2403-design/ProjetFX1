@@ -18,10 +18,10 @@ public class Operateur {
     private String prenom;
     private String code; // Peut faire partie d'une superclasse "Personne", comme vous voulez
     private boolean etat;
-    private ArrayList<String> competences; 
+    private String competences; 
     
 
-    public Operateur(String nom, String prenom, String code, boolean etat, ArrayList<String> competences ) {
+    public Operateur(String nom, String prenom, String code, boolean etat, String competences ) {
         this.nom = nom;
         this.prenom = prenom;
         this.code = code;
@@ -41,9 +41,10 @@ public class Operateur {
     public String afficherOperateur() {
         return "=== Opérateur ==="
         + "Nom : " + nom + "\n"
-        + "Prénom : " + prenom
+        + "Prénom : " + prenom + "\n"
         + "Code : " + code + "\n"
-        + "État : " + (etat ? "Disponible" : "Occupé");
+        + "État : " + (etat ? "Disponible" : "Occupé") + "\n"
+        + "Competences : " + competences;
     }
 
     // Getters
