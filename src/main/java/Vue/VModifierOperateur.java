@@ -17,6 +17,7 @@ public class VModifierOperateur {
     private TextField nomField;
     private TextField prenomField;
     private TextField codeField;
+    private TextField competencesField;
     private CheckBox etatCheckBox;
     private Button enregistrerButton;
     private Button retourButton;
@@ -26,6 +27,7 @@ public class VModifierOperateur {
         nomField = new TextField();
         prenomField = new TextField();
         codeField = new TextField();
+        competencesField = new TextField();
         etatCheckBox = new CheckBox("Disponible");
 
         // Boutons stylés
@@ -39,6 +41,7 @@ public class VModifierOperateur {
             Style.creerLabel("Nom :"), nomField,
             Style.creerLabel("Prénom :"), prenomField,
             Style.creerLabel("Code :"), codeField,
+            Style.creerLabel("Competences :"), competencesField,
             etatCheckBox,
             new HBox(10, enregistrerButton, retourButton)
         );
@@ -60,6 +63,7 @@ public class VModifierOperateur {
     public TextField getNomField() { return nomField; }
     public TextField getPrenomField() { return prenomField; }
     public TextField getCodeField() { return codeField; }
+    public TextField getCompetencesField() { return competencesField; }
     public CheckBox getEtatCheckBox() { return etatCheckBox; }
     public Button getEnregistrerButton() { return enregistrerButton; }
     public Button getRetourButton() { return retourButton; }
