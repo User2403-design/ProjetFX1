@@ -7,6 +7,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modele;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,12 +18,15 @@ public class Operateur {
     private String prenom;
     private String code; // Peut faire partie d'une superclasse "Personne", comme vous voulez
     private boolean etat;
+    private ArrayList<String> competences; 
+    
 
-    public Operateur(String nom, String prenom, String code, boolean etat) {
+    public Operateur(String nom, String prenom, String code, boolean etat, ArrayList<String> competences ) {
         this.nom = nom;
         this.prenom = prenom;
         this.code = code;
         this.etat = etat;
+        this.competences = competences;
     }
     
     // modifer operateur : faut faire un truc ou l'utilisateur choisi ce qu'il veut modier comme attribut car si on met un truc type constructeur il doit rerentrer toute les informations (plus simple)
