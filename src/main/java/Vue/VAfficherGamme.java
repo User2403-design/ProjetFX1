@@ -34,11 +34,16 @@ public class VAfficherGamme {
         VBox contenu = new VBox(30, titre, zoneAffichage, retour);
         contenu.setAlignment(Pos.CENTER);
 
-        // Cadre avec style et effet via Style (on passe VBox directement)
+        // Cadre stylé via méthode utilitaire
         StackPane cadre = Style.creerCadreCentre(contenu);
 
-        // Création de la scène
-        scene = new Scene(cadre, 1570,800);
+        // Racine pour centrer le cadre au milieu
+        StackPane root = new StackPane(cadre);
+        root.setStyle("-fx-background-color: #f5f5f5;");
+        root.setAlignment(Pos.CENTER);
+
+        // Scène
+        scene = new Scene(root, 1570, 800);
     }
 
     public Scene getScene() {
