@@ -55,7 +55,7 @@ public class Gamme {
       .append("\n");
     
     sb.append("\n temps total de la gamme : ")
-      .append(String.format("%.1f minutes", dureeGamme()))
+      .append(String.format("%.2f minutes", dureeGamme()))
       .append("\n");
 
     return sb.toString();
