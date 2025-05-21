@@ -25,10 +25,10 @@ public class CAjouterOperateur {
         this.stockage = stockage;
 
         this.vue = new VAjouterOperateur();
-        configurerActions();
+        ActionClic();
     }
 
-    private void configurerActions() {
+    private void ActionClic() {
         vue.getAjouterButton().setOnAction(e -> ajouterOperateur());
         vue.getRetourButton().setOnAction(e -> retour());
     }
