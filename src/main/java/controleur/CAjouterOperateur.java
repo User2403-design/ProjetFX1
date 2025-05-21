@@ -55,7 +55,7 @@ public class CAjouterOperateur {
         vue.getCodeField().clear();
         vue.getCompetencesField().clear();
         
-        COperateur controleur = new COperateur(primaryStage, utilisateur, atelier, stockage);
+        new COperateur(primaryStage, utilisateur, atelier, stockage).afficherSectionOperateur();
     }
 
     private void retour() {
