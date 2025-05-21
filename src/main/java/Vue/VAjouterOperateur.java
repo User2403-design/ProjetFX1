@@ -97,4 +97,9 @@ public class VAjouterOperateur {
     public Label getMessageLabel() {
         return messageLabel;
     }
+
+    public TextField getCompetencesField() {
+        return competencesField;
+    }
+    
 }
