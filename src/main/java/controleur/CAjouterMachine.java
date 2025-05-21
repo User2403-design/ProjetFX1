@@ -49,7 +49,6 @@ public class CAjouterMachine {
                 float coutHoraire = Float.parseFloat(vueAjouter.getCoutHField().getText());
                 String etat = vueAjouter.getEtatComboBox().getValue();
                 String type = vueAjouter.getTypeField().getText();
-                LocalTime heureFinOcc = LocalTime.parse(vueAjouter.getHeureFinOccField().getText());
                 
                 // Création d'une nouvelle machine
                 Machine nouvelleMachine = new Machine(ref, description, x, y, coutHoraire, etat, type);
