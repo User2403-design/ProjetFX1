@@ -16,57 +16,22 @@ public class Machine extends Equipement {
     private float x;
     private float y;
     private float coût;
-    private float duree; // duree d'utilisation ? suffit d'avoir heureFinOccupation dcp non ?
     private String etat; // "operationnel", "en arrêt","libre", "occupé"
     private String type;
-    private LocalTime heureFinOccupation; 
     
-    public Machine (String refmachine, String dmachine, float x, float y, float cout, String etat, String type, LocalTime heureFinOccupation){
+    
+    public Machine (String refmachine, String dmachine, float x, float y, float cout, String etat, String type){
         super(refmachine,dmachine);
         this.x = x;
         this.y = y;
         this.coût = cout;//correspond au cout horaire
         this.etat = etat; // on choisit
-        this.type = type;
-        this.heureFinOccupation = LocalTime.now(); //logiquement c'est libre au début 
+        this.type = type; 
     }  
    
     @Override
     public String toString() {
     return refEquipement + " - " + dEquipement + " (" + type + ")";
-    }
-    // ajouter methode pour changer etat et temps avant libération
-    
-    public void ajouterMachine(){
-        
-    }  
-    // pour gérer l'état des machines quand elles sont utilisés pour fabriquer un produit 
-    
-    //verifie que la machine est libre 
-    public boolean isLibre() {
-        return heureFinOccupation == null || LocalTime.now().isAfter(heureFinOccupation);
-    }
-    
-    //inialisation de l'attribut heureFinOcupation en fonction de la durée d'utilisation (à calculer pour chaque machine suivant les operation de la gamme ou prendre durée de la gamme entière = plus simple)
-    //changement de l'état
-    public void occuperMachine(float dureeMinutes) {
-        this.heureFinOccupation = LocalTime.now().plusMinutes((long) dureeMinutes);
-        this.etat = "occupé";
-    }
-    
-    //compare l'heure de fin d'ocupation à l'heure réelle pour déterminer si la machine est libre
-    public void libererSiTermine() {
-        if (heureFinOccupation != null && LocalTime.now().isAfter(heureFinOccupation)) {
-            this.heureFinOccupation = null;
-            this.etat = "operationnel";
-        }
-    }
-    
-    
-    public float duree (Produit p, String refmachine){
-            //parcourir les operations dans la gamme liée au prduit et faire verif quand l'equipement utilisé à la mm ref que celui entrée en parametre, 
-            //peut être initialisé une variable duree et ajouter a durée, à chaque fois que la verif renvoire true, le temps de l'operation qui utilise la machine  
-            return duree;
     }
     
    // a refaire 
@@ -115,24 +80,12 @@ public class Machine extends Equipement {
         return coût;
     }
 
-    public float getDurée() {
-        return duree;
-    }
-
     public String getType() {
         return type;
     }
 
-    public float getDuree() {
-        return duree;
-    }
-
     public String getEtat() {
         return etat;
-    }
-
-    public LocalTime getHeureFinOccupation() {
-        return heureFinOccupation;
     }
 
     public void setRefmachine(String refmachine) {
@@ -153,10 +106,6 @@ public class Machine extends Equipement {
 
     public void setCoût(float coût) {
         this.coût = coût;
-    }
-
-    public void setDurée(float durée) {
-        this.duree = durée;
     }
 
     public void setType(String type) {
