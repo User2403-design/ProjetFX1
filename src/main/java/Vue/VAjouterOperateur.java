@@ -35,7 +35,7 @@ public class VAjouterOperateur {
         codeField.setPromptText("Code opérateur");
         
         competencesField = new TextField();
-        competencesField.setPromptText("Code opérateur : ...,...,... ");
+        competencesField.setPromptText("Compétences : ...,...,... ");
 
         // Boutons stylés
         ajouterButton = Style.creerBouton("Ajouter");
