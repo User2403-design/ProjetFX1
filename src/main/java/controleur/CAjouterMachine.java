@@ -52,7 +52,7 @@ public class CAjouterMachine {
                 LocalTime heureFinOcc = LocalTime.parse(vueAjouter.getHeureFinOccField().getText());
                 
                 // Création d'une nouvelle machine
-                Machine nouvelleMachine = new Machine(ref, description, x, y, coutHoraire, etat, type, heureFinOcc);
+                Machine nouvelleMachine = new Machine(ref, description, x, y, coutHoraire, etat, type);
                 stockage.ajouterMachine(nouvelleMachine);  // Ajout au modèle
                 
                 // Enregistrement de l'événement démarrage
