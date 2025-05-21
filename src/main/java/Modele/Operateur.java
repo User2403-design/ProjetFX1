@@ -39,7 +39,7 @@ public class Operateur {
 
     
     public String afficherOperateur() {
-        return "=== Opérateur ==="
+        return "=== Opérateur ==="+ "\n"
         + "Nom : " + nom + "\n"
         + "Prénom : " + prenom + "\n"
         + "Code : " + code + "\n"
