@@ -59,31 +59,7 @@ public class Gamme {
 
     return sb.toString();
 }
-    /*public String afficherGamme() {
-        StringBuilder sb = new StringBuilder(); // Va contenir sous forme de texte l'affichage d'une gamme pour ensuite être affiché dans l'interface
-
-        sb.append("Reference Gamme : ").append(refGamme).append("\n");
-        sb.append("--------\n");
-        for (Equipement e : equipements) {
-            sb.append(e.afficherEquipement()).append("\n");
-            sb.append("--------\n");
-        }
-        
-        sb.append("Operation utilisé :"+"\n");
-        for (Operation op : operations) {
-            
-            sb.append("- Ref Opération : ");
-            sb.append(op.getRefOperation());
-            sb.append(", durée : ");
-            sb.append(op.getDureeOperation());
-            sb.append(" minutes, Equipement utilisé : ");
-            sb.append(op.getRefEquipement());
-            sb.append("--------\n");
-        }
-        // Affichage du coût à deux décimales
-    sb.append(String.format("Coût total de la gamme : %.2f €", coutGamme()));
-    return sb.toString();
-    }*/
+   
     public float coutGamme() {
     float coutTotal = 0;
     for (Operation op : operations) {
