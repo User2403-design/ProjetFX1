@@ -8,7 +8,7 @@ package Modele;
  *
  * @author chloe
  */
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Arrays;
 
 
