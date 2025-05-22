@@ -5,6 +5,7 @@
 package Vue;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -20,36 +21,48 @@ public class VAjouterPoste {
     private Scene scene;
 
     public VAjouterPoste() {
+        // Titre
         Text titre = Style.creerTitre("Ajouter un Poste");
 
+        // Champs texte
         refField = new TextField();
         refField.setPromptText("Référence du poste");
 
         designationField = new TextField();
         designationField.setPromptText("Désignation du poste");
 
+        // Liste machines (multi-sélection)
         listeMachines = new ListView<>();
         listeMachines.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         listeMachines.setPrefHeight(200);
 
+        // Boutons via Style
         ajouterButton = Style.creerBouton("Ajouter Poste");
         retourButton = Style.creerBoutonRetour();
 
-        VBox form = new VBox(10,
+        // Boîte horizontale pour aligner les boutons au centre avec espacement
+        HBox boutonsBox = new HBox(20, ajouterButton, retourButton);
+        boutonsBox.setAlignment(Pos.CENTER);
+
+        // Formulaire vertical avec labels et champs
+        VBox form = new VBox(20,
             new Label("Référence :"), refField,
             new Label("Désignation :"), designationField,
             new Label("Sélectionner les machines :"), listeMachines,
-            new HBox(15, ajouterButton, retourButton)
+            boutonsBox
         );
-        form.setPadding(new Insets(15));
-        form.setMaxWidth(350);
+        form.setPadding(new Insets(20));
+        form.setMaxWidth(500);
 
+        // Centrer le formulaire dans un cadre avec style
         root = new VBox(20, titre, Style.creerCadreCentre(form));
         root.setPadding(new Insets(30));
         root.setStyle("-fx-background-color: #f9f9f9;");
         root.setMaxWidth(450);
+        root.setAlignment(Pos.TOP_CENTER);
 
-        scene = new Scene(root, 1570,800);
+        // Scene avec taille initiale
+        scene = new Scene(root, 1570, 800);
     }
 
     public Scene getScene() {
