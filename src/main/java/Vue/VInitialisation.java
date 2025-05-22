@@ -53,16 +53,8 @@ public class VInitialisation {
 
         // Ajout d’effet hover pour le bouton valider
         validerButton.setOnAction(e -> controleur.ValiderButton());
-        validerButton.setOnMouseEntered(e -> 
-            validerButton.setStyle(
-                "-fx-background-color: #FF85C1;" +
-                "-fx-text-fill: white;" +
-                "-fx-font-weight: bold;" +
-                "-fx-font-size: 18px;" +
-                "-fx-background-radius: 30;" +
-                "-fx-padding: 12 40;"
-            )
-        );
+       
+ 
         validerButton.setOnMouseExited(e -> 
             validerButton.setStyle(
                 "-fx-background-color: #66e0e5;" +

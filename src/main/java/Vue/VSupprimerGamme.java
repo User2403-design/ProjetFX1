@@ -34,7 +34,7 @@ public class VSupprimerGamme {
 
         Label instructionLabel = Style.creerLabel("Sélectionner une gamme à supprimer :");
 
-        vbox = new VBox(15, instructionLabel, listeGamme, supprimerButton, retourButton, messageLabel);
+        vbox = new VBox(20, instructionLabel, listeGamme, supprimerButton, retourButton, messageLabel);
         vbox.setAlignment(Pos.CENTER);
 
         StackPane cadre = Style.creerCadreCentre(vbox);
