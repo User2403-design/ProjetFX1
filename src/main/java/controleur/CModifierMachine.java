@@ -7,7 +7,6 @@ import Modele.Machine;
 import Modele.Stockage;
 import Vue.VModifierMachine;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 
 public class CModifierMachine {

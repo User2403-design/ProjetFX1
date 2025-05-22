@@ -5,7 +5,6 @@
 package controleur;
 
 import Vue.VInitialisation;
-import Vue.VAccueil;
 import javafx.stage.Stage;
 import Modele.Stockage;
 

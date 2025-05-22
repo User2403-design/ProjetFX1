@@ -7,7 +7,6 @@ package controleur;
 import Vue.VAfficherGamme;
 import Modele.Stockage;
 import javafx.stage.Stage;
-import Modele.Gamme;
 
 public class CAfficherGamme {
 

@@ -8,7 +8,7 @@ package controleur;
 import Vue.VMagBrut;
 import Modele.Stockage;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;
+
 
 public class CMagBrut {
     private Stage primaryStage;

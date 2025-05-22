@@ -7,7 +7,6 @@ package controleur;
 import Modele.Stockage;
 import Vue.VAjouterMagBrut;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CAjouterMagBrut {
 
@@ -60,6 +59,5 @@ public class CAjouterMagBrut {
         primaryStage.setTitle("Ajouter au Stock Brut");
         primaryStage.setScene(vue.getScene());
         primaryStage.setMaximized(true);
-       GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

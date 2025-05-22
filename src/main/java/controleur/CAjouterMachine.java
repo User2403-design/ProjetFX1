@@ -4,7 +4,6 @@ import javafx.stage.Stage;
 import Modele.Stockage;
 import Modele.Machine;
 import Vue.VAjouterMachine;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 import java.time.LocalTime;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -99,6 +98,5 @@ public class CAjouterMachine {
         primaryStage.setTitle("Ajouter une Machine");  
         primaryStage.setMaximized(true);// Titre de la fenêtre
         primaryStage.setScene(vueAjouter.getSceneAjouterMachine());        // Applique la scène de la vue ajout machine
-        GrandEcran.afficherPleinEcran(primaryStage, vueAjouter.getSceneAjouterMachine());  // Affiche en plein écran
-    }
+        }
 }

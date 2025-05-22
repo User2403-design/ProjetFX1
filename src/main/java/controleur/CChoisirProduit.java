@@ -8,7 +8,6 @@ import Modele.Produit;
 import Modele.Stockage;
 import Vue.VChoisirProduit;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CChoisirProduit {
     private Stage primaryStage;
@@ -54,6 +53,5 @@ public class CChoisirProduit {
         primaryStage.setTitle("Choisir un Produit à Modifier");
         primaryStage.setScene(vue.getScene());
         primaryStage.setMaximized(true);
-        GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
     }
 }

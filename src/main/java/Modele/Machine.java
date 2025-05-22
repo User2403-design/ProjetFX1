@@ -8,7 +8,6 @@ package Modele;
  *
  * @author chloe
  */
-import java.time.LocalTime;
 
 
 public class Machine extends Equipement {

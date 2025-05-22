@@ -8,7 +8,6 @@ import Modele.Magasindebrut;
 import Modele.Stockage;
 import Vue.VSupprimerMagBrut;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 
 public class CSupprimerMagBrut {

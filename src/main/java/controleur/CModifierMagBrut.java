@@ -8,7 +8,6 @@ import Modele.Magasindebrut;
 import Modele.Stockage;
 import Vue.VModifierMagBrut;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CModifierMagBrut {
     private Stage primaryStage;

@@ -8,7 +8,6 @@ import Modele.Stockage;
 import Vue.VSupprimerOperateur;
 import javafx.stage.Stage;
 import Modele.Operateur;
-import Repertoire.GrandEcran;
 
 public class CSupprimerOperateur {
 

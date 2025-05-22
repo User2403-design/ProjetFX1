@@ -10,8 +10,7 @@ package Modele;
  */
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.time.LocalTime;
-import java.io.*;
+
 
 public class Stockage {
     

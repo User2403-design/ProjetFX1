@@ -7,10 +7,7 @@ package controleur;
 import Vue.VMachine;
 import javafx.stage.Stage;
 import Modele.Stockage;
-import Modele.FichierMachine;
-import java.util.ArrayList;
-import Modele.Machine;
-import Repertoire.GrandEcran;
+
 
 public class CMachine {
     private Stage primaryStage;
@@ -69,6 +66,5 @@ public class CMachine {
         primaryStage.setTitle("Section Machine");
         primaryStage.setScene(vueMachine.getScene());
         primaryStage.setMaximized(true);
-        GrandEcran.afficherPleinEcran(primaryStage, vueMachine.getScene());
     }
 }

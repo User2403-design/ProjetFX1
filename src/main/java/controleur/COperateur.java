@@ -7,7 +7,7 @@ package controleur;
 import Vue.VOperateur;
 import javafx.stage.Stage;
 import Modele.Stockage;
-import Repertoire.GrandEcran;
+
 
 public class COperateur {
     

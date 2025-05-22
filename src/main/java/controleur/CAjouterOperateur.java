@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import Modele.Operateur;
 import Modele.Stockage;
 import Vue.VAjouterOperateur;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CAjouterOperateur {
 

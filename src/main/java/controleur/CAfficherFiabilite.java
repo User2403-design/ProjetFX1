@@ -5,13 +5,9 @@
 package controleur;
 
 
-
-import Modele.Machine;
 import Modele.Stockage;
 import javafx.stage.Stage;
-import javafx.stage.Stage;
 import Vue.VAfficherFiabilite;
-import java.util.Map;
 import java.util.Map;
 import Modele.Fiabilite;
 

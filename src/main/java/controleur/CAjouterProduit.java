@@ -9,10 +9,8 @@ import Modele.Gamme;
 import Modele.Produit;
 import Modele.Stockage;
 import Vue.VAjouterProduit;
-import javafx.scene.control.SelectionMode;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CAjouterProduit {
 
@@ -72,6 +70,5 @@ public class CAjouterProduit {
         primaryStage.setTitle("Ajouter un Produit");
         primaryStage.setScene(vue.getScene());
         primaryStage.setMaximized(true);
-        GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
-    }
+   }
 }

@@ -8,7 +8,6 @@ import Modele.Magasindebrut;
 import Modele.Stockage;
 import Vue.VChoisirMatiere;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CChoisirMatiere {
     private Stage primaryStage;
@@ -52,6 +51,5 @@ public class CChoisirMatiere {
         primaryStage.setTitle("Choisir Matière à Modifier");
         primaryStage.setScene(vue.getScene());
         primaryStage.setMaximized(true);
-      GrandEcran.afficherPleinEcran(primaryStage, vue.getScene());
-    }
+   }
 }

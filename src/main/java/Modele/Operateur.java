@@ -7,7 +7,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modele;
-import java.util.ArrayList;
+
 
 /**
  *
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Operateur {
     private String nom;
     private String prenom;
-    private String code; // Peut faire partie d'une superclasse "Personne", comme vous voulez
+    private String code; 
     private boolean etat;
     private String competences; 
     

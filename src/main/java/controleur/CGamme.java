@@ -7,7 +7,7 @@ package controleur;
 import Vue.VGamme;
 import javafx.stage.Stage;
 import Modele.Stockage;
-import Repertoire.GrandEcran;
+
 
 public class CGamme {
     private Stage primaryStage;

@@ -4,7 +4,6 @@ import Modele.Operateur;
 import Modele.Stockage;
 import Vue.VModifierOperateur;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 public class CModifierOperateur {
 

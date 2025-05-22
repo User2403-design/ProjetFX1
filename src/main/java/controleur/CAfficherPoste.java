@@ -4,9 +4,6 @@
  */
 package controleur;
 
-import Modele.Stockage;
-import Vue.VAfficherMachine;
-import javafx.stage.Stage;
 import Vue.VAfficherPoste;
 import javafx.stage.Stage;
 import Modele.Stockage; 

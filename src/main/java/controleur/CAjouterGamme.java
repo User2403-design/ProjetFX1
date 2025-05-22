@@ -9,7 +9,6 @@ import Modele.Stockage;
 import Modele.Gamme;
 import Vue.VAjouterGamme;
 import javafx.stage.Stage;  
-
 import java.util.ArrayList;
 import java.util.List;
 

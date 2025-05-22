@@ -8,16 +8,13 @@ package Modele;
  *
  * @author chloe
  */
-import java.time.*;
-import java.time.format.DateTimeFormatter;
+
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
-import Modele.Stockage;
 
 public class Fiabilite {
     private Stockage stockage;

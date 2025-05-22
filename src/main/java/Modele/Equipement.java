@@ -26,21 +26,5 @@ public abstract class Equipement {
     public abstract float coutOperation(float dureeOperation);
 
     
-    /*public String getRefEquipement() {// faut les enlever ou pas 
-        return refEquipement;
-    }
-
-    public void setRefEquipement(String refEquipement) {
-        this.refEquipement = refEquipement;
-    }
-
-    public String getdEquipement() {
-        return dEquipement;
-    }
-
-    public void setdEquipement(String dEquipement) {
-        this.dEquipement = dEquipement;
-    }
-    */
  
 }

@@ -10,7 +10,7 @@ import Vue.VMapAtelier;
 import Modele.Machine;
 import Modele.Stockage;
 import java.util.List;
-import Repertoire.GrandEcran;
+
 
 /**
  * Contrôleur pour la carte de l'atelier affichant les machines
@@ -60,6 +60,5 @@ public class CMapAtelier {
         primaryStage.setTitle("Carte de l'Atelier");
         primaryStage.setScene(vueMap.getScene());
         primaryStage.setMaximized(true);
-        GrandEcran.afficherPleinEcran(primaryStage, vueMap.getScene());
     }
 }

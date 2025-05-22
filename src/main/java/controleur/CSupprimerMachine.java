@@ -8,7 +8,6 @@ import Vue.VSupprimerMachine;
 import Modele.Stockage;
 import Modele.Machine;
 import javafx.stage.Stage;
-import Repertoire.GrandEcran;      // Classe utilitaire plein écran
 
 
 /**

@@ -8,7 +8,6 @@ import Vue.VEvenement;
 import javafx.stage.Stage;
 import Modele.Stockage;
 import Modele.Fiabilite;
-import Repertoire.GrandEcran; // Classe utilitaire plein écran
 
 public class CEvenement {
     

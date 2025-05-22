@@ -8,8 +8,7 @@ import Modele.Stockage;
 import Vue.VSupprimerProduit;
 import javafx.stage.Stage;
 import Modele.Produit;
-import javafx.geometry.Rectangle2D;
-import javafx.stage.Screen;
+
 /**
  *
  * @author chloe

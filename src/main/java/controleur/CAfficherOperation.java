@@ -5,8 +5,6 @@
 package controleur;
 import Vue.VAfficherOperation;
 import javafx.stage.Stage;
-import Vue.VAfficherOperation;
-import javafx.stage.Stage;
 import Modele.Stockage; // Si ton stockage est dans package Modele
 
 /**

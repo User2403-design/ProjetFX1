@@ -52,7 +52,7 @@ public class VAccueil {
         layoutPrincipal.setAlignment(Pos.CENTER);
 
         StackPane contenuAvecStyle = Style.creerCadreCentre(new StackPane(layoutPrincipal));
-        scene = new Scene(contenuAvecStyle, 2000, 1000);
+        scene = new Scene(contenuAvecStyle, 1600, 800);
     }
 
     public Scene getScene() {
