@@ -7,7 +7,7 @@
 
 package Vue;
 
-import javafx.geometry.Pos;
+import javafx.geometry.Pos; // permet de gerer l'alignement
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
@@ -22,9 +22,9 @@ public class VAccueil {
     public VAccueil(String utilisateur, String atelier) {
 
         // Création du titre via la classe Style
-        Text titreTexte = Style.creerTitre("Bienvenue " + utilisateur + " dans l'atelier " + atelier + " !");
+        Text titreTexte = Style.creerTitre("Bienvenu " + utilisateur + " dans l'atelier " + atelier + " !");
         VBox blocTitre = new VBox(titreTexte);
-        blocTitre.setAlignment(Pos.CENTER);
+        blocTitre.setAlignment(Pos.CENTER); // permet de centrer l'élement
 
         // Création des boutons avec style personnalisé via Style
         machine = Style.creerBouton("Machine");
@@ -36,10 +36,10 @@ public class VAccueil {
         stock = Style.creerBouton("Magasin de brut");
         map = Style.creerBouton("Carte de l'Atelier");
         fiabilite = Style.creerBouton("Fiabilité");
-        deconnexion = Style.creerBoutonRetour(); // Tu peux aussi créer Style.creerBoutonDeconnexion() si besoin
+        deconnexion = Style.creerBoutonRetour();
 
         // Organisation des boutons en lignes
-        HBox ligne1 = new HBox(30, machine, poste, gamme, operation, fiabilite);
+        HBox ligne1 = new HBox(30, machine, poste, gamme, operation, fiabilite);// décalage de 30px entre chaque objet 
         ligne1.setAlignment(Pos.CENTER);
 
         HBox ligne2 = new HBox(30, operateur, produit, stock);
@@ -51,7 +51,7 @@ public class VAccueil {
         layoutPrincipal = new VBox(70, blocTitre, blocCentre, deconnexion);
         layoutPrincipal.setAlignment(Pos.CENTER);
 
-        StackPane contenuAvecStyle = Style.creerCadreCentre(new StackPane(layoutPrincipal));
+        StackPane contenuAvecStyle = Style.creerCadreCentre(new StackPane(layoutPrincipal)); // StackPane : conteneur graphique qui empile les élements graphiques les uns sur les autres
         scene = new Scene(contenuAvecStyle, 1600, 800);
     }
 

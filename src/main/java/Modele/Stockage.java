@@ -18,7 +18,6 @@ public class Stockage {
     private ArrayList<Machine> listeMachines; 
     private ArrayList<Operation> listeOperations;
     private ArrayList<Operateur> listeOperateurs;
-    private ArrayList<Equipement> listeEquipements;// a enlever
     private ArrayList<Gamme> listeGammes;
     private ArrayList<Produit> listeProduits;
     private ArrayList<Magasindebrut> listeMagDeBrut;
@@ -29,7 +28,6 @@ public class Stockage {
         this.listeMachines = new ArrayList<>();
         this.listeOperations = new ArrayList<>();
         this.listeOperateurs = new ArrayList<>();
-        this.listeEquipements = new ArrayList<>();
         this.listeGammes = new ArrayList<>();
         this.listeProduits = new ArrayList<>();
         this.listeMagDeBrut = new ArrayList<>();
@@ -53,13 +51,13 @@ public class Stockage {
         Magasindebrut MB2 = new Magasindebrut ("Plastique", 50);
         Magasindebrut MB3 = new Magasindebrut ("Acier", 75);
         
-        //ajout dans liste de MagDeBrut
+        //ajout daArrayList<>(Arrays.asList(M1,M2,M3)));ns liste de MagDeBrut
         this.listeMagDeBrut.add(MB1);
         this.listeMagDeBrut.add(MB2);
         this.listeMagDeBrut.add(MB3);
 
         // Création des postes avec les machines affectées
-        Poste Poste1 = new Poste("P001", "Poste de découpe", new ArrayList<>(Arrays.asList(M1,M2,M3)));
+        Poste Poste1 = new Poste("P001", "Poste de découpe", new ArrayList<>(Arrays.asList(M1,M2,M3))); //asList : créer un liste fixe, on ne peut pas ajouter/ supprimer des elements avec add() ou remove()
         Poste Poste2 = new Poste("P002", "Poste de limage", new ArrayList<>(Arrays.asList(M2,M4)));
 
         //ajout du poste dans la liste des postes
@@ -141,10 +139,6 @@ public class Stockage {
         return listeOperateurs;
     }
 
-    public ArrayList<Equipement> getListeEquipements() {
-        return listeEquipements;
-    }
-
     public ArrayList<Gamme> getListeGammes() {
         return listeGammes;
     }
@@ -161,11 +155,11 @@ public class Stockage {
         this.listeMachines = listeMachines;
     }
     
-    //methodes pour recherché un objet par sa référence
+    //methodes pour recherché un objet par sa référence / son code
     
     public Machine rechercherMachineParRef(String ref) {
     for (Machine m : listeMachines) {
-        if (m.getRefmachine().equals(ref)) {
+        if (m.getRefmachine().equals(ref)) { // verifie si la réference de la machine est égale à la valeur de ref 
             return m;
         }
     }
@@ -243,8 +237,8 @@ public class Stockage {
     boolean found = false;
     
     for (Magasindebrut m : listeMagDeBrut) {
-        if (m.getMatiere().equalsIgnoreCase(matiere)) {
-            m.setQuantite(m.getQuantite() + quantite);
+        if (m.getMatiere().equalsIgnoreCase(matiere)) { // verifie si la matière de l'objet m est égale à la variale de la matière, sans tenir compte des majuscules
+            m.setQuantite(m.getQuantite() + quantite); // la nouvelle quantité s'ajoute à l'ancienne
             found = true;
             break;
         }
@@ -304,24 +298,6 @@ public class Stockage {
         }
     }
 
-
-    public boolean supprimerEquipement(String refEquipement) {
-        Equipement aSupprimer = null;
-        for (Equipement e : listeEquipements) {
-            if (e.refEquipement.equals(refEquipement)) {
-                aSupprimer = e;
-                break;
-            }
-        }
-        if (aSupprimer != null) {
-            listeEquipements.remove(aSupprimer);
-            System.out.println("Équipement supprimé avec succès.");
-            return true;
-        } else {
-            System.out.println("Équipement avec la référence " + refEquipement + " non trouvé.");
-            return false;
-        }
-    }
     public boolean supprimerMagBrut(String nomMatiere) {
     Magasindebrut aSupprimer = null;
 
@@ -405,7 +381,7 @@ public class Stockage {
        public String afficherToutesLesGammesDisponibles() {
         StringBuilder sb = new StringBuilder();
         for (Gamme gamme : listeGammes) {
-        sb.append(gamme.afficherGamme());
+        sb.append(gamme.afficherGamme()); // ajoute au contenu de sb la chiane de texte retournée par la méthode afficherGamme
         sb.append("\n----------------------\n");//pour avoir un affichage propre
     }
     return sb.toString();
@@ -477,14 +453,7 @@ public class Stockage {
     return sb.toString();
     }
     
-    // afficher tous les équipements 
-    public void afficherTousLesEquipements() {
-        System.out.println("Équipements disponibles :");
-        for (Equipement eq : listeEquipements) {
-            eq.afficherEquipement();
-        }
-    }
-    
+ 
     public String getRole(String utilisateur) {
     if (utilisateur.equalsIgnoreCase("Jean")) {
         return "chef";

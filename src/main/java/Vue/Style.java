@@ -76,6 +76,6 @@ public class Style {
         cadre.setMaxWidth(800); // largeur maximale du cadre
         cadre.setMaxHeight(600); // hauteur maximale du cadre
         cadre.setStyle("-fx-background-color: white; -fx-background-radius: 25; -fx-padding: 40;"); // style css du fond et arrondi
-        return cadre; // retourne le cadre
+        return cadre; 
     }
 }
