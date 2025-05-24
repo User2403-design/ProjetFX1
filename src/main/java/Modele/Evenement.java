@@ -27,7 +27,7 @@ public class Evenement {
         this.typeEv = typeEv;
         this.cause = cause;
     }
-    //necéssaire ?
+    
 @Override
     public String toString() {
         return date + " " + heure + " " + machine + " " + typeEv + " " + operateur + " " + cause;
