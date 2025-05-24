@@ -28,39 +28,14 @@ public Poste(String refPoste, String dPoste, ArrayList<Machine> machines) {
         }
         return coutTotal;
     }
-    //Tout les methodes servant pour modifier un Poste
+    
+    
     // Pour ajouter une machine à la liste  
     public void ajouterMachine(Machine machine) {
-        if (machine != null){ //&& !refMachine.isEmpty()
+        if (machine != null){ 
             machines.add(machine); 
         }
-    }//sert pas pour l'instant
-
-    // Pour supprimer une machine de la liste par référence : a supprimer
-    public boolean supprimerMachine(Machine machine) {
-        if (machine != null){ //&& !refMachine.isEmpty()) {
-            return machines.remove(machine); 
-        }
-        return false;//renvoie true si la machine a été supprimée
     }
-    
-    public void modifierReference(String newRef){
-        this.refEquipement = newRef;
-    }
-    
-    //a remodifier pour l'interfaces 
-    /*@Override
-    public String afficherEquipement(){
-        System.out.println("Reference Poste:"+refEquipement);
-        System.out.println("Designation:"+dEquipement);
-        System.out.println("--------");//pour la présentation
-        for (Machine m : machines){
-            System.out.println("machine :");
-            m.afficherEquipement();
-            System.out.println("--------");
-        }
-        return("faut modifier cette methode");
-    }*/
     
     @Override
     public String afficherEquipement() {
@@ -80,7 +55,7 @@ public Poste(String refPoste, String dPoste, ArrayList<Machine> machines) {
     return sb.toString();
     }
    
-     public String getRefposte() {
+    public String getRefposte() {
         return refEquipement;
     }
     
