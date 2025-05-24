@@ -19,7 +19,7 @@ public class CAfficherOperation {
     private VAfficherOperation vueAfficher;
     private String utilisateur;
     private String atelier;
-    private Stockage stockage; // pour récupérer les machines stocker 
+    private Stockage stockage; 
 
     public CAfficherOperation(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
         this.primaryStage = primaryStage;
@@ -27,7 +27,7 @@ public class CAfficherOperation {
         this.atelier = atelier;
         this.stockage = stockage;
         
-        // Récupérer le texte des machines depuis stockage
+        // Récupérer l'affichage des operations depuis stockage
         String operations = stockage.afficherToutesLesOperations();
         
         this.vueAfficher = new VAfficherOperation(operations);
