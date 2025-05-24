@@ -26,7 +26,7 @@ public class Produit {
                       "Designation: " + dProduit + "\n" +
                       "Gammes associées:\n";
     for (Gamme g : listeGamme) {
-        String duree = String.format("%.2f", g.dureeGamme());
+        String duree = String.format("%.2f", g.dureeGamme()); //affiche avec 2 chiffres après la virgules 
         String cout = String.format("%.2f", g.coutGamme());
         resultat += " - " + g.getRefGamme() +
                     " | Durée: " + duree + "min" +
@@ -35,9 +35,7 @@ public class Produit {
     return resultat;
 }
 
-    
-   
-
+ 
     public String getCodeProduit() {
         return codeProduit;
     }
@@ -60,17 +58,5 @@ public class Produit {
 
     public void setListeGamme(ArrayList<Gamme> listeGamme) {
         this.listeGamme = listeGamme;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder(codeProduit + " - " + dProduit + " | Gammes : ");
-        for (Gamme g : listeGamme) {
-            sb.append(g.getRefGamme()).append(", ");
-        }
-        if (!listeGamme.isEmpty()) {
-            sb.setLength(sb.length() - 2); // Retirer la virgule finale
-        }
-        return sb.toString();
     }
 }
