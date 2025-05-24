@@ -42,8 +42,8 @@ public class CModifierOperation {
         for (Poste p : stockage.getListePostes()) {
             vue.getPostesDisponibles().getItems().add(p.getRefEquipement());
         }
-        //A QUOI SA SERT ?
-        // Sélectionner l'équipement actuel
+        
+        // Sélectionner l'équipement actuel par défaut
         Equipement eq = operation.getRefEquipement();
         //si c'est une machine
         if (eq instanceof Machine) {

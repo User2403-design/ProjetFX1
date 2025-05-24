@@ -40,7 +40,7 @@ public class CAjouterProduit {
 
             // Vérification si tous les champs sont remplis
             if (code.isEmpty() || designation.isEmpty() || vue.getListeGammesView().getSelectionModel().getSelectedItems().isEmpty()) {
-                System.out.println("Veuillez remplir tous les champs !");
+                vue.getErreurLabel().setText("Erreur : Veuillez remplir tous les champs !");
                 return;
             }
 

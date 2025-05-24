@@ -27,7 +27,7 @@ public class CAjouterPoste {
         this.stockage = stockage;
         vue = new VAjouterPoste();
         remplirListeMachines();
-        configurerActions();
+        actionClic();
     }
 
     private void remplirListeMachines() {
@@ -37,14 +37,14 @@ public class CAjouterPoste {
         }
     }
 
-    private void configurerActions() {
+    private void actionClic() {
         // Action du bouton Ajouter Poste
         vue.getAjouterButton().setOnAction(e -> {
             String ref = vue.getRefField().getText().trim();
             String designation = vue.getDesignationField().getText().trim();
 
             if (ref.isEmpty() || designation.isEmpty()) {
-                System.out.println("Veuillez remplir tous les champs !");
+                vue.getErreurLabel().setText("Erreur : Veuillez remplir tous les champs !");
                 return;
             }
 

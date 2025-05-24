@@ -24,6 +24,7 @@ public class VModifierGamme {
     private Button retirerOperationButton;                // Bouton pour retirer une opération
     private Button enregistrerButton;                     // Bouton pour enregistrer les modifications
     private Button retourButton;                          // Bouton pour revenir à la vue précédente
+    private Label erreurLabel;                            
     private Scene scene;                                  // Scène contenant toute l'interface
 
     public VModifierGamme() {
@@ -41,6 +42,10 @@ public class VModifierGamme {
         refField.setPromptText("Référence");              
         refField.setMaxWidth(Double.MAX_VALUE);           // Largeur maximum
 
+        erreurLabel = new Label();
+        erreurLabel.setStyle("-fx-text-fill: red;"); // texte en rouge
+        erreurLabel.setWrapText(true);
+        erreurLabel.setMaxWidth(400);
         // Labels pour les listes
         Label labelOpsGamme = Style.creerLabel("Opérations de la Gamme :");
         Label labelOpsDisponibles = Style.creerLabel("Opérations Disponibles :");
@@ -92,6 +97,7 @@ public class VModifierGamme {
         layout.getChildren().addAll(
                 labelRef, refField,
                 listesBox,
+                erreurLabel,
                 enregistrerButton,
                 retourButton
         );
@@ -117,4 +123,5 @@ public class VModifierGamme {
     public Button getRetirerOperationButton() { return retirerOperationButton; }
     public Button getEnregistrerButton() { return enregistrerButton; }
     public Button getRetourButton() { return retourButton; }
+    public Label getErreurLabel() { return erreurLabel; } 
 }

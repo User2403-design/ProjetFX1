@@ -39,6 +39,19 @@ public class CAjouterMachine {
         // Bouton ajouter : ajoute la machine
         vueAjouter.getAjouterButton().setOnAction(e -> {
             try {
+            // Vérification des champs vides, pas avec catch parce que c'est pas une exception
+                if (vueAjouter.getRefField().getText().isEmpty() ||
+                    vueAjouter.getDesField().getText().isEmpty() ||
+                    vueAjouter.getxField().getText().isEmpty() ||
+                    vueAjouter.getyField().getText().isEmpty() ||
+                    vueAjouter.getCoutHField().getText().isEmpty() ||
+                    vueAjouter.getEtatComboBox().getValue() == null || 
+                    vueAjouter.getTypeField().getText().isEmpty()) {
+            
+                    vueAjouter.getMessageLabel().setStyle("-fx-text-fill: red;");
+                    vueAjouter.getMessageLabel().setText("Erreur : Tous les champs doivent être remplis.");
+                return;  
+                }
                 // Récupération des champs
                 String ref = vueAjouter.getRefField().getText();
                 String description = vueAjouter.getDesField().getText();

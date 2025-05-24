@@ -19,6 +19,7 @@ public class VModifierPoste {
     private Button retirerMachineButton;
     private Button enregistrerButton;
     private Button retourButton;
+    private Label erreurLabel; 
     private Scene scene;
 
     public VModifierPoste() {
@@ -37,7 +38,9 @@ public class VModifierPoste {
         Label designationLabel = new Label("Désignation :");
         Label machinesPosteLabel = new Label("Machines du Poste :");
         Label machinesDisponiblesLabel = new Label("Machines disponibles :");
-
+        erreurLabel = new Label();
+        erreurLabel.setStyle("-fx-text-fill: red;"); // Texte rouge
+        
         VBox layout = new VBox(10);
         layout.getChildren().addAll(
             refLabel, refField,
@@ -45,6 +48,7 @@ public class VModifierPoste {
             machinesPosteLabel, listeMachinesPoste,
             machinesDisponiblesLabel, listeMachinesDisponibles,
             new HBox(10, ajouterMachineButton, retirerMachineButton),
+            erreurLabel,
             enregistrerButton,
             retourButton
         );
@@ -63,4 +67,6 @@ public class VModifierPoste {
     public Button getRetirerMachineButton() { return retirerMachineButton; }
     public Button getEnregistrerButton() { return enregistrerButton; }
     public Button getRetourButton() { return retourButton; }
+    public Label getErreurLabel() { return erreurLabel; }  // <-- getter ajouté
+
 }

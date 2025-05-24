@@ -19,6 +19,7 @@ public class VModifierOperateur {
     private TextField codeField;
     private TextField competencesField;
     private CheckBox etatCheckBox;
+    private Label erreurLabel;
     private Button enregistrerButton;
     private Button retourButton;
     private Scene scene;
@@ -29,7 +30,8 @@ public class VModifierOperateur {
         codeField = new TextField();
         competencesField = new TextField();
         etatCheckBox = new CheckBox("Disponible");
-
+        erreurLabel = new Label();
+        erreurLabel.setStyle("-fx-text-fill: red;");
         // Boutons stylés
         enregistrerButton = Style.creerBouton("Enregistrer les modifications");
         retourButton = Style.creerBoutonRetour();
@@ -42,8 +44,9 @@ public class VModifierOperateur {
             Style.creerLabel("Prénom :"), prenomField,
             Style.creerLabel("Code :"), codeField,
             Style.creerLabel("Competences :"), competencesField,
-            etatCheckBox,
-            new HBox(10, enregistrerButton, retourButton)
+            etatCheckBox,erreurLabel,
+            enregistrerButton,
+            retourButton
         );
 
         // Centrer horizontalement les boutons
@@ -68,4 +71,7 @@ public class VModifierOperateur {
     public Button getEnregistrerButton() { return enregistrerButton; }
     public Button getRetourButton() { return retourButton; }
     public Scene getScene() { return scene; }
+    public Label getErreurLabel() {return erreurLabel;
+    }
+    
 }

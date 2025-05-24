@@ -45,6 +45,7 @@ public class CAjouterMagBrut {
             //verification du signe la quantité 
             if (quantite < 0) {
                     vue.getMessageLabel().setText("Erreur: Entrez une quantité positive.");
+                    vue.getMessageLabel().setStyle("-fx-text-fill: red;");
                     return; 
                 }
             stockage.ajouterStockBrut(matiere, quantite);
@@ -53,6 +54,7 @@ public class CAjouterMagBrut {
             vue.getQuantiteField().clear();
         } catch (NumberFormatException ex) { //verification du bon format de la quantité entré 
             vue.getMessageLabel().setText("Erreur : La quantité doit être un nombre entier.");
+            vue.getMessageLabel().setStyle("-fx-text-fill: red;");
         }
     }
 

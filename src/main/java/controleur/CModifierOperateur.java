@@ -37,10 +37,20 @@ public class CModifierOperateur {
     //modification des attributs de l'operateur par ceux entré par utilisateur
     private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
-            operateur.setNom(vue.getNomField().getText());
-            operateur.setPrenom(vue.getPrenomField().getText());
-            operateur.setCode(vue.getCodeField().getText());
-            operateur.setCompetences(vue.getCompetencesField().getText());
+        String nom = vue.getNomField().getText().trim();// .trim enlève les espaces : même si on met que un espace ça affiche l'erreur
+        String prenom = vue.getPrenomField().getText().trim();
+        String code = vue.getCodeField().getText().trim();
+        String competences = vue.getCompetencesField().getText().trim();
+
+        // Vérifications basiques des champs obligatoires
+        if (nom.isEmpty() || prenom.isEmpty() || code.isEmpty() || competences.isEmpty()) {
+            vue.getErreurLabel().setText("Tous les champs doivent être remplis !");
+            return;
+        }
+            operateur.setNom(vue.getNomField().getText().trim());
+            operateur.setPrenom(vue.getPrenomField().getText().trim());
+            operateur.setCode(vue.getCodeField().getText().trim());
+            operateur.setCompetences(vue.getCompetencesField().getText().trim());
             operateur.setEtat(vue.getEtatCheckBox().isSelected());
             new COperateur(primaryStage, utilisateur, atelier, stockage).afficherSectionOperateur();
         });

@@ -19,12 +19,15 @@ public class VModifierProduit {
     private Button enregistrerButton;
     private Button retourButton;
     private Scene scene;
+    private Label erreurLabel;
 
     public VModifierProduit() {
         codeField = new TextField();
         designationField = new TextField();
         listeGammesProduit = new ListView<>();
         listeGammesDisponibles = new ListView<>();
+        erreurLabel = new Label();
+        
 
         // Boutons stylés avec Style
         ajouterGammeButton = Style.creerBouton("Ajouter Gamme");
@@ -44,6 +47,7 @@ public class VModifierProduit {
             gammesAssocieesLabel, listeGammesProduit,
             gammesDisponiblesLabel, listeGammesDisponibles,
             new HBox(10, ajouterGammeButton, retirerGammeButton),
+            erreurLabel,
             enregistrerButton,
             retourButton
         );
@@ -61,4 +65,7 @@ public class VModifierProduit {
     public Button getRetirerGammeButton() { return retirerGammeButton; }
     public Button getEnregistrerButton() { return enregistrerButton; }
     public Button getRetourButton() { return retourButton; }
+    public Label getErreurLabel() { return erreurLabel;
+    }
+    
 }

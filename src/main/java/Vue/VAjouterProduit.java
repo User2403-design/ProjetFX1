@@ -16,6 +16,7 @@ public class VAjouterProduit {
     private ListView<String> listeGammesView;
     private Button ajouterButton;
     private Button retourButton;
+    private Label erreurLabel;
     private Scene scene;
 
     public VAjouterProduit() {
@@ -36,6 +37,9 @@ public class VAjouterProduit {
         // Boutons stylés avec Style
         ajouterButton = Style.creerBouton("Ajouter Produit");
         retourButton = Style.creerBoutonRetour();
+        
+        erreurLabel = new Label();
+        erreurLabel.setStyle("-fx-text-fill: red;");
 
         GridPane formGrid = new GridPane();
         formGrid.setHgap(10);
@@ -46,6 +50,7 @@ public class VAjouterProduit {
         formGrid.add(designationProduitField, 1, 1);
         formGrid.add(new Label("Sélectionner des gammes :"), 0, 2);
         formGrid.add(listeGammesView, 1, 2);
+        formGrid.add(erreurLabel, 0, 3);
 
         HBox buttonBox = new HBox(15, ajouterButton, retourButton);
         buttonBox.setPadding(new Insets(10));
@@ -84,4 +89,9 @@ public class VAjouterProduit {
     public Button getRetourButton() {
         return retourButton;
     }
+
+    public Label getErreurLabel() {
+        return erreurLabel;
+    }
+    
 }

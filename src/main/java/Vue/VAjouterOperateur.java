@@ -48,7 +48,7 @@ public class VAjouterOperateur {
             new Label("Nom :"), nomField,
             new Label("Prénom :"), prenomField,
             new Label("Code :"), codeField,
-            new Label("Compétences : "), competencesField,     
+            new Label("Compétences : "), competencesField, 
             ajouterButton,
             retourButton,
             messageLabel
@@ -101,5 +101,6 @@ public class VAjouterOperateur {
     public TextField getCompetencesField() {
         return competencesField;
     }
+
     
 }

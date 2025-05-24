@@ -41,6 +41,18 @@ public class CModifierMachine {
     private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
             try {
+                //  Vérif des champs vides
+        if (vue.getRefField().getText().isEmpty() ||
+            vue.getDesignationField().getText().isEmpty() ||
+            vue.getXField().getText().isEmpty() ||
+            vue.getYField().getText().isEmpty() ||
+            vue.getCoutField().getText().isEmpty() ||
+            vue.getTypeField().getText().isEmpty() ||
+            vue.getEtatComboBox().getValue() == null) {
+            
+            vue.getErrorLabel().setText("Erreur : Tous les champs doivent être remplis.");
+            return;  // On arrête le traitement ici
+        }
                 // Vérification de la validité des champs X et Y
                 float x = Float.parseFloat(vue.getXField().getText());
                 float y = Float.parseFloat(vue.getYField().getText());

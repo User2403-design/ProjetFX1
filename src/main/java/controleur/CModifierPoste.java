@@ -75,6 +75,23 @@ public class CModifierPoste {
         });
 
         vue.getEnregistrerButton().setOnAction(e -> {
+            // Vérification des champs
+        String nouvelleRef = vue.getRefField().getText().trim();
+        String nouvelleDesignation = vue.getDesignationField().getText().trim();
+
+        if (nouvelleRef.isEmpty() || nouvelleDesignation.isEmpty()) {
+            // Afficher message d’erreur dans la vue
+            vue.getErreurLabel().setText("Erreur : Tous les champs doivent être remplis.");
+            vue.getErreurLabel().setStyle("-fx-text-fill: red;");
+            return;
+        }
+
+        if (vue.getListeMachinesPoste().getItems().isEmpty()) {
+            vue.getErreurLabel().setText("Erreur : Le poste doit contenir au moins une machine.");
+            vue.getErreurLabel().setStyle("-fx-text-fill: red;");
+            return;
+        }
+
             appliquerModifications();
             new Cposte(primaryStage,utilisateur, atelier, stockage).afficherSectionPoste();
         });

@@ -40,6 +40,7 @@ public class CAjouterOperateur {
 
         if (nom.isEmpty() || prenom.isEmpty() || code.isEmpty()) {
             vue.getMessageLabel().setText("Veuillez remplir tous les champs.");
+            vue.getMessageLabel().setStyle("-fx-text-fill: red;");
             return;
         }
 

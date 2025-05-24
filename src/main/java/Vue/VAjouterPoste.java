@@ -17,6 +17,7 @@ public class VAjouterPoste {
     private ListView<String> listeMachines;
     private Button ajouterButton;
     private Button retourButton;
+    private Label erreurLabel;
     private VBox root;
     private Scene scene;
 
@@ -49,7 +50,8 @@ public class VAjouterPoste {
             new Label("Référence :"), refField,
             new Label("Désignation :"), designationField,
             new Label("Sélectionner les machines :"), listeMachines,
-            boutonsBox
+            boutonsBox,
+            erreurLabel
         );
         form.setPadding(new Insets(20));
         form.setMaxWidth(500);
@@ -87,5 +89,8 @@ public class VAjouterPoste {
 
     public Button getRetourButton() {
         return retourButton;
+    }
+    public Label getErreurLabel() {
+        return erreurLabel;
     }
 }

@@ -68,6 +68,13 @@ public class CModifierProduit {
         });
 
         vue.getEnregistrerButton().setOnAction(e -> {
+             String code = vue.getCodeField().getText().trim();
+            String designation = vue.getDesignationField().getText().trim();
+
+            if (code.isEmpty() || designation.isEmpty()) {
+                vue.getErreurLabel().setText("Tous les champs doivent être remplis !");
+                return;
+            }
             appliquerModifications();
             new CProduit(primaryStage, utilisateur, atelier, stockage).afficherSectionProduit();
         });

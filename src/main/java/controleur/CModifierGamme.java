@@ -66,6 +66,11 @@ public class CModifierGamme {
         });
 
         vue.getEnregistrerButton().setOnAction(e -> {
+            // Vérification champ refGamme
+    if (vue.getRefField().getText().isEmpty()) {
+        vue.getErreurLabel().setText("Erreur : La référence de la gamme est vide.");
+        return;  // Stopper la sauvegarde
+    }
             appliquerModifications();
             new CGamme(primaryStage, utilisateur, atelier, stockage).afficherSectionGamme();
         });
