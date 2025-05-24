@@ -24,9 +24,9 @@ public class COperateur {
         this.stockage = stockage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
-        this.role = stockage.getRole(utilisateur); // 🔥 On récupère le rôle
+        this.role = stockage.getRole(utilisateur); // On récupère le rôle
         actionClic();
-        appliquerRestrictions(); // 🔒 Désactive les boutons selon le rôle
+        appliquerRestrictions(); //Désactive les boutons selon le rôle
     }
     
     private void actionClic() {
@@ -62,7 +62,7 @@ public class COperateur {
 
     private void appliquerRestrictions() {
         if (!role.equals("chef")) {
-            vueOperateur.desactiver(); // 👈 Empêche l'accès à l'ajout, modif, suppression
+            vueOperateur.desactiver(); // Empêche l'accès à l'ajout, modif, suppression
         }
     }
 
