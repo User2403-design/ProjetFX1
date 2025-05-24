@@ -24,7 +24,7 @@ public class CProduit {
         this.stockage = stockage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
-        this.role = stockage.getRole(utilisateur); // Récupération du rôle
+        this.role = stockage.getRole(utilisateur); //Récupération du rôle
         actionClic();
         appliquerRestrictions();
     }
