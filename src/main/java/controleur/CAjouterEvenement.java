@@ -27,7 +27,7 @@ public class CAjouterEvenement {
     private String fichierEvenements;      // Fichier texte des événements
     private String utilisateur;            // Utilisateur courant
     private String atelier;                // Atelier courant
-    private Stockage stockage;             // Modèle des données
+    private Stockage stockage;              
 
     /**
      * Constructeur : initialise la vue et les variables
@@ -46,18 +46,16 @@ public class CAjouterEvenement {
         actionClic();
     }
 
-    /**
-     * Définition des actions sur les boutons Ajouter et Retour
-     */
+    //Définition des actions sur les boutons Ajouter et Retour
+   
     private void actionClic() {
         vue.getAjouterButton().setOnAction(e -> ajouterEvenement());
         vue.getRetourButton().setOnAction(e -> retour());
     }
 
-    /**
-     * Méthode appelée lors du clic sur Ajouter
-     * Valide les champs, formate et écrit l'événement dans le fichier
-     */
+    // Méthode appelée lors du clic sur Ajouter
+    //Valide les champs, formate et écrit l'événement dans le fichier
+    
     private void ajouterEvenement() {
         String date = vue.getDateField().getText();
         String heure = vue.getHeureField().getText();
@@ -103,17 +101,13 @@ public class CAjouterEvenement {
         }
     }
 
-    /**
-     * Retour à la section événements
-     */
+    //Retour à la section événements
     private void retour() {
         CEvenement controleurEvenement = new CEvenement(primaryStage, utilisateur, atelier, fichierEvenements, stockage);
         controleurEvenement.afficherSectionEvenements();
     }
 
-    /**
-     * Affichage de la vue avec titre et plein écran
-     */
+    //Affichage de la vue avec titre et plein écran
     public void afficher() {
         primaryStage.setTitle("Ajouter un Événement");
         primaryStage.setScene(vue.getScene());
