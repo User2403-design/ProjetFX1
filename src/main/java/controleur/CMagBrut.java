@@ -22,9 +22,9 @@ public class CMagBrut {
         this.atelier = atelier;
         this.stockage = stockage;
         this.vue = new VMagBrut();
-        this.role = stockage.getRole(utilisateur); // 👈 Récupération du rôle
+        this.role = stockage.getRole(utilisateur); //Récupération du rôle
         actionclic();
-        appliquerRestrictions(); // 👈 Application des restrictions si besoin
+        appliquerRestrictions(); // Application des restrictions si besoin
     }
 
     private void actionclic() {
