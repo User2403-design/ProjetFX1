@@ -42,6 +42,11 @@ public class CAjouterMagBrut {
 
         try {
             int quantite = Integer.parseInt(quantiteText);
+            //verification de la quantité
+            if (quantite < 0) {
+                    vue.getMessageLabel().setText("Erreur: Entrez une quantité positive.");
+                    return; 
+                }
             stockage.ajouterStockBrut(matiere, quantite);
             vue.getMessageLabel().setText("Matière ajoutée avec succès !");
             vue.getMatiereField().clear();
