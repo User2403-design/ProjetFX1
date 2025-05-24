@@ -43,7 +43,7 @@ public class CChoisirMatiere {
         });
 
         vue.getRetourButton().setOnAction(e -> {
-            new CMagBrut(primaryStage, utilisateur, atelier, stockage).afficherSectionMagBrut(); // À adapter
+            new CMagBrut(primaryStage, utilisateur, atelier, stockage).afficherSectionMagBrut(); 
         });
     }
 
