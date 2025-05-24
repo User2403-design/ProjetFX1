@@ -46,7 +46,7 @@ public class CChoisirMachine {
         });
 
         vue.getRetourButton().setOnAction(e -> {
-            new CMachine(primaryStage, utilisateur, atelier, stockage).afficherSectionMachine(); // ou une classe Cmachine si tu veux
+            new CMachine(primaryStage, utilisateur, atelier, stockage).afficherSectionMachine(); 
         });
     }
 
