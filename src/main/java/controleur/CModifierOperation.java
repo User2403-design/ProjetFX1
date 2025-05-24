@@ -34,17 +34,20 @@ public class CModifierOperation {
     }
 
     private void remplirListes() {
+        //ajout des ref de chaque machines disponibles dans la listeView
         for (Machine m : stockage.getListeMachines()) {
             vue.getMachinesDisponibles().getItems().add(m.getRefmachine());
         }
+        //ajout des ref de chaque postes disponibles dans la listeView
         for (Poste p : stockage.getListePostes()) {
             vue.getPostesDisponibles().getItems().add(p.getRefEquipement());
         }
+        //A QUOI SA SERT ?
         // Sélectionner l'équipement actuel
         Equipement eq = operation.getRefEquipement();
         //si c'est une machine
         if (eq instanceof Machine) {
-            vue.getMachinesDisponibles().getSelectionModel().select(((Machine) eq).getRefmachine());
+            vue.getMachinesDisponibles().getSelectionModel().select(((Machine) eq).getRefmachine()); //récupère l'equipement convertit en type machine de l'operation selectionné  
         //si c'est un poste    
         } else if (eq instanceof Poste) {
             vue.getPostesDisponibles().getSelectionModel().select(((Poste) eq).getRefEquipement());
