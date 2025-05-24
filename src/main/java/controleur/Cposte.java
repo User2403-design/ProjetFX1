@@ -17,9 +17,9 @@ public class Cposte {
         this.primaryStage = primaryStage;
         this.vuePoste = new VPoste();
         this.stockage = stockage;
-        this.role = stockage.getRole(utilisateur); // 👈 Récupérer le rôle
+        this.role = stockage.getRole(utilisateur); //Récupérer le rôle
         actionClic(utilisateur, atelier);
-        appliquerRestrictions(); // 👈 Appliquer les restrictions
+        appliquerRestrictions(); //Appliquer les restrictions
     }
 
     private void actionClic(String utilisateur, String atelier) {
@@ -55,7 +55,7 @@ public class Cposte {
 
     private void appliquerRestrictions() {
         if (!role.equals("chef")) {
-            vuePoste.desactiver(); // 🔒 Restriction des droits
+            vuePoste.desactiver(); //Restriction des droits
         }
     }
 
