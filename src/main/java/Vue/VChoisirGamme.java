@@ -22,7 +22,7 @@ public class VChoisirGamme {
         Text titre = Style.creerTitre("Choisir une Gamme");
 
         listeGammes = new ListView<>();
-        listeGammes.setPrefHeight(200);
+        listeGammes.setPrefHeight(200); //pour que la liste soit situé à une hauteur de 200 pixels
 
         // Boutons avec style
         choisirButton = Style.creerBouton("Choisir");
