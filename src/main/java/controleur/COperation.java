@@ -63,7 +63,7 @@ public class COperation {
     
     private void appliquerRestrictions() {
         if (!role.equals("chef")) {
-            vueOperation.desactiver(); //Méthode dans la vue qui désactive les boutons 
+            vueOperation.desactiver(); //Méthode dans la vue qui désactive les boutons Ajouter, Modifier, Supprimer pour les non chefs
         }
     }
 
