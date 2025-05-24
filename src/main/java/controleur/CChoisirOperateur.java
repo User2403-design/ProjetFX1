@@ -43,7 +43,7 @@ public class CChoisirOperateur {
         });
 
         vue.getRetourButton().setOnAction(e -> {
-            new COperateur(primaryStage, utilisateur, atelier, stockage).afficherSectionOperateur(); // À adapter si ce contrôleur n'existe pas encore
+            new COperateur(primaryStage, utilisateur, atelier, stockage).afficherSectionOperateur(); 
         });
     }
 
