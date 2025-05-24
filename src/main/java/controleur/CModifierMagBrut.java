@@ -35,11 +35,12 @@ public class CModifierMagBrut {
 
     private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
-            matiere.setMatiere(vue.getNomField().getText());
+            
+            matiere.setMatiere(vue.getNomField().getText());//ajout de la matière
             try {
                 // Vérification de la quantité
                 int quantite = Integer.parseInt(vue.getQuantiteField().getText());
-                System.out.println("Texte saisi : '" + quantite + "'");
+                
                 if (quantite < 0) {
                     vue.getErrorLabel().setText("Erreur: Entrez une quantité positive.");
                     return; 
