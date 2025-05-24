@@ -10,6 +10,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 import javafx.geometry.Pos;
 
+/**
+ * author chloe
+ */
+
 public class VSupprimerMagBrut {
 
     private ListView<String> listeMatieres;

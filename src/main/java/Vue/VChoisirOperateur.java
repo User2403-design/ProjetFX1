@@ -10,6 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * author chloe
+ */
+
 public class VChoisirOperateur {
     private ListView<String> listeOperateurs;
     private Button validerButton;

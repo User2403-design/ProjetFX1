@@ -9,6 +9,10 @@ import Vue.VOperation;
 import javafx.stage.Stage;
 import Modele.Stockage;
 
+/**
+ * author chloe
+ */
+
 public class COperation {
     
     private Stage primaryStage;

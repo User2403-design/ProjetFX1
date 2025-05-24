@@ -8,6 +8,10 @@ import Modele.Stockage;
 import Vue.VChoisirOperateur;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 public class CChoisirOperateur {
     private Stage primaryStage;
     private Stockage stockage;

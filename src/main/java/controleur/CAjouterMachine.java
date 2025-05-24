@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 /**
- * Contrôleur pour l'ajout d'une Machine
  * @author chloe
  */
 public class CAjouterMachine {

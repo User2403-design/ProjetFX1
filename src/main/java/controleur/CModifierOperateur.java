@@ -5,6 +5,10 @@ import Modele.Stockage;
 import Vue.VModifierOperateur;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 public class CModifierOperateur {
 
     private Stage primaryStage;

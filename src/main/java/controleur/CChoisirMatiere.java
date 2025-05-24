@@ -9,6 +9,10 @@ import Modele.Stockage;
 import Vue.VChoisirMatiere;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 public class CChoisirMatiere {
     private Stage primaryStage;
     private Stockage stockage;

@@ -8,6 +8,9 @@ import Modele.Stockage;
 import Vue.VModifierMachine;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
 
 public class CModifierMachine {
     private Stage primaryStage;

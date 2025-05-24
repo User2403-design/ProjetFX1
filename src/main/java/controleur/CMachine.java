@@ -8,6 +8,9 @@ import Vue.VMachine;
 import javafx.stage.Stage;
 import Modele.Stockage;
 
+/**
+ * author chloe
+ */
 
 public class CMachine {
     private Stage primaryStage;

@@ -10,6 +10,10 @@ import Modele.Stockage;
 import Vue.VModifierProduit;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 public class CModifierProduit {
     private Stage primaryStage;
     private String utilisateur;

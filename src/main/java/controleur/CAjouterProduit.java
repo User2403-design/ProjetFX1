@@ -12,6 +12,10 @@ import Vue.VAjouterProduit;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+/**
+ * author chloe
+ */
+
 public class CAjouterProduit {
 
     private Stage primaryStage;

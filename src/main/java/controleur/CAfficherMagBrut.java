@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import Modele.Stockage;
 
 /**
- * Contrôleur pour l'affichage du magasin de matières brutes.
+ * 
  * @author chloe
  */
 public class CAfficherMagBrut {

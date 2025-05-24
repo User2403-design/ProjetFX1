@@ -9,6 +9,10 @@ import Vue.VSupprimerOperateur;
 import javafx.stage.Stage;
 import Modele.Operateur;
 
+/**
+ * author chloe
+ */
+
 public class CSupprimerOperateur {
 
     private Stage primaryStage;

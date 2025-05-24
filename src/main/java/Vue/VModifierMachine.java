@@ -11,6 +11,10 @@ import javafx.scene.layout.StackPane;
 import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 
+/**
+ * author chloe
+ */
+
 public class VModifierMachine {
     private TextField refField, designationField, xField, yField, coutField, typeField;
     private ComboBox<String> etatComboBox;

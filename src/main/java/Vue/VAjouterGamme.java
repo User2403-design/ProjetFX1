@@ -12,6 +12,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
+/**
+ * author chloe
+ */
+
 public class VAjouterGamme {
     private TextField refGammeField;
     private ListView<String> listeOperations;

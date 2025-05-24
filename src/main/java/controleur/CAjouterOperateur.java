@@ -9,6 +9,10 @@ import Modele.Operateur;
 import Modele.Stockage;
 import Vue.VAjouterOperateur;
 
+/**
+ * author chloe
+ */
+
 public class CAjouterOperateur {
 
     private Stage primaryStage;

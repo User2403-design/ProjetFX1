@@ -12,6 +12,10 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * author chloe
+ */
+
 public class CAjouterGamme {
 
     private Stage primaryStage;

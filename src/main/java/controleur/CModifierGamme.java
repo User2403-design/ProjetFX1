@@ -5,11 +5,16 @@
 
 package controleur;
 
+
 import Modele.Operation;
 import Modele.Gamme;
 import Modele.Stockage;
 import Vue.VModifierGamme;
 import javafx.stage.Stage;
+
+/**
+ * author chloe
+ */
 
 public class CModifierGamme {
     private Stage primaryStage;

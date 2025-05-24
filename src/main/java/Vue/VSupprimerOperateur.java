@@ -13,6 +13,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.control.SelectionMode;
 import javafx.geometry.Pos;
 
+/**
+ * author chloe
+ */
+
 public class VSupprimerOperateur {
 
     private ListView<String> listeOperateurs;

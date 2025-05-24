@@ -10,6 +10,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
+/**
+ * author chloe
+ */
+
 public class VModifierOperation {
     private TextField idField;
     private TextField refField;
@@ -37,7 +41,7 @@ public class VModifierOperation {
         errorLabel = new Label();
         errorLabel.setTextFill(Color.RED);
         
-        // Labels personnalisés (optionnel: tu peux aussi créer un style Label si besoin)
+        // Labels personnalisés 
         Label idLabel = new Label("ID de l'opération :");
         Label refLabel = new Label("Référence :");
         Label dureeLabel = new Label("Durée (min):");

@@ -8,6 +8,10 @@ import Modele.Stockage;
 import Vue.VAjouterMagBrut;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 public class CAjouterMagBrut {
 
     private Stage primaryStage;

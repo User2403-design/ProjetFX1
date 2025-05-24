@@ -10,6 +10,10 @@ import Vue.VChoisirGamme;
 import javafx.stage.Stage;
 import java.util.List;
 
+/**
+ * author chloe
+ */
+
 public class CChoisirGamme {
     private Stage primaryStage;
     private VChoisirGamme vue;

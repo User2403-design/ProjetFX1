@@ -9,6 +9,10 @@ import Vue.VMagBrut;
 import Modele.Stockage;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 
 public class CMagBrut {
     private Stage primaryStage;

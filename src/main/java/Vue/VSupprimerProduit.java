@@ -11,6 +11,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 import javafx.geometry.Pos;
+/**
+ * author chloe
+ */
 
 public class VSupprimerProduit {
     

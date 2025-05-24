@@ -9,6 +9,10 @@ import javafx.stage.Stage;
 import Modele.Stockage;
 import Modele.Fiabilite;
 
+/**
+ * author chloe
+ */
+
 public class CEvenement {
     
     private Stage primaryStage;

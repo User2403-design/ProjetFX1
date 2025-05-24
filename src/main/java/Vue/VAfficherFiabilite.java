@@ -14,7 +14,7 @@ import javafx.scene.layout.VBox;
 import java.util.Map;
 
 /**
- * Vue pour afficher la fiabilité des machines avec une interface stylée
+ * author chloe
  */
 public class VAfficherFiabilite {
     private Scene scene;
@@ -34,7 +34,7 @@ public class VAfficherFiabilite {
         // Bouton retour via Style
         retourButton = Style.creerBoutonRetour();
 
-        // Label avec style simple (tu peux aussi ajouter un Style.creerLabel si tu veux)
+        // Label avec style simple 
         Label titreLabel = new Label("Fiabilité des machines :");
         titreLabel.setStyle("-fx-font-size: 30px; -fx-text-fill: #333333; -fx-font-weight: bold;");
         titreLabel.setAlignment(Pos.CENTER);
@@ -52,7 +52,7 @@ public class VAfficherFiabilite {
         rootStack.setStyle("-fx-background-color: #f5f5f5;");
         rootStack.setAlignment(Pos.CENTER);
 
-        // Création de la scène avec dimensions 800x600
+        // Création de la scène avec dimensions 1570x800
         scene = new Scene(rootStack, 1570,800);
     }
 

@@ -13,6 +13,10 @@ import javafx.scene.layout.StackPane;
 import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 
+/**
+ * author chloe
+ */
+
 public class VModifierMagBrut {
     private TextField nomField;
     private TextField quantiteField;

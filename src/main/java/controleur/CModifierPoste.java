@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Elèveimport Modele.Machine;
+ * @author Elève
  */
 public class CModifierPoste {
     

@@ -16,6 +16,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
+/**
+ * author chloe
+ */
+
 public class VAfficherMagBrut {
     private Scene scene;
     private VBox vbox;

@@ -10,6 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * author chloe
+ */
+
 public class VChoisirProduit {
     private ListView<String> listeProduits;
     private Button validerButton;

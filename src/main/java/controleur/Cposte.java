@@ -7,6 +7,10 @@ import Modele.Stockage;
 import javafx.stage.Stage;
 import Vue.VPoste;
 
+/**
+ * author chloe
+ */
+
 public class Cposte {
     private Stage primaryStage;
     private VPoste vuePoste;

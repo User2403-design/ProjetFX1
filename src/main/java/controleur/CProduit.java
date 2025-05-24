@@ -10,6 +10,10 @@ import Vue.VProduit;
 import javafx.stage.Stage;
 import Modele.Stockage;
 
+/**
+ * author chloe
+ */
+
 public class CProduit {
     private Stage primaryStage;
     private VProduit vueProduit;

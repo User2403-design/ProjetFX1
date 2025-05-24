@@ -8,6 +8,11 @@ import Modele.*;
 import Vue.VAjouterOperation;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+     
+
 public class CAjouterOperation {
 
     private Stage primaryStage;

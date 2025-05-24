@@ -8,6 +8,10 @@ import Modele.*;
 import Vue.VModifierOperation;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 public class CModifierOperation {
     private Stage primaryStage;
     private String utilisateur, atelier;

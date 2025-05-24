@@ -8,6 +8,9 @@ import Vue.VOperateur;
 import javafx.stage.Stage;
 import Modele.Stockage;
 
+/**
+ * author chloe
+ */
 
 public class COperateur {
     

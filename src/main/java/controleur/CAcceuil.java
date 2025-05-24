@@ -3,10 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;  
-import Vue.VAccueil;  // import de la classe VAccueil (vue d'accueil)
-import Vue.VInitialisation;  // import de la classe VInitialisation (vue d'initialisation)
+import Vue.VAccueil;  
+import Vue.VInitialisation;  
 import javafx.stage.Stage;  // import de la classe Stage (fenêtre JavaFX)
-import Modele.Stockage;  // import de la classe Stockage (modèle des données)
+import Modele.Stockage;  
 
 
 /**

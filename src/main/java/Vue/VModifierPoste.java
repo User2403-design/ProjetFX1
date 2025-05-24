@@ -9,6 +9,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 
+/**
+ * author chloe
+ */
+
 public class VModifierPoste {
 
     private TextField refField;

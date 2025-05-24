@@ -12,6 +12,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * author chloe
+ */
+
 public class VChoisirMachine {
     private ListView<String> listeMachines;
     private Button validerButton;

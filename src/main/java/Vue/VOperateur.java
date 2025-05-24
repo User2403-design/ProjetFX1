@@ -10,6 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * author chloe
+ */
+
 public class VOperateur {
     private Button retour, afficher, modifier, ajouter, supprimer;
     private VBox layoutPrincipal;

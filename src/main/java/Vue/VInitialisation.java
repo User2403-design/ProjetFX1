@@ -14,6 +14,10 @@ import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 import controleur.CInitialisation;
 
+/**
+ * author chloe
+ */
+
 public class VInitialisation {
     private Scene scene;
     private TextField utilisateurField;
@@ -44,14 +48,15 @@ public class VInitialisation {
         Label atelierLabel = new Label("Nom de l'Atelier :");
         atelierLabel.setStyle("-fx-text-fill: #333333; -fx-font-size: 35px;");
 
-        atelierField = new TextField();
+        // création du champ de texte pour entrer le nom de l'atelier avec le même style et la même largeur que le champ précédent
+        atelierField = new TextField(); 
         atelierField.setPrefWidth(250);
         atelierField.setStyle("-fx-font-size: 14px; -fx-text-fill: #222222;");
 
         // Bouton valider avec style via Style.creerBouton()
         validerButton = Style.creerBouton("Valider");
 
-        // Ajout d’effet hover pour le bouton valider
+    
         validerButton.setOnAction(e -> controleur.ValiderButton());
        
  
@@ -66,7 +71,7 @@ public class VInitialisation {
             )
         );
 
-        grid.add(utilisateurLabel, 0, 0);
+        grid.add(utilisateurLabel, 0, 0); //colone / ligne 
         grid.add(utilisateurField, 1, 0);
         grid.add(atelierLabel, 0, 1);
         grid.add(atelierField, 1, 1);

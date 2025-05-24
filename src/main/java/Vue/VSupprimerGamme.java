@@ -13,6 +13,10 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
+/**
+ * author chloe
+ */
+
 public class VSupprimerGamme {
 
     private ListView<String> listeGamme;

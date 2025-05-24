@@ -9,6 +9,10 @@ import Modele.Stockage;
 import Vue.VChoisirOperation;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 public class CChoisirOperation {
     private Stage primaryStage;
     private VChoisirOperation vue;

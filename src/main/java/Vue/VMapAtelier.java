@@ -15,8 +15,9 @@ import Modele.Machine;
 import java.util.List;
 
 /**
- * 
+ * author chloe
  */
+
 public class VMapAtelier {
 
     private VBox vbox;

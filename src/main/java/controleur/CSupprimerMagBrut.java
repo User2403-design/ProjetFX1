@@ -9,6 +9,9 @@ import Modele.Stockage;
 import Vue.VSupprimerMagBrut;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
 
 public class CSupprimerMagBrut {
     private Stage primaryStage;

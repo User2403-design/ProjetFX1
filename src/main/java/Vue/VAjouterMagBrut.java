@@ -9,6 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+/**
+ * author chloe
+ */ 
 
 public class VAjouterMagBrut {
     private TextField matiereField;

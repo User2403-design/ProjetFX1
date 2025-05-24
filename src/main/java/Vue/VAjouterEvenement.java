@@ -10,6 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 
+/**
+ * author chloe
+ */
+
 public class VAjouterEvenement {
     private TextField dateField;
     private TextField heureField;

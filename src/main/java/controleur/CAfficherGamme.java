@@ -8,6 +8,10 @@ import Vue.VAfficherGamme;
 import Modele.Stockage;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 public class CAfficherGamme {
 
     private Stage primaryStage;

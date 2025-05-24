@@ -13,17 +13,17 @@ import javafx.scene.layout.StackPane; // Pour empiler des éléments
 import javafx.scene.layout.VBox; // Pour une disposition verticale
 
 /**
- * Vue pour modifier une gamme (interface graphique)
+ * 
  * @author Chloé
  */
 public class VModifierGamme {
     private TextField refField;                           // Champ de texte pour la référence de la gamme
-    private ListView<String> listeOperationsGamme;        // Liste des opérations associées à la gamme
-    private ListView<String> listeOperationsDisponibles;  // Liste des opérations disponibles à ajouter
-    private Button ajouterOperationButton;                // Bouton pour ajouter une opération
-    private Button retirerOperationButton;                // Bouton pour retirer une opération
+    private ListView<String> listeOperationsGamme;        
+    private ListView<String> listeOperationsDisponibles;  
+    private Button ajouterOperationButton;               
+    private Button retirerOperationButton;                
     private Button enregistrerButton;                     // Bouton pour enregistrer les modifications
-    private Button retourButton;                          // Bouton pour revenir à la vue précédente
+    private Button retourButton;                          
     private Label erreurLabel;                            
     private Scene scene;                                  // Scène contenant toute l'interface
 

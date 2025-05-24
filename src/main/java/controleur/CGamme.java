@@ -8,6 +8,9 @@ import Vue.VGamme;
 import javafx.stage.Stage;
 import Modele.Stockage;
 
+/**
+ * author chloe
+ */
 
 public class CGamme {
     private Stage primaryStage;
@@ -42,7 +45,7 @@ public class CGamme {
 
         vueGamme.getModifier().setOnAction(e -> {
             System.out.println("Cliqué sur Modifier !");
-            // Ajout des paramètres utilisateur & atelier ici aussi
+            // Ajout des paramètres utilisateur et atelier ici aussi
             CChoisirGamme controleurModif = new CChoisirGamme(primaryStage, utilisateur, atelier, stockage);
             controleurModif.afficher();
         });

@@ -11,6 +11,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+/**
+ * author chloe
+ */
+
 public class VAjouterPoste {
     private TextField refField;
     private TextField designationField;

@@ -9,6 +9,10 @@ import Modele.Stockage;
 import Vue.VModifierMagBrut;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
+
 public class CModifierMagBrut {
     private Stage primaryStage;
     private String utilisateur;

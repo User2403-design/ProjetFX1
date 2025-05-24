@@ -11,6 +11,9 @@ import Vue.VAjouterPoste;
 import java.util.ArrayList;
 import javafx.stage.Stage;
 
+/**
+ * author chloe
+ */
 
 public class CAjouterPoste {
 

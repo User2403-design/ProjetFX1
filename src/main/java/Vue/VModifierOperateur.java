@@ -13,6 +13,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.geometry.Pos;
 
+/**
+ * author chloe
+ */
+
 public class VModifierOperateur {
     private TextField nomField;
     private TextField prenomField;

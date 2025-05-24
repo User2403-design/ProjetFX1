@@ -11,6 +11,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * author chloe
+ */
+
 public class VMachine {
     private Button retour, afficher, modifier, ajouter, supprimer;
     private VBox layoutPrincipal;
@@ -43,7 +47,7 @@ public class VMachine {
         root.setStyle("-fx-background-color: #f5f5f5;");
         root.setAlignment(Pos.CENTER);
 
-        // Scène avec taille 2000x1000 (tu peux ajuster si besoin)
+        // Scène avec taille 1500x800 
         scene = new Scene(root, 1570,800);
     }
 

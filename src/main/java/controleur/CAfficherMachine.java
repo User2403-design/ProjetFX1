@@ -6,7 +6,7 @@ package controleur;
 
 import Vue.VAfficherMachine;
 import javafx.stage.Stage;
-import Modele.Stockage; // Si ton stockage est dans package Modele
+import Modele.Stockage; 
 
 
 

@@ -10,6 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+/**
+ * author chloe
+ */
+
 public class VAjouterOperation {
     private TextField idField;
     private TextField refField;

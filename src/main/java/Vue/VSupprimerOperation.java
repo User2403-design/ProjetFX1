@@ -12,6 +12,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.SelectionMode;
 import javafx.geometry.Pos;
+/**
+ * author chloe
+ */
 
 public class VSupprimerOperation {
 
