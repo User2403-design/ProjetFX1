@@ -32,6 +32,7 @@ public class CSupprimerGamme {
     }
 
     private void initialiserListe() {
+        //remplit la liste avec les gammes présents dans l'atelier (stockage)
         for (Gamme g : stockage.getListeGammes()) {
             vue.getListeGamme().getItems().add(g.getRefGamme());
         }
@@ -41,8 +42,8 @@ public class CSupprimerGamme {
         vue.getSupprimerButton().setOnAction(e -> {
             String refSelectionnee = vue.getListeGamme().getSelectionModel().getSelectedItem();
             if (refSelectionnee != null) {
-                stockage.supprimerGamme(refSelectionnee);
-                vue.getListeGamme().getItems().remove(refSelectionnee);
+                stockage.supprimerGamme(refSelectionnee);//suppression réel dans le stockage
+                vue.getListeGamme().getItems().remove(refSelectionnee);//suppression dans la liste afficher à l'écran
                 vue.afficherMessage("Gamme supprimée !");
             } else {
                 vue.afficherMessage("Veuillez sélectionner une Gamme.");
