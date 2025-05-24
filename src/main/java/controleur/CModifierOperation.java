@@ -42,8 +42,10 @@ public class CModifierOperation {
         }
         // Sélectionner l'équipement actuel
         Equipement eq = operation.getRefEquipement();
+        //si c'est une machine
         if (eq instanceof Machine) {
             vue.getMachinesDisponibles().getSelectionModel().select(((Machine) eq).getRefmachine());
+        //si c'est un poste    
         } else if (eq instanceof Poste) {
             vue.getPostesDisponibles().getSelectionModel().select(((Poste) eq).getRefEquipement());
         }
@@ -55,10 +57,10 @@ public class CModifierOperation {
             try {
                 float duree = Float.parseFloat(vue.getDureeField().getText());
                 if (duree <= 0) {
-                    throw new NumberFormatException();
+                    throw new NumberFormatException(); 
                 }
                 appliquerModifications();
-                new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation();
+                new COperation(primaryStage, utilisateur, atelier, stockage).afficherSectionOperation(); //retour sur la page précédente des qu'on à cliquer sur enregistrer
             } catch (NumberFormatException ex) {
                 vue.getErrorLabel().setText("Erreur: Entrez une durée valide (nombre positif).");
             }
