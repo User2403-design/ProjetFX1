@@ -57,7 +57,7 @@ public class CAjouterOperation {
                 return;
             }
 
-            float duree = Float.parseFloat(dureeText); // Conversion en nombre flottant
+            float duree = Float.parseFloat(dureeText); // Conversion en float
 
             Equipement equipement = null;
             if (refMachine != null) {
@@ -77,6 +77,7 @@ public class CAjouterOperation {
                 stockage.ajouterOperation(operation);
                 vue.getMessageLabel().setText("Opération ajoutée avec succès !");
                 vue.getMessageLabel().setStyle("-fx-text-fill: green;");
+                
                 // Réinitialisation des champs après l'ajout
                 vue.getIdField().clear();
                 vue.getRefField().clear();
