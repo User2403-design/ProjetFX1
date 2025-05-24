@@ -56,19 +56,21 @@ public class CModifierPoste {
     }
 
     private void actionClic() {
+        //Transaction entre les listes pour l'ajout d'une machine dans le poste
         vue.getAjouterMachineButton().setOnAction(e -> {
             String selected = vue.getListeMachinesDisponibles().getSelectionModel().getSelectedItem();
             if (selected != null) {
-                vue.getListeMachinesDisponibles().getItems().remove(selected);
-                vue.getListeMachinesPoste().getItems().add(selected);
+                vue.getListeMachinesDisponibles().getItems().remove(selected);//récupère les elements de la liste des machines disponible et retire celle selectioné
+                vue.getListeMachinesPoste().getItems().add(selected);//récupère les elements de la liste des machines du poste et ajoute celle selectioné
             }
         });
 
+        //Transaction entre les listes pour la suppression d'une machine du poste
         vue.getRetirerMachineButton().setOnAction(e -> {
             String selected = vue.getListeMachinesPoste().getSelectionModel().getSelectedItem();
             if (selected != null) {
-                vue.getListeMachinesPoste().getItems().remove(selected);
-                vue.getListeMachinesDisponibles().getItems().add(selected);
+                vue.getListeMachinesPoste().getItems().remove(selected); //récupère les elements de la liste des machines du poste et on retirer celle selectioné
+                vue.getListeMachinesDisponibles().getItems().add(selected); //récupère les elements de la liste des machines disponibles et on ajoute celle selectioné
             }
         });
 
@@ -90,10 +92,10 @@ public class CModifierPoste {
         posteAModifier.setDposte(nouvelleDesignation);
 
         posteAModifier.getMachines().clear();//vide la liste des machines contenue dans le poste
-        for (String refMachine : vue.getListeMachinesPoste().getItems()) {
-            Machine machine = stockage.rechercherMachineParRef(refMachine);
+        for (String refMachine : vue.getListeMachinesPoste().getItems()) {//récupère les ref de machines selectionné dans la liste
+            Machine machine = stockage.rechercherMachineParRef(refMachine); //recherche dans le stockage les machines correspondante au ref selectionné 
             if (machine != null) {
-                posteAModifier.ajouterMachine(machine);
+                posteAModifier.ajouterMachine(machine); //les ajoutes au postes si elles existent bien
             }
         }
     }
