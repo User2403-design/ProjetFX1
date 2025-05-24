@@ -13,7 +13,7 @@ import java.util.List;
 
 
 /**
- * Contrôleur pour la carte de l'atelier affichant les machines
+ *
  * @author chloe
  */
 public class CMapAtelier {
@@ -24,13 +24,7 @@ public class CMapAtelier {
     private String atelier;
     private Stockage stockage;
 
-    /**
-     * Constructeur
-     * @param primaryStage fenêtre principale
-     * @param utilisateur nom de l'utilisateur connecté
-     * @param atelier nom de l'atelier sélectionné
-     * @param stockage modèle des données
-     */
+
     public CMapAtelier(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
         this.primaryStage = primaryStage;
         this.utilisateur = utilisateur;
@@ -43,9 +37,7 @@ public class CMapAtelier {
         actionClic();
     }
 
-    /**
-     * Définition de l'action du bouton retour
-     */
+    
     private void actionClic() {
         vueMap.getRetour().setOnAction(e -> {
             CAcceuil controleurAcc = new CAcceuil(primaryStage, utilisateur, atelier, stockage);
@@ -53,9 +45,7 @@ public class CMapAtelier {
         });
     }
 
-    /**
-     * Affiche la vue carte atelier en plein écran
-     */
+    
     public void afficher() {
         primaryStage.setTitle("Carte de l'Atelier");
         primaryStage.setScene(vueMap.getScene());
