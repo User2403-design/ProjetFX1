@@ -50,8 +50,8 @@ public class CModifierMagBrut {
                 // Réinitialisation du message d'erreur
                 vue.getErrorLabel().setText("");
                 new CMagBrut(primaryStage, utilisateur, atelier, stockage).afficherSectionMagBrut();
-            } catch (NumberFormatException ex) {
-                vue.getErrorLabel().setText("Erreur: Entrez une quantité valide (nombre positif).");
+            } catch (NumberFormatException ex) {// pour gerer les erreurs autre que le signe de la quantité rentré : si ce n'est pas un nombre par exemple 
+                vue.getErrorLabel().setText("Erreur: Entrez une quantité valide.");
             }
         });
 
