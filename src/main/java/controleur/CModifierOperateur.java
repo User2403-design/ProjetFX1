@@ -25,6 +25,7 @@ public class CModifierOperateur {
         actionClic();
     }
 
+    //remplissage des champs à l'aide de la recuperation des attributs de l'operateur
     private void remplirChamps() {
         vue.getNomField().setText(operateur.getNom());
         vue.getPrenomField().setText(operateur.getPrenom());
@@ -33,6 +34,7 @@ public class CModifierOperateur {
         vue.getEtatCheckBox().setSelected(operateur.getEtat());
     }
 
+    //modification des attributs de l'operateur par ceux entré par utilisateur
     private void actionClic() {
         vue.getEnregistrerButton().setOnAction(e -> {
             operateur.setNom(vue.getNomField().getText());
