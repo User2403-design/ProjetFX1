@@ -31,7 +31,7 @@ public class CAfficherFiabilite {
         this.atelier = atelier;
         this.stockage = stockage;
         
-        Map<String, Double> fiabilites = Fiabilite.calculerFiabiliteMachines(cheminFichier); //calcule les fiabilités et remplie la map
+        Map<String, Double> fiabilites = Fiabilite.calculerFiabiliteMachines(cheminFichier); //calcule les fiabilités et remplit la map
 
         this.vue = new VAfficherFiabilite(fiabilites, stockage); //affiche les fiabilité de chaque machine de l'atelier dans la vue 
         ActionClic();
@@ -52,48 +52,6 @@ public class CAfficherFiabilite {
         primaryStage.show();
         
     }
-
-    /*private Stage primaryStage;
-    private VAfficherFiabilite vue;
-    private Fiabilite fiabilite; // ton objet Fiabilite existant
-    private long tempsObservation; // en minutes
-    private String utilisateur;
-    private String atelier;
-    private Stockage stockage;
-
-    public CAfficherFiabilite(Stage primaryStage, Fiabilite fiabilite, long tempsObservation) {
-        this.primaryStage = primaryStage;
-        this.fiabilite = fiabilite;
-        this.tempsObservation = tempsObservation;
-        vue = new VAfficherFiabilite();
-        afficherFiabilites();
-        actionClic();
-    }
-
-    private void afficherFiabilites() {
-        // On appelle ta méthode existante correctement
-        Map<String, Double> fiabilites = fiabilite.calculerFiabilites(tempsObservation);
-
-        // On affiche proprement chaque machine et son pourcentage
-        for (Map.Entry<String, Double> entry : fiabilites.entrySet()) {
-            String machine = entry.getKey();
-            double pourcentage = entry.getValue() * 100.0;
-            vue.getListeFiabilite().getItems().add(machine + " : " + String.format("%.2f", pourcentage) + "%");
-        }
-    }
-
-    private void actionClic() {
-        vue.getRetourButton().setOnAction(e -> {
-            CEvenement cEvenement = new CEvenement(primaryStage, utilisateur, atelier, "machine.txt", stockage);
-            cEvenement.afficherSectionEvenements();
-        });
-    }
-
-    public void afficher() {
-        primaryStage.setTitle("Fiabilité des Machines");
-        primaryStage.setScene(vue.getScene());
-        primaryStage.show();
-    }*/
 }
  
 
