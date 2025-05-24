@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 public class Stockage {
     
-    //pour stocker chaque elements
+    //pour stocker chaque elements de l'atelier
     private ArrayList<Machine> listeMachines; 
     private ArrayList<Operation> listeOperations;
     private ArrayList<Operateur> listeOperateurs;
@@ -23,7 +23,7 @@ public class Stockage {
     private ArrayList<Magasindebrut> listeMagDeBrut;
     private ArrayList<Poste> listePostes; 
     
-    //constructeur pour initialiser les listes qu'on manipulera avec les methodes ajouter, supprimer de chaque classes 
+    //constructeur pour initialiser les listes qu'on manipulera avec les methodes ajouter, supprimer  
     public Stockage (){
         this.listeMachines = new ArrayList<>();
         this.listeOperations = new ArrayList<>();
@@ -33,8 +33,8 @@ public class Stockage {
         this.listeMagDeBrut = new ArrayList<>();
         this.listePostes= new ArrayList();
         
-        
-        // Création des machines (équipements)
+        //création et ajout d'objet fictif permanent dans l'atelier
+        // Création des machines 
         Machine M1 = new Machine("M231", "Machine de découpe", 50f, 150f, 234f,"libre", "Découpe"); 
         Machine M2 = new Machine("M232", "Machine de montage", 400f, 304f, 345f,"libre", "Montage");
         Machine M3 = new Machine("M460", "Machine d'assemblage", 100f, 202f, 202f,"libre", "Assemblage");
@@ -46,18 +46,18 @@ public class Stockage {
         this.listeMachines.add(M3);
         this.listeMachines.add(M4);
  
-        //ajout dans magasin de brut
+        //Création de brut
         Magasindebrut MB1 = new Magasindebrut ("Bois", 100);
         Magasindebrut MB2 = new Magasindebrut ("Plastique", 50);
         Magasindebrut MB3 = new Magasindebrut ("Acier", 75);
         
-        //ajout daArrayList<>(Arrays.asList(M1,M2,M3)));ns liste de MagDeBrut
+        //ajout dans la liste de MagDeBrut
         this.listeMagDeBrut.add(MB1);
         this.listeMagDeBrut.add(MB2);
         this.listeMagDeBrut.add(MB3);
 
         // Création des postes avec les machines affectées
-        Poste Poste1 = new Poste("P001", "Poste de découpe", new ArrayList<>(Arrays.asList(M1,M2,M3))); //asList : créer un liste fixe, on ne peut pas ajouter/ supprimer des elements avec add() ou remove()
+        Poste Poste1 = new Poste("P001", "Poste de découpe", new ArrayList<>(Arrays.asList(M1,M2,M3))); //asList : créer une liste fixe pour qu'on puisse pas ajouter/ supprimer des elements avec add() ou remove() => fixe les machnes du poste 
         Poste Poste2 = new Poste("P002", "Poste de limage", new ArrayList<>(Arrays.asList(M2,M4)));
 
         //ajout du poste dans la liste des postes
@@ -110,14 +110,7 @@ public class Stockage {
     }
    
     
-    public ArrayList<Poste> getListePostes() {
-        return listePostes;
-    }
-
-    public void setListePostes(ArrayList<Poste> listePostes) {
-        this.listePostes = listePostes;
-    }
-    
+   
     public void ajouterStocke (Magasindebrut stocke){
         this.listeMagDeBrut.add(stocke);
     }
@@ -126,36 +119,9 @@ public class Stockage {
     public boolean VerifierStocke (ArrayList<Magasindebrut> mag, String matiere, double quantite){
         return listeMagDeBrut.stream().anyMatch( m -> m.getMatiere().equals(matiere) && m.getQuantite()>= quantite );
     }
-
-    public ArrayList<Machine> getListeMachines() {
-        return listeMachines;
-    }
-
-    public ArrayList<Operation> getListeOperations() {
-        return listeOperations;
-    }
-
-    public ArrayList<Operateur> getListeOperateurs() {
-        return listeOperateurs;
-    }
-
-    public ArrayList<Gamme> getListeGammes() {
-        return listeGammes;
-    }
-
-    public ArrayList<Produit> getListeProduits() {
-        return listeProduits;
-    }
-
-    public ArrayList<Magasindebrut> getListeMagDeBrut() {
-        return listeMagDeBrut;
-    }
     
-    public void setListeMachines(ArrayList<Machine> listeMachines) {
-        this.listeMachines = listeMachines;
-    }
     
-    //methodes pour recherché un objet par sa référence / son code
+    //methodes pour rechercher un objet par sa référence / son code
     
     public Machine rechercherMachineParRef(String ref) {
     for (Machine m : listeMachines) {
@@ -214,8 +180,7 @@ public class Stockage {
 
     // Ajouter une opération
     public void ajouterOperation(Operation operation) {
-        this.listeOperations.add(operation);// verif que l'equipement existe
-        
+        this.listeOperations.add(operation);
     }
 
     // Ajouter une gamme de fabrication
@@ -234,17 +199,17 @@ public class Stockage {
     }
 
     public void ajouterStockBrut(String matiere, double quantite) {
-    boolean found = false;
+    boolean trouve = false;
     
     for (Magasindebrut m : listeMagDeBrut) {
-        if (m.getMatiere().equalsIgnoreCase(matiere)) { // verifie si la matière de l'objet m est égale à la variale de la matière, sans tenir compte des majuscules
+        if (m.getMatiere().equalsIgnoreCase(matiere)) { // verifie si la matière de l'objet m est égale à l'objet matière entré, sans tenir compte des majuscules
             m.setQuantite(m.getQuantite() + quantite); // la nouvelle quantité s'ajoute à l'ancienne
-            found = true;
+            trouve = true;
             break;
         }
     }
 
-    if (!found) {
+    if (!trouve) {
         Magasindebrut nouveau = new Magasindebrut(matiere, quantite);
         listeMagDeBrut.add(nouveau);
     }
@@ -260,7 +225,7 @@ public class Stockage {
                 if (aSupprimer != null) {
                      listeOperations.remove(aSupprimer);
                     System.out.println("Opération supprimée avec succès.");
-                    return true;
+                    return true;                                            //le controleur sait qu'on à bien supprimer 
         }       else {
             System.out.println("Opération avec la référence " + refOperation + " non trouvée.");
             return false;
@@ -268,13 +233,8 @@ public class Stockage {
     }
   
     public boolean supprimerGamme(String refGamme) {
-        Gamme aSupprimer = null;
-        for (Gamme g : listeGammes) {
-            if (g.getRefGamme().equals(refGamme)) {
-                aSupprimer = g;
-                break;
-            }
-        }
+        Gamme aSupprimer = rechercherGammeParRef(refGamme);
+        
         if (aSupprimer != null) {
             listeGammes.remove(aSupprimer);
             System.out.println("Gamme supprimée avec succès.");
@@ -339,13 +299,8 @@ public class Stockage {
 
     
     public boolean supprimerMachine(String refMachine) {
-        Machine aSupprimer = null;
-        for (Machine m : listeMachines) {
-            if (m.getRefmachine().equals(refMachine)) {
-                aSupprimer = m;
-                break;
-            }
-        }
+        Machine aSupprimer = rechercherMachineParRef(refMachine);
+        
         if (aSupprimer != null) {
             listeMachines.remove(aSupprimer);
             System.out.println("Machine supprimée avec succès.");
@@ -359,13 +314,8 @@ public class Stockage {
 
    
     public boolean supprimerPoste(String refPoste) {
-        Poste aSupprimer = null;
-        for (Poste p : listePostes) {
-            if (p.refEquipement.equals(refPoste)) {
-                aSupprimer = p;
-                break;
-            }
-        }
+        Poste aSupprimer = rechercherPosteParRef(refPoste);
+        
         if (aSupprimer != null) {
             listePostes.remove(aSupprimer);
             System.out.println("Poste supprimé avec succès.");
@@ -463,5 +413,40 @@ public class Stockage {
         return "operateur";
     }
 }
+    public ArrayList<Poste> getListePostes() {
+        return listePostes;
+    }
+
+    public void setListePostes(ArrayList<Poste> listePostes) {
+        this.listePostes = listePostes;
+    }
+
+    public ArrayList<Machine> getListeMachines() {
+        return listeMachines;
+    }
+
+    public ArrayList<Operation> getListeOperations() {
+        return listeOperations;
+    }
+
+    public ArrayList<Operateur> getListeOperateurs() {
+        return listeOperateurs;
+    }
+
+    public ArrayList<Gamme> getListeGammes() {
+        return listeGammes;
+    }
+
+    public ArrayList<Produit> getListeProduits() {
+        return listeProduits;
+    }
+
+    public ArrayList<Magasindebrut> getListeMagDeBrut() {
+        return listeMagDeBrut;
+    }
+    
+    public void setListeMachines(ArrayList<Machine> listeMachines) {
+        this.listeMachines = listeMachines;
+    }
     
 }
