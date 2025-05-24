@@ -31,14 +31,14 @@ public class VModifierGamme {
         VBox layout = new VBox(25);                       
         layout.setPadding(new Insets(30));                // Marges internes de 40px
         layout.setAlignment(Pos.TOP_CENTER);              // Alignement en haut au centre
-        layout.setPrefWidth(1500);                         // Largeur préférée de 1500px
+        layout.setPrefWidth(1500);                         // Largeur de 1500px
 
         // Label pour la référence
         Label labelRef = Style.creerLabel("Référence de la Gamme :"); 
 
         // Champ de texte pour saisir la référence
         refField = new TextField();                       
-        refField.setPromptText("Référence");              // Texte d'exemple dans le champ
+        refField.setPromptText("Référence");              
         refField.setMaxWidth(Double.MAX_VALUE);           // Largeur maximum
 
         // Labels pour les listes
