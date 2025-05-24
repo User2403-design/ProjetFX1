@@ -89,7 +89,7 @@ public class CModifierPoste {
         posteAModifier.setRefposte(nouvelleRef);
         posteAModifier.setDposte(nouvelleDesignation);
 
-        posteAModifier.getMachines().clear();
+        posteAModifier.getMachines().clear();//vide la liste des machines contenue dans le poste
         for (String refMachine : vue.getListeMachinesPoste().getItems()) {
             Machine machine = stockage.rechercherMachineParRef(refMachine);
             if (machine != null) {
