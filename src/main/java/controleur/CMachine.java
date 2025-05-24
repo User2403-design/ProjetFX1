@@ -23,10 +23,10 @@ public class CMachine {
         this.stockage = stockage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
-        this.role = stockage.getRole(utilisateur); // 🔥 Récupération du rôle
+        this.role = stockage.getRole(utilisateur); // Récupération du rôle
 
         actionClic();
-        appliquerRestrictions(); // 👈 Appliquer les droits selon le rôle
+        appliquerRestrictions(); // Appliquer les droits selon le rôle
     }
 
     private void actionClic() {
@@ -58,7 +58,7 @@ public class CMachine {
 
     private void appliquerRestrictions() {
         if (!role.equals("chef")) {
-            vueMachine.desactiver(); // 🔐 On désactive les boutons interdits
+            vueMachine.desactiver(); // On désactive les boutons interdits
         }
     }
 
