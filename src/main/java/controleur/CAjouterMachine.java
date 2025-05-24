@@ -18,7 +18,7 @@ public class CAjouterMachine {
     private Stage primaryStage;        // Fenêtre principale
     private String utilisateur;        // Nom utilisateur
     private String atelier;            // Nom atelier
-    private Stockage stockage;         // Modèle stockage
+    private Stockage stockage;         
     private VAjouterMachine vueAjouter;// Vue ajout machine
     
     /**
@@ -28,14 +28,13 @@ public class CAjouterMachine {
         this.primaryStage = primaryStage;        // Stocke la fenêtre
         this.utilisateur = utilisateur;          // Stocke utilisateur
         this.atelier = atelier;                  // Stocke atelier
-        this.stockage = stockage;                // Stocke le modèle
+        this.stockage = stockage;                
         this.vueAjouter = new VAjouterMachine();// Crée la vue
         actionClic();                           // Configure les actions
     }
     
-    /**
-     * Configuration des actions sur les boutons
-     */
+    //Configuration des actions sur les boutons
+     
     private void actionClic() {
         // Bouton ajouter : ajoute la machine
         vueAjouter.getAjouterButton().setOnAction(e -> {
@@ -51,7 +50,7 @@ public class CAjouterMachine {
                 
                 // Création d'une nouvelle machine
                 Machine nouvelleMachine = new Machine(ref, description, x, y, coutHoraire, etat, type);
-                stockage.ajouterMachine(nouvelleMachine);  // Ajout au modèle
+                stockage.ajouterMachine(nouvelleMachine);  // Ajout dans le stockage
                 
                 // Enregistrement de l'événement démarrage
                 enregistrerEvenementDemarrage(nouvelleMachine.getRefmachine(), utilisateur);
@@ -78,9 +77,7 @@ public class CAjouterMachine {
         });
     }
     
-    /**
-     * Enregistre un événement démarrage dans le fichier
-     */
+    // Enregistre un événement démarrage dans le fichier lors de l'ajout pour garder une trace de la date d'ajout de chaque machine
     private void enregistrerEvenementDemarrage(String refMachine, String utilisateur) {
         // Ligne au format attendu
         String ligne = LocalDate.now() + ";" + LocalTime.now().withSecond(0).withNano(0) + ";" + refMachine + ";D;" + utilisateur + ";ajout_machine\n";
@@ -91,9 +88,7 @@ public class CAjouterMachine {
         }
     }
     
-    /**
-     * Affiche la vue ajout machine en plein écran
-     */
+    
     public void afficher() {
         primaryStage.setTitle("Ajouter une Machine");  
         primaryStage.setMaximized(true);// Titre de la fenêtre
