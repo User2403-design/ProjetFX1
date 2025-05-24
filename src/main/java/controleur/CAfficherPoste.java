@@ -18,7 +18,7 @@ public class CAfficherPoste {
     private VAfficherPoste vueAfficher;
     private String utilisateur;
     private String atelier;
-    private Stockage stockage; // pour récupérer les machines stocker 
+    private Stockage stockage; 
 
     public CAfficherPoste(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
         this.primaryStage = primaryStage;
@@ -26,7 +26,7 @@ public class CAfficherPoste {
         this.atelier = atelier;
         this.stockage = stockage;
         
-        // Récupérer le texte des machines depuis stockage
+        // Récupérer l'affichage des postes depuis stockage
         String postes = stockage.afficherTousLesPostes();
         
         this.vueAfficher = new VAfficherPoste(postes);
