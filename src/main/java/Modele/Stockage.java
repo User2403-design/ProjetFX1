@@ -131,7 +131,14 @@ public class Stockage {
     }
     return null;
     }
-    
+    public Operateur rechercherOperateurParCode(String code) {
+    for (Operateur o : listeOperateurs) {
+        if (o.getCode().equals(code)) {
+            return o;
+        }
+    }
+    return null; 
+}
     public Poste rechercherPosteParRef(String ref) {
     for (Poste p : listePostes) {
         if (p.getRefposte().equals(ref)) { 

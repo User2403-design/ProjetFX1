@@ -49,11 +49,9 @@ public class VModifierOperateur {
             retourButton
         );
 
-        // Centrer horizontalement les boutons
-        ((HBox) layout.getChildren().get(layout.getChildren().size() - 1)).setAlignment(Pos.CENTER);
-
-        layout.setMaxWidth(350);
-
+        HBox boutonBox = new HBox(30, enregistrerButton, retourButton);
+        boutonBox.setAlignment(Pos.CENTER);
+        layout.getChildren().add(boutonBox);
         StackPane cadre = Style.creerCadreCentre(layout);
 
         StackPane root = new StackPane(cadre);

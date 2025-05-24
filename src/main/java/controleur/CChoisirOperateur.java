@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controleur;
-
 import Modele.Operateur;
 import Modele.Stockage;
 import Vue.VChoisirOperateur;
@@ -28,17 +27,22 @@ public class CChoisirOperateur {
 
     private void remplirListe() {
         for (Operateur o : stockage.getListeOperateurs()) {
+            // Affichage comme "NOM Prénom (CODE)"
             vue.getListeOperateurs().getItems().add(o.getNom() + " " + o.getPrenom() + " (" + o.getCode() + ")");
         }
     }
 
     private void actionClic() {
         vue.getValiderButton().setOnAction(e -> {
-            int index = vue.getListeOperateurs().getSelectionModel().getSelectedIndex();
-            if (index >= 0) {
-                Operateur operateur = stockage.getListeOperateurs().get(index);
-                CModifierOperateur controller = new CModifierOperateur(primaryStage, utilisateur, atelier, stockage, operateur);
-                controller.afficher();
+            String selection = vue.getListeOperateurs().getSelectionModel().getSelectedItem();
+            if (selection != null && selection.contains("(") && selection.contains(")")) {
+                // Extraire le code entre les parenthèses
+                String code = selection.substring(selection.indexOf("(") + 1, selection.indexOf(")"));
+                Operateur operateur = stockage.rechercherOperateurParCode(code);
+                if (operateur != null) {
+                    CModifierOperateur controller = new CModifierOperateur(primaryStage, utilisateur, atelier, stockage, operateur);
+                    controller.afficher();
+                }
             }
         });
 
