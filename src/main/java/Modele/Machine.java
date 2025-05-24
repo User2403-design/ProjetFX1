@@ -24,7 +24,7 @@ public class Machine extends Equipement {
         this.x = x;
         this.y = y;
         this.coût = cout;//correspond au cout horaire
-        this.etat = etat; // on choisit
+        this.etat = etat; 
         this.type = type; 
     }  
    
@@ -33,13 +33,8 @@ public class Machine extends Equipement {
     return refEquipement + " - " + dEquipement + " (" + type + ")";
     }
     
-   // a refaire 
+   
     @Override
-    /*public float coutOperation (Operation op){
-        Machine m = op.getRefEquipement();
-        return op.getDureeOperation()*op.getRefEquipement()
-    }*/
-    // sert pas a grand chose faut la modifier
     public float coutOperation(float dureeOperation){
         return dureeOperation * coût;
     }
@@ -48,16 +43,6 @@ public class Machine extends Equipement {
     public String afficherEquipement(){
         return "Reference Machine : " + refEquipement+"\n"+"Designation : " + dEquipement+"\n"+"Position : (" + x + ", " + y + ")"+"\n"+"Cout horaire : " + coût+" euro/heure \n"+ "Etat : "+ etat+"\n"+"Type : " + type;
     }
-    //FAUT RAJOUTER LA DUREE
-    
-    /*public void afficherEquipement() { 
-        System.out.println("Reference Machine: " + refEquipement);
-        System.out.println("Designation: " + dEquipement);
-        System.out.println("Position: (" + x + ", " + y + ")");
-        System.out.println("Cout horaire: " + coût);
-        System.out.println("Type: " + type);
-        System.out.println("Duree d'operation (produit specifique) : " + duree);// à changé 
-    }*/
     
    public String getRefmachine(){
         return refEquipement;
