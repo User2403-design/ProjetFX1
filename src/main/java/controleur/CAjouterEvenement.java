@@ -9,7 +9,7 @@ import javafx.stage.Stage;               // Fenêtre principale JavaFX
 import java.io.BufferedWriter;           // Écriture dans fichier
 import java.io.FileWriter;
 import java.io.IOException;
-import Modele.Stockage;                  // Accès aux données du modèle
+import Modele.Stockage;                  // Accès aux données de la classe Stockage
 import java.time.LocalDate;              // Gestion date/heure
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
