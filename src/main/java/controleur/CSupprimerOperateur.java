@@ -43,7 +43,7 @@ public class CSupprimerOperateur {
         vueSupprimer.getSupprimerButton().setOnAction(e -> {
             String nomSelectionne = vueSupprimer.getListeOperateurs().getSelectionModel().getSelectedItem();
             if (nomSelectionne != null) {
-                boolean success = stockage.supprimerOperateur(nomSelectionne); // ⚠ méthode à ajouter
+                boolean success = stockage.supprimerOperateur(nomSelectionne);
                 if (success) {
                     vueSupprimer.getListeOperateurs().getItems().remove(nomSelectionne);
                     vueSupprimer.afficherMessage("Opérateur supprimé avec succès !");
