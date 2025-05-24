@@ -24,7 +24,4 @@ public abstract class Equipement {
     public abstract String afficherEquipement ();
 
     public abstract float coutOperation(float dureeOperation);
-
-    
- 
 }
