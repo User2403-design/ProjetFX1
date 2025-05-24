@@ -40,6 +40,7 @@ public class VGamme {
         scene = new Scene(root, 1570,800);
     }
 
+    //pour gérer les boutons auquel on a accés en fonction du role qu'on a (chef, opérateur, etc)
     public void desactiver() {
         modifier.setDisable(true);
         ajouter.setDisable(true);
