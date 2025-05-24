@@ -79,8 +79,7 @@ public class CAjouterMachine {
                 // Message erreur générique
                 vueAjouter.getMessageLabel().setStyle("-fx-text-fill: red;");
                 vueAjouter.getMessageLabel().setText("Erreur lors de l'ajout de la machine.");
-                ex.printStackTrace();
-            }
+                  }
         });
         
         // Bouton retour : revient à la section machine
