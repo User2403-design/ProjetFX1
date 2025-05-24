@@ -37,10 +37,12 @@ public class CModifierProduit {
     }
 
     private void remplirListes() {
+        //remplit la liste des gammes du produit
         for (Gamme g : produitAModifier.getListeGamme()) {
             vue.getListeGammesProduit().getItems().add(g.getRefGamme());
         }
 
+        //remplit la liste des gammes disponibles dans l'atelier 
         for (Gamme g : stockage.getListeGammes()) {
             if (!produitAModifier.getListeGamme().contains(g)) {
                 vue.getListeGammesDisponibles().getItems().add(g.getRefGamme());
@@ -75,6 +77,7 @@ public class CModifierProduit {
         });
     }
 
+    //Modification du produit
     private void appliquerModifications() {
         produitAModifier.setCodeProduit(vue.getCodeField().getText());
         produitAModifier.setdProduit(vue.getDesignationField().getText());
