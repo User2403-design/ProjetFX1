@@ -19,8 +19,8 @@ public class CAcceuil {  // début de la classe CAcceuil
     private VAccueil vueAccueil;  // vue accueil (interface utilisateur)
     private String utilisateur;  // nom/utilisateur connecté
     private String atelier;  // nom/atelier sélectionné
-    private VInitialisation vueInit;  // vue initialisation (non utilisée ici mais déclarée)
-    private Stockage stockage;  // modèle des données partagées
+    private VInitialisation vueInit;  // vue initialisation 
+    private Stockage stockage;  // pour pouvoir appelé les methode de la classe Stockage
     
     // constructeur de la classe CAcceuil avec les paramètres nécessaires
     public CAcceuil(Stage primaryStage, String utilisateur, String atelier, Stockage stockage) {
@@ -28,11 +28,11 @@ public class CAcceuil {  // début de la classe CAcceuil
         this.utilisateur = utilisateur;  // mémoriser le nom de l'utilisateur
         this.atelier = atelier;  // mémoriser le nom de l'atelier
         this.vueAccueil = new VAccueil(utilisateur, atelier);  // créer la vue accueil avec infos utilisateur et atelier
-        this.stockage = stockage;  // mémoriser le modèle de données
+        this.stockage = stockage;  
         actionClic();  // appeler la méthode pour gérer les actions des boutons
     }
     
-    // méthode privée pour définir les actions au clic sur les boutons
+    // méthode pour définir les actions au clic sur les boutons
     private void actionClic() {
         
         // quand on clique sur le bouton déconnexion
