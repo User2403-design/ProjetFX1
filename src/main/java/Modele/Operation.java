@@ -21,16 +21,7 @@ public class Operation {
         this.refEquipement = refEquipement;
         this.dureeOperation = dureeOperation;
     }
-    /*public void afficherOperation() {
-        System.out.println("Référence Opération: " + refOperation);
-        System.out.println("Désignation: " + idOperation);
-        if (refEquipement != null) { // sécurise si jamais refEquiement est null
-     refEquipement.afficherEquipement();
-} else {
-    System.out.println("Aucun équipement assigné.");
-}
-        System.out.println("Durée de l'opération: " + dureeOperation + " heures");
-    }*/
+    
     public String afficherOperation() {
         
     StringBuilder sb = new StringBuilder(); //va contenir sous forme de texte l'affichage d'un poste pour ensuite être afficher dans l'interface
