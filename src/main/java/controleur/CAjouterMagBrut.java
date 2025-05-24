@@ -42,7 +42,7 @@ public class CAjouterMagBrut {
 
         try {
             int quantite = Integer.parseInt(quantiteText);
-            //verification de la quantité
+            //verification du signe la quantité 
             if (quantite < 0) {
                     vue.getMessageLabel().setText("Erreur: Entrez une quantité positive.");
                     return; 
@@ -51,7 +51,7 @@ public class CAjouterMagBrut {
             vue.getMessageLabel().setText("Matière ajoutée avec succès !");
             vue.getMatiereField().clear();
             vue.getQuantiteField().clear();
-        } catch (NumberFormatException ex) {
+        } catch (NumberFormatException ex) { //verification du bon format de la quantité entré 
             vue.getMessageLabel().setText("Erreur : La quantité doit être un nombre entier.");
         }
     }
