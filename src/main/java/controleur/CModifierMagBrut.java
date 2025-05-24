@@ -39,7 +39,7 @@ public class CModifierMagBrut {
             try {
                 // Vérification de la quantité
                 int quantite = Integer.parseInt(vue.getQuantiteField().getText());
-                
+                System.out.println("Texte saisi : '" + quantite + "'");
                 if (quantite < 0) {
                     vue.getErrorLabel().setText("Erreur: Entrez une quantité positive.");
                     return; 
