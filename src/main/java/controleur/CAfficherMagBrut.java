@@ -26,7 +26,7 @@ public class CAfficherMagBrut {
         this.atelier = atelier;
         this.stockage = stockage;
 
-        // Récupère les données du magasin de brut depuis le modèle
+        // Récupère les données du magasin de brut depuis le stockage
         String contenu = stockage.afficherMagasinDeBrut();
 
         // Initialise la vue avec les données
