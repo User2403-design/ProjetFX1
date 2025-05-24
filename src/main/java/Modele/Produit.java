@@ -17,7 +17,7 @@ public class Produit {
     public Produit(String codeProduit, String dProduit, ArrayList<Gamme> gammeselect) {
         this.codeProduit = codeProduit;
         this.dProduit = dProduit;
-        this.listeGamme = new ArrayList<>(gammeselect); // Copie pour éviter les effets de bord
+        this.listeGamme = gammeselect; 
     }
 
     
