@@ -24,10 +24,10 @@ public class COperation {
         this.stockage = stockage;
         this.utilisateur = utilisateur;
         this.atelier = atelier;
-        this.role = stockage.getRole(utilisateur); // 🔥 Récupération du rôle
+        this.role = stockage.getRole(utilisateur); //Récupération du rôle
         
         actionClic();
-        appliquerRestrictions(); // 🔒 Restrictions selon le rôle
+        appliquerRestrictions(); //Restrictions selon le rôle
     }
     
     private void actionClic() {
@@ -63,7 +63,7 @@ public class COperation {
     
     private void appliquerRestrictions() {
         if (!role.equals("chef")) {
-            vueOperation.desactiver(); // 👈 Méthode dans la vue qui désactive les boutons sensibles
+            vueOperation.desactiver(); //Méthode dans la vue qui désactive les boutons 
         }
     }
 
