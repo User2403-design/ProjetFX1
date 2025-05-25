@@ -14,9 +14,9 @@ package Modele;
 public class Evenement {
     private String date;
     private String heure;
-    private String machine; // on pourrait mettre machine comme type pour que se soit plus "réelle" mais on dervait refaire des methodes pour recup machine avec sa ref, etc alors qu'en vrai on a besoin que du nom dc laisse String
+    private String machine; 
     private char typeEv; //A ou D
-    private String operateur; // pareil on a besoin que du nom de l'ope donc String comme type
+    private String operateur; 
     private String cause;  
     
     public Evenement (String date,String heure,String machine,char typeEv,String operateur,String cause){
@@ -28,10 +28,6 @@ public class Evenement {
         this.cause = cause;
     }
     
-@Override
-    public String toString() {
-        return date + " " + heure + " " + machine + " " + typeEv + " " + operateur + " " + cause;
-    }
     
     public String getDate() {
         return date;
