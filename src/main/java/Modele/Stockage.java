@@ -356,7 +356,7 @@ public class Stockage {
     
     public String afficherMagasinDeBrut() {
     StringBuilder sb = new StringBuilder();
-    sb.append("\n=== Magasin de Matières Brutes ===\n");
+    sb.append("\n=== Magasin de Matières Brute ===\n");
     sb.append(String.format("%-25s | %s\n", "Matière", "Quantité"));
     sb.append("-----------------------------------------\n");
 
