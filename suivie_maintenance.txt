@@ -1,7 +1,9 @@
-2025-05-16;08:38;perceuse;D;hgf;ajout_machine
-2025-05-16;14:30;perceuse;A;OP;panne
-2025-05-16;08:45;258;D;fds;ajout_machine
-2025-05-17;16:01;dqs;D;Jean;ajout_machine
-2025-03-25;20:30;ds;A;gdf;fds
-2025-05-25;19:04;dsds;D;Jean;ajout_machine
-2025-05-25;19:09;M231;A;micheline;panne
+2025-03-25;10:00;M460;D;OP1;ajout_machine
+2025-03-25;20:00;M231;D;OP1;ajout_machine
+2025-03-25;20:30;M231;A;OP1;panne
+2025-03-25;21:00;M460;A;OP1;panne
+2025-03-26;08:30;M231;D;OP1;repare
+2025-05-25;10:30;M231;A;OP1;panne
+2025-05-25;21:06;M232;D;OP1;repare
+2025-05-25;21:07;M232;A;OP1;arret
+2025-05-25;21:10;M232;D;OP1;repare
