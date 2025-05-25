@@ -32,7 +32,10 @@ public class VAjouterPoste {
         // Champs texte
         refField = new TextField();
         refField.setPromptText("Référence du poste");
-
+        
+        erreurLabel = new Label();
+        erreurLabel.setStyle("-fx-text-fill: red;");
+        
         designationField = new TextField();
         designationField.setPromptText("Désignation du poste");
 
