@@ -11,23 +11,23 @@ package Modele;
 public class Magasindebrut {
     //private String stock;
     private String matiere;
-    private double quantite;
+    private int quantite;
     
-    public Magasindebrut (String matiere, double quantite){
+    public Magasindebrut (String matiere, int quantite){
         this.matiere = matiere;
         this.quantite = quantite;
     }
     
-    public void ajouterStock (String matiere, double quantite){
+    public void ajouterStock (String matiere, int quantite){
         this.matiere = matiere;
         this.quantite = quantite;
     }
 
-    public double getQuantite() {
+    public int getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(double quantite) {
+    public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
 

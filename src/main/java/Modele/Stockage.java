@@ -109,18 +109,7 @@ public class Stockage {
         
     }
    
-    
    
-    public void ajouterStocke (Magasindebrut stocke){
-        this.listeMagDeBrut.add(stocke);
-    }
-    
-    //verifier si une matière existe en quantité suffisante pour fabriquer un produit
-    public boolean VerifierStocke (ArrayList<Magasindebrut> mag, String matiere, double quantite){
-        return listeMagDeBrut.stream().anyMatch( m -> m.getMatiere().equals(matiere) && m.getQuantite()>= quantite );
-    }
-    
-    
     //methodes pour rechercher un objet par sa référence / son code
     
     public Machine rechercherMachineParRef(String ref) {
@@ -205,7 +194,7 @@ public class Stockage {
         this.listeProduits.add(produit); 
     }
 
-    public void ajouterStockBrut(String matiere, double quantite) {
+    public void ajouterStockBrut(String matiere, int quantite) {
     boolean trouve = false;
     
     for (Magasindebrut m : listeMagDeBrut) {
