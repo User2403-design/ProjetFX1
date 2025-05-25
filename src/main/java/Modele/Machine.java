@@ -26,11 +26,6 @@ public class Machine extends Equipement {
         this.coût = cout;//correspond au cout horaire
         this.etat = etat; 
         this.type = type; 
-    }  
-   
-    @Override
-    public String toString() {
-    return refEquipement + " - " + dEquipement + " (" + type + ")";
     }
     
    
