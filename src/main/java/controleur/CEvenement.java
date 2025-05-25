@@ -37,24 +37,11 @@ public class CEvenement {
     }
     
     private void appliquerRestrictions() {
-        switch (role) {
-            case "operateur":
-                // Opérateur a accès aux deux boutons, on ne désactive rien
-                break;
-            case "maintenance":
-                // Maintenance n'a PAS accès à Ajouter
-                vue.getAjouterButton().setDisable(true);
-                break;
-            case "chef":
-                // Chef a accès à tout, ne rien faire
-                break;
-            default:
-                // Autres rôles : désactiver Ajouter par sécurité
-                vue.getAjouterButton().setDisable(true);
-                break;
+        if (role.equals("maintenance")) {
+            vue.desactiver(); // Bloque ajouter evenement
         }
     }
-    
+
     private void actionClic() {
         vue.getAjouterButton().setOnAction(e -> {
             CAjouterEvenement controleurAjout = new CAjouterEvenement(primaryStage, utilisateur, atelier, "suivie_maintenance.txt", stockage);

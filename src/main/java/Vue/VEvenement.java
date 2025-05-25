@@ -43,6 +43,11 @@ public class VEvenement {
 
         scene = new Scene(root, 1570,800);
     }
+    
+    //pour gérer les boutons auquel on a accés en fonction du role qu'on a 
+    public void desactiver() {
+        ajouterButton.setDisable(true);
+      }
 
     public Scene getScene() {
         return scene;
