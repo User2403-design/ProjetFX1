@@ -3,3 +3,5 @@
 2025-05-16;08:45;258;D;fds;ajout_machine
 2025-05-17;16:01;dqs;D;Jean;ajout_machine
 2025-03-25;20:30;ds;A;gdf;fds
+2025-05-25;19:04;dsds;D;Jean;ajout_machine
+2025-05-25;19:09;M231;A;micheline;panne

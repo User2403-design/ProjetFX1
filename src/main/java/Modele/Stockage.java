@@ -364,7 +364,7 @@ public class Stockage {
         sb.append("Aucune matière enregistrée.\n");
     } else {
         for (Magasindebrut m : this.listeMagDeBrut) {
-            sb.append(String.format("%-25s | %.2f kg\n", m.getMatiere(), m.getQuantite()));
+            sb.append(String.format("%-25s | %d kg\n", m.getMatiere(), m.getQuantite()));
         }
     }
 
